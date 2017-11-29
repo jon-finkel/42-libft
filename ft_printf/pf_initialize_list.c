@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 19:19:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:35:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/11/29 21:46:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static void					arg_to_list(t_list **alist, t_buffer *buffer,
 			list = list->next;
 		if (!(list->next = ft_lstnew(args, sizeof(t_args))))
 			exit(EXIT_FAILURE);
-		list = list->next;
 	}
 	free(args);
 	*aargs = NULL;
