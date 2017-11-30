@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
+/*   ft_vsnprintf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 21:17:14 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/11/30 21:25:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ static void					buff_format(const char *format, t_list *list,
 	k = -1;
 	while (*format && (unsigned int)++k < valid)
 	{
-		while (*format == '{')
-			format = pf_ansi_color(buffer, format, &k);
 		if (*format && *format != '%')
 			pf_fill_buffer(buffer, *format++, NULL, PRINT);
 		else if (*format == '%' && ++format)
@@ -109,36 +107,37 @@ static void					buff_format(const char *format, t_list *list,
 	}
 }
 
-static t_buffer				*initialize_buffer(size_t *len)
+static t_buffer				*initialize_buffer(char *str, size_t size,
+							size_t *len)
 {
 	t_buffer		*buffer;
 
 	if (!(buffer = (t_buffer *)malloc(sizeof(t_buffer))))
 		exit(EXIT_FAILURE);
-	if (!(buffer->pf_buffer = ft_strnew(PRINTF_BUFFSIZE)))
-		exit(EXIT_FAILURE);
+	buffer->pf_buffer = str;
 	buffer->pf_len = len;
-	buffer->pf_type = PRINTF;
+	buffer->spf_size = size - 1;
+	buffer->pf_type = SPRINTF;
 	buffer->invalid = 0;
-	buffer->non_printable = 0;
-	buffer->size_factor = 1;
 	return (buffer);
 }
 
-int							ft_vdprintf(int fd, const char *format, va_list ap)
+int							ft_vsnprintf(char *str, size_t size,
+							const char *format, va_list ap)
 {
 	size_t			len;
 	t_buffer		*buffer;
 	t_list			*list;
 	t_list			*tmp;
 
+	if (!size)
+		return (0);
 	len = 0;
 	list = NULL;
-	buffer = initialize_buffer(&len);
+	buffer = initialize_buffer(str, size, &len);
 	pf_initialize_list(&list, buffer, format, ap);
 	buff_format(format, list, buffer);
-	write(fd, buffer->pf_buffer, *buffer->pf_len);
-	len -= buffer->non_printable;
+	*(str + size) = '\0';
 	while (list)
 	{
 		tmp = list->next;
@@ -146,7 +145,6 @@ int							ft_vdprintf(int fd, const char *format, va_list ap)
 		free(list);
 		list = tmp;
 	}
-	free(buffer->pf_buffer);
 	free(buffer);
 	return ((int)len);
 }

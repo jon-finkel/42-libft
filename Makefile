@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/11/28 18:22:15 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/11/30 21:41:10 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 OS :=						$(shell uname)
 
 #	Output
-NAME :=						libft.a
+NAME :=						libftprintf.a
 DYN_NAME :=					${NAME:a=so}
 
 #	Compiler
@@ -73,7 +73,10 @@ PERSONAL +=					ft_intlen.c
 PERSONAL +=					ft_invert.c ft_islower.c ft_isupper.c
 PERSONAL +=					ft_lstgetnode.c ft_lstsize.c
 PERSONAL +=					ft_kill.c ft_putuchar.c ft_putuchar_fd.c
-PERSONAL +=					ft_printf.c ft_vprintf.c ft_dprintf.c ft_vdprintf.c
+PERSONAL +=					ft_printf.c ft_vprintf.c
+PERSONAL +=					ft_dprintf.c ft_vdprintf.c
+PERSONAL +=					ft_sprintf.c ft_vsprintf.c
+PERSONAL +=					ft_snprintf.c ft_vsnprintf.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c
 PERSONAL +=					get_next_line.c
 PRINTF +=					pf_fill_buffer.c pf_get_flags.c

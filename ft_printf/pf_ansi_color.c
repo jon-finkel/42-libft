@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 18:21:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 18:21:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/11/30 16:00:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ static const struct s_color	g_color[] =
 	{"{bright_white}", 14, "\033[1;37m"},
 };
 
+static int				check_end_of_color_flag(const char *format)
+{
+	int			k;
+
+	while (*format)
+	{
+		k = 0;
+		while (++k < LAST_COLOR)
+			if (ft_strnequ(format, g_color[k].flag, g_color[k].len) == 1)
+				break ;
+		if (ft_strnequ(format, g_color[0].flag, g_color[0].len) == 1)
+			return (1);
+		++format;
+	}
+	return (0);
+}
+
 const char				*pf_ansi_color(t_buffer *buffer, const char *format,
 						int *k)
 {
@@ -42,8 +59,12 @@ const char				*pf_ansi_color(t_buffer *buffer, const char *format,
 	while (++p < LAST_COLOR)
 		if (ft_strnequ(format, g_color[p].flag, g_color[p].len) == 1)
 		{
+			if (!check_end_of_color_flag(format))
+			{
+				p = LAST_COLOR;
+				break ;
+			}
 			pf_fill_buffer(buffer, 0, g_color[p].code, NON_PRINT);
-			buffer->flag = (p == 0 ? NO_COLOR : COLOR);
 			format += g_color[p].len;
 			*k += g_color[p].len;
 			break ;

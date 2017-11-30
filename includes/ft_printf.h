@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:58:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/11/30 21:09:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ enum					e_flags
 	RIGHT,
 	PRINT,
 	NON_PRINT,
-	NO_COLOR,
-	COLOR
+	PRINTF,
+	SPRINTF
 };
 
 enum					e_type
@@ -69,10 +69,11 @@ enum					e_range
 typedef struct			s_buffer
 {
 	char				*pf_buffer;
-	enum e_flags		flag;
 	size_t				*pf_len;
+	enum e_flags		pf_type;
 	size_t				invalid;
 	size_t				non_printable;
+	size_t				spf_size;
 	unsigned int		size_factor;
 }						t_buffer;
 

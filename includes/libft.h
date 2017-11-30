@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/27 16:06:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/11/30 21:40:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,14 @@ size_t				ft_lstsize(t_list *list);
 */
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
-int					ft_vprintf(const char *format, va_list ap);
+int					ft_snprintf(char *str, size_t size, const char *format,
+					...);
+int					ft_sprintf(char *str, const char *format, ...);
 int					ft_vdprintf(int fd, const char *format, va_list ap);
+int					ft_vprintf(const char *format, va_list ap);
+int					ft_vsprintf(char *str, const char *format, va_list ap);
+int					ft_vsnprintf(char *str, size_t size, const char *format,
+					va_list ap);
 
 void				ft_kill(const char *s, const int fd);
 void				ft_putchar(char c);
