@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/11/30 21:41:10 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/11/30 21:46:20 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 OS :=						$(shell uname)
 
 #	Output
-NAME :=						libftprintf.a
+NAME :=						libft.a
 DYN_NAME :=					${NAME:a=so}
 
 #	Compiler
