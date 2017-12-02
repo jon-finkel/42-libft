@@ -34,12 +34,12 @@ memcmp		 |	ft_putstr	 |	|	ft_snprintf
 memcpy		 |	ft_putstr_fd |	|	ft_sprintf
 memmove		 |	ft_strclr	 |	|	ft_strrev
 memset		 |	ft_strdel	 |	|	ft_strrevcpy
-strcat		 |	ft_strequ	 |	|	ft_swap
-strchr		 |	ft_striter	 |	|	ft_vdprintf
-strcmp		 |	ft_striteri	 |	|	ft_vprintf
-strcpy		 |	ft_strjoin	 |	|	ft_vsnprintf
-strdup		 |	ft_strmap	 |	|	ft_vsprintf
-strlcat		 |	ft_strmapi	 |	|	get_next_line
+strcat		 |	ft_strequ	 |	|	ft_vdprintf
+strchr		 |	ft_striter	 |	|	ft_vprintf
+strcmp		 |	ft_striteri	 |	|	ft_vsnprintf
+strcpy		 |	ft_strjoin	 |	|	ft_vsprintf
+strdup		 |	ft_strmap	 |	|	get_next_line
+strlcat		 |	ft_strmapi	 |	|
 strlen		 |	ft_strnequ	 |	|
 strncat		 |	ft_strnew	 |	|
 strncmp		 |	ft_strsplit	 |	|
