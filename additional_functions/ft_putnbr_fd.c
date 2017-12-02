@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:26:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/10/05 17:50:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:49:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
-	char			buff[12];
-	int				k;
-	unsigned int	nb;
+	char				buff[12];
+	int					k;
+	unsigned int		nb;
 
 	nb = (n < 0 ? -n : n);
 	k = -1;

@@ -6,23 +6,21 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 11:05:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 21:22:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:03:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void		expand_buffer(t_buffer *buffer)
+static void			expand_buffer(t_buffer *buffer)
 {
 	char		*expand;
 	char		*expanded_buffer;
 
 	while (*buffer->pf_len > buffer->size_factor * PRINTF_BUFFSIZE)
 	{
-		if (!(expand = ft_strnew(PRINTF_BUFFSIZE)))
-			exit(EXIT_FAILURE);
-		if (!(expanded_buffer = ft_strjoin(buffer->pf_buffer, expand)))
-			exit(EXIT_FAILURE);
+		EXIT_PROTECT(expand = ft_strnew(PRINTF_BUFFSIZE));
+		EXIT_PROTECT(expanded_buffer = ft_strjoin(buffer->pf_buffer, expand));
 		free(buffer->pf_buffer);
 		buffer->pf_buffer = expanded_buffer;
 		free(expand);
@@ -30,10 +28,10 @@ static void		expand_buffer(t_buffer *buffer)
 	}
 }
 
-void		pf_fill_buffer(t_buffer *buffer, const char filler,
-			const char *s_filler, enum e_flags flag)
+void				pf_fill_buffer(t_buffer *buffer, const char filler,
+					const char *s_filler, enum e_flags flag)
 {
-	size_t				n;
+	size_t		n;
 
 	n = (s_filler ? ft_strlen(s_filler) : 1);
 	if (flag == NON_PRINT)

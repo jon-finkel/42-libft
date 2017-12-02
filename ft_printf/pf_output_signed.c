@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 10:48:22 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:38:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:59:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static intmax_t		typecast(t_list *list, enum e_range range)
+static intmax_t			typecast(t_list *list, enum e_range range)
 {
 	if (range == INT)
 		return ((int)((intmax_t)LIST_CONTENT->u_arg.s_nb));
@@ -31,11 +31,11 @@ static intmax_t		typecast(t_list *list, enum e_range range)
 	return (0);
 }
 
-static void			left_field_width(t_list *list, int *precision,
-					enum e_range range)
+static void				left_field_width(t_list *list, int *precision,
+						enum e_range range)
 {
-	int			field_width;
-	int			neg;
+	int		field_width;
+	int		neg;
 
 	field_width = LIST_CONTENT->field_width - LIST_CONTENT->space;
 	neg = (typecast(list, range) < 0 ? 1 : 0);
@@ -60,7 +60,8 @@ static void			left_field_width(t_list *list, int *precision,
 		pf_fill_buffer(PF_BUFFER, '-', NULL, PRINT);
 }
 
-static void			apply_flags(t_list *list, const char *s, enum e_range range)
+static void				apply_flags(t_list *list, const char *s,
+						enum e_range range)
 {
 	int			k;
 	int			precision;
@@ -84,12 +85,12 @@ static void			apply_flags(t_list *list, const char *s, enum e_range range)
 		pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
 }
 
-void				pf_output_signed(t_list *list, const char *base,
-					enum e_range range)
+void					pf_output_signed(t_list *list, const char *base,
+						enum e_range range)
 {
-	char		tmp[MAX_LEN_INTMAX_T];
-	int			k;
-	intmax_t	nb;
+	char			tmp[MAX_LEN_INTMAX_T];
+	int				k;
+	intmax_t		nb;
 
 	k = -1;
 	nb = typecast(list, range);

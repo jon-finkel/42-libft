@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 11:21:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/23 11:21:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:09:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_invert(int c)
+int			ft_invert(int c)
 {
 	return (ft_isalpha(c) ? (c ^ (1 << 5)) : c);
 }

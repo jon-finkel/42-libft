@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 21:40:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 21:21:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
 # define MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
 # define MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
+# define PROTECT(x, y) ({if(!(x)) return(y);})
+# define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 
 /*
 ** UTF-8 charset defines
@@ -103,6 +105,7 @@ void				*ft_memset(void *b, int c, size_t len);
 **##############################
 */
 void				ft_lstadd(t_list **alst, t_list *newlink);
+void				ft_lstclear(void *data, size_t size);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 t_list				*ft_lstgetnode(t_list *list, size_t n);

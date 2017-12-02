@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:37:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/08/24 13:35:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:10:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_islower(int c)
+int			ft_islower(int c)
 {
 	return (c > 96 && c < 123);
 }

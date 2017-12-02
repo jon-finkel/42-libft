@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:30:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/10/05 18:05:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:03:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void			ft_bzero(void *s, size_t n)
 {
 	int		k;
 

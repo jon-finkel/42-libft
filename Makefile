@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/11/30 21:46:20 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/02 21:20:54 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ OBJDIR :=					build/
 DYN_OBJDIR :=				dyn_build/
 
 ADDITIONAL_DIR :=			additional_functions/
-BONUS_DIR :=				bonus_functions/
 LIBC_DIR :=					libc_functions/
+LINKEDLIST_DIR :=			linkedlist_functions/
 PERSONAL_DIR :=				personal_functions/
 PRINTF_DIR :=				ft_printf/
 
@@ -55,9 +55,6 @@ ADDITIONAL +=				ft_strequ.c ft_strnequ.c
 ADDITIONAL +=				ft_striter.c ft_striteri.c
 ADDITIONAL +=				ft_strmap.c ft_strmapi.c
 ADDITIONAL +=				ft_strsplit.c ft_strsub.c ft_strtrim.c
-BONUS +=					ft_lstadd.c ft_lstnew.c
-BONUS +=					ft_lstdel.c ft_lstdelone.c
-BONUS += 					ft_lstiter.c ft_lstmap.c
 LIBC +=						ft_atoi.c ft_strlen.c
 LIBC +=						ft_isalnum.c ft_isalpha.c ft_isascii.c
 LIBC +=						ft_isdigit.c ft_isprint.c
@@ -69,9 +66,12 @@ LIBC +=						ft_strcmp.c ft_strncmp.c
 LIBC +=						ft_strcpy.c ft_strncpy.c ft_strdup.c
 LIBC +=						ft_strstr.c ft_strnstr.c
 LIBC +=						ft_tolower.c ft_toupper.c
+LINKEDLIST +=				ft_lstadd.c ft_lstnew.c
+LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c ft_lstclear.c
+LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
+LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
 PERSONAL +=					ft_intlen.c
 PERSONAL +=					ft_invert.c ft_islower.c ft_isupper.c
-PERSONAL +=					ft_lstgetnode.c ft_lstsize.c
 PERSONAL +=					ft_kill.c ft_putuchar.c ft_putuchar_fd.c
 PERSONAL +=					ft_printf.c ft_vprintf.c
 PERSONAL +=					ft_dprintf.c ft_vdprintf.c
@@ -79,7 +79,7 @@ PERSONAL +=					ft_sprintf.c ft_vsprintf.c
 PERSONAL +=					ft_snprintf.c ft_vsnprintf.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c
 PERSONAL +=					get_next_line.c
-PRINTF +=					pf_fill_buffer.c pf_get_flags.c
+PRINTF +=					pf_buff_format.c pf_fill_buffer.c pf_get_flags.c
 PRINTF +=					pf_initialize_list.c pf_ansi_color.c
 PRINTF +=					pf_output_char.c pf_output_noprint.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
@@ -89,14 +89,14 @@ DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 
 SRCS +=						$(ADDITIONAL)
-SRCS +=						$(BONUS)
 SRCS +=						$(LIBC)
+SRCS +=						$(LINKEDLIST)
 SRCS +=						$(PERSONAL)
 SRCS +=						$(PRINTF)
 
 vpath %.c $(ADDITIONAL_DIR)
-vpath %.c $(BONUS_DIR)
 vpath %.c $(LIBC_DIR)
+vpath %.c $(LINKEDLIST_DIR)
 vpath %.c $(PERSONAL_DIR)
 vpath %.c $(PRINTF_DIR)
 

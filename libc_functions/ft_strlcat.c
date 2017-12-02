@@ -6,18 +6,19 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 18:29:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/19 16:52:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:08:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t n)
+size_t			ft_strlcat(char *restrict dst, const char *restrict src,
+				size_t n)
 {
-	int		k;
-	size_t	len_dst;
-	size_t	len_src;
-	size_t	p;
+	int			k;
+	size_t		len_dst;
+	size_t		len_src;
+	size_t		p;
 
 	k = -1;
 	len_dst = ft_strlen(dst);

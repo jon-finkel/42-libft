@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/22 12:40:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:50:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_strdel(char **as)
+void			ft_strdel(char **as)
 {
 	if (!as)
 		return ;

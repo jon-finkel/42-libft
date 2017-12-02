@@ -6,18 +6,18 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:50:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/19 16:53:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:06:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
-		size_t n)
+void			*ft_memccpy(void *restrict dst, const void *restrict src, int c,
+				size_t n)
 {
-	char	*d;
-	char	*s;
-	int		k;
+	char		*d;
+	char		*s;
+	int			k;
 
 	d = (char *)dst;
 	s = (char *)src;

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstgetnode.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 17:04:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:13:38 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/09/18 16:32:34 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/01 12:10:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strdup(const char *s1)
+t_list			*ft_lstgetnode(t_list *list, size_t n)
 {
-	char		*s2;
-	size_t		len;
-
-	len = ft_strlen(s1);
-	PROTECT(s2 = ft_strnew(len), NULL);
-	while (*s1)
-	{
-		*s2 = *s1;
-		++s1;
-		++s2;
-	}
-	return (s2 - len);
+	++n;
+	if (n > ft_lstsize(list))
+		return (NULL);
+	while (--n > 0)
+		list = list->next;
+	return (list);
 }

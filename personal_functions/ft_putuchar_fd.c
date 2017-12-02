@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 10:13:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/15 10:59:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:10:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putuchar_fd(int c, const int fd)
+void			ft_putuchar_fd(int c, const int fd)
 {
 	if (ft_isascii(c))
 		ft_putchar_fd((char)c, fd);

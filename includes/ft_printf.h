@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 21:09:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 16:30:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define N_LIST_CONTENT ((t_args *)(n_list->content))
 # define PF_BUFFER (((t_args *)(list->content))->buffer)
 
-enum					e_flags
+enum				e_flags
 {
 	FIELD_WIDTH,
 	PRECISION,
@@ -45,7 +45,7 @@ enum					e_flags
 	SPRINTF
 };
 
-enum					e_type
+enum				e_type
 {
 	END,
 	NOT_FLAG,
@@ -54,7 +54,7 @@ enum					e_type
 	POINTER
 };
 
-enum					e_range
+enum				e_range
 {
 	VOID = 0,
 	INT = 1,
@@ -66,76 +66,78 @@ enum					e_range
 	INTMAX_T = 7
 };
 
-typedef struct			s_buffer
+typedef struct		s_buffer
 {
-	char				*pf_buffer;
-	size_t				*pf_len;
-	enum e_flags		pf_type;
-	size_t				invalid;
-	size_t				non_printable;
-	size_t				spf_size;
-	unsigned int		size_factor;
-}						t_buffer;
+	char			*pf_buffer;
+	size_t			*pf_len;
+	enum e_flags	pf_type;
+	size_t			invalid;
+	size_t			non_printable;
+	size_t			spf_size;
+	unsigned int	size_factor;
+}					t_buffer;
 
-typedef struct			s_args
+typedef struct		s_args
 {
-	void				*arg_data;
+	void			*arg_data;
 	union
 	{
-		intmax_t		s_nb;
-		uintmax_t		u_nb;
-	}					u_arg;
-	int					field_width;
-	int					precision;
-	enum e_flags		zero_precision;
-	short				alternate_form;
-	short				negative;
-	short				plus;
-	short				space;
-	short				zero;
-	t_buffer			*buffer;
-}						t_args;
+		intmax_t	s_nb;
+		uintmax_t	u_nb;
+	}				u_arg;
+	char			alternate_form;
+	char			negative;
+	char			plus;
+	char			space;
+	char			zero;
+	int				field_width;
+	int				precision;
+	enum e_flags	zero_precision;
+	t_buffer		*buffer;
+}					t_args;
 
-struct					s_color
+struct				s_color
 {
-	char				*flag;
-	size_t				len;
-	char				*code;
+	char			*flag;
+	size_t			len;
+	char			*code;
 };
 
-struct					s_conv
+struct				s_conv
 {
-	char				letter;
-	void				(*f)(t_list *, const char *, enum e_range);
-	const char			*base;
-	enum e_range		range;
+	char			letter;
+	void			(*f)(t_list *, const char *, enum e_range);
+	const char		*base;
+	enum e_range	range;
 };
 
-struct					s_type
+struct				s_type
 {
-	char				letter;
-	enum e_type			data_type;
+	char			letter;
+	enum e_type		data_type;
 };
 
-void					pf_fill_buffer(t_buffer *buffer, const char filler,
-						const char *s_filler, enum e_flags flag);
-t_list					*pf_get_flags(t_list *list, const char **format,
-						enum e_flags flag);
-const char				*pf_ansi_color(t_buffer *buffer, const char *format,
-						int *k);
-void					pf_initialize_list(t_list **alist, t_buffer *buffer,
-						const char *format, va_list ap);
-void					pf_output_char(t_list *list, const char *base,
-						enum e_range range);
-void					pf_output_noprint(t_list *list, const char *base,
-						enum e_range range);
-void					pf_output_pointer(t_list *list, const char *base,
-						enum e_range range);
-void					pf_output_signed(t_list *list, const char *base,
-						enum e_range range);
-void					pf_output_string(t_list *list, const char *ph,
-						enum e_range range);
-void					pf_output_unsigned(t_list *list, const char *base,
-						enum e_range range);
+void				pf_fill_buffer(t_buffer *buffer, const char filler,
+					const char *s_filler, enum e_flags flag);
+t_list				*pf_get_flags(t_list *list, const char **format,
+					enum e_flags flag);
+const char			*pf_ansi_color(t_buffer *buffer, const char *format,
+					int *k);
+void				pf_buff_format(const char *format, t_list *list,
+					t_buffer *buffer, enum e_flags flag);
+void				pf_initialize_list(t_list **alist, t_buffer *buffer,
+					const char *format, va_list ap);
+void				pf_output_char(t_list *list, const char *base,
+					enum e_range range);
+void				pf_output_noprint(t_list *list, const char *base,
+					enum e_range range);
+void				pf_output_pointer(t_list *list, const char *base,
+					enum e_range range);
+void				pf_output_signed(t_list *list, const char *base,
+					enum e_range range);
+void				pf_output_string(t_list *list, const char *ph,
+					enum e_range range);
+void				pf_output_unsigned(t_list *list, const char *base,
+					enum e_range range);
 
 #endif

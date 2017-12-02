@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:47:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/22 12:28:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 19:42:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+char			*ft_strcpy(char *dst, const char *src)
 {
-	char	*start;
+	char		*start;
 
 	start = dst;
 	while ((*dst++ = *src++))

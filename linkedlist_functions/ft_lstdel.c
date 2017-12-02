@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 16:11:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/18 16:18:33 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/24 21:50:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/01 11:53:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t		ft_lstsize(t_list *list)
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t		size;
+	t_list		*tmp;
 
-	size = 0;
-	while (list)
+	tmp = *alst;
+	while (*alst)
 	{
-		list = list->next;
-		++size;
+		tmp = (*alst)->next;
+		ft_lstdelone(&(*alst), del);
+		*alst = tmp;
 	}
-	return (size);
+	alst = NULL;
 }

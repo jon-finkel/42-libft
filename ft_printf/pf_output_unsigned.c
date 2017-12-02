@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 10:49:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:40:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:00:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static uintmax_t	typecast(t_list *list, enum e_range range)
+static uintmax_t			typecast(t_list *list, enum e_range range)
 {
 	if (range == INT)
 		return ((unsigned int)((uintmax_t)LIST_CONTENT->u_arg.u_nb));
@@ -31,10 +31,10 @@ static uintmax_t	typecast(t_list *list, enum e_range range)
 	return (0);
 }
 
-static void			field_width(t_list *list, const char *base,
-					enum e_flags flag, int *precision)
+static void					field_width(t_list *list, const char *base,
+							enum e_flags flag, int *precision)
 {
-	int			field_width;
+	int		field_width;
 
 	field_width = LIST_CONTENT->field_width;
 	if (flag == RIGHT)
@@ -58,8 +58,8 @@ static void			field_width(t_list *list, const char *base,
 		pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
 }
 
-static void			adjust_field_width(t_list *list, const char *base,
-					size_t len)
+static void					adjust_field_width(t_list *list, const char *base,
+							size_t len)
 {
 	if ((base[15] == 'F' || base[15] == 'f') && LIST_CONTENT->u_arg.u_nb)
 	{
@@ -81,7 +81,8 @@ static void			adjust_field_width(t_list *list, const char *base,
 	}
 }
 
-static void			apply_flags(t_list *list, const char *s, const char *base)
+static void					apply_flags(t_list *list, const char *s,
+							const char *base)
 {
 	int			k;
 	int			precision;
@@ -104,13 +105,13 @@ static void			apply_flags(t_list *list, const char *s, const char *base)
 	field_width(list, base, RIGHT, &precision);
 }
 
-void				pf_output_unsigned(t_list *list, const char *base,
-					enum e_range range)
+void						pf_output_unsigned(t_list *list, const char *base,
+							enum e_range range)
 {
-	char		tmp[MAX_LEN_BINARY_UINTMAX_T];
-	int			k;
-	size_t		base_len;
-	uintmax_t	nb;
+	char			tmp[MAX_LEN_BINARY_UINTMAX_T];
+	int				k;
+	size_t			base_len;
+	uintmax_t		nb;
 
 	k = -1;
 	base_len = ft_strlen(base);

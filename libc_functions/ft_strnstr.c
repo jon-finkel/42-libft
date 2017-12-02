@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 11:16:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/22 13:06:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:08:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+char			*ft_strnstr(const char *big, const char *little, size_t n)
 {
-	size_t	len;
+	size_t		len;
 
 	if (!*little)
 		return ((char *)big);

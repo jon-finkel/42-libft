@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:38:21 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/08/24 21:16:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:10:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isupper(int c)
+int			ft_isupper(int c)
 {
 	return (c > 64 && c < 91);
 }

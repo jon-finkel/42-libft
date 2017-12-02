@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 17:04:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:13:38 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/24 22:38:48 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/01 11:53:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strdup(const char *s1)
+void			ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	char		*s2;
-	size_t		len;
-
-	len = ft_strlen(s1);
-	PROTECT(s2 = ft_strnew(len), NULL);
-	while (*s1)
+	while (lst)
 	{
-		*s2 = *s1;
-		++s1;
-		++s2;
+		f(lst);
+		lst = lst->next;
 	}
-	return (s2 - len);
 }

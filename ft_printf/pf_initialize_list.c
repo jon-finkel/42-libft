@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 19:19:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/29 21:46:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:04:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static const struct s_type	g_type[] =
+static const struct s_type		g_type[] =
 {
 	{'*', SIGNED_ARG},
 	{'d', SIGNED_ARG},
@@ -38,8 +38,7 @@ static t_args				*init_struct(va_list ap, const char format,
 {
 	t_args		*args;
 
-	if (!(args = (t_args *)malloc(sizeof(t_args))))
-		exit(EXIT_FAILURE);
+	EXIT_PROTECT(args = (t_args *)malloc(sizeof(t_args)));
 	args->arg_data = (data_type == POINTER ? va_arg(ap, void *) : NULL);
 	if (data_type == SIGNED_ARG)
 		args->u_arg.s_nb = va_arg(ap, intmax_t);
@@ -68,8 +67,7 @@ static void					arg_to_list(t_list **alist, t_buffer *buffer,
 	args->buffer = buffer;
 	if (!*alist)
 	{
-		if (!(*alist = ft_lstnew(args, sizeof(t_args))))
-			exit(EXIT_FAILURE);
+		EXIT_PROTECT(*alist = ft_lstnew(args, sizeof(t_args)));
 		list = *alist;
 	}
 	else
@@ -77,8 +75,7 @@ static void					arg_to_list(t_list **alist, t_buffer *buffer,
 		list = *alist;
 		while (list->next)
 			list = list->next;
-		if (!(list->next = ft_lstnew(args, sizeof(t_args))))
-			exit(EXIT_FAILURE);
+		EXIT_PROTECT(list->next = ft_lstnew(args, sizeof(t_args)));
 	}
 	free(args);
 	*aargs = NULL;

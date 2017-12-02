@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:00:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/14 10:27:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:06:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_isalpha(int c)
+int			ft_isalpha(int c)
 {
 	return (ft_islower(c) || ft_isupper(c));
 }

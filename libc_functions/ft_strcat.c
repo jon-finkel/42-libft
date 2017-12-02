@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:01:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/22 12:29:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:07:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strcat(char *restrict dst, const char *restrict src)
+char			*ft_strcat(char *restrict dst, const char *restrict src)
 {
-	char	*d;
+	char		*d;
 
 	d = ft_strchr(dst, '\0');
 	while ((*d++ = *src++))

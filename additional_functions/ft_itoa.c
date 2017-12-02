@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:28:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/22 12:43:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 19:56:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 ** Converts an integer 'n' into an array of characters representing 'n'.
 */
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	char			*tmp;
-	char			*string;
-	int				k;
-	unsigned int	nb;
+	char				*tmp;
+	char				*string;
+	int					k;
+	unsigned int		nb;
 
-	if (!(tmp = ft_strnew(12)))
-		return (NULL);
+	PROTECT(tmp = ft_strnew(12), NULL);
 	tmp[0] = '0';
 	k = -1;
 	nb = (n < 0 ? -n : n);
@@ -35,8 +34,7 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 		tmp[++k] = '-';
-	if (!(string = ft_strrevcpy(tmp)))
-		return (NULL);
+	PROTECT(string = ft_strrevcpy(tmp), NULL);
 	free(tmp);
 	return (string);
 }

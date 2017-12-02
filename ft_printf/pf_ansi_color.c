@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 18:21:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 16:00:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:54:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static const struct s_color	g_color[] =
+static const struct s_color		g_color[] =
 {
 	{"{eoc}", 5, "\033[0m"},
 	{"{black}", 7, "\033[30m"},
@@ -33,9 +33,9 @@ static const struct s_color	g_color[] =
 	{"{bright_white}", 14, "\033[1;37m"},
 };
 
-static int				check_end_of_color_flag(const char *format)
+static int			check_end_of_color_flag(const char *format)
 {
-	int			k;
+	int		k;
 
 	while (*format)
 	{
@@ -50,10 +50,9 @@ static int				check_end_of_color_flag(const char *format)
 	return (0);
 }
 
-const char				*pf_ansi_color(t_buffer *buffer, const char *format,
-						int *k)
+const char			*pf_ansi_color(t_buffer *buffer, const char *format, int *k)
 {
-	int			p;
+	int		p;
 
 	p = -1;
 	while (++p < LAST_COLOR)

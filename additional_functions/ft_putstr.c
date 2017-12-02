@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 09:51:28 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/21 17:23:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:49:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putstr(const char *s)
+void			ft_putstr(const char *s)
 {
 	if (!s)
 		return ;

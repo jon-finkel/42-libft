@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 17:04:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:13:38 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/24 21:30:33 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/02 20:13:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strdup(const char *s1)
+t_list			*ft_lstnew(const void *content, size_t content_size)
 {
-	char		*s2;
-	size_t		len;
+	t_list		*list;
 
-	len = ft_strlen(s1);
-	PROTECT(s2 = ft_strnew(len), NULL);
-	while (*s1)
+	PROTECT(list = (t_list *)malloc(sizeof(t_list)), NULL);
+	if (!content)
 	{
-		*s2 = *s1;
-		++s1;
-		++s2;
+		list->content = NULL;
+		list->content_size = 0;
 	}
-	return (s2 - len);
+	else
+	{
+		PROTECT(list->content = malloc(content_size), NULL);
+		list->content = ft_memcpy(list->content, content, content_size);
+		list->content_size = content_size;
+	}
+	list->next = NULL;
+	return (list);
 }

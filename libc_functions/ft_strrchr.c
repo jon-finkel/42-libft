@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:41:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/14 10:29:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:09:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char			*ft_strrchr(const char *s, int c)
 {
-	char	*last;
+	char		*last;
 
 	last = NULL;
 	while (*s)

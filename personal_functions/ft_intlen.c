@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 05:48:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/23 09:35:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:09:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t		ft_intlen(intmax_t n)
+size_t			ft_intlen(intmax_t n)
 {
-	size_t	len;
+	size_t		len;
 
 	len = (n <= 0 ? 1 : 0);
 	if (n < 0)

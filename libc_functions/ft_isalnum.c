@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:17:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/14 10:27:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:06:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_isalnum(int c)
+int			ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }

@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 06:49:28 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:35:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 11:56:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static t_list				*wildcard_copy(t_list *list, enum e_flags flag)
+static t_list			*wildcard_copy(t_list *list, enum e_flags flag)
 {
 	NEXT_CONTENT->alternate_form = LIST_CONTENT->alternate_form;
 	NEXT_CONTENT->plus = LIST_CONTENT->plus;
@@ -31,9 +31,9 @@ static t_list				*wildcard_copy(t_list *list, enum e_flags flag)
 	return (list->next);
 }
 
-static t_list				*get_precision(t_list *list, const char **format)
+static t_list			*get_precision(t_list *list, const char **format)
 {
-	int			nb;
+	int		nb;
 
 	while (**format == '.')
 		++*format;
@@ -53,9 +53,9 @@ static t_list				*get_precision(t_list *list, const char **format)
 	return (list);
 }
 
-static t_list				*get_field_width(t_list *list, const char **format)
+static t_list			*get_field_width(t_list *list, const char **format)
 {
-	int			nb;
+	int		nb;
 
 	nb = ft_atoi(*format);
 	if (nb && *(*format + ft_intlen(nb)) != '*')
@@ -77,8 +77,8 @@ static t_list				*get_field_width(t_list *list, const char **format)
 	return (list);
 }
 
-static void					get_modifiers(t_list *list, const char **format,
-							enum e_flags flag)
+static void				get_modifiers(t_list *list, const char **format,
+						enum e_flags flag)
 {
 	while (**format == '#' || **format == ' ' || **format == '+'
 		|| **format == '0' || **format == '-')
@@ -97,8 +97,8 @@ static void					get_modifiers(t_list *list, const char **format,
 	}
 }
 
-t_list						*pf_get_flags(t_list *list, const char **format,
-							enum e_flags flag)
+t_list					*pf_get_flags(t_list *list, const char **format,
+						enum e_flags flag)
 {
 	get_modifiers(list, format, flag);
 	if (flag == FIRST)

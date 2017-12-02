@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 22:11:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/09/14 10:21:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:03:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
-	int					neg;
-	unsigned long long	sum;
+	int						neg;
+	unsigned long long		sum;
 
 	neg = 1;
 	sum = 0;

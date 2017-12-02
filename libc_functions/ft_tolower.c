@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:46:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/10/05 18:09:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:09:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_tolower(int c)
+int			ft_tolower(int c)
 {
 	return (ft_isupper(c) ? (c | 1 << 5) : c);
 }

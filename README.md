@@ -16,30 +16,30 @@ As you can see from the [Project instructions][1], there are 4 sections:
 
 1.  **Libc Functions:** Some of the standard C functions.
 2.  **Additional functions:** Functions 42 deems will be useful for later projects.
-3.  **Bonus Functions:** Linked list manipulation functions 42 deems will be useful.
+3.  **LinkedList Functions:** Linked list manipulation functions 42 deems will be useful, plus few of my owns.
 4.  **Personal Functions:** Functions I made that are or will be useful to me. [Documented here][3].
 
-Libc functions | Additional functions | Bonus functions | Personal functions
+Libc functions | Additional functions | LinkedList functions | Personal functions
 :----------- | :-----------: | :-----------: | -----------:
 atoi		 |	ft_itoa		 |	ft_lstadd	 |	ft_dprintf
-bzero		 |	ft_memalloc	 |	ft_lstdel	 |	ft_intlen
-isalnum		 |	ft_memdel	 |	ft_lstdelone |	ft_isinvert
-isalpha		 |	ft_putchar	 |	ft_lstiter	 |	ft_islower
-isascii		 |	ft_putchar_fd|	ft_lstmap	 |	ft_isupper
-isdigit		 |	ft_putendl	 |	ft_lstnew	 |	ft_kill
-isprint		 |	ft_putendl_fd|	|	ft_lstgetnode
-memccpy		 |	ft_putnbr	 |	|	ft_lstsize
-memchr		 |	ft_putnbr_fd |	|	ft_printf
-memcmp		 |	ft_putstr	 |	|	ft_putuchar
-memcpy		 |	ft_putstr_fd |	|	ft_putuchar_fd
+bzero		 |	ft_memalloc	 |	ft_lstclear	 |	ft_intlen
+isalnum		 |	ft_memdel	 |	ft_lstdel	 |	ft_isinvert
+isalpha		 |	ft_putchar	 |	ft_lstdelone |	ft_islower
+isascii		 |	ft_putchar_fd|	ft_lstgetnode|	ft_isupper
+isdigit		 |	ft_putendl	 |	ft_lstiter	 |	ft_kill
+isprint		 |	ft_putendl_fd|	ft_lstmap	 |	ft_printf
+memccpy		 |	ft_putnbr	 |	ft_lstnew	 |	ft_putuchar
+memchr		 |	ft_putnbr_fd |	ft_lstsize	 |	ft_putuchar_fd
+memcmp		 |	ft_putstr	 |	|	ft_snprintf
+memcpy		 |	ft_putstr_fd |	|	ft_sprintf
 memmove		 |	ft_strclr	 |	|	ft_strrev
 memset		 |	ft_strdel	 |	|	ft_strrevcpy
-strcat		 |	ft_strequ	 |	|	ft_vdprintf
-strchr		 |	ft_striter	 |	|	ft_vprintf
-strcmp		 |	ft_striteri	 |	|	get_next_line
-strcpy		 |	ft_strjoin	 |	|
-strdup		 |	ft_strmap	 |	|
-strlcat		 |	ft_strmapi	 |	|
+strcat		 |	ft_strequ	 |	|	ft_swap
+strchr		 |	ft_striter	 |	|	ft_vdprintf
+strcmp		 |	ft_striteri	 |	|	ft_vprintf
+strcpy		 |	ft_strjoin	 |	|	ft_vsnprintf
+strdup		 |	ft_strmap	 |	|	ft_vsprintf
+strlcat		 |	ft_strmapi	 |	|	get_next_line
 strlen		 |	ft_strnequ	 |	|
 strncat		 |	ft_strnew	 |	|
 strncmp		 |	ft_strsplit	 |	|

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 10:49:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:38:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:05:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ static void			apply_zero_width(t_list *list, char *s, size_t len)
 	int			k;
 	int			zero_width;
 
-	if (!(address = ft_strnew(LIST_CONTENT->field_width)))
-		exit(EXIT_FAILURE);
+	EXIT_PROTECT(address = ft_strnew(LIST_CONTENT->field_width));
 	zero_width = LIST_CONTENT->field_width - len - 2;
 	k = -1;
 	address[++k] = '0';
@@ -60,8 +59,7 @@ static void			apply_precision(t_list *list, char *s, int precision,
 
 	if (LIST_CONTENT->zero == 1 && LIST_CONTENT->field_width > (int)len + 2)
 		return (apply_zero_width(list, s, len));
-	if (!(address = ft_strnew(precision + 2)))
-		exit(EXIT_FAILURE);
+	EXIT_PROTECT(address = ft_strnew(precision + 2));
 	precision -= len;
 	k = -1;
 	address[++k] = '0';
@@ -75,10 +73,10 @@ static void			apply_precision(t_list *list, char *s, int precision,
 void				pf_output_pointer(t_list *list, const char *base,
 					enum e_range range)
 {
-	char		tmp[MAX_LEN_INTMAX_T];
-	int			k;
-	int			prec;
-	intptr_t	nb;
+	char			tmp[MAX_LEN_INTMAX_T];
+	int				k;
+	int				prec;
+	intptr_t		nb;
 
 	(void)range;
 	nb = (intptr_t)LIST_CONTENT->arg_data;

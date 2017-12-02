@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 10:49:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:39:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:06:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void			apply_field_width(t_list *list, int precision,
-					enum e_flags flag)
+static void				apply_field_width(t_list *list, int precision,
+						enum e_flags flag)
 {
 	char		c;
 	int			field_width;
@@ -37,7 +37,7 @@ static void			apply_field_width(t_list *list, int precision,
 	}
 }
 
-static void			copy_wide_string(const wchar_t *ws, char *s)
+static void				copy_wide_string(const wchar_t *ws, char *s)
 {
 	while (*ws)
 	{
@@ -60,10 +60,10 @@ static void			copy_wide_string(const wchar_t *ws, char *s)
 	}
 }
 
-static size_t		get_wide_length(t_list *list, const wchar_t *s)
+static size_t			get_wide_length(t_list *list, const wchar_t *s)
 {
-	size_t			len;
-	unsigned int	precision;
+	size_t				len;
+	unsigned int		precision;
 
 	len = 0;
 	precision = 0;
@@ -87,8 +87,8 @@ static size_t		get_wide_length(t_list *list, const wchar_t *s)
 	return (len);
 }
 
-void				pf_output_string(t_list *list, const char *sub,
-					enum e_range range)
+void					pf_output_string(t_list *list, const char *sub,
+						enum e_range range)
 {
 	char		*string;
 	int			precision;
@@ -98,8 +98,7 @@ void				pf_output_string(t_list *list, const char *sub,
 		LIST_CONTENT->precision = INT_MAX;
 	if (range == LONG && (wide_string = (wchar_t *)LIST_CONTENT->arg_data))
 	{
-		if (!(string = ft_strnew(get_wide_length(list, wide_string))))
-			exit(EXIT_FAILURE);
+		EXIT_PROTECT(string = ft_strnew(get_wide_length(list, wide_string)));
 		copy_wide_string(wide_string, string);
 	}
 	else

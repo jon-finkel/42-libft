@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 17:04:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:13:38 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/24 22:42:05 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/02 20:12:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strdup(const char *s1)
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char		*s2;
-	size_t		len;
+	t_list		*begin;
+	t_list		*new;
+	t_list		*tmp;
 
-	len = ft_strlen(s1);
-	PROTECT(s2 = ft_strnew(len), NULL);
-	while (*s1)
+	if (!lst)
+		return (NULL);
+	tmp = f(lst);
+	PROTECT(new = ft_lstnew(tmp->content, tmp->content_size), NULL);
+	begin = new;
+	lst = lst->next;
+	while (lst)
 	{
-		*s2 = *s1;
-		++s1;
-		++s2;
+		tmp = f(lst);
+		PROTECT(new->next = ft_lstnew(tmp->content, tmp->content_size), NULL);
+		lst = lst->next;
+		new = new->next;
 	}
-	return (s2 - len);
+	return (begin);
 }
