@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 17:23:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:02:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/04 19:50:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,5 @@ struct				s_file
 	int				fd;
 	struct s_file	*next;
 };
-
-int					get_next_line(const int fd, char **line);
 
 #endif

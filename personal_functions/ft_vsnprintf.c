@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:06:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/04 22:16:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int						ft_vsnprintf(char *str, size_t size, const char *format,
 
 	if (!size)
 		return (0);
-	ft_memset(str, '\0', size);
+	ft_memset(str, '\0', ft_strlen(str) + 1);
 	len = 0;
 	list = NULL;
 	buffer = initialize_buffer(str, size, &len);

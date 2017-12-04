@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 11:05:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:03:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/04 20:58:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void				pf_fill_buffer(t_buffer *buffer, const char filler,
 	{
 		n = MIN(n, buffer->spf_size);
 		(void)ft_strncat(buffer->pf_buffer, s_filler, n);
-		n -= buffer->spf_size;
 	}
 }
