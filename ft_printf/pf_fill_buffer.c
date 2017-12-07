@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 11:05:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/04 20:58:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/05 22:17:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,27 @@ static void			expand_buffer(t_buffer *buffer)
 void				pf_fill_buffer(t_buffer *buffer, const char filler,
 					const char *s_filler, enum e_flags flag)
 {
+	int			k;
 	size_t		n;
 
 	n = (s_filler ? ft_strlen(s_filler) : 1);
 	if (flag == NON_PRINT)
 		buffer->non_printable += n;
-	*buffer->pf_len += n;
 	if (buffer->pf_type == PRINTF
-		&& *buffer->pf_len > buffer->size_factor * PRINTF_BUFFSIZE)
+		&& *buffer->pf_len + n > buffer->size_factor * PRINTF_BUFFSIZE)
 		expand_buffer(buffer);
 	if (!s_filler && (buffer->pf_type == PRINTF
 		|| (buffer->pf_type == SPRINTF && buffer->spf_size-- > 0)))
-		*(buffer->pf_buffer + *buffer->pf_len - 1) = filler;
-	if (s_filler && buffer->pf_type == PRINTF)
-		(void)ft_strncat(buffer->pf_buffer, s_filler, n);
-	else if (s_filler && buffer->pf_type == SPRINTF)
+		buffer->pf_buffer[(*buffer->pf_len)++] = filler;
+	else if (s_filler)
 	{
-		n = MIN(n, buffer->spf_size);
-		(void)ft_strncat(buffer->pf_buffer, s_filler, n);
+		if (flag == SPRINTF)
+		{
+			n = MIN(n, buffer->spf_size);
+			buffer->spf_size -= n;
+		}
+		k = -1;
+		while ((unsigned int)++k < n)
+			buffer->pf_buffer[(*buffer->pf_len)++] = s_filler[k];
 	}
 }

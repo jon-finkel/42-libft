@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/02 21:20:54 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/07 20:41:12 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ PERSONAL +=					ft_strrev.c ft_strrevcpy.c
 PERSONAL +=					get_next_line.c
 PRINTF +=					pf_buff_format.c pf_fill_buffer.c pf_get_flags.c
 PRINTF +=					pf_initialize_list.c pf_ansi_color.c
-PRINTF +=					pf_output_char.c pf_output_noprint.c
+PRINTF +=					pf_output_char.c pf_output_double.c
+PRINTF +=					pf_output_noprint.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
 PRINTF +=					pf_output_string.c pf_output_pointer.c
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/04 19:48:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/07 21:43:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define PRINTF_BUFFSIZE 4096
 
 # define LAST_COLOR 17
-# define LAST_CONVERSION 16
+# define LAST_CONVERSION 18
 # define LAST_RANGE 6
 # define LAST_TYPE (LAST_CONVERSION + 1)
 # define MAX_LEN_INTMAX_T 20
@@ -51,6 +51,7 @@ enum				e_type
 	NOT_FLAG,
 	SIGNED_ARG,
 	UNSIGNED_ARG,
+	DOUBLE_ARG,
 	POINTER
 };
 
@@ -82,6 +83,7 @@ typedef struct		s_args
 	void			*arg_data;
 	union
 	{
+		double		d_nb;
 		intmax_t	s_nb;
 		uintmax_t	u_nb;
 	}				u_arg;
@@ -128,6 +130,8 @@ void				pf_buff_format(const char *format, t_list *list,
 void				pf_initialize_list(t_list **alist, t_buffer *buffer,
 					const char *format, va_list ap);
 void				pf_output_char(t_list *list, const char *base,
+					enum e_range range);
+void				pf_output_double(t_list *list, const char *base,
 					enum e_range range);
 void				pf_output_noprint(t_list *list, const char *base,
 					enum e_range range);

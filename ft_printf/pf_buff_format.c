@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 11:40:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:55:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/07 21:43:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static const struct s_conv		g_conv[] =
 	{'p', &pf_output_pointer, "0123456789abcdef", VOID},
 	{'c', &pf_output_char, NULL, VOID},
 	{'i', &pf_output_signed, "0123456789", VOID},
+	{'f', &pf_output_double, "0123456789", VOID},
+	{'F', &pf_output_double, "0123456789", VOID},
 	{'x', &pf_output_unsigned, "0123456789abcdef", VOID},
 	{'X', &pf_output_unsigned, "0123456789ABCDEF", VOID},
 	{'b', &pf_output_unsigned, "01", VOID},
@@ -35,7 +37,7 @@ static const struct s_conv		g_conv[] =
 static void			adjust_range(const char **format, enum e_range *range)
 {
 	while (**format == 'j' || **format == 'z' || **format == 'l'
-		|| **format == 'h')
+		|| **format == 'h' || **format == 'L')
 	{
 		if (**format == 'j' && *range < INTMAX_T)
 			*range = INTMAX_T;
