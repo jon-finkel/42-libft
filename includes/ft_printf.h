@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/07 21:43:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/08 17:48:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ t_list				*pf_get_flags(t_list *list, const char **format,
 const char			*pf_ansi_color(t_buffer *buffer, const char *format,
 					int *k);
 void				pf_buff_format(const char *format, t_list *list,
-					t_buffer *buffer, enum e_flags flag);
+					t_buffer *buffer);
 void				pf_initialize_list(t_list **alist, t_buffer *buffer,
 					const char *format, va_list ap);
 void				pf_output_char(t_list *list, const char *base,

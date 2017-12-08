@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 19:19:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/07 21:43:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/08 16:40:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static const struct s_type		g_type[] =
 	{'C', UNSIGNED_ARG}
 };
 
-#include <stdio.h>
 static t_args				*init_struct(va_list ap, const char format,
 							enum e_type data_type)
 {

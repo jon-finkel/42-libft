@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 20:41:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/07 23:50:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/08 08:51:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ static int					map_precision(t_list *list, const char *base,
 	double			mantissa;
 	int				k;
 	int				zeroes;
-	intmax_t		integer;
+	uintmax_t		integer;
 
-	mantissa = nb - (intmax_t)nb;
+	mantissa = nb - (uintmax_t)nb;
 	if (!LIST_CONTENT->precision && LIST_CONTENT->zero_precision == NATIVE)
 		LIST_CONTENT->precision = 6;
 	zeroes = LIST_CONTENT->precision;
 	while (LIST_CONTENT->precision--)
 		mantissa *= 10;
-	integer = (intmax_t)mantissa;
+	integer = (uintmax_t)mantissa;
 	if (integer > 9999 && integer % 10 != 0)
 		++integer;
 	zeroes -= ft_intlen(integer) - (!integer ? 1 : 0);
@@ -77,8 +77,8 @@ void						pf_output_double(t_list *list, const char *base,
 	char			buff[256];
 	double			nb;
 	int				k;
-	intmax_t		integer;
 	size_t			len;
+	uintmax_t		integer;
 
 	(void)range;
 	ft_bzero(buff, 256);
@@ -86,7 +86,7 @@ void						pf_output_double(t_list *list, const char *base,
 	k = map_precision(list, base, buff, (nb < 0 ? -nb : nb));
 	if (k > -1)
 		buff[++k] = '.';
-	integer = (intmax_t)(nb < 0 ? -nb : nb);
+	integer = (uintmax_t)(nb < 0 ? -nb : nb);
 	if (!integer)
 		buff[++k] = '0';
 	while (integer)

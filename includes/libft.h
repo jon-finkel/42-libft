@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/04 19:48:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/08 19:19:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
+# define VOID_PROTECT(x) ({if(!(x)) return;})
 
 /*
 ** UTF-8 charset defines
@@ -79,6 +80,8 @@ char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *const s);
 char				*ft_strrevcpy(const char *const s);
+void				ft_strrewrite(char *big, const char *little,
+					const char *filler);
 char				**ft_strsplit(const char *s, char c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 11:40:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/07 21:43:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/08 17:49:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void			print_conversion(t_list *list, const char **format,
 }
 
 void				pf_buff_format(const char *format, t_list *list,
-					t_buffer *buffer, enum e_flags flag)
+					t_buffer *buffer)
 {
 	int			k;
 	size_t		valid;
@@ -92,9 +92,8 @@ void				pf_buff_format(const char *format, t_list *list,
 	k = -1;
 	while (*format && (unsigned int)++k < valid)
 	{
-		if (flag == PRINTF)
-			while (*format == '{')
-				format = pf_ansi_color(buffer, format, &k);
+		while (*format == '{')
+			format = pf_ansi_color(buffer, format, &k);
 		if (*format && *format != '%')
 			pf_fill_buffer(buffer, *format++, NULL, PRINT);
 		else if (*format == '%' && ++format)
