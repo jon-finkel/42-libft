@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 17:52:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:01:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ int						pf_output_signed(t_data *data, const char *base)
 	else if (data->precision >= 0)
 		UNSET_FLAG(ZERO, data->flags);
 	apply_flags(data, ft_strrev(tmp), nb);
-	return (1);
+	return (0);
 }

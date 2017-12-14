@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 15:21:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 16:59:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static const char			*print_conversion(t_data *data, const char *format)
 		{
 			if (g_conv[k].range != VOID && data->range != LONG)
 				data->range = g_conv[k].range;
-			PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
+			NEG_PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
 			break ;
 		}
 	if (k == LAST_CONVERSION)

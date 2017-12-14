@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 15:31:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:10:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ static void			n_conversion(t_data *data)
 
 static void			v_conversion(t_data *data)
 {
+	char	*buff;
 	char	*var;
 
 	var = va_arg(data->ap, char *);
-	if ((var = ft_getenv(var)))
+	if ((buff = ft_getenv(var)))
 	{
-		pf_fill_buffer(data, 0, var, PRINT);
-		free(var);
+		pf_fill_buffer(data, 0, buff, PRINT);
+		free(buff);
 	}
 	else
 		pf_fill_buffer(data, 0, "(null)", PRINT);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/11 23:13:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:01:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ int					pf_output_pointer(t_data *data, const char *base)
 	tmp[++k] = '\0';
 	precision = (data->precision != INT_MAX ? data->precision : 0);
 	apply_precision(data, ft_strrev(tmp), precision, ft_strlen(tmp));
-	return (1);
+	return (0);
 }

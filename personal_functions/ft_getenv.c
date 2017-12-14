@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:24:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 15:30:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:13:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ char				*ft_getenv(const char *name)
 	k = -1;
 	while (env[++k])
 		if (ft_strnequ((char *)(env[k]), name, len))
-			PROTECT(ft_asprintf(&buff, "%s", ft_strchr(env[k], '=') + 1), NULL);
+		{
+			PROTECT(buff = ft_strnew(ft_strlen(env[k]) - len - 1), NULL);
+			ft_strcpy(buff, ft_strchr(env[k], '=') + 1);
+		}
 	k = -1;
 	while (env[++k])
 		free(env[k]);

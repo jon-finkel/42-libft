@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 17:23:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:02:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int				copy_wide_string(const wchar_t *w, char *s)
 		if (*w < 0 || *w > 0x10ffff
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff)
 			|| (*w >= 0xd800 && *w <= 0xdb7f) || (*w >= 0xdb80 && *w < 0xdbff))
-			return (0);
+			return (-1);
 		if (*w >= 0 && *w < 128)
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w))
@@ -64,7 +64,7 @@ static int				copy_wide_string(const wchar_t *w, char *s)
 			*s++ = UNICODE_TAIL(*w);
 		++w;
 	}
-	return (1);
+	return (0);
 }
 
 static void				apply_left_field_width(t_data *data, int precision)
@@ -109,8 +109,8 @@ int						pf_output_string(t_data *data, const char *base)
 		data->precision = INT_MAX;
 	if (data->range == LONG && (wide_string = va_arg(data->ap, wchar_t *)))
 	{
-		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), 0);
-		PROTECT(copy_wide_string(wide_string, string), 0);
+		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
+		NEG_PROTECT(copy_wide_string(wide_string, string), -1);
 	}
 	else if (data->range != LONG)
 		string = va_arg(data->ap, char *);
@@ -120,5 +120,5 @@ int						pf_output_string(t_data *data, const char *base)
 	apply_precision(data, string, precision);
 	if (data->range == LONG && wide_string)
 		free(string);
-	return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 20:57:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:02:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ static uintmax_t			typecast(t_data *data, enum e_range range)
 static void					adjust_field_width(t_data *data, const char *base,
 							uintmax_t nb, size_t len)
 {
+	size_t		blen;
+
+	blen = ft_strlen(base);
 	if ((base[15] == 'F' || base[15] == 'f') && nb)
 	{
 		if (data->field_width < 0)
@@ -43,7 +46,7 @@ static void					adjust_field_width(t_data *data, const char *base,
 				++data->field_width;
 		}
 	}
-	else if (ft_strlen(base) == 8 && nb)
+	else if ((blen == 8 || blen == 2) && nb)
 	{
 		if (data->field_width < 0)
 			data->field_width += 1;
@@ -56,19 +59,23 @@ static void					left_field_width(t_data *data, const char *base,
 							int *precision, uintmax_t nb)
 {
 	int		field_width;
+	size_t	blen;
 
 	field_width = data->field_width;
 	if (IS_NOT(ZERO, data->flags))
 		while (field_width-- > *precision)
 			pf_fill_buffer(data, ' ', NULL, PRINT);
+	blen = ft_strlen(base);
 	if (IS_FLAG(ALTERNATE, data->flags))
 	{
 		if (base[15] == 'F' && nb)
 			pf_fill_buffer(data, 0, "0X", PRINT);
 		else if (base[15] == 'f' && nb)
 			pf_fill_buffer(data, 0, "0x", PRINT);
-		else if (ft_strlen(base) == 8)
+		else if (blen == 8)
 			pf_fill_buffer(data, '0', NULL, PRINT);
+		else if (blen == 2)
+			pf_fill_buffer(data, 'B', NULL, PRINT);
 	}
 	if (IS_FLAG(ZERO, data->flags))
 		while (field_width-- > *precision)
@@ -128,5 +135,5 @@ int							pf_output_unsigned(t_data *data, const char *base)
 	}
 	tmp[++k] = '\0';
 	apply_flags(data, ft_strrev(tmp), base, nb);
-	return (1);
+	return (0);
 }
