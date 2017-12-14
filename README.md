@@ -58,6 +58,6 @@ Notes:
 - You can run a "make" to create a static library, and a "make so" to create a shared library.
 - This repository shall be updated everytime there is a function I deem useful to be added to the library. If you don't know what a function does, refer to the [Project instructions][1] for additional and bonus functions, or the [Wiki][3], where I document all the personal ones.
 
-[1]: https://github.com/jon-nimrod/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
+[1]: https://github.com/jon-finkel/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
 [2]: http://42.us.org "42 Silicon Valley"
-[3]: https://github.com/jon-nimrod/libft/wiki
+[3]: https://github.com/jon-finkel/libft/wiki
