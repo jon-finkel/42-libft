@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 16:58:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 20:56:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
 # define VOID_PROTECT(x) ({if(!(x)) return;})
+# define CONTINUE(x) ({if(!(x)) continue;})
+# define NEG_CONTINUE(x) ({if((x) == -1) continue;})
 
 typedef struct		s_list
 {
