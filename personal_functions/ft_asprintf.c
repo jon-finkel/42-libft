@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_asprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 21:05:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 21:03:08 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/12 21:48:21 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/12 21:49:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void			*ft_memcpy(void *restrict dst, const void *restrict src,
-				size_t n)
+int			ft_asprintf(char **ret, const char *format, ...)
 {
-	int			k;
+	int			len;
+	va_list		ap;
 
-	k = -1;
-	while ((unsigned int)++k < n)
-		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
-	return (dst);
+	va_start(ap, format);
+	len = ft_vasprintf(ret, format, ap);
+	va_end(ap);
+	return (len);
 }

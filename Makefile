@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/08 19:20:34 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/13 19:21:23 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ DYN_NAME :=					${NAME:a=so}
 
 #	Compiler
 CC :=						gcc
+DEBUG :=					# void #
 
 ifneq ($(OS), Linux)
 	FLAGS +=				-Wall -Wextra -Werror
@@ -66,23 +67,24 @@ LIBC +=						ft_strcmp.c ft_strncmp.c
 LIBC +=						ft_strcpy.c ft_strncpy.c ft_strdup.c
 LIBC +=						ft_strstr.c ft_strnstr.c
 LIBC +=						ft_tolower.c ft_toupper.c
-LINKEDLIST +=				ft_lstadd.c ft_lstnew.c
-LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c ft_lstclear.c
+LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstaddend.c
+LINKEDLIST +=				ft_lstclear.c ft_lstsnipe.c
+LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
-PERSONAL +=					ft_intlen.c
+PERSONAL +=					ft_getenv.c ft_intlen.c ft_realloc.c
 PERSONAL +=					ft_invert.c ft_islower.c ft_isupper.c
 PERSONAL +=					ft_kill.c ft_putuchar.c ft_putuchar_fd.c
 PERSONAL +=					ft_printf.c ft_vprintf.c
 PERSONAL +=					ft_dprintf.c ft_vdprintf.c
 PERSONAL +=					ft_sprintf.c ft_vsprintf.c
 PERSONAL +=					ft_snprintf.c ft_vsnprintf.c
+PERSONAL +=					ft_asprintf.c ft_vasprintf.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c ft_strrewrite.c
 PERSONAL +=					get_next_line.c
 PRINTF +=					pf_buff_format.c pf_fill_buffer.c pf_get_flags.c
-PRINTF +=					pf_initialize_list.c pf_ansi_color.c
 PRINTF +=					pf_output_char.c pf_output_double.c
-PRINTF +=					pf_output_noprint.c
+PRINTF +=					pf_ansi_color.c pf_output_noprint.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
 PRINTF +=					pf_output_string.c pf_output_pointer.c
 
@@ -108,41 +110,53 @@ vpath %.c $(PRINTF_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
-	ranlib $@
-	@echo "STATIC LIBRARY CREATED."
+	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
+	@ranlib $@
+	@clear
+	@printf "\e[32m\e[1m[Static library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
 
 $(OBJECTS): | $(OBJDIR)
 
 $(OBJDIR):
-	mkdir -p $@
+	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	$(CC) $(FLAGS) $(O_FLAG) $(HEADERS) -c $< -o $@
+	@printf "\e[94m\e[1m"
+	$(CC) $(DEBUG) $(FLAGS) $(O_FLAG) $(HEADERS) -c $< -o $@
+	@printf "\e[m"
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)
 
 $(DYN_OBJDIR):
-	mkdir -p $@
+	@mkdir -p $@
 
 $(DYN_OBJDIR)%.o: %.c
+	@printf "\e[93m\e[1m"
 	$(CC) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
+	@printf "\e[m"
 
 clean:
-	@/bin/rm -rfv $(OBJDIR)
-	@/bin/rm -rfv $(DYN_OBJDIR)
+	@/bin/rm -rf $(OBJDIR)
+	@/bin/rm -rf $(DYN_OBJDIR)
+	@printf "\e[32m\e[1m[Object files cleaned]\e[m\n"
+
+debug: DEBUG := clang
+debug: DEBUG := -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
+debug: fclean all
 
 fclean: clean
-	@/bin/rm -fv $(NAME)
-	@/bin/rm -fv $(DYN_NAME)
+	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(DYN_NAME)
+	@printf "\e[32m\e[1m[Library cleaned]\e[m\n"
 
 re: fclean all
 
 so: $(DYN_OBJECTS)
-	$(CC) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
-	@echo "DYNAMIC LIBRARY CREATED."
+	@$(CC) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
+	@clear
+	@printf "\e[32m\e[1m[Shared library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
 
-.PHONY: all cat clean fclean re so
+.PHONY: all cat clean debug fclean re so
 
 #################
 ##  WITH LOVE  ##

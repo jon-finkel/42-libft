@@ -5,53 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 11:05:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/05 22:17:01 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/13 09:09:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void			expand_buffer(t_buffer *buffer)
+static void			printf_fill(t_data *data, const char filler,
+					const char *s_filler, size_t n)
 {
-	char		*expand;
-	char		*expanded_buffer;
+	int			k;
 
-	while (*buffer->pf_len > buffer->size_factor * PRINTF_BUFFSIZE)
+	data->pf_len += n;
+	if (data->index + n > PRINTF_BUFFSIZE)
 	{
-		EXIT_PROTECT(expand = ft_strnew(PRINTF_BUFFSIZE));
-		EXIT_PROTECT(expanded_buffer = ft_strjoin(buffer->pf_buffer, expand));
-		free(buffer->pf_buffer);
-		buffer->pf_buffer = expanded_buffer;
-		free(expand);
-		++buffer->size_factor;
+		data->pf_buffer[data->index + 1] = '\0';
+		write(data->fd, data->pf_buffer, data->index);
+		data->index = 0;
+		if (n > PRINTF_BUFFSIZE)
+		{
+			ft_putstr(s_filler);
+			return ;
+		}
+	}
+	if (!s_filler)
+		data->pf_buffer[data->index++] = filler;
+	else
+	{
+		k = -1;
+		while ((unsigned int)++k < n)
+			data->pf_buffer[data->index++] = s_filler[k];
 	}
 }
 
-void				pf_fill_buffer(t_buffer *buffer, const char filler,
-					const char *s_filler, enum e_flags flag)
+static void			sprintf_fill(t_data *data, const char filler,
+					const char *s_filler, size_t n)
 {
 	int			k;
+
+	if (!s_filler && data->index-- > 0)
+		data->pf_buffer[data->pf_len++] = filler;
+	else if (s_filler)
+	{
+		n = MIN(n, data->index);
+		data->index -= n;
+		k = -1;
+		while ((unsigned int)++k < n)
+			data->pf_buffer[data->pf_len++] = s_filler[k];
+	}
+}
+
+static void			asprintf_fill(t_data *data, const char filler,
+					const char *s_filler, size_t n)
+{
+	int			k;
+	size_t		size;
+
+	if (data->pf_len + n > data->realloc_factor * ASPRINTF_BUFFSIZE)
+	{
+		++data->realloc_factor;
+		size = data->realloc_factor * ASPRINTF_BUFFSIZE;
+		data->error = 1;
+		VOID_PROTECT(data->pf_buffer = ft_realloc(data->pf_buffer, size + 1));
+		data->error = 0;
+	}
+	if (!s_filler)
+		data->pf_buffer[data->pf_len++] = filler;
+	else
+	{
+		k = -1;
+		while ((unsigned int)++k < n)
+			data->pf_buffer[data->pf_len++] = s_filler[k];
+	}
+}
+
+void				pf_fill_buffer(t_data *data, const char filler,
+					const char *s_filler, enum e_flags flag)
+{
 	size_t		n;
 
 	n = (s_filler ? ft_strlen(s_filler) : 1);
 	if (flag == NON_PRINT)
-		buffer->non_printable += n;
-	if (buffer->pf_type == PRINTF
-		&& *buffer->pf_len + n > buffer->size_factor * PRINTF_BUFFSIZE)
-		expand_buffer(buffer);
-	if (!s_filler && (buffer->pf_type == PRINTF
-		|| (buffer->pf_type == SPRINTF && buffer->spf_size-- > 0)))
-		buffer->pf_buffer[(*buffer->pf_len)++] = filler;
-	else if (s_filler)
-	{
-		if (flag == SPRINTF)
-		{
-			n = MIN(n, buffer->spf_size);
-			buffer->spf_size -= n;
-		}
-		k = -1;
-		while ((unsigned int)++k < n)
-			buffer->pf_buffer[(*buffer->pf_len)++] = s_filler[k];
-	}
+		data->non_printable += n;
+	if (data->pf_type == PRINTF)
+		return (printf_fill(data, filler, s_filler, n));
+	else if (data->pf_type == SPRINTF)
+		return (sprintf_fill(data, filler, s_filler, n));
+	else
+		return (asprintf_fill(data, filler, s_filler, n));
 }

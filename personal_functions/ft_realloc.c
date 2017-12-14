@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 00:16:35 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 14:20:54 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/12 22:58:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strjoin(const char *s1, const char *s2)
+void			*ft_realloc(void *ptr, size_t size)
 {
-	char		*join;
-	size_t		len_s2;
+	void		*tmp;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len_s2 = ft_strlen(s2);
-	PROTECT(join = ft_strnew(ft_strlen(s1) + len_s2), NULL);
-	join = ft_strcpy(join, s1);
-	join = ft_strncat(join, s2, len_s2);
-	return (join);
+	if (!ptr)
+		PROTECT(ptr = ft_memalloc(sizeof(ptr) * size), ptr);
+	else if (!size && ptr)
+	{
+		PROTECT(tmp = ft_memalloc(1), ptr);
+		free(ptr);
+		ptr = tmp;
+	}
+	else if (size > ft_strlen((char *)ptr))
+	{
+		PROTECT(tmp = ft_memalloc(sizeof(ptr) * size), ptr);
+		ft_memmove(tmp, ptr, size);
+		free(ptr);
+		ptr = tmp;
+	}
+	return (ptr);
 }

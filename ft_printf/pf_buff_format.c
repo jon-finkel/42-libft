@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pf_buff_format.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 11:40:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/08 17:49:35 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/13 16:54:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,77 +34,99 @@ static const struct s_conv		g_conv[] =
 	{'C', &pf_output_char, NULL, LONG}
 };
 
-static void			adjust_range(const char **format, enum e_range *range)
+static const char			*get_range(t_data *data, const char *format)
 {
-	while (**format == 'j' || **format == 'z' || **format == 'l'
-		|| **format == 'h' || **format == 'L')
+	while (*format == 'j' || *format == 'z' || *format == 'l' || *format == 'h')
 	{
-		if (**format == 'j' && *range < INTMAX_T)
-			*range = INTMAX_T;
-		else if (**format == 'z' && *range < SIZE_T)
-			*range = SIZE_T;
-		else if (**format == 'l' && *(*format + 1) == 'l' && *range < LONG_LONG)
-		{
-			++*format;
-			*range = LONG_LONG;
-		}
-		else if (**format == 'l' && *range < LONG)
-			*range = LONG;
-		else if (**format == 'h' && *(*format + 1) == 'h' && *range < CHAR)
-		{
-			++*format;
-			*range = CHAR;
-		}
-		else if (**format == 'h' && *range < SHORT)
-			*range = SHORT;
-		++*format;
+		if (*format == 'j' && data->range < INTMAX_T)
+			data->range = INTMAX_T;
+		else if (*format == 'z' && data->range < SIZE_T)
+			data->range = SIZE_T;
+		else if (*format == 'l' && *(format + 1) == 'l'
+			&& data->range < LONG_LONG && ++format)
+			data->range = LONG_LONG;
+		else if (*format == 'l')
+			data->range = LONG;
+		else if (*format == 'h' && *(format + 1) == 'h'
+			&& data->range < CHAR && ++format)
+			data->range = CHAR;
+		else if (*format == 'h' && data->range < SHORT)
+			data->range = SHORT;
+		++format;
 	}
+	return (format);
 }
 
-static void			print_conversion(t_list *list, const char **format,
-					enum e_range range)
+static const char			*n_conversion(t_data *data, const char *format)
+{
+	int		*ptr;
+
+	ptr = (int *)va_arg(data->ap, void *);
+	if (ptr)
+		*ptr = (int)data->pf_len;
+	return (format + 1);
+}
+
+static const char			*print_conversion(t_data *data, const char *format)
 {
 	int		k;
 
-	adjust_range(format, &range);
-	pf_get_flags(list, format, SECOND);
+	format = get_range(data, format);
+	format = pf_get_flags(data, format, SECOND);
+	if (*format == 'n')
+		return (n_conversion(data, format));
 	k = -1;
 	while (++k < LAST_CONVERSION)
-		if ((unsigned char)**format == (unsigned char)g_conv[k].letter)
+		if ((unsigned char)*format == (unsigned char)g_conv[k].letter)
 		{
-			if (g_conv[k].range != VOID && range != LONG)
-				range = g_conv[k].range;
-			g_conv[k].f(list, g_conv[k].base, range);
+			if (g_conv[k].range != VOID && data->range != LONG)
+				data->range = g_conv[k].range;
+			PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
 			break ;
 		}
 	if (k == LAST_CONVERSION)
-		pf_output_char(list, NULL, CHAR);
-	++*format;
+	{
+		data->range = CHAR;
+		data->c = *format;
+		pf_output_char(data, NULL);
+	}
+	return (format + 1);
 }
 
-void				pf_buff_format(const char *format, t_list *list,
-					t_buffer *buffer)
+static int					control_undefined_behavior(const char *format)
 {
-	int			k;
-	size_t		valid;
+	while (*format == 'j' || *format == 'z' || *format == 'l'
+		|| *format == 'h' || *format == ' ')
+		++format;
+	if (*format == '\0')
+		return (1);
+	return (0);
+}
 
-	valid = ft_strlen(format) - buffer->invalid;
-	k = -1;
-	while (*format && (unsigned int)++k < valid)
+void						pf_buff_format(t_data *data, const char *format)
+{
+	while (format && *format)
 	{
 		while (*format == '{')
-			format = pf_ansi_color(buffer, format, &k);
+			format = pf_ansi_color(data, format);
 		if (*format && *format != '%')
-			pf_fill_buffer(buffer, *format++, NULL, PRINT);
+			pf_fill_buffer(data, *format++, NULL, PRINT);
 		else if (*format == '%' && ++format)
 		{
+			if (control_undefined_behavior(format) == 1)
+				break ;
 			if (*format == '%')
-				pf_fill_buffer(buffer, *format++, NULL, PRINT);
+				pf_fill_buffer(data, *format++, NULL, PRINT);
 			else if (*format)
 			{
-				list = pf_get_flags(list, &format, FIRST);
-				print_conversion(list, &format, INT);
-				list = list->next;
+				data->range = INT;
+				data->c = 0;
+				data->flags = 0;
+				data->field_width = 0;
+				data->precision = INT_MAX;
+				format = pf_get_flags(data, format, FIRST);
+				if (!(format = print_conversion(data, format)))
+					data->error = 1;
 			}
 		}
 	}

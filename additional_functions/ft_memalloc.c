@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 19:56:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/12 21:08:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void			*ft_memalloc(size_t size)
 	PROTECT(data = malloc(size), NULL);
 	k = -1;
 	while ((unsigned int)++k < size)
-		*((char *)data + k) = '\0';
+		*((unsigned char *)data + k) = '\0';
 	return (data);
 }

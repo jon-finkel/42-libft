@@ -5,102 +5,102 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/23 10:48:22 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:59:16 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/12 17:52:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static intmax_t			typecast(t_list *list, enum e_range range)
+static intmax_t			typecast(t_data *data, enum e_range range)
 {
-	if (range == INT)
-		return ((int)((intmax_t)LIST_CONTENT->u_arg.s_nb));
-	else if (range == LONG)
-		return ((long)((intmax_t)LIST_CONTENT->u_arg.s_nb));
+	if (range == LONG)
+		return (va_arg(data->ap, long));
 	else if (range == LONG_LONG)
-		return ((long long)((intmax_t)LIST_CONTENT->u_arg.s_nb));
+		return (va_arg(data->ap, long long));
 	else if (range == INTMAX_T)
-		return ((intmax_t)LIST_CONTENT->u_arg.s_nb);
+		return (va_arg(data->ap, intmax_t));
 	else if (range == SHORT)
-		return ((short)((intmax_t)LIST_CONTENT->u_arg.s_nb));
+		return ((short)va_arg(data->ap, int));
 	else if (range == CHAR)
-		return ((char)((intmax_t)LIST_CONTENT->u_arg.s_nb));
+		return ((char)va_arg(data->ap, int));
 	else if (range == SIZE_T)
-		return ((ssize_t)((intmax_t)LIST_CONTENT->u_arg.s_nb));
-	return (0);
+		return (va_arg(data->ap, size_t));
+	return (va_arg(data->ap, int));
 }
 
-static void				left_field_width(t_list *list, int *precision,
-						enum e_range range)
+static void				left_field_width(t_data *data, int *precision, int neg)
 {
 	int		field_width;
-	int		neg;
 
-	field_width = LIST_CONTENT->field_width - LIST_CONTENT->space;
-	neg = (typecast(list, range) < 0 ? 1 : 0);
+	field_width = data->field_width - (IS_FLAG(SPACE, data->flags) ? 1 : 0);
 	if (neg)
 	{
-		if (LIST_CONTENT->zero == 1 && ++*precision)
-			pf_fill_buffer(PF_BUFFER, '-', NULL, PRINT);
+		if (IS_FLAG(ZERO, data->flags) && ++*precision)
+			pf_fill_buffer(data, '-', NULL, PRINT);
 		else
 			--field_width;
 	}
-	if (!neg && LIST_CONTENT->plus == 1 && LIST_CONTENT->zero == 0)
+	if (!neg && IS_FLAG(PLUS, data->flags) && IS_NOT(ZERO, data->flags))
 		--field_width;
-	if (!LIST_CONTENT->zero)
+	if (IS_NOT(ZERO, data->flags))
 		while (field_width-- > *precision)
-			pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
-	if (!neg && LIST_CONTENT->plus == 1 && ++*precision)
-		pf_fill_buffer(PF_BUFFER, '+', NULL, PRINT);
-	if (LIST_CONTENT->zero)
+			pf_fill_buffer(data, ' ', NULL, PRINT);
+	if (!neg && IS_FLAG(PLUS, data->flags) && ++*precision)
+		pf_fill_buffer(data, '+', NULL, PRINT);
+	if (IS_FLAG(ZERO, data->flags))
 		while (field_width-- > *precision)
-			pf_fill_buffer(PF_BUFFER, '0', NULL, PRINT);
-	if (neg && LIST_CONTENT->zero == 0 && ++*precision)
-		pf_fill_buffer(PF_BUFFER, '-', NULL, PRINT);
+			pf_fill_buffer(data, '0', NULL, PRINT);
+	if (neg && IS_NOT(ZERO, data->flags) && ++*precision)
+		pf_fill_buffer(data, '-', NULL, PRINT);
 }
 
-static void				apply_flags(t_list *list, const char *s,
-						enum e_range range)
+static void				apply_flags(t_data *data, const char *s, intmax_t nb)
 {
 	int			k;
 	int			precision;
 	size_t		len;
 
 	len = ft_strlen(s);
-	if (LIST_CONTENT->precision > 0)
-		LIST_CONTENT->zero = 0;
-	precision = MAX(LIST_CONTENT->precision, (int)len);
+	if (data->precision > 0)
+		UNSET_FLAG(ZERO, data->flags);
+	precision = MAX(data->precision, (int)len);
 	k = precision;
-	if (typecast(list, range) >= 0 && LIST_CONTENT->space == 1)
-		pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
-	left_field_width(list, &precision, range);
-	if (typecast(list, range) >= 0 && LIST_CONTENT->space == 1)
+	if (nb >= 0 && IS_FLAG(SPACE, data->flags))
+		pf_fill_buffer(data, ' ', NULL, PRINT);
+	left_field_width(data, &precision, (nb < 0 ? 1 : 0));
+	if (nb >= 0 && IS_FLAG(SPACE, data->flags))
 		++precision;
 	while ((unsigned int)k-- > len)
-		pf_fill_buffer(PF_BUFFER, '0', NULL, PRINT);
-	pf_fill_buffer(PF_BUFFER, 0, s, PRINT);
-	LIST_CONTENT->field_width = -LIST_CONTENT->field_width;
-	while (LIST_CONTENT->field_width-- > precision)
-		pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
+		pf_fill_buffer(data, '0', NULL, PRINT);
+	pf_fill_buffer(data, 0, s, PRINT);
+	data->field_width = -data->field_width;
+	while (data->field_width-- > precision)
+		pf_fill_buffer(data, ' ', NULL, PRINT);
 }
 
-void					pf_output_signed(t_list *list, const char *base,
-						enum e_range range)
+int						pf_output_signed(t_data *data, const char *base)
 {
 	char			tmp[MAX_LEN_INTMAX_T];
 	int				k;
+	intmax_t		n;
 	intmax_t		nb;
 
+	nb = typecast(data, data->range);
 	k = -1;
-	nb = typecast(list, range);
-	if (nb == 0 && LIST_CONTENT->zero_precision == NATIVE)
+	if (!nb && data->precision)
 		tmp[++k] = '0';
-	while (nb)
+	n = nb;
+	while (n)
 	{
-		tmp[++k] = base[ABS(nb % 10)];
-		nb /= 10;
+		tmp[++k] = base[ABS(n % 10)];
+		n /= 10;
 	}
 	tmp[++k] = '\0';
-	apply_flags(list, ft_strrev(tmp), range);
+	if (IS_NOT(PRECISION_CHANGED, data->flags))
+		data->precision = 0;
+	else if (data->precision >= 0)
+		UNSET_FLAG(ZERO, data->flags);
+	apply_flags(data, ft_strrev(tmp), nb);
+	return (1);
 }

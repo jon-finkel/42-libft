@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:00:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/13 00:16:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static size_t			value_to_trim(const char *s1, const char *s2)
 
 	trim = 0;
 	len = ft_strlen(s1);
-	while (*s1 == ' ' || *s1 == '\t' || *s1 == '\n')
+	while (IS_WHITESPACE(*s1))
 	{
 		++trim;
 		++s1;
 	}
-	while (*s2 == ' ' || *s2 == '\t' || *s2 == '\n')
+	while (IS_WHITESPACE(*s2))
 	{
 		++trim;
 		++s2;
@@ -46,7 +46,7 @@ char					*ft_strtrim(const char *s)
 	len = ft_strlen(s) - value_to_trim(s, rev);
 	ft_strclr(rev);
 	PROTECT(trim = ft_strnew(len), NULL);
-	while (*s == ' ' || *s == '\t' || *s == '\n')
+	while (IS_WHITESPACE(*s))
 		++s;
 	while (len--)
 	{

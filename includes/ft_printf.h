@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/08 17:48:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/13 16:44:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,29 @@
 # include "./libft.h"
 
 # define PRINTF_BUFFSIZE 4096
+# define ASPRINTF_BUFFSIZE 128
 
 # define LAST_COLOR 17
 # define LAST_CONVERSION 18
-# define LAST_RANGE 6
-# define LAST_TYPE (LAST_CONVERSION + 1)
 # define MAX_LEN_INTMAX_T 20
 # define MAX_LEN_BINARY_UINTMAX_T 64
-
-# define LIST_CONTENT ((t_args *)(list->content))
-# define NEXT_CONTENT ((t_args *)(list->next->content))
-# define N_LIST_CONTENT ((t_args *)(n_list->content))
-# define PF_BUFFER (((t_args *)(list->content))->buffer)
+# define MAX_LEN_POINTER 18
 
 enum				e_flags
 {
-	FIELD_WIDTH,
-	PRECISION,
+	ALTERNATE = 1,
+	NEGATIVE = 2,
+	PLUS = 4,
+	SPACE = 8,
+	ZERO = 16,
+	PRECISION_CHANGED = 32,
 	FIRST,
 	SECOND,
-	NATIVE,
-	MODIFIED,
-	LEFT,
-	RIGHT,
 	PRINT,
 	NON_PRINT,
 	PRINTF,
-	SPRINTF
-};
-
-enum				e_type
-{
-	END,
-	NOT_FLAG,
-	SIGNED_ARG,
-	UNSIGNED_ARG,
-	DOUBLE_ARG,
-	POINTER
+	SPRINTF,
+	ASPRINTF
 };
 
 enum				e_range
@@ -67,36 +53,23 @@ enum				e_range
 	INTMAX_T = 7
 };
 
-typedef struct		s_buffer
+typedef struct		s_data
 {
-	char			*pf_buffer;
-	size_t			*pf_len;
 	enum e_flags	pf_type;
-	size_t			invalid;
+	char			*pf_buffer;
+	size_t			realloc_factor;
+	size_t			pf_len;
+	int				fd;
+	size_t			index;
 	size_t			non_printable;
-	size_t			spf_size;
-	unsigned int	size_factor;
-}					t_buffer;
-
-typedef struct		s_args
-{
-	void			*arg_data;
-	union
-	{
-		double		d_nb;
-		intmax_t	s_nb;
-		uintmax_t	u_nb;
-	}				u_arg;
-	char			alternate_form;
-	char			negative;
-	char			plus;
-	char			space;
-	char			zero;
+	enum e_range	range;
+	char			error;
+	char			c;
+	char			flags;
 	int				field_width;
 	int				precision;
-	enum e_flags	zero_precision;
-	t_buffer		*buffer;
-}					t_args;
+	va_list			ap;
+}					t_data;
 
 struct				s_color
 {
@@ -108,40 +81,23 @@ struct				s_color
 struct				s_conv
 {
 	char			letter;
-	void			(*f)(t_list *, const char *, enum e_range);
+	int				(*f)(t_data *, const char *);
 	const char		*base;
 	enum e_range	range;
 };
 
-struct				s_type
-{
-	char			letter;
-	enum e_type		data_type;
-};
-
-void				pf_fill_buffer(t_buffer *buffer, const char filler,
+void				pf_fill_buffer(t_data *data, const char filler,
 					const char *s_filler, enum e_flags flag);
-t_list				*pf_get_flags(t_list *list, const char **format,
+const char			*pf_get_flags(t_data *data, const char *format,
 					enum e_flags flag);
-const char			*pf_ansi_color(t_buffer *buffer, const char *format,
-					int *k);
-void				pf_buff_format(const char *format, t_list *list,
-					t_buffer *buffer);
-void				pf_initialize_list(t_list **alist, t_buffer *buffer,
-					const char *format, va_list ap);
-void				pf_output_char(t_list *list, const char *base,
-					enum e_range range);
-void				pf_output_double(t_list *list, const char *base,
-					enum e_range range);
-void				pf_output_noprint(t_list *list, const char *base,
-					enum e_range range);
-void				pf_output_pointer(t_list *list, const char *base,
-					enum e_range range);
-void				pf_output_signed(t_list *list, const char *base,
-					enum e_range range);
-void				pf_output_string(t_list *list, const char *ph,
-					enum e_range range);
-void				pf_output_unsigned(t_list *list, const char *base,
-					enum e_range range);
+const char			*pf_ansi_color(t_data *data, const char *format);
+void				pf_buff_format(t_data *data, const char *format);
+int					pf_output_char(t_data *data, const char *base);
+int					pf_output_double(t_data *data, const char *base);
+int					pf_output_noprint(t_data *data, const char *base);
+int					pf_output_pointer(t_data *data, const char *base);
+int					pf_output_signed(t_data *data, const char *base);
+int					pf_output_string(t_data *data, const char *sub);
+int					pf_output_unsigned(t_data *data, const char *base);
 
 #endif

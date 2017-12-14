@@ -6,51 +6,33 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/08 17:48:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/13 16:46:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static t_buffer			*initialize_buffer(char *str, size_t size, size_t *len)
+int			ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
 {
-	t_buffer		*buffer;
+	static t_data		*data = NULL;
 
-	EXIT_PROTECT(buffer = (t_buffer *)malloc(sizeof(t_buffer)));
-	buffer->pf_buffer = str;
-	buffer->pf_len = len;
-	buffer->spf_size = size - 1;
-	buffer->pf_type = SPRINTF;
-	buffer->invalid = 0;
-	buffer->non_printable = 0;
-	return (buffer);
-}
-
-int						ft_vsnprintf(char *str, size_t size, const char *format,
-						va_list ap)
-{
-	size_t			len;
-	t_buffer		*buffer;
-	t_list			*list;
-	t_list			*tmp;
-
-	if (!size || !format)
-		return (!size ? 0 : -1);
+	if (!size)
+		return (0);
 	ft_strclr(str);
-	len = 0;
-	list = NULL;
-	buffer = initialize_buffer(str, size, &len);
-	pf_initialize_list(&list, buffer, format, ap);
-	pf_buff_format(format, list, buffer);
-	buffer->pf_buffer[*buffer->pf_len] = '\0';
-	len -= buffer->non_printable;
-	while (list)
+	if (!data)
 	{
-		tmp = list->next;
-		free(LIST_CONTENT);
-		free(list);
-		list = tmp;
+		PROTECT(data = (t_data *)malloc(sizeof(t_data)), -1);
+		data->pf_type = SPRINTF;
 	}
-	free(buffer);
-	return ((int)len);
+	data->pf_buffer = str;
+	data->pf_len = 0;
+	data->error = 0;
+	data->index = size - 1;
+	data->non_printable = 0;
+	va_copy(data->ap, ap);
+	pf_buff_format(data, format);
+	data->pf_buffer[data->pf_len] = '\0';
+	data->pf_len -= data->non_printable;
+	va_end(data->ap);
+	return (data->error ? -1 : (int)data->pf_len);
 }

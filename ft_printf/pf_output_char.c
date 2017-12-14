@@ -5,69 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 21:03:53 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/28 17:37:01 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/13 17:22:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void			apply_field_width(t_list *list, enum e_flags flag)
+static wchar_t			adjust_field_width(t_data *data, int *width)
 {
-	char		c;
-	int			field_width;
+	wchar_t		wc;
 
-	c = (LIST_CONTENT->zero ? '0' : ' ');
-	field_width = LIST_CONTENT->field_width;
-	if (flag == LEFT)
-		while (field_width > 1)
-		{
-			pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
-			--field_width;
-		}
-	if (flag == RIGHT)
-	{
-		field_width = -field_width;
-		while (field_width > 1)
-		{
-			pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
-			--field_width;
-		}
-	}
+	wc = va_arg(data->ap, wchar_t);
+	if (FOUR_BYTES_UNICODE(wc))
+		*width = 4;
+	else if (THREE_BYTES_UNICODE(wc))
+		*width = 3;
+	else if (TWO_BYTES_UNICODE(wc))
+		*width = 2;
+	else
+		*width = 1;
+	return (wc);
 }
 
-static void			output_wide_char(t_list *list, int c)
+static void				apply_left_field_width(t_data *data, int width)
 {
+	char	filler;
+	int		field_width;
+
+	if (data->field_width < 0)
+		UNSET_FLAG(ZERO, data->flags);
+	field_width = data->field_width;
+	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
+	while (field_width-- > (data->range == LONG ? width : 1))
+		pf_fill_buffer(data, filler, NULL, PRINT);
+}
+
+static int				output_wide_char(t_data *data, int c)
+{
+	if (c < 0 || c > 0x10ffff
+		|| (MB_CUR_MAX == 1 && c > 0xff && c <= 0x10ffff)
+		|| (c >= 0xd800 && c <= 0xdb7f) || (c >= 0xdb80 && c < 0xdbff))
+		return (0);
 	if (c >= 0 && c < 128)
-		pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
+		pf_fill_buffer(data, c, NULL, PRINT);
 	if (FOUR_BYTES_UNICODE(c))
 	{
-		pf_fill_buffer(PF_BUFFER, FOUR_BYTES_UNICODE_HEAD(c), NULL, PRINT);
-		pf_fill_buffer(PF_BUFFER, THREE_BYTES_UNICODE_BODY(c), NULL, PRINT);
+		pf_fill_buffer(data, FOUR_BYTES_UNICODE_HEAD(c), NULL, PRINT);
+		pf_fill_buffer(data, THREE_BYTES_UNICODE_BODY(c), NULL, PRINT);
 	}
 	if (THREE_BYTES_UNICODE(c))
-		pf_fill_buffer(PF_BUFFER, THREE_BYTES_UNICODE_HEAD(c), NULL, PRINT);
+		pf_fill_buffer(data, THREE_BYTES_UNICODE_HEAD(c), NULL, PRINT);
 	if (THREE_OR_MORE_BYTES_UNICODE(c))
-		pf_fill_buffer(PF_BUFFER, TWO_BYTES_UNICODE_BODY(c), NULL, PRINT);
+		pf_fill_buffer(data, TWO_BYTES_UNICODE_BODY(c), NULL, PRINT);
 	if (TWO_BYTES_UNICODE(c))
-		pf_fill_buffer(PF_BUFFER, TWO_BYTES_UNICODE_HEAD(c), NULL, PRINT);
+		pf_fill_buffer(data, TWO_BYTES_UNICODE_HEAD(c), NULL, PRINT);
 	if (TWO_OR_MORE_BYTES_UNICODE(c))
-		pf_fill_buffer(PF_BUFFER, UNICODE_TAIL(c), NULL, PRINT);
+		pf_fill_buffer(data, UNICODE_TAIL(c), NULL, PRINT);
+	return (1);
 }
 
-void				pf_output_char(t_list *list, const char *base,
-					enum e_range range)
+int						pf_output_char(t_data *data, const char *base)
 {
-	unsigned char		c;
+	int					field_width;
+	int					width;
+	wchar_t				wc;
 
 	(void)base;
-	apply_field_width(list, LEFT);
-	if (range == LONG)
-		output_wide_char(list, (int)LIST_CONTENT->u_arg.u_nb);
+	if (data->range == LONG)
+		wc = adjust_field_width(data, &width);
+	apply_left_field_width(data, (data->range == LONG ? width : 1));
+	if (data->range == LONG)
+		PROTECT(output_wide_char(data, wc), 0);
 	else
 	{
-		c = (unsigned char)LIST_CONTENT->u_arg.u_nb;
-		pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
+		if (data->range == CHAR)
+			pf_fill_buffer(data, data->c, NULL, PRINT);
+		else
+			pf_fill_buffer(data, (char)va_arg(data->ap, int), NULL, PRINT);
 	}
-	apply_field_width(list, RIGHT);
+	field_width = -data->field_width;
+	while (field_width-- > (data->range == LONG ? width : 1))
+		pf_fill_buffer(data, ' ', NULL, PRINT);
+	return (1);
 }

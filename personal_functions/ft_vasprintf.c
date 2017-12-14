@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
+/*   ft_vasprintf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 16:50:18 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/13 16:45:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int			ft_vdprintf(int fd, const char *format, va_list ap)
+int			ft_vasprintf(char **ret, const char *format, va_list ap)
 {
-	char				buff[PRINTF_BUFFSIZE + 1];
 	static t_data		*data = NULL;
 
+	if (!ret)
+		return (0);
 	if (!data)
 	{
 		PROTECT(data = (t_data *)malloc(sizeof(t_data)), -1);
-		data->pf_type = PRINTF;
+		data->pf_type = ASPRINTF;
 	}
-	data->pf_buffer = buff;
+	PROTECT(data->pf_buffer = ft_strnew(ASPRINTF_BUFFSIZE), -1);
 	data->pf_len = 0;
-	data->fd = fd;
+	data->realloc_factor = 1;
 	data->error = 0;
-	data->index = 0;
 	data->non_printable = 0;
 	va_copy(data->ap, ap);
 	pf_buff_format(data, format);
-	write(fd, data->pf_buffer, data->index);
+	*ret = data->pf_buffer;
 	data->pf_len -= data->non_printable;
 	va_end(data->ap);
 	return (data->error ? -1 : (int)data->pf_len);

@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 21:05:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 21:03:08 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/13 18:24:25 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/13 19:21:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void			*ft_memcpy(void *restrict dst, const void *restrict src,
-				size_t n)
+char			*ft_getenv(const char *name)
 {
+	char		*buff;
+	char		**env;
 	int			k;
+	size_t		len;
 
+	buff = NULL;
+	env = g_environ;
+	len = ft_strlen(name);
 	k = -1;
-	while ((unsigned int)++k < n)
-		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
-	return (dst);
+	while (env[++k])
+		if (ft_strnequ((char *)(env[k]), name, len))
+			PROTECT(ft_asprintf(&buff, "%s", ft_strchr(env[k], '=') + 1), NULL);
+	return (buff);
 }

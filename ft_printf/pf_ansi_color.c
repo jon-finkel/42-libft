@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 18:21:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:54:57 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/10 21:43:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,26 @@ static int			check_end_of_color_flag(const char *format)
 	return (0);
 }
 
-const char			*pf_ansi_color(t_buffer *buffer, const char *format, int *k)
+const char			*pf_ansi_color(t_data *data, const char *format)
 {
-	int		p;
+	int		k;
 
-	p = -1;
-	while (++p < LAST_COLOR)
-		if (ft_strnequ(format, g_color[p].flag, g_color[p].len) == 1)
+	k = -1;
+	while (++k < LAST_COLOR)
+		if (ft_strnequ(format, g_color[k].flag, g_color[k].len) == 1)
 		{
 			if (!check_end_of_color_flag(format))
 			{
-				p = LAST_COLOR;
+				k = LAST_COLOR;
 				break ;
 			}
-			pf_fill_buffer(buffer, 0, g_color[p].code, NON_PRINT);
-			format += g_color[p].len;
-			*k += g_color[p].len;
+			pf_fill_buffer(data, 0, g_color[k].code, NON_PRINT);
+			format += g_color[k].len;
 			break ;
 		}
-	if (p == LAST_COLOR)
+	if (k == LAST_COLOR)
 	{
-		pf_fill_buffer(buffer, '{', NULL, PRINT);
+		pf_fill_buffer(data, '{', NULL, PRINT);
 		++format;
 	}
 	return (format);

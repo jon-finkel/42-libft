@@ -5,61 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/23 10:49:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:05:49 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/11 23:13:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void			apply_field_width(t_list *list, char *address)
+static void			apply_field_width(t_data *data, char *address)
 {
 	int			field_width;
 	size_t		len;
 
-	field_width = LIST_CONTENT->field_width;
+	field_width = data->field_width;
 	len = ft_strlen(address);
-	if (LIST_CONTENT->field_width > 0)
+	if (data->field_width > 0)
 		while ((unsigned int)field_width-- > len)
-			pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
-	pf_fill_buffer(PF_BUFFER, 0, address, PRINT);
-	free(address);
-	address = NULL;
-	if (LIST_CONTENT->field_width < 0)
+			pf_fill_buffer(data, ' ', NULL, PRINT);
+	pf_fill_buffer(data, 0, address, PRINT);
+	if (data->field_width < 0)
 	{
 		field_width = -field_width;
 		while ((unsigned int)field_width-- > len)
-			pf_fill_buffer(PF_BUFFER, ' ', NULL, PRINT);
+			pf_fill_buffer(data, ' ', NULL, PRINT);
 	}
 }
 
-static void			apply_zero_width(t_list *list, char *s, size_t len)
+static void			apply_zero_width(t_data *data, char *s, size_t len)
 {
-	char		*address;
+	char		address[MAX_LEN_POINTER];
 	int			k;
 	int			zero_width;
 
-	EXIT_PROTECT(address = ft_strnew(LIST_CONTENT->field_width));
-	zero_width = LIST_CONTENT->field_width - len - 2;
+	zero_width = data->field_width - len - 2;
 	k = -1;
 	address[++k] = '0';
 	address[++k] = 'x';
 	while (zero_width-- > 0)
 		address[++k] = '0';
 	ft_strcpy(address + k + 1, s);
-	pf_fill_buffer(PF_BUFFER, 0, address, PRINT);
-	free(address);
+	pf_fill_buffer(data, 0, address, PRINT);
 }
 
-static void			apply_precision(t_list *list, char *s, int precision,
+static void			apply_precision(t_data *data, char *s, int precision,
 					size_t len)
 {
-	char		*address;
+	char		address[MAX_LEN_POINTER];
 	int			k;
 
-	if (LIST_CONTENT->zero == 1 && LIST_CONTENT->field_width > (int)len + 2)
-		return (apply_zero_width(list, s, len));
-	EXIT_PROTECT(address = ft_strnew(precision + 2));
+	if (IS_FLAG(ZERO, data->flags) && data->field_width > (int)len + 2)
+		return (apply_zero_width(data, s, len));
 	precision -= len;
 	k = -1;
 	address[++k] = '0';
@@ -67,28 +62,27 @@ static void			apply_precision(t_list *list, char *s, int precision,
 	while (precision-- > 0)
 		address[++k] = '0';
 	ft_strcpy(address + k + 1, s);
-	apply_field_width(list, address);
+	apply_field_width(data, address);
 }
 
-void				pf_output_pointer(t_list *list, const char *base,
-					enum e_range range)
+int					pf_output_pointer(t_data *data, const char *base)
 {
 	char			tmp[MAX_LEN_INTMAX_T];
 	int				k;
-	int				prec;
-	intptr_t		nb;
+	int				precision;
+	uintmax_t		nb;
 
-	(void)range;
-	nb = (intptr_t)LIST_CONTENT->arg_data;
+	nb = (uintmax_t)va_arg(data->ap, intptr_t);
 	k = -1;
-	if (!nb && LIST_CONTENT->zero_precision == NATIVE)
+	if (!nb && data->precision)
 		tmp[++k] = '0';
-	while (nb > 0)
+	while (nb)
 	{
 		tmp[++k] = base[nb % 16];
 		nb /= 16;
 	}
 	tmp[++k] = '\0';
-	prec = (LIST_CONTENT->precision != INT_MAX ? LIST_CONTENT->precision : 0);
-	apply_precision(list, ft_strrev(tmp), prec, ft_strlen(tmp));
+	precision = (data->precision != INT_MAX ? data->precision : 0);
+	apply_precision(data, ft_strrev(tmp), precision, ft_strlen(tmp));
+	return (1);
 }

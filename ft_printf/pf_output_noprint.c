@@ -5,40 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 21:03:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:05:17 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/12 20:55:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void			apply_field_width(t_list *list, int precision,
-					enum e_flags flag)
-{
-	char		c;
-	int			field_width;
-
-	c = (LIST_CONTENT->zero ? '0' : ' ');
-	field_width = LIST_CONTENT->field_width;
-	if (flag == LEFT)
-		while (field_width > precision)
-		{
-			pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
-			--field_width;
-		}
-	else if (flag == RIGHT)
-	{
-		field_width = -field_width;
-		while (field_width > precision)
-		{
-			pf_fill_buffer(PF_BUFFER, c, NULL, PRINT);
-			--field_width;
-		}
-	}
-}
-
-static void			copy_string(char *dst, char *src, int precision,
-					const char *base)
+static void			copy_string(char *dst, char *src, const char *base,
+					int precision)
 {
 	while (*src && precision)
 	{
@@ -58,31 +33,51 @@ static void			copy_string(char *dst, char *src, int precision,
 	}
 }
 
-void				pf_output_noprint(t_list *list, const char *base,
-					enum e_range range)
+static void			apply_left_field_width(t_data *data, int precision)
 {
+	char		filler;
+	int			field_width;
+
+	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
+	field_width = data->field_width;
+	while (field_width-- > precision)
+		pf_fill_buffer(data, filler, NULL, PRINT);
+}
+
+static void			apply_right_field_width(t_data *data, int precision)
+{
+	int			field_width;
+
+	field_width = -data->field_width;
+	while (field_width-- > precision)
+		pf_fill_buffer(data, ' ', NULL, PRINT);
+}
+
+int					pf_output_noprint(t_data *data, const char *base)
+{
+	char		*begin;
 	char		*string;
 	int			precision;
 	size_t		len;
 
-	(void)range;
-	if (!(char *)LIST_CONTENT->arg_data)
-		return (pf_output_string(list, NULL, VOID));
-	string = (char *)LIST_CONTENT->arg_data;
+	string = va_arg(data->ap, char *);
+	string = (!string ? "(null)" : string);
+	begin = string;
 	precision = 0;
 	len = 0;
 	while (*string && ++string && ++len)
 	{
-		if (ft_isprint(*(string - 1)) && (int)len <= LIST_CONTENT->precision)
+		if (ft_isprint(*(string - 1)) && (int)len <= data->precision)
 			++precision;
 		if (!ft_isprint(*(string - 1)) && (len += 4))
-			if ((int)len <= LIST_CONTENT->precision)
+			if ((int)len <= data->precision)
 				precision += 5;
 	}
 	EXIT_PROTECT(string = ft_strnew(precision));
-	copy_string(string, (char *)LIST_CONTENT->arg_data, precision, base);
-	apply_field_width(list, precision, LEFT);
-	pf_fill_buffer(PF_BUFFER, 0, string, PRINT);
-	apply_field_width(list, precision, RIGHT);
+	copy_string(string, begin, base, precision);
+	apply_left_field_width(data, precision);
+	pf_fill_buffer(data, 0, string, PRINT);
+	apply_right_field_width(data, precision);
 	free(string);
+	return (1);
 }

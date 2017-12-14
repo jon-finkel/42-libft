@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 00:16:35 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/09 15:31:06 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/09 22:25:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strjoin(const char *s1, const char *s2)
+void			ft_lstaddend(t_list **alst, t_list *newlink)
 {
-	char		*join;
-	size_t		len_s2;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len_s2 = ft_strlen(s2);
-	PROTECT(join = ft_strnew(ft_strlen(s1) + len_s2), NULL);
-	join = ft_strcpy(join, s1);
-	join = ft_strncat(join, s2, len_s2);
-	return (join);
+	if (!*alst)
+	{
+		*alst = newlink;
+		return ;
+	}
+	while ((*alst)->next)
+		*alst = (*alst)->next;
+	(*alst)->next = newlink;
 }

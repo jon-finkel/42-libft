@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/08 19:19:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/13 19:20:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,29 @@
 # include <unistd.h>
 # include <stdarg.h>
 
+/*
+** Bitmap flags macros
+*/
+# define SET_FLAG(x, y) ((y) |= (x))
+# define UNSET_FLAG(x, y) ((y) &= ~(x))
+# define IS_FLAG(x, y) (((y) & (x)) == (x))
+# define IS_NOT(x, y) (!((y) & (x)))
+
+/*
+** General evaluation macros
+*/
+# define IS_WHITESPACE(x) ((x) == ' ' || (x) == '\n' || (x) == '\t')
+
+/*
+** Math macros
+*/
 # define ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
 # define MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
 # define MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
+
+/*
+** Protection macros
+*/
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define VOID_PROTECT(x) ({if(!(x)) return;})
@@ -40,6 +60,8 @@
 # define TWO_BYTES_UNICODE_HEAD(x) (x >> 6 | 0xC0)
 # define TWO_BYTES_UNICODE_BODY(x) ((x >> 6 & 0x3F) | 0x80)
 # define UNICODE_TAIL(x) ((x & 0x3F) | 0x80)
+
+extern char			**g_environ;
 
 typedef struct		s_list
 {
@@ -101,6 +123,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
+void				*ft_realloc(void *ptr, size_t size);
 
 /*
 **##############################
@@ -108,6 +131,7 @@ void				*ft_memset(void *b, int c, size_t len);
 **##############################
 */
 void				ft_lstadd(t_list **alst, t_list *newlink);
+void				ft_lstaddend(t_list **alst, t_list *newlink);
 void				ft_lstclear(void *data, size_t size);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -116,17 +140,21 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(const void *content, size_t content_size);
 size_t				ft_lstsize(t_list *list);
+void				ft_lstsnipe(t_list **alst, t_list *target,
+					void (*del)(void *, size_t));
 
 /*
 **##############################
 **##       Input output       ##
 **##############################
 */
+int					ft_asprintf(char **ret, const char *format, ...);
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 int					ft_snprintf(char *str, size_t size, const char *format,
 					...);
 int					ft_sprintf(char *str, const char *format, ...);
+int					ft_vasprintf(char **ret, const char *format, va_list ap);
 int					ft_vdprintf(int fd, const char *format, va_list ap);
 int					ft_vprintf(const char *format, va_list ap);
 int					ft_vsprintf(char *str, const char *format, va_list ap);
@@ -162,5 +190,12 @@ int					ft_isprint(int c);
 int					ft_isupper(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+
+/*
+**##############################
+**##      API  functions      ##
+**##############################
+*/
+char				*ft_getenv(const char *name);
 
 #endif
