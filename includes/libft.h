@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 20:56:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 21:05:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
-# define VOID_PROTECT(x) ({if(!(x)) return;})
 # define CONTINUE(x) ({if(!(x)) continue;})
 # define NEG_CONTINUE(x) ({if((x) == -1) continue;})
 
@@ -88,7 +87,7 @@ char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *const s);
 char				*ft_strrevcpy(const char *const s);
-void				ft_strrewrite(char *big, const char *little,
+int					ft_strrewrite(char *big, const char *little,
 					const char *filler);
 char				**ft_strsplit(const char *s, char c);
 char				*ft_strstr(const char *big, const char *little);
