@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 19:20:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 12:05:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,8 +170,6 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(const char *s);
 void				ft_putstr_fd(const char *s, int fd);
-void				ft_putuchar(int c);
-void				ft_putuchar_fd(int c, const int fd);
 
 int					get_next_line(const int fd, char **line);
 
@@ -180,7 +178,6 @@ int					get_next_line(const int fd, char **line);
 **##  Character manipulation  ##
 **##############################
 */
-int					ft_invert(int c);
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
