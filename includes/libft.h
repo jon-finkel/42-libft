@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 21:05:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 21:12:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@
 # define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
 # define CONTINUE(x) ({if(!(x)) continue;})
 # define NEG_CONTINUE(x) ({if((x) == -1) continue;})
+
+# define ERRMSG(x, y) (ft_dprintf(STDERR_FILEO, (x)); return (y);)
 
 typedef struct		s_list
 {
