@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/14 12:03:52 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/14 15:35:39 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,11 +81,11 @@ PERSONAL +=					ft_snprintf.c ft_vsnprintf.c
 PERSONAL +=					ft_sprintf.c ft_vsprintf.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c ft_strrewrite.c
 PERSONAL +=					get_next_line.c
-PRINTF +=					pf_ansi_color.c pf_buff_format.c
+PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
-PRINTF +=					pf_output_double.c pf_output_noprint.c
-PRINTF +=					pf_output_pointer.c
+PRINTF +=					pf_output_extras.c pf_output_noprint.c
+PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))

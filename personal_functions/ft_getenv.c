@@ -6,25 +6,51 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:24:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 19:21:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 15:30:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_getenv(const char *name)
+static char			**get_environ(char **environ)
 {
-	char		*buff;
 	char		**env;
-	int			k;
 	size_t		len;
 
+	len = 0;
+	while (environ[len])
+		++len;
+	PROTECT(env = (char **)malloc(sizeof(char *) * (len + 1)), NULL);
+	len = 0;
+	while (environ[len])
+	{
+		PROTECT(env[len] = ft_strnew(ft_strlen(environ[len])), NULL);
+		ft_strcpy(env[len], environ[len]);
+		++len;
+	}
+	return (env);
+}
+
+char				*ft_getenv(const char *name)
+{
+	char			*buff;
+	char			**env;
+	extern char		**environ;
+	int				k;
+	size_t			len;
+
 	buff = NULL;
-	env = g_environ;
+	if (!environ || !name)
+		return (NULL);
+	PROTECT(env = get_environ(environ), NULL);
 	len = ft_strlen(name);
 	k = -1;
 	while (env[++k])
 		if (ft_strnequ((char *)(env[k]), name, len))
 			PROTECT(ft_asprintf(&buff, "%s", ft_strchr(env[k], '=') + 1), NULL);
+	k = -1;
+	while (env[++k])
+		free(env[k]);
+	free(env);
 	return (buff);
 }

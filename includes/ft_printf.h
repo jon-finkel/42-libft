@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 16:44:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 15:22:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@
 # define MAX_LEN_INTMAX_T 20
 # define MAX_LEN_BINARY_UINTMAX_T 64
 # define MAX_LEN_POINTER 18
+
+# define FOUR_BYTES_UNICODE(x) (x >= 0x10000 && x <= 0x10FFFF)
+# define THREE_BYTES_UNICODE(x) (x >= 0x800 && x < 0x10000)
+# define TWO_BYTES_UNICODE(x) (x >= 0x80 && x < 0x800)
+# define THREE_OR_MORE_BYTES_UNICODE(x) (x >= 0x800 && x <= 0x10FFFF)
+# define TWO_OR_MORE_BYTES_UNICODE(x) (x >= 0x80 && x <= 0x10FFFF)
+# define FOUR_BYTES_UNICODE_HEAD(x) (x >> 18 | 0xF0)
+# define THREE_BYTES_UNICODE_HEAD(x) (x >> 12 | 0xE0)
+# define THREE_BYTES_UNICODE_BODY(x) ((x >> 12 & 0x3F) | 0x80)
+# define TWO_BYTES_UNICODE_HEAD(x) (x >> 6 | 0xC0)
+# define TWO_BYTES_UNICODE_BODY(x) ((x >> 6 & 0x3F) | 0x80)
+# define UNICODE_TAIL(x) ((x & 0x3F) | 0x80)
 
 enum				e_flags
 {
@@ -94,10 +106,11 @@ const char			*pf_ansi_color(t_data *data, const char *format);
 void				pf_buff_format(t_data *data, const char *format);
 int					pf_output_char(t_data *data, const char *base);
 int					pf_output_double(t_data *data, const char *base);
+const char			*pf_output_extras(t_data *data, const char *format);
 int					pf_output_noprint(t_data *data, const char *base);
 int					pf_output_pointer(t_data *data, const char *base);
 int					pf_output_signed(t_data *data, const char *base);
-int					pf_output_string(t_data *data, const char *sub);
+int					pf_output_string(t_data *data, const char *base);
 int					pf_output_unsigned(t_data *data, const char *base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 16:54:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 15:21:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,14 @@ static const char			*get_range(t_data *data, const char *format)
 	return (format);
 }
 
-static const char			*n_conversion(t_data *data, const char *format)
-{
-	int		*ptr;
-
-	ptr = (int *)va_arg(data->ap, void *);
-	if (ptr)
-		*ptr = (int)data->pf_len;
-	return (format + 1);
-}
-
 static const char			*print_conversion(t_data *data, const char *format)
 {
 	int		k;
 
 	format = get_range(data, format);
 	format = pf_get_flags(data, format, SECOND);
-	if (*format == 'n')
-		return (n_conversion(data, format));
+	if (*format == 'n' || *format == 'v')
+		return (pf_output_extras(data, format));
 	k = -1;
 	while (++k < LAST_CONVERSION)
 		if ((unsigned char)*format == (unsigned char)g_conv[k].letter)

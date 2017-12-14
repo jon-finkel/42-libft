@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 12:05:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/14 15:07:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,6 @@
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define VOID_PROTECT(x) ({if(!(x)) return;})
-
-/*
-** UTF-8 charset defines
-*/
-# define FOUR_BYTES_UNICODE(x) (x >= 0x10000 && x <= 0x10FFFF)
-# define THREE_BYTES_UNICODE(x) (x >= 0x800 && x < 0x10000)
-# define TWO_BYTES_UNICODE(x) (x >= 0x80 && x < 0x800)
-# define THREE_OR_MORE_BYTES_UNICODE(x) (x >= 0x800 && x <= 0x10FFFF)
-# define TWO_OR_MORE_BYTES_UNICODE(x) (x >= 0x80 && x <= 0x10FFFF)
-# define FOUR_BYTES_UNICODE_HEAD(x) (x >> 18 | 0xF0)
-# define THREE_BYTES_UNICODE_HEAD(x) (x >> 12 | 0xE0)
-# define THREE_BYTES_UNICODE_BODY(x) ((x >> 12 & 0x3F) | 0x80)
-# define TWO_BYTES_UNICODE_HEAD(x) (x >> 6 | 0xC0)
-# define TWO_BYTES_UNICODE_BODY(x) ((x >> 6 & 0x3F) | 0x80)
-# define UNICODE_TAIL(x) ((x & 0x3F) | 0x80)
-
-extern char			**g_environ;
 
 typedef struct		s_list
 {
