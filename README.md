@@ -16,7 +16,7 @@ As you can see from the [Project instructions][1], there are 4 sections:
 
 1.  **Libc Functions:** Some of the standard C functions.
 2.  **Additional functions:** Functions 42 deems will be useful for later projects.
-3.  **LinkedList Functions:** Linked list manipulation functions 42 deems will be useful, plus few of my owns.
+3.  **LinkedList Functions:** Linked list manipulation functions 42 deems will be useful, plus few of my own.
 4.  **Personal Functions:** Functions I made that are or will be useful to me. [Documented here][3].
 
 Libc functions | Additional functions | LinkedList functions | Personal functions
@@ -58,6 +58,6 @@ Notes:
 - You can run a "make" to create a static library, and a "make so" to create a shared library.
 - This repository shall be updated everytime there is a function I deem useful to be added to the library. If you don't know what a function does, refer to the [Project instructions][1] for additional and bonus functions, or the [Wiki][3], where I document all the personal ones.
 
-[1]: https://github.com/jon-nimrod/42-libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
+[1]: https://github.com/jon-nimrod/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
 [2]: http://42.us.org "42 Silicon Valley"
-[3]: https://github.com/jon-nimrod/42-libft/wiki
+[3]: https://github.com/jon-nimrod/libft/wiki
