@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/14 17:13:50 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/14 17:28:16 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,9 +121,7 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	@printf "\e[94m\e[1m"
 	$(CC) $(DEBUG) $(FLAGS) $(O_FLAG) $(HEADERS) -c $< -o $@
-	@printf "\e[m"
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)
 
