@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:41:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:09:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:26:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char			*ft_strrchr(const char *s, int c)
 	}
 	if (!(char)c)
 		return ((char *)s);
-	return ((last) ? last : NULL);
+	return (last);
 }
