@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 17:02:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 19:46:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./ft_printf_private.h"
 
 static uintmax_t			typecast(t_data *data, enum e_range range)
 {

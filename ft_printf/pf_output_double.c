@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 17:00:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 19:45:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./ft_printf_private.h"
 
 static int			map_precision(t_data *data, const char *base, char *buff,
 					double nb)

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_private.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/16 18:17:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 15:22:21 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/15 19:42:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_PRIVATE_H
+# define FT_PRINTF_PRIVATE_H
 
-# include "./libft.h"
+# include "../includes/libft.h"
 
 # define PRINTF_BUFFSIZE 4096
 # define ASPRINTF_BUFFSIZE 128

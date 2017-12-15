@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/15 08:24:45 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/15 20:05:12 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,15 +72,16 @@ LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
-PERSONAL +=					ft_asprintf.c ft_vasprintf.c
-PERSONAL +=					ft_dprintf.c ft_vdprintf.c
-PERSONAL +=					ft_getenv.c ft_intlen.c ft_kill.c ft_realloc.c
+PERSONAL +=					ft_cleanup.c ft_realloc.c
+PERSONAL +=					ft_getenv.c ft_intlen.c ft_kill.c
 PERSONAL +=					ft_islower.c ft_isupper.c
-PERSONAL +=					ft_printf.c ft_vprintf.c
-PERSONAL +=					ft_snprintf.c ft_vsnprintf.c
-PERSONAL +=					ft_sprintf.c ft_vsprintf.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c ft_strrewrite.c
 PERSONAL +=					get_next_line.c
+PRINTF +=					ft_asprintf.c ft_vasprintf.c
+PRINTF +=					ft_dprintf.c ft_vdprintf.c
+PRINTF +=					ft_printf.c ft_vprintf.c
+PRINTF +=					ft_snprintf.c ft_vsnprintf.c
+PRINTF +=					ft_sprintf.c ft_vsprintf.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c

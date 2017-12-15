@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 08:25:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 20:01:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,25 @@
 
 # define ERRMSG(x, y) ({ft_dprintf(STDERR_FILENO, (x)); return (y);})
 
+enum				e_type
+{
+	PTR,
+	APTR
+};
+
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+/*
+**##############################
+**##    General  functions    ##
+**##############################
+*/
+void				ft_cleanup(const int nb, ...);
 
 /*
 **##############################

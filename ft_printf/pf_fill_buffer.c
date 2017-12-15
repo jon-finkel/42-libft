@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 14:57:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 19:45:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./ft_printf_private.h"
 
 static void			printf_fill(t_data *data, const char filler,
 					const char *s_filler, size_t n)

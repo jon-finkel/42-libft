@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 17:52:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 19:45:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./ft_printf_private.h"
 
 static const char			*get_precision(t_data *data, const char *format)
 {
