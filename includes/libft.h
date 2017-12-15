@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 21:15:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/15 08:25:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,10 @@ void				*ft_realloc(void *ptr, size_t size);
 **##############################
 */
 void				ft_lstadd(t_list **alst, t_list *newlink);
-void				ft_lstaddend(t_list **alst, t_list *newlink);
-void				ft_lstclear(void *data, size_t size);
+void				ft_lstappend(t_list **alst, t_list *newlink);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstfree(void *data, size_t size);
 t_list				*ft_lstgetnode(t_list *list, size_t n);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));

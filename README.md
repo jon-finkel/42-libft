@@ -22,10 +22,10 @@ As you can see from the [Project instructions][1], there are 4 sections:
 Libc functions | Additional functions | LinkedList functions | Personal functions
 :----------- | :-----------: | :-----------: | -----------:
 atoi		 |	ft_itoa		 |	ft_lstadd	 |	ft_asprintf
-bzero		 |	ft_memalloc	 |	ft_lstaddend |	ft_dprintf
-isalnum		 |	ft_memdel	 |	ft_lstclear	 |	ft_getenv
-isalpha		 |	ft_putchar	 |	ft_lstdel	 |	ft_intlen
-isascii		 |	ft_putchar_fd|	ft_lstdelone |	ft_islower
+bzero		 |	ft_memalloc	 |	ft_lstappend |	ft_dprintf
+isalnum		 |	ft_memdel	 |	ft_lstdel	 |	ft_getenv
+isalpha		 |	ft_putchar	 |	ft_lstdelone |	ft_intlen
+isascii		 |	ft_putchar_fd|	ft_lstfree	 |	ft_islower
 isdigit		 |	ft_putendl	 |	ft_lstgetnode|	ft_isupper
 isprint		 |	ft_putendl_fd|	ft_lstiter	 |	ft_kill
 memccpy		 |	ft_putnbr	 |	ft_lstmap	 |	ft_printf

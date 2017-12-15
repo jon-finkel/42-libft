@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/14 17:28:16 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/15 08:24:45 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,9 +67,9 @@ LIBC +=						ft_strcmp.c ft_strncmp.c
 LIBC +=						ft_strcpy.c ft_strncpy.c ft_strdup.c
 LIBC +=						ft_strstr.c ft_strnstr.c
 LIBC +=						ft_tolower.c ft_toupper.c
-LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstaddend.c
-LINKEDLIST +=				ft_lstclear.c ft_lstsnipe.c
+LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
 LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
+LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
 PERSONAL +=					ft_asprintf.c ft_vasprintf.c

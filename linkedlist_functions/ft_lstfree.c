@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 18:45:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 18:45:40 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/15 08:24:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/15 08:24:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void			ft_lstclear(void *data, size_t size)
+void			ft_lstfree(void *data, size_t size)
 {
 	(void)size;
-	free(data);
+	if (data)
+		free(data);
 }
