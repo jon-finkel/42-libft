@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 20:01:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/16 12:27:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@
 # define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
 # define CONTINUE(x) ({if(!(x)) continue;})
 # define NEG_CONTINUE(x) ({if((x) == -1) continue;})
-
-# define ERRMSG(x, y) ({ft_dprintf(STDERR_FILENO, (x)); return (y);})
 
 enum				e_type
 {
