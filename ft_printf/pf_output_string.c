@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/18 09:53:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int				copy_wide_string(const wchar_t *w, char *s)
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff)
 			|| (*w >= 0xd800 && *w <= 0xdb7f) || (*w >= 0xdb80 && *w < 0xdbff))
 			return (-1);
-		if (*w >= 0 && *w < 128)
+		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w))
 		{
@@ -58,9 +58,9 @@ static int				copy_wide_string(const wchar_t *w, char *s)
 			*s++ = THREE_BYTES_UNICODE_HEAD(*w);
 		if (THREE_OR_MORE_BYTES_UNICODE(*w))
 			*s++ = TWO_BYTES_UNICODE_BODY(*w);
-		if (TWO_BYTES_UNICODE(*w))
+		if (TWO_BYTES_UNICODE(*w) && MB_CUR_MAX > 1)
 			*s++ = TWO_BYTES_UNICODE_HEAD(*w);
-		if (TWO_OR_MORE_BYTES_UNICODE(*w))
+		if (TWO_OR_MORE_BYTES_UNICODE(*w) && MB_CUR_MAX > 1)
 			*s++ = UNICODE_TAIL(*w);
 		++w;
 	}

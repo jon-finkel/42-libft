@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/18 09:51:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ static int				output_wide_char(t_data *data, int c)
 		|| (MB_CUR_MAX == 1 && c > 0xff && c <= 0x10ffff)
 		|| (c >= 0xd800 && c <= 0xdb7f) || (c >= 0xdb80 && c < 0xdbff))
 		return (-1);
-	if (c >= 0 && c < 128)
+	if (c >= 0 && (c < 128 || (MB_CUR_MAX == 1 && c <= 0x100)))
+	{
 		pf_fill_buffer(data, c, NULL, PRINT);
+		return (0);
+	}
 	if (FOUR_BYTES_UNICODE(c))
 	{
 		pf_fill_buffer(data, FOUR_BYTES_UNICODE_HEAD(c), NULL, PRINT);
