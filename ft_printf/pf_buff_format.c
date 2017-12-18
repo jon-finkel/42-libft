@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/18 17:52:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ static const char			*print_conversion(t_data *data, const char *format)
 
 	format = get_range(data, format);
 	format = pf_get_flags(data, format, SECOND);
+	if (!*format)
+		return (format);
 	if (*format == 'n' || *format == 'v')
 		return (pf_output_extras(data, format));
 	k = -1;
@@ -83,16 +85,6 @@ static const char			*print_conversion(t_data *data, const char *format)
 	return (format + 1);
 }
 
-static int					control_undefined_behavior(const char *format)
-{
-	while (*format == 'j' || *format == 'z' || *format == 'l'
-		|| *format == 'h' || *format == ' ')
-		++format;
-	if (*format == '\0')
-		return (1);
-	return (0);
-}
-
 void						pf_buff_format(t_data *data, const char *format)
 {
 	while (format && *format)
@@ -103,8 +95,6 @@ void						pf_buff_format(t_data *data, const char *format)
 			pf_fill_buffer(data, *format++, NULL, PRINT);
 		else if (*format == '%' && ++format)
 		{
-			if (control_undefined_behavior(format) == 1)
-				break ;
 			if (*format == '%')
 				pf_fill_buffer(data, *format++, NULL, PRINT);
 			else if (*format)

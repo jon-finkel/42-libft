@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/18 09:51:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/18 18:30:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int				output_wide_char(t_data *data, int c)
 {
 	if (c < 0 || c > 0x10ffff
 		|| (MB_CUR_MAX == 1 && c > 0xff && c <= 0x10ffff)
-		|| (c >= 0xd800 && c <= 0xdb7f) || (c >= 0xdb80 && c < 0xdbff))
+		|| (c >= 0xd800 && c <= 0xdfff))
 		return (-1);
 	if (c >= 0 && (c < 128 || (MB_CUR_MAX == 1 && c <= 0x100)))
 	{

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/18 09:53:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/18 18:31:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t			get_wide_length(t_data *data, const wchar_t *s)
 	precision = 0;
 	while (*s)
 	{
-		if ((int)(*s) >= 0 && (int)(*s) < 128 && ++len)
+		if ((int)(*s) >= 0 && (int)(*s) < 0x100 && ++len)
 			if ((int)len <= data->precision)
 				precision += 1;
 		if (FOUR_BYTES_UNICODE((int)(*s)) && (len += 4))
@@ -39,13 +39,14 @@ static size_t			get_wide_length(t_data *data, const wchar_t *s)
 	return (len);
 }
 
-static int				copy_wide_string(const wchar_t *w, char *s)
+static int				copy_wide_string(const wchar_t *w, char *s,
+						int precision)
 {
-	while (*w)
+	while (*w && precision--)
 	{
 		if (*w < 0 || *w > 0x10ffff
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff)
-			|| (*w >= 0xd800 && *w <= 0xdb7f) || (*w >= 0xdb80 && *w < 0xdbff))
+			|| (*w >= 0xd800 && *w <= 0xdfff))
 			return (-1);
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
@@ -110,7 +111,7 @@ int						pf_output_string(t_data *data, const char *base)
 	if (data->range == LONG && (wide_string = va_arg(data->ap, wchar_t *)))
 	{
 		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
-		NEG_PROTECT(copy_wide_string(wide_string, string), -1);
+		NEG_PROTECT(copy_wide_string(wide_string, string, data->precision), -1);
 	}
 	else if (data->range != LONG)
 		string = va_arg(data->ap, char *);
