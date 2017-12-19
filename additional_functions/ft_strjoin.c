@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 22:00:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 22:16:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strjoin(char *s1, const char *s2, enum e_type type)
+char			*ft_strjoin(char *const s1, const char *const s2,
+				enum e_type type)
 {
 	char		*join;
 	size_t		len_s2;
