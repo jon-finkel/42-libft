@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/16 12:27:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 22:05:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@
 
 enum				e_type
 {
+	APTR,
 	PTR,
-	APTR
+	FREE,
+	NO_FREE
 };
 
 typedef struct		s_list
@@ -86,7 +88,7 @@ char				*ft_strdup(const char *s1);
 int					ft_strequ(const char *s1, const char *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strjoin(const char *s1, const char *s2);
+char				*ft_strjoin(char *s1, const char *s2, enum e_type type);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strmap(const char *s, char (*f)(char));
@@ -104,8 +106,9 @@ int					ft_strrewrite(char *big, const char *little,
 					const char *filler);
 char				**ft_strsplit(const char *s, char c);
 char				*ft_strstr(const char *big, const char *little);
-char				*ft_strsub(const char *s, unsigned int start, size_t len);
-char				*ft_strtrim(const char *s);
+char				*ft_strsub(char *s, unsigned int start, size_t len,
+					enum e_type type);
+char				*ft_strtrim(char *s, enum e_type type);
 
 /*
 **##############################

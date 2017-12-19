@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:28:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 19:56:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 21:55:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 char			*ft_itoa(int n)
 {
-	char				*tmp;
+	char				tmp[13];
 	char				*string;
 	int					k;
 	unsigned int		nb;
 
-	PROTECT(tmp = ft_strnew(12), NULL);
-	tmp[0] = '0';
 	k = -1;
+	if (!n)
+		tmp[++k] = '0';
 	nb = (n < 0 ? -n : n);
 	while (nb > 0)
 	{
@@ -34,7 +34,7 @@ char			*ft_itoa(int n)
 	}
 	if (n < 0)
 		tmp[++k] = '-';
+	tmp[++k] = '\0';
 	PROTECT(string = ft_strrevcpy(tmp), NULL);
-	free(tmp);
 	return (string);
 }

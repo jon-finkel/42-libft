@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 00:16:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 22:05:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t			value_to_trim(const char *s1, const char *s2)
 	return (trim == len * 2 ? len : trim);
 }
 
-char					*ft_strtrim(const char *s)
+char					*ft_strtrim(char *s, enum e_type type)
 {
 	char		*rev;
 	char		*trim;
@@ -53,5 +53,7 @@ char					*ft_strtrim(const char *s)
 		*(trim + ++k) = *s;
 		++s;
 	}
+	if (type == FREE)
+		free(s);
 	return (trim);
 }

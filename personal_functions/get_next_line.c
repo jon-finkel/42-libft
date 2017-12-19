@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/13 00:17:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 22:01:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int						get_next_line(const int fd, char **line)
 		if (bytes == -1)
 			return (-1);
 		buff[bytes] = '\0';
-		PROTECT(LIST_CONTENT->str = ft_strjoin(LIST_CONTENT->str, buff), -1);
+		PROTECT(LIST_CONTENT->str = ft_strjoin(LIST_CONTENT->str, buff,\
+			NO_FREE), -1);
 		free(LIST_CONTENT->begin);
 		LIST_CONTENT->begin = LIST_CONTENT->str;
 		if (ft_strchr(LIST_CONTENT->str, '\n'))
