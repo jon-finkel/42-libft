@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/14 21:04:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 11:53:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			ft_strrewrite(char *big, const char *little, const char *filler)
 
 	lit_len = ft_strlen(little);
 	big_len = ft_strlen(big);
-	PROTECT(little = ft_strstr(big, little), -1);
+	PROTECT(little = ft_strstr(big, little), 0);
 	PROTECT(copy = ft_strdup(little + lit_len), -1);
 	big += big_len - ft_strlen(little);
 	while (*filler)
