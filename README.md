@@ -28,20 +28,20 @@ isalpha		 |	ft_putchar	 |	ft_lstdelone |	ft_intlen
 isascii		 |	ft_putchar_fd|	ft_lstfree	 |	ft_islower
 isdigit		 |	ft_putendl	 |	ft_lstgetnode|	ft_isupper
 isprint		 |	ft_putendl_fd|	ft_lstiter	 |	ft_kill
-memccpy		 |	ft_putnbr	 |	ft_lstmap	 |	ft_printf
-memchr		 |	ft_putnbr_fd |	ft_lstnew	 |	ft_realloc
-memcmp		 |	ft_putstr	 |	ft_lstsize	 |	ft_snprintf
-memcpy		 |	ft_putstr_fd |	ft_lstsnipe	 |	ft_sprintf
-memmove		 |	ft_strclr	 |	|	ft_strrev
-memset		 |	ft_strdel	 |	|	ft_strrevcpy
-strcat		 |	ft_strequ	 |	|	ft_strrewrite
-strchr		 |	ft_striter	 |	|	ft_vasprintf
-strcmp		 |	ft_striteri	 |	|	ft_vdprintf
-strcpy		 |	ft_strjoin	 |	|	ft_vprintf
-strdup		 |	ft_strmap	 |	|	ft_vsnprintf
-strlcat		 |	ft_strmapi	 |	|	ft_vsprintf
-strlen		 |	ft_strnequ	 |	|	get_next_line
-strncat		 |	ft_strnew	 |	|
+memccpy		 |	ft_putnbr	 |	ft_lstmap	 |	ft_memnccpy
+memchr		 |	ft_putnbr_fd |	ft_lstnew	 |	ft_printf
+memcmp		 |	ft_putstr	 |	ft_lstsize	 |	ft_realloc
+memcpy		 |	ft_putstr_fd |	ft_lstsnipe	 |	ft_snprintf
+memmove		 |	ft_strclr	 |	|	ft_sprintf
+memset		 |	ft_strdel	 |	|	ft_strrev
+strcat		 |	ft_strequ	 |	|	ft_strrevcpy
+strchr		 |	ft_striter	 |	|	ft_strrewrite
+strcmp		 |	ft_striteri	 |	|	ft_vasprintf
+strcpy		 |	ft_strjoin	 |	|	ft_vdprintf
+strdup		 |	ft_strmap	 |	|	ft_vprintf
+strlcat		 |	ft_strmapi	 |	|	ft_vsnprintf
+strlen		 |	ft_strnequ	 |	|	ft_vsprintf
+strncat		 |	ft_strnew	 |	|	get_next_line
 strncmp		 |	ft_strsplit	 |	|
 strncpy		 |	ft_strsub	 |	|
 strnstr		 |	ft_strtrim	 |	|
