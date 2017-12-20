@@ -31,17 +31,17 @@ ft_unsetenv	 | ft_isascii(L) | ft_kill			|
 | ft_isupper	| ft_putendl(A)		|
 | ft_tolower(L) | ft_putendl_fd(A)	|
 | ft_toupper(L) | ft_putnbr(A)		|
-|	| ft_putnbr_fd(A)	|
-|	| ft_putstr(A)		|
-|	| ft_putstr_fd(A)	|
-|	| ft_snprintf(P)	|
-|	| ft_sprintf(P)	|
-|	| ft_vasprintf(P)	|
-|	| ft_vdprintf(P)	|
-|	| ft_vprintf(P)	|
-|	| ft_vsnprintf(P)	|
-|	| ft_vsprintf(P)	|
-|	| get_next_line(P)	|
+| | ft_putnbr_fd(A)	|
+| | ft_putstr(A)		|
+| | ft_putstr_fd(A)	|
+| | ft_snprintf(P)	|
+| | ft_sprintf(P)	|
+| | ft_vasprintf(P)	|
+| | ft_vdprintf(P)	|
+| | ft_vprintf(P)	|
+| | ft_vsnprintf(P)	|
+| | ft_vsprintf(P)	|
+| | get_next_line(P)	|
 
 
 Notes:
