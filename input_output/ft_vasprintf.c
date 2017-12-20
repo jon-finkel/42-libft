@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:43:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 19:12:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "../ft_printf/ft_printf_private.h"
 
 int			ft_vasprintf(char **ret, const char *format, va_list ap)
 {

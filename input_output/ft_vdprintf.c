@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsnprintf.c                                     :+:      :+:    :+:   */
+/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:44:03 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/20 19:12:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "../ft_printf/ft_printf_private.h"
 
-int			ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
+int			ft_vdprintf(int fd, const char *format, va_list ap)
 {
+	char				buff[PRINTF_BUFFSIZE + 1];
 	static t_data		*data = NULL;
 
-	if (!size)
-		return (0);
-	ft_strclr(str);
 	if (!data)
 	{
 		PROTECT(data = (t_data *)malloc(sizeof(t_data)), -1);
-		data->pf_type = SPRINTF;
+		data->pf_type = PRINTF;
 	}
-	data->pf_buffer = str;
+	data->pf_buffer = buff;
 	data->pf_len = 0;
+	data->fd = fd;
 	data->error = 0;
-	data->index = size - 1;
+	data->index = 0;
 	data->non_printable = 0;
 	va_copy(data->ap, ap);
 	pf_buff_format(data, format);
-	data->pf_buffer[data->pf_len] = '\0';
+	write(fd, data->pf_buffer, data->index);
 	data->pf_len -= data->non_printable;
 	va_end(data->ap);
 	return (data->error ? -1 : (int)data->pf_len);

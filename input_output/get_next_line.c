@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 22:01:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 19:01:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "./get_next_line_private.h"
 
 static t_list			*get_correct_link(t_list **head, const int fd)
 {

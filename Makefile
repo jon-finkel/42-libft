@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/20 18:22:22 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/20 19:32:46 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,75 +34,81 @@ HEADERS :=					-I ./includes/
 O_FLAG :=					-O2
 
 #	Directories
-OBJDIR :=					build/
-DYN_OBJDIR :=				dyn_build/
+OBJDIR :=					./build/
+DYN_OBJDIR :=				./dyn_build/
 
-ADDITIONAL_DIR :=			additional_functions/
-LIBC_DIR :=					libc_functions/
-LINKEDLIST_DIR :=			linkedlist_functions/
-PERSONAL_DIR :=				personal_functions/
-PRINTF_DIR :=				ft_printf/
+API_DIR :=					./api_functions/
+CHARACTER_DIR :=			./character_functions/
+INPUT_OUTPUT_DIR :=			./input_output/
+LINKEDLIST_DIR :=			./linkedlist_functions/
+MEMORY_DIR :=				./memory_functions/
+PRINTF_DIR :=				./ft_printf/
+STRING_DIR :=				./string_functions/
 
 #	Sources
-ADDITIONAL +=				ft_itoa.c
-ADDITIONAL +=				ft_memalloc.c ft_memdel.c
-ADDITIONAL +=				ft_putchar.c ft_putchar_fd.c
-ADDITIONAL +=				ft_putendl.c ft_putendl_fd.c
-ADDITIONAL +=				ft_putnbr.c ft_putnbr_fd.c
-ADDITIONAL +=				ft_putstr.c ft_putstr_fd.c
-ADDITIONAL +=				ft_strclr.c ft_strdel.c
-ADDITIONAL +=				ft_strnew.c ft_strjoin.c
-ADDITIONAL +=				ft_strequ.c ft_strnequ.c
-ADDITIONAL +=				ft_striter.c ft_striteri.c
-ADDITIONAL +=				ft_strmap.c ft_strmapi.c
-ADDITIONAL +=				ft_strsplit.c ft_strsub.c ft_strtrim.c
-LIBC +=						ft_atoi.c ft_strlen.c
-LIBC +=						ft_isalnum.c ft_isalpha.c ft_isascii.c
-LIBC +=						ft_isdigit.c ft_isprint.c
-LIBC +=						ft_memcpy.c ft_memccpy.c ft_memchr.c ft_memcmp.c
-LIBC +=						ft_bzero.c ft_memmove.c ft_memset.c
-LIBC +=						ft_strcat.c ft_strlcat.c ft_strncat.c
-LIBC +=						ft_strchr.c ft_strrchr.c
-LIBC +=						ft_strcmp.c ft_strncmp.c
-LIBC +=						ft_strcpy.c ft_strncpy.c ft_strdup.c
-LIBC +=						ft_strstr.c ft_strnstr.c
-LIBC +=						ft_tolower.c ft_toupper.c
+API +=						ft_getenv.c ft_setenv.c ft_unsetenv.c
+CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
+CHARACTER +=				ft_isalnum.c ft_isascii.c
+CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c ft_toupper.c
+INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c
+INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c
+INPUT_OUTPUT +=				ft_printf.c ft_vprintf.c
+INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c
+INPUT_OUTPUT +=				ft_sprintf.c ft_vsprintf.c
+INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c
+INPUT_OUTPUT +=				ft_putendl.c ft_putendl_fd.c
+INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c
+INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c
+INPUT_OUTPUT +=				ft_kill.c get_next_line.c
 LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
 LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
-PERSONAL +=					ft_cleanup.c ft_memnccpy.c ft_realloc.c
-PERSONAL +=					ft_getenv.c ft_intlen.c ft_kill.c
-PERSONAL +=					ft_islower.c ft_isupper.c
-PERSONAL +=					ft_strrev.c ft_strrevcpy.c ft_strrewrite.c
-PERSONAL +=					get_next_line.c
-PRINTF +=					ft_asprintf.c ft_vasprintf.c
-PRINTF +=					ft_dprintf.c ft_vdprintf.c
-PRINTF +=					ft_printf.c ft_vprintf.c
-PRINTF +=					ft_snprintf.c ft_vsnprintf.c
-PRINTF +=					ft_sprintf.c ft_vsprintf.c
+MEMORY +=					ft_bzero.c ft_memmove.c
+MEMORY +=					ft_cleanup.c ft_memdel.c
+MEMORY +=					ft_memalloc.c ft_memset.c ft_realloc.c
+MEMORY +=					ft_memcpy.c ft_memccpy.c ft_memnccpy.c
+MEMORY +=					ft_memchr.c ft_memcmp.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
 PRINTF +=					pf_output_extras.c pf_output_noprint.c
 PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
+STRING +=					ft_atoi.c ft_itoa.c
+STRING +=					ft_intlen.c ft_strlen.c
+STRING +=					ft_strcat.c ft_strncat.c ft_strlcat.c
+STRING +=					ft_strchr.c ft_strrchr.c
+STRING +=					ft_strclr.c ft_strdel.c ft_strnew.c
+STRING +=					ft_strcmp.c ft_strncmp.c
+STRING +=					ft_strcpy.c ft_strncpy.c ft_strdup.c
+STRING +=					ft_strequ.c ft_strnequ.c
+STRING +=					ft_striter.c ft_striteri.c
+STRING +=					ft_strjoin.c ft_strsub.c ft_strtrim.c
+STRING +=					ft_strmap.c ft_strmapi.c
+STRING +=					ft_strstr.c ft_strnstr.c
+STRING +=					ft_strrev.c ft_strrevcpy.c
+STRING +=					ft_strsplit.c ft_strrewrite.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 
-SRCS +=						$(ADDITIONAL)
-SRCS +=						$(LIBC)
+SRCS +=						$(API)
+SRCS +=						$(CHARACTER)
+SRCS +=						$(INPUT_OUTPUT)
 SRCS +=						$(LINKEDLIST)
-SRCS +=						$(PERSONAL)
+SRCS +=						$(MEMORY)
 SRCS +=						$(PRINTF)
+SRCS +=						$(STRING)
 
-vpath %.c $(ADDITIONAL_DIR)
-vpath %.c $(LIBC_DIR)
+vpath %.c $(API_DIR)
+vpath %.c $(CHARACTER_DIR)
+vpath %.c $(INPUT_OUTPUT_DIR)
 vpath %.c $(LINKEDLIST_DIR)
-vpath %.c $(PERSONAL_DIR)
+vpath %.c $(MEMORY_DIR)
 vpath %.c $(PRINTF_DIR)
+vpath %.c $(STRING_DIR)
 
 #################
 ##    RULES    ##

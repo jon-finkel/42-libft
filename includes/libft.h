@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 18:17:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 19:32:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,6 @@ typedef struct		s_list
 
 /*
 **##############################
-**##    General  functions    ##
-**##############################
-*/
-void				ft_cleanup(const int nb, ...);
-
-/*
-**##############################
 **##   String  manipulation   ##
 **##############################
 */
@@ -116,14 +109,15 @@ char				*ft_strtrim(char *s, enum e_type type);
 **##############################
 */
 void				ft_bzero(void *s, size_t n);
+void				ft_cleanup(const int nb, ...);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memnccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
+void				*ft_memnccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_realloc(void *ptr, size_t size);
 
@@ -151,8 +145,8 @@ void				ft_lstsnipe(t_list **alst, t_list *target,
 **##############################
 */
 int					ft_asprintf(char **ret, const char *format, ...);
-int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
+int					ft_printf(const char *format, ...);
 int					ft_snprintf(char *str, size_t size, const char *format,
 					...);
 int					ft_sprintf(char *str, const char *format, ...);
@@ -196,5 +190,8 @@ int					ft_toupper(int c);
 **##############################
 */
 char				*ft_getenv(const char *name);
+int					ft_setenv(const char *name, const char *value,
+					int overwrite);
+int					ft_unsetenv(const char *name);
 
 #endif
