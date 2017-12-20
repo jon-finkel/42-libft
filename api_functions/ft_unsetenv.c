@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 20:42:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 22:20:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 int			ft_unsetenv(const char *name)
 {
+	char			variable[512];
 	extern char		**environ;
 	int				k;
-	size_t			len;
 
 	k = -1;
 	while (environ[++k])
-		if (ft_strequ(name, environ[k]))
+	{
+		ft_memset(variable, '\0', 512);
+		ft_memnccpy(variable, environ[k], '=', 512);
+		if (ft_strequ(name, variable))
 		{
-			free(environ[k]);
-			environ[k] = NULL;
-			while (environ[++k])
+			while (environ[k + 1])
 			{
-				len = ft_strlen(environ[k]);
-				PROTECT(environ[k - 1] = ft_strnew(len), -1);
-				ft_memmove(environ[k - 1], environ[k], len);
-				free(environ[k]);
-				environ[k] = NULL;
+				environ[k] = environ[k + 1];
+				++k;
 			}
-			break ;
+			environ[k] = NULL;
 		}
+	}
 	return (0);
 }
