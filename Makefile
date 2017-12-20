@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/20 19:32:46 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/20 19:45:31 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ DYN_OBJDIR :=				./dyn_build/
 
 API_DIR :=					./api_functions/
 CHARACTER_DIR :=			./character_functions/
-INPUT_OUTPUT_DIR :=			./input_output/
+INPUT_OUTPUT_DIR :=			./io_functions/
 LINKEDLIST_DIR :=			./linkedlist_functions/
 MEMORY_DIR :=				./memory_functions/
 PRINTF_DIR :=				./ft_printf/
