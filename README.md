@@ -12,43 +12,36 @@ Disclaimer: *As a freshman and an overall rookie in programming, my implementati
 
 ### What's in it?
 
-As you can see from the [Project instructions][1], there are 4 sections:
+As you can see from the [Project instructions][1], there are 3 sections:
 
-1.  **Libc Functions:** Some of the standard C functions.
-2.  **Additional functions:** Functions 42 deems will be useful for later projects.
-3.  **LinkedList Functions:** Linked list manipulation functions 42 deems will be useful, plus few of my own.
-4.  **Personal Functions:** Functions I made that are or will be useful to me. [Documented here][3].
+1.  **Libc functions:** Some of the standard C functions, I've marked them with an (L) next to their name.
+2.  **Additional functions:** Functions 42 deems will be useful for later projects, I've marked with an (A) next to their name.
+3.  **Bonus functions:** Linked list manipulation functions 42 deems will be useful, I've marked them with a (B) next to their name.
+4. **Projects functions:** These are 42 projects by themselves, asking us to either recode an existing function or group of functions, or create a new one. They're marked with a (P) next to their name and their documentation can be accessed from the PDF located in the projects_instructions folder.
+5.  All the other functions are personal functions, their documentation can be checked on the [wiki][3], and they're not marked.
 
-Libc functions | Additional functions | LinkedList functions | Personal functions
-:----------- | :-----------: | :-----------: | -----------:
-atoi		 |	ft_itoa		 |	ft_lstadd	 |	ft_asprintf
-bzero		 |	ft_memalloc	 |	ft_lstappend |	ft_dprintf
-isalnum		 |	ft_memdel	 |	ft_lstdel	 |	ft_getenv
-isalpha		 |	ft_putchar	 |	ft_lstdelone |	ft_intlen
-isascii		 |	ft_putchar_fd|	ft_lstfree	 |	ft_islower
-isdigit		 |	ft_putendl	 |	ft_lstgetnode|	ft_isupper
-isprint		 |	ft_putendl_fd|	ft_lstiter	 |	ft_kill
-memccpy		 |	ft_putnbr	 |	ft_lstmap	 |	ft_memnccpy
-memchr		 |	ft_putnbr_fd |	ft_lstnew	 |	ft_printf
-memcmp		 |	ft_putstr	 |	ft_lstsize	 |	ft_realloc
-memcpy		 |	ft_putstr_fd |	ft_lstsnipe	 |	ft_snprintf
-memmove		 |	ft_strclr	 |	|	ft_sprintf
-memset		 |	ft_strdel	 |	|	ft_strrev
-strcat		 |	ft_strequ	 |	|	ft_strrevcpy
-strchr		 |	ft_striter	 |	|	ft_strrewrite
-strcmp		 |	ft_striteri	 |	|	ft_vasprintf
-strcpy		 |	ft_strjoin	 |	|	ft_vdprintf
-strdup		 |	ft_strmap	 |	|	ft_vprintf
-strlcat		 |	ft_strmapi	 |	|	ft_vsnprintf
-strlen		 |	ft_strnequ	 |	|	ft_vsprintf
-strncat		 |	ft_strnew	 |	|	get_next_line
-strncmp		 |	ft_strsplit	 |	|
-strncpy		 |	ft_strsub	 |	|
-strnstr		 |	ft_strtrim	 |	|
-strrchr		 |	|	|
-strstr		 |	|	|
-tolower		 |	|	|
-toupper		 |	|	|
+API functions | Character functions | IO functions | Linked List functions | Memory functions | String functions
+:----------- | :-----------: | :--------------: | ------------: | :------------: | ------------:
+ft_getenv	 | ft_isalnum(L) | ft_asprintf(P)	|
+ft_setenv	 | ft_isalpha(L) | ft_dprintf(P)	|
+ft_unsetenv	 | ft_isascii(L) | ft_kill			|
+			 | ft_isdigit(L) | ft_printf(P)		|
+			 | ft_islower	 | ft_putchar(A)	|
+			 | ft_isprint(L) | ft_putchar_fd(A)	|
+			 | ft_isupper	 | ft_putendl(A)	|
+			 | ft_tolower(L) | ft_putendl_fd(A)	|
+			 | ft_toupper(L) | ft_putnbr(A)		|
+			 |				 | ft_putnbr_fd(A)	|
+			 |				 | ft_putstr(A)		|
+			 |				 | ft_putstr_fd(A)	|
+			 |				 | ft_snprintf(P)	|
+			 |				 | ft_sprintf(P)	|
+			 |				 | ft_vasprintf(P)	|
+			 |				 | ft_vdprintf(P)	|
+			 |				 | ft_vprintf(P)	|
+			 |				 | ft_vsnprintf(P)	|
+			 |				 | ft_vsprintf(P)	|
+			 |				 | get_next_line(P)	|
 
 
 Notes:
