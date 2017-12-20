@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/15 20:05:12 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/20 18:22:22 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
-PERSONAL +=					ft_cleanup.c ft_realloc.c
+PERSONAL +=					ft_cleanup.c ft_memnccpy.c ft_realloc.c
 PERSONAL +=					ft_getenv.c ft_intlen.c ft_kill.c
 PERSONAL +=					ft_islower.c ft_isupper.c
 PERSONAL +=					ft_strrev.c ft_strrevcpy.c ft_strrewrite.c
