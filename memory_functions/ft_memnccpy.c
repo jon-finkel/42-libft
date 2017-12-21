@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 18:16:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 18:16:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 04:46:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void			*ft_memnccpy(void *dst, const void *src, int c, size_t n)
 	while ((unsigned int)++k < n)
 	{
 		if (*((unsigned char *)src + k) == (unsigned char)c)
+		{
+			*((unsigned char *)dst + k) = '\0';
 			return (dst + k + 1);
+		}
 		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
 	}
 	return (NULL);
