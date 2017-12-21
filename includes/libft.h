@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 19:32:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:15:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@
 /*
 ** Math macros
 */
-# define ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
-# define MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
-# define MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
+# define _ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
+# define _MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
+# define _MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
 
 /*
 ** Protection macros

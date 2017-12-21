@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:16:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static void					apply_flags(t_data *data, const char *s,
 	len = ft_strlen(s);
 	if (data->precision)
 		UNSET_FLAG(ZERO, data->flags);
-	precision = MAX(data->precision, (int)len);
+	precision = _MAX(data->precision, (int)len);
 	if ((int)len < precision && ft_strlen(base) == 8)
 		UNSET_FLAG(ALTERNATE, data->flags);
 	if (IS_FLAG(ALTERNATE, data->flags))

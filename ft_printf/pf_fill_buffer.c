@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:15:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void			sprintf_fill(t_data *data, const char filler,
 		data->pf_buffer[data->pf_len++] = filler;
 	else if (s_filler)
 	{
-		n = MIN(n, data->index);
+		n = _MIN(n, data->index);
 		data->index -= n;
 		k = -1;
 		while ((unsigned int)++k < n)

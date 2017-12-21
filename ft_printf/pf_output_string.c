@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/18 18:31:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:16:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int						pf_output_string(t_data *data, const char *base)
 	else if (data->range != LONG)
 		string = va_arg(data->ap, char *);
 	string = (!string ? "(null)" : string);
-	precision = MIN(data->precision, (int)ft_strlen(string));
+	precision = _MIN(data->precision, (int)ft_strlen(string));
 	apply_left_field_width(data, precision);
 	apply_precision(data, string, precision);
 	if (data->range == LONG && wide_string)

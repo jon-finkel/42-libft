@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 18:16:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void				apply_flags(t_data *data, const char *s, intmax_t nb)
 	len = ft_strlen(s);
 	if (data->precision > 0)
 		UNSET_FLAG(ZERO, data->flags);
-	precision = MAX(data->precision, (int)len);
+	precision = _MAX(data->precision, (int)len);
 	k = precision;
 	if (nb >= 0 && IS_FLAG(SPACE, data->flags))
 		pf_fill_buffer(data, ' ', NULL, PRINT);
@@ -93,7 +93,7 @@ int						pf_output_signed(t_data *data, const char *base)
 	n = nb;
 	while (n)
 	{
-		tmp[++k] = base[ABS(n % 10)];
+		tmp[++k] = base[_ABS(n % 10)];
 		n /= 10;
 	}
 	tmp[++k] = '\0';
