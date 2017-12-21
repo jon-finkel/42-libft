@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 22:20:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/21 15:41:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int			ft_unsetenv(const char *name)
 	extern char		**environ;
 	int				k;
 
+	if (!name || !*name || ft_strchr(name, '='))
+		return (-1);
 	k = -1;
 	while (environ[++k])
 	{
