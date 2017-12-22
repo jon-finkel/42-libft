@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 00:02:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,9 @@ static const struct s_color		g_color[] =
 
 static int			check_end_of_color_flag(const char *format)
 {
-	int		k;
-
 	while (*format)
 	{
-		k = 0;
-		while (++k < LAST_COLOR)
-			if (ft_strnequ(format, g_color[k].flag, g_color[k].len) == 1)
-				break ;
-		if (ft_strnequ(format, g_color[0].flag, g_color[0].len) == 1)
+		if (ft_strnequ(format, "{eoc}", 5))
 			return (1);
 		++format;
 	}
@@ -56,7 +50,7 @@ const char			*pf_ansi_color(t_data *data, const char *format)
 
 	k = -1;
 	while (++k < LAST_COLOR)
-		if (ft_strnequ(format, g_color[k].flag, g_color[k].len) == 1)
+		if (ft_strnequ(format, g_color[k].flag, g_color[k].len))
 		{
 			if (!check_end_of_color_flag(format))
 			{
