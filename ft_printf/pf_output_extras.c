@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 14:05:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void			v_conversion(t_data *data)
 		pf_fill_buffer(data, 0, buff, PRINT);
 		free(buff);
 	}
-	else
-		pf_fill_buffer(data, 0, "(null)", PRINT);
 }
 
 const char			*pf_output_extras(t_data *data, const char *format)

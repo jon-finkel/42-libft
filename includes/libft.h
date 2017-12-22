@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 18:15:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 12:06:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
-void				*ft_memnccpy(void *dst, const void *src, int c, size_t n);
+size_t				ft_memnccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_realloc(void *ptr, size_t size);
 
