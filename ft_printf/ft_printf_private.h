@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 19:51:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 23:11:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../includes/libft.h"
 
 # define PRINTF_BUFFSIZE 4096
-# define ASPRINTF_BUFFSIZE 4096
+# define ASPRINTF_BUFFSIZE 128
 
 # define LAST_COLOR 17
 # define LAST_CONVERSION 18

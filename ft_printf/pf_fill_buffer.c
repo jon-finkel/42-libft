@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 18:15:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 23:13:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void			asprintf_fill(t_data *data, const char filler,
 	int			k;
 	size_t		size;
 
-	if (data->pf_len + n > data->realloc_factor * ASPRINTF_BUFFSIZE)
+	while (data->pf_len + n > data->realloc_factor * ASPRINTF_BUFFSIZE)
 	{
 		++data->realloc_factor;
 		size = data->realloc_factor * ASPRINTF_BUFFSIZE;
