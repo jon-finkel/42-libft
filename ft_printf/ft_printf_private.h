@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/22 23:11:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 23:21:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct		s_data
 {
 	enum e_flags	pf_type;
 	char			*pf_buffer;
-	size_t			realloc_factor;
 	size_t			pf_len;
+	size_t			pf_max_len;
 	int				fd;
 	size_t			index;
 	size_t			non_printable;
