@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 17:38:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:26:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@
 
 enum				e_type
 {
-	APTR,
-	PTR,
-	FREE,
-	NO_FREE
+	E_APTR,
+	E_PTR,
+	E_FREE,
+	E_NO_FREE
 };
 
 typedef enum		e_bool

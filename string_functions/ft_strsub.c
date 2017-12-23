@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 22:18:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:29:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char			*ft_strsub(char *s, unsigned int start, size_t len,
 	k = -1;
 	while ((unsigned int)++k < len)
 		*(sub + k) = *(s + k);
-	if (type == FREE)
+	if (type == E_FREE)
 		free(begin);
 	return (sub);
 }

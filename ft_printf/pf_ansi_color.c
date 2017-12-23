@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 20:07:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:17:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int			check_end_of_color_flag(t_data *data, const char *format)
 {
 	if (ft_strnequ(format, "{eoc}", 5))
 	{
-		pf_fill_buffer(data, 0, "\033[0m", NON_PRINT);
+		pf_fill_buffer(data, 0, "\033[0m", E_NON_PRINT);
 		return (5);
 	}
 	if (ft_strstr(format + 1, "{eoc}"))
@@ -52,7 +52,7 @@ static int			check_end_of_color_flag(t_data *data, const char *format)
 		data->color_multiple_flags = FALSE;
 		return (0);
 	}
-	pf_fill_buffer(data, '{', NULL, PRINT);
+	pf_fill_buffer(data, '{', NULL, E_PRINT);
 	return (1);
 }
 
@@ -79,9 +79,9 @@ const char			*pf_ansi_color(t_data *data, const char *format,
 		n += ((!k || (k > 5 && k < LAST_COLOR_FLAG)) ? 10 : 0);
 	}
 	ft_strcat(data->ansi_colors, "m");
-	if (flag == WIDE)
-		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
+	if (flag == E_WIDE)
+		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
 	else
-		SET_FLAG(ANSI_COLOR, data->flags);
+		SET_FLAG(E_ANSI_COLOR, data->flags);
 	return (ft_strchr(format, '}') + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 15:24:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:23:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static void			apply_left_field_width(t_data *data, size_t len, double nb)
 	char		filler;
 	int			field_width;
 
-	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
+	filler = (IS_FLAG(E_ZERO, data->flags) ? '0' : ' ');
 	field_width = data->field_width;
-	if (IS_FLAG(ZERO, data->flags) && nb < 0)
-		pf_fill_buffer(data, '-', NULL, PRINT);
+	if (IS_FLAG(E_ZERO, data->flags) && nb < 0)
+		pf_fill_buffer(data, '-', NULL, E_PRINT);
 	while (field_width-- > (int)len)
-		pf_fill_buffer(data, filler, NULL, PRINT);
-	if (IS_NOT(ZERO, data->flags) && nb < 0)
-		pf_fill_buffer(data, '-', NULL, PRINT);
+		pf_fill_buffer(data, filler, NULL, E_PRINT);
+	if (IS_NOT(E_ZERO, data->flags) && nb < 0)
+		pf_fill_buffer(data, '-', NULL, E_PRINT);
 }
 
 static void			apply_right_field_width(t_data *data, size_t len)
@@ -62,7 +62,7 @@ static void			apply_right_field_width(t_data *data, size_t len)
 
 	field_width = -data->field_width;
 	while (field_width-- > (int)len)
-		pf_fill_buffer(data, ' ', NULL, PRINT);
+		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
 int					pf_output_double(t_data *data, const char *base)
@@ -88,7 +88,7 @@ int					pf_output_double(t_data *data, const char *base)
 	}
 	len = ft_strlen(buff) + (nb < 0 ? 1 : 0);
 	apply_left_field_width(data, len, nb);
-	pf_fill_buffer(data, 0, ft_strrev(buff), PRINT);
+	pf_fill_buffer(data, 0, ft_strrev(buff), E_PRINT);
 	apply_right_field_width(data, len);
 	return (0);
 }

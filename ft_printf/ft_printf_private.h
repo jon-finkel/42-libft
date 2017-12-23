@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 19:55:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:16:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,34 @@
 
 enum				e_flags
 {
-	ALTERNATE = 1,
-	NEGATIVE = 2,
-	PLUS = 4,
-	SPACE = 8,
-	ZERO = 16,
-	PRECISION_CHANGED = 32,
-	ANSI_COLOR = 64,
-	FIRST,
-	SECOND,
-	PRINT,
-	NON_PRINT,
-	NARROW,
-	WIDE,
-	PRINTF,
-	SPRINTF,
-	ASPRINTF
+	E_ALTERNATE = 1,
+	E_NEGATIVE = 2,
+	E_PLUS = 4,
+	E_SPACE = 8,
+	E_ZERO = 16,
+	E_PRECISION_CHANGED = 32,
+	E_ANSI_COLOR = 64,
+	E_FIRST,
+	E_SECOND,
+	E_PRINT,
+	E_NON_PRINT,
+	E_NARROW,
+	E_WIDE,
+	E_PRINTF,
+	E_SPRINTF,
+	E_ASPRINTF
 };
 
 enum				e_range
 {
-	VOID = 0,
-	INT = 1,
-	CHAR = 2,
-	SHORT = 3,
-	SIZE_T = 4,
-	LONG = 5,
-	LONG_LONG = 6,
-	INTMAX_T = 7
+	E_VOID = 0,
+	E_INT = 1,
+	E_CHAR = 2,
+	E_SHORT = 3,
+	E_SIZE_T = 4,
+	E_LONG = 5,
+	E_LONG_LONG = 6,
+	E_INTMAX_T = 7
 };
 
 typedef struct		s_data

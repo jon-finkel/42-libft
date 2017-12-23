@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 18:16:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:25:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static uintmax_t			typecast(t_data *data, enum e_range range)
 {
-	if (range == LONG)
+	if (range == E_LONG)
 		return (va_arg(data->ap, unsigned long));
-	else if (range == LONG_LONG)
+	else if (range == E_LONG_LONG)
 		return (va_arg(data->ap, unsigned long long));
-	else if (range == INTMAX_T)
+	else if (range == E_INTMAX_T)
 		return (va_arg(data->ap, uintmax_t));
-	else if (range == SHORT)
+	else if (range == E_SHORT)
 		return ((unsigned short)va_arg(data->ap, unsigned int));
-	else if (range == CHAR)
+	else if (range == E_CHAR)
 		return ((unsigned char)va_arg(data->ap, unsigned int));
-	else if (range == SIZE_T)
+	else if (range == E_SIZE_T)
 		return (va_arg(data->ap, ssize_t));
 	return (va_arg(data->ap, unsigned int));
 }
@@ -62,24 +62,24 @@ static void					left_field_width(t_data *data, const char *base,
 	size_t	blen;
 
 	field_width = data->field_width;
-	if (IS_NOT(ZERO, data->flags))
+	if (IS_NOT(E_ZERO, data->flags))
 		while (field_width-- > *precision)
-			pf_fill_buffer(data, ' ', NULL, PRINT);
+			pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	blen = ft_strlen(base);
-	if (IS_FLAG(ALTERNATE, data->flags))
+	if (IS_FLAG(E_ALTERNATE, data->flags))
 	{
 		if (base[15] == 'F' && nb)
-			pf_fill_buffer(data, 0, "0X", PRINT);
+			pf_fill_buffer(data, 0, "0X", E_PRINT);
 		else if (base[15] == 'f' && nb)
-			pf_fill_buffer(data, 0, "0x", PRINT);
+			pf_fill_buffer(data, 0, "0x", E_PRINT);
 		else if (blen == 8)
-			pf_fill_buffer(data, '0', NULL, PRINT);
+			pf_fill_buffer(data, '0', NULL, E_PRINT);
 		else if (blen == 2)
-			pf_fill_buffer(data, 'B', NULL, PRINT);
+			pf_fill_buffer(data, 'B', NULL, E_PRINT);
 	}
-	if (IS_FLAG(ZERO, data->flags))
+	if (IS_FLAG(E_ZERO, data->flags))
 		while (field_width-- > *precision)
-			pf_fill_buffer(data, '0', NULL, PRINT);
+			pf_fill_buffer(data, '0', NULL, E_PRINT);
 }
 
 static void					apply_flags(t_data *data, const char *s,
@@ -89,26 +89,26 @@ static void					apply_flags(t_data *data, const char *s,
 	int			precision;
 	size_t		len;
 
-	if (IS_NOT(PRECISION_CHANGED, data->flags))
+	if (IS_NOT(E_PRECISION_CHANGED, data->flags))
 		data->precision = 0;
 	else if (data->precision >= 0)
-		UNSET_FLAG(ZERO, data->flags);
+		UNSET_FLAG(E_ZERO, data->flags);
 	len = ft_strlen(s);
 	if (data->precision)
-		UNSET_FLAG(ZERO, data->flags);
+		UNSET_FLAG(E_ZERO, data->flags);
 	precision = _MAX(data->precision, (int)len);
 	if ((int)len < precision && ft_strlen(base) == 8)
-		UNSET_FLAG(ALTERNATE, data->flags);
-	if (IS_FLAG(ALTERNATE, data->flags))
+		UNSET_FLAG(E_ALTERNATE, data->flags);
+	if (IS_FLAG(E_ALTERNATE, data->flags))
 		adjust_field_width(data, base, nb, len);
 	left_field_width(data, base, &precision, nb);
 	k = precision;
 	while ((unsigned int)k-- > len)
-		pf_fill_buffer(data, '0', NULL, PRINT);
-	pf_fill_buffer(data, 0, s, PRINT);
+		pf_fill_buffer(data, '0', NULL, E_PRINT);
+	pf_fill_buffer(data, 0, s, E_PRINT);
 	data->field_width = -data->field_width;
 	while (data->field_width-- > precision)
-		pf_fill_buffer(data, ' ', NULL, PRINT);
+		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
 int							pf_output_unsigned(t_data *data, const char *base)
@@ -126,7 +126,7 @@ int							pf_output_unsigned(t_data *data, const char *base)
 	if (!nb && data->precision)
 	{
 		tmp[++k] = '0';
-		UNSET_FLAG(ALTERNATE, data->flags);
+		UNSET_FLAG(E_ALTERNATE, data->flags);
 	}
 	while (n)
 	{

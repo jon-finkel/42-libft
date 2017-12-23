@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 22:47:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:27:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int			copy_and_relocate(size_t len, int n)
 	}
 	env_copy[k] = NULL;
 	aenv = &environ;
-	ft_cleanup(2, APTR, environ);
+	ft_cleanup(2, E_APTR, environ);
 	*aenv = env_copy;
 	return (0);
 }

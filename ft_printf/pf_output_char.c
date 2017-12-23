@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 20:18:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:23:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static void				apply_left_field_width(t_data *data, int width)
 	int		field_width;
 
 	if (data->field_width < 0)
-		UNSET_FLAG(ZERO, data->flags);
+		UNSET_FLAG(E_ZERO, data->flags);
 	field_width = data->field_width;
-	if (IS_FLAG(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
-		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
-	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
-	while (field_width-- > (data->range == LONG ? width : 1))
-		pf_fill_buffer(data, filler, NULL, PRINT);
+	if (IS_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
+	filler = (IS_FLAG(E_ZERO, data->flags) ? '0' : ' ');
+	while (field_width-- > (data->range == E_LONG ? width : 1))
+		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
 static int				output_wide_char(t_data *data, int c)
@@ -51,22 +51,22 @@ static int				output_wide_char(t_data *data, int c)
 		return (-1);
 	if (c >= 0 && (c < 128 || (MB_CUR_MAX == 1 && c <= 0x100)))
 	{
-		pf_fill_buffer(data, c, NULL, PRINT);
+		pf_fill_buffer(data, c, NULL, E_PRINT);
 		return (0);
 	}
 	if (FOUR_BYTES_UNICODE(c))
 	{
-		pf_fill_buffer(data, FOUR_BYTES_UNICODE_HEAD(c), NULL, PRINT);
-		pf_fill_buffer(data, THREE_BYTES_UNICODE_BODY(c), NULL, PRINT);
+		pf_fill_buffer(data, FOUR_BYTES_UNICODE_HEAD(c), NULL, E_PRINT);
+		pf_fill_buffer(data, THREE_BYTES_UNICODE_BODY(c), NULL, E_PRINT);
 	}
 	if (THREE_BYTES_UNICODE(c))
-		pf_fill_buffer(data, THREE_BYTES_UNICODE_HEAD(c), NULL, PRINT);
+		pf_fill_buffer(data, THREE_BYTES_UNICODE_HEAD(c), NULL, E_PRINT);
 	if (THREE_OR_MORE_BYTES_UNICODE(c))
-		pf_fill_buffer(data, TWO_BYTES_UNICODE_BODY(c), NULL, PRINT);
+		pf_fill_buffer(data, TWO_BYTES_UNICODE_BODY(c), NULL, E_PRINT);
 	if (TWO_BYTES_UNICODE(c))
-		pf_fill_buffer(data, TWO_BYTES_UNICODE_HEAD(c), NULL, PRINT);
+		pf_fill_buffer(data, TWO_BYTES_UNICODE_HEAD(c), NULL, E_PRINT);
 	if (TWO_OR_MORE_BYTES_UNICODE(c))
-		pf_fill_buffer(data, UNICODE_TAIL(c), NULL, PRINT);
+		pf_fill_buffer(data, UNICODE_TAIL(c), NULL, E_PRINT);
 	return (0);
 }
 
@@ -77,22 +77,22 @@ int						pf_output_char(t_data *data, const char *base)
 	wchar_t				wc;
 
 	(void)base;
-	if (data->range == LONG)
+	if (data->range == E_LONG)
 		wc = adjust_field_width(data, &width);
-	apply_left_field_width(data, (data->range == LONG ? width : 1));
-	if (data->range == LONG)
+	apply_left_field_width(data, (data->range == E_LONG ? width : 1));
+	if (data->range == E_LONG)
 		NEG_PROTECT(output_wide_char(data, wc), -1);
 	else
 	{
-		if (IS_NOT(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
-			pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
-		if (data->range == CHAR)
-			pf_fill_buffer(data, data->c, NULL, PRINT);
+		if (IS_NOT(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+			pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
+		if (data->range == E_CHAR)
+			pf_fill_buffer(data, data->c, NULL, E_PRINT);
 		else
-			pf_fill_buffer(data, (char)va_arg(data->ap, int), NULL, PRINT);
+			pf_fill_buffer(data, (char)va_arg(data->ap, int), NULL, E_PRINT);
 	}
 	field_width = -data->field_width;
-	while (field_width-- > (data->range == LONG ? width : 1))
-		pf_fill_buffer(data, ' ', NULL, PRINT);
+	while (field_width-- > (data->range == E_LONG ? width : 1))
+		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	return (0);
 }

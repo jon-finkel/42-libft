@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 20:15:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:24:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ static void				apply_left_field_width(t_data *data, int precision)
 	int			field_width;
 
 	if (data->field_width < 0)
-		UNSET_FLAG(ZERO, data->flags);
-	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
+		UNSET_FLAG(E_ZERO, data->flags);
+	filler = (IS_FLAG(E_ZERO, data->flags) ? '0' : ' ');
 	field_width = data->field_width;
-	if (IS_FLAG(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
-		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
+	if (IS_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
 	while (field_width-- > precision)
-		pf_fill_buffer(data, filler, NULL, PRINT);
+		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
 static void				apply_precision(t_data *data, char *string,
@@ -94,12 +94,12 @@ static void				apply_precision(t_data *data, char *string,
 	while (++k < precision)
 		adjusted_string[k] = string[k];
 	adjusted_string[precision] = '\0';
-	if (IS_NOT(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
-		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
-	pf_fill_buffer(data, 0, adjusted_string, PRINT);
+	if (IS_NOT(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
+	pf_fill_buffer(data, 0, adjusted_string, E_PRINT);
 	field_width = -data->field_width;
 	while (field_width-- > precision)
-		pf_fill_buffer(data, ' ', NULL, PRINT);
+		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
 int						pf_output_string(t_data *data, const char *base)
@@ -112,18 +112,18 @@ int						pf_output_string(t_data *data, const char *base)
 	string = NULL;
 	if (data->precision < 0)
 		data->precision = INT_MAX;
-	if (data->range == LONG && (wide_string = va_arg(data->ap, wchar_t *)))
+	if (data->range == E_LONG && (wide_string = va_arg(data->ap, wchar_t *)))
 	{
 		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
 		NEG_PROTECT(copy_wide_string(wide_string, string, data->precision), -1);
 	}
-	else if (data->range != LONG)
+	else if (data->range != E_LONG)
 		string = va_arg(data->ap, char *);
 	string = (!string ? "(null)" : string);
 	precision = _MIN(data->precision, (int)ft_strlen(string));
 	apply_left_field_width(data, precision);
 	apply_precision(data, string, precision);
-	if (data->range == LONG && wide_string)
+	if (data->range == E_LONG && wide_string)
 		free(string);
 	return (0);
 }

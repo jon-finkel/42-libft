@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 22:15:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:29:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char					*ft_strtrim(char *s, enum e_type type)
 		*(trim + ++k) = *s;
 		++s;
 	}
-	if (type == FREE)
+	if (type == E_FREE)
 		free(begin);
 	return (trim);
 }

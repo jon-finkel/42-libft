@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 19:56:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:22:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static const char			*get_precision(t_data *data, const char *format)
 	if (nb > 0)
 	{
 		data->precision = nb;
-		SET_FLAG(PRECISION_CHANGED, data->flags);
+		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 		format += ft_intlen(nb);
 	}
 	else if (*format == '*')
 	{
 		data->precision = va_arg(data->ap, int);
-		SET_FLAG(PRECISION_CHANGED, data->flags);
+		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 		++format;
 	}
 	else if (*format < '0' || *format > '9')
 	{
 		data->precision = 0;
-		SET_FLAG(PRECISION_CHANGED, data->flags);
+		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 	}
 	return (format);
 }
@@ -48,7 +48,7 @@ static const char			*get_field_width(t_data *data, const char *format)
 	{
 		while (*format == '*' && ++format)
 			nb = ft_atoi(format);
-		data->field_width = (IS_FLAG(NEGATIVE, data->flags) ? -nb : nb);
+		data->field_width = (IS_FLAG(E_NEGATIVE, data->flags) ? -nb : nb);
 		format += ft_intlen(nb);
 	}
 	else if (*format == '*' || (nb && *(format + ft_intlen(nb)) == '*'))
@@ -70,15 +70,15 @@ static const char			*get_modifiers(t_data *data, const char *format,
 		|| *format == '0')
 	{
 		if (*format == '#')
-			SET_FLAG(ALTERNATE, data->flags);
+			SET_FLAG(E_ALTERNATE, data->flags);
 		else if (*format == ' ')
-			SET_FLAG(SPACE, data->flags);
+			SET_FLAG(E_SPACE, data->flags);
 		else if (*format == '+')
-			SET_FLAG(PLUS, data->flags);
+			SET_FLAG(E_PLUS, data->flags);
 		else if (*format == '-')
-			SET_FLAG(NEGATIVE, data->flags);
-		else if (flag == FIRST && *format == '0')
-			SET_FLAG(ZERO, data->flags);
+			SET_FLAG(E_NEGATIVE, data->flags);
+		else if (flag == E_FIRST && *format == '0')
+			SET_FLAG(E_ZERO, data->flags);
 		++format;
 	}
 	return (format);
@@ -88,9 +88,9 @@ const char					*pf_get_flags(t_data *data, const char *format,
 							enum e_flags flag)
 {
 	while (*format == '{')
-		format = pf_ansi_color(data, format, NARROW);
+		format = pf_ansi_color(data, format, E_NARROW);
 	format = get_modifiers(data, format, flag);
-	if (flag == FIRST)
+	if (flag == E_FIRST)
 		format = get_field_width(data, format);
 	if (ft_atoi(format))
 		format = get_field_width(data, format);
@@ -99,10 +99,10 @@ const char					*pf_get_flags(t_data *data, const char *format,
 		while (*format == '0' && ++format)
 			data->precision = 0;
 		format = get_precision(data, format);
-		if (flag == SECOND)
+		if (flag == E_SECOND)
 			format = get_modifiers(data, format, flag);
 	}
-	if (IS_FLAG(PLUS, data->flags))
-		UNSET_FLAG(SPACE, data->flags);
+	if (IS_FLAG(E_PLUS, data->flags))
+		UNSET_FLAG(E_SPACE, data->flags);
 	return (format);
 }

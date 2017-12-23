@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 19:28:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:27:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	if (!data)
 	{
 		PROTECT(data = (t_data *)malloc(sizeof(t_data)), -1);
-		data->pf_type = ASPRINTF;
+		data->pf_type = E_ASPRINTF;
 	}
 	PROTECT(data->pf_buffer = ft_strnew(ASPRINTF_BUFFSIZE), -1);
 	data->pf_len = 0;

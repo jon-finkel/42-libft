@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:23:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static void			apply_left_field_width(t_data *data, int precision)
 	char		filler;
 	int			field_width;
 
-	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
+	filler = (IS_FLAG(E_ZERO, data->flags) ? '0' : ' ');
 	field_width = data->field_width;
 	while (field_width-- > precision)
-		pf_fill_buffer(data, filler, NULL, PRINT);
+		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
 static void			apply_right_field_width(t_data *data, int precision)
@@ -50,7 +50,7 @@ static void			apply_right_field_width(t_data *data, int precision)
 
 	field_width = -data->field_width;
 	while (field_width-- > precision)
-		pf_fill_buffer(data, ' ', NULL, PRINT);
+		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
 int					pf_output_noprint(t_data *data, const char *base)
@@ -76,7 +76,7 @@ int					pf_output_noprint(t_data *data, const char *base)
 	EXIT_PROTECT(string = ft_strnew(precision));
 	copy_string(string, begin, base, precision);
 	apply_left_field_width(data, precision);
-	pf_fill_buffer(data, 0, string, PRINT);
+	pf_fill_buffer(data, 0, string, E_PRINT);
 	apply_right_field_width(data, precision);
 	free(string);
 	return (0);

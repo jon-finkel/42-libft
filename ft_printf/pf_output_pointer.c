@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:23:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static void			apply_field_width(t_data *data, char *address)
 	len = ft_strlen(address);
 	if (data->field_width > 0)
 		while ((unsigned int)field_width-- > len)
-			pf_fill_buffer(data, ' ', NULL, PRINT);
-	pf_fill_buffer(data, 0, address, PRINT);
+			pf_fill_buffer(data, ' ', NULL, E_PRINT);
+	pf_fill_buffer(data, 0, address, E_PRINT);
 	if (data->field_width < 0)
 	{
 		field_width = -field_width;
 		while ((unsigned int)field_width-- > len)
-			pf_fill_buffer(data, ' ', NULL, PRINT);
+			pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	}
 }
 
@@ -44,7 +44,7 @@ static void			apply_zero_width(t_data *data, char *s, size_t len)
 	while (zero_width-- > 0)
 		address[++k] = '0';
 	ft_strcpy(address + k + 1, s);
-	pf_fill_buffer(data, 0, address, PRINT);
+	pf_fill_buffer(data, 0, address, E_PRINT);
 }
 
 static void			apply_precision(t_data *data, char *s, int precision,
@@ -53,7 +53,7 @@ static void			apply_precision(t_data *data, char *s, int precision,
 	char		address[MAX_LEN_POINTER];
 	int			k;
 
-	if (IS_FLAG(ZERO, data->flags) && data->field_width > (int)len + 2)
+	if (IS_FLAG(E_ZERO, data->flags) && data->field_width > (int)len + 2)
 		return (apply_zero_width(data, s, len));
 	precision -= len;
 	k = -1;

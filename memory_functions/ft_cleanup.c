@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:40:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 21:52:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 21:28:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void				ft_cleanup(const int nb, ...)
 	while (++k < nb)
 	{
 		type = (enum e_type)va_arg(ap, int);
-		if (type == PTR)
+		if (type == E_PTR)
 		{
 			ptr = va_arg(ap, char *);
 			free(ptr);
