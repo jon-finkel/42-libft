@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:26:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 00:26:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef char		mini_int;
-typedef char		flagholder;
+typedef int8_t		bitmap8_t;
+typedef int16_t		bitmap16_t;
+typedef int32_t		bitmap32_t;
 
 /*
 **##############################
@@ -141,8 +142,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstfree(void *data, size_t size);
 t_list				*ft_lstgetnode(t_list *list, size_t n);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstiter(t_list *lst, void (*f)(t_list *));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *));
 t_list				*ft_lstnew(const void *content, size_t content_size);
 size_t				ft_lstsize(t_list *list);
 void				ft_lstsnipe(t_list **alst, t_list *target,

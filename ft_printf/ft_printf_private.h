@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:16:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 00:26:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct		s_data
 	t_bool			color_multiple_flags;
 	char			error;
 	char			c;
-	flagholder		flags;
+	bitmap8_t		flags;
 	int				field_width;
 	int				precision;
 	va_list			ap;
@@ -92,7 +92,7 @@ typedef struct		s_data
 struct				s_color
 {
 	char			letter;
-	mini_int		code;
+	char			code;
 };
 
 struct				s_conv

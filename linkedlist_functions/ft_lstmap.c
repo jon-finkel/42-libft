@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 22:42:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:12:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 00:02:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {
 	t_list		*begin;
 	t_list		*new;
