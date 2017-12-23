@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 18:41:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 19:26:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void						pf_buff_format(t_data *data, const char *format)
 			else if (*format)
 			{
 				data->range = INT;
-				ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 				data->c = 0;
 				data->flags = 0;
 				data->field_width = 0;

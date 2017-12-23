@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 18:49:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 19:44:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,21 @@ static int			check_end_of_color_flag(t_data *data, const char *format)
 {
 	if (ft_strnequ(format, "{eoc}", 5))
 	{
-		data->end_color = FALSE;
 		pf_fill_buffer(data, 0, "\033[0m", NON_PRINT);
 		return (5);
 	}
-	if (ft_strstr(format, "{eoc}"))
+	while (*format)
 	{
-		data->end_color = TRUE;
-		return (0);
+		if (*format == '}')
+		{
+			ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
+			ft_strcat(data->ansi_colors, "\033[");
+			data->color_multiple_flags = FALSE;
+			return (0);
+		}
+		++format;
+		if (ft_strnequ(format, "{eoc}", 5))
+			break ;
 	}
 	pf_fill_buffer(data, '{', NULL, PRINT);
 	return (1);
@@ -62,7 +69,6 @@ const char			*pf_ansi_color(t_data *data, const char *format)
 
 	if ((n = check_end_of_color_flag(data, format)))
 		return (format + n);
-	ft_strcat(data->ansi_colors, "\033[");
 	while (++format && *format != '}' && n <= 10)
 	{
 		k = 0;
@@ -78,7 +84,6 @@ const char			*pf_ansi_color(t_data *data, const char *format)
 		n += ((!k || (k > 5 && k < LAST_COLOR_FLAG)) ? 10 : 0);
 	}
 	ft_strcat(data->ansi_colors, "m");
-	data->color_multiple_flags = FALSE;
 	pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
-	return (format + 1);
+	return (ft_strchr(format, '}') + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 18:48:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 19:44:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef struct		s_data
 	enum e_range	range;
 	char			ansi_colors[ANSI_STRING_BUFFSIZE];
 	t_bool			color_multiple_flags;
-	t_bool			end_color;
 	char			error;
 	char			c;
 	flagholder		flags;
