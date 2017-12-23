@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/18 18:30:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 20:18:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void				apply_left_field_width(t_data *data, int width)
 	if (data->field_width < 0)
 		UNSET_FLAG(ZERO, data->flags);
 	field_width = data->field_width;
+	if (IS_FLAG(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
 	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
 	while (field_width-- > (data->range == LONG ? width : 1))
 		pf_fill_buffer(data, filler, NULL, PRINT);
@@ -82,6 +84,8 @@ int						pf_output_char(t_data *data, const char *base)
 		NEG_PROTECT(output_wide_char(data, wc), -1);
 	else
 	{
+		if (IS_NOT(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
+			pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
 		if (data->range == CHAR)
 			pf_fill_buffer(data, data->c, NULL, PRINT);
 		else

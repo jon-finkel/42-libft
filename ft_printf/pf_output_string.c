@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/21 18:16:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 20:15:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ static void				apply_left_field_width(t_data *data, int precision)
 		UNSET_FLAG(ZERO, data->flags);
 	filler = (IS_FLAG(ZERO, data->flags) ? '0' : ' ');
 	field_width = data->field_width;
+	if (IS_FLAG(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
 	while (field_width-- > precision)
 		pf_fill_buffer(data, filler, NULL, PRINT);
 }
@@ -92,6 +94,8 @@ static void				apply_precision(t_data *data, char *string,
 	while (++k < precision)
 		adjusted_string[k] = string[k];
 	adjusted_string[precision] = '\0';
+	if (IS_NOT(ZERO, data->flags) && IS_FLAG(ANSI_COLOR, data->flags))
+		pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
 	pf_fill_buffer(data, 0, adjusted_string, PRINT);
 	field_width = -data->field_width;
 	while (field_width-- > precision)

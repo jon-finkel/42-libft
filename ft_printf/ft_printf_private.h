@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 19:44:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 19:55:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ enum				e_flags
 	SPACE = 8,
 	ZERO = 16,
 	PRECISION_CHANGED = 32,
+	ANSI_COLOR = 64,
 	FIRST,
 	SECOND,
 	PRINT,
 	NON_PRINT,
+	NARROW,
+	WIDE,
 	PRINTF,
 	SPRINTF,
 	ASPRINTF
@@ -104,7 +107,8 @@ void				pf_fill_buffer(t_data *data, const char filler,
 					const char *s_filler, enum e_flags flag);
 const char			*pf_get_flags(t_data *data, const char *format,
 					enum e_flags flag);
-const char			*pf_ansi_color(t_data *data, const char *format);
+const char			*pf_ansi_color(t_data *data, const char *format,
+					enum e_flags flag);
 void				pf_buff_format(t_data *data, const char *format);
 int					pf_output_char(t_data *data, const char *base);
 int					pf_output_double(t_data *data, const char *base);

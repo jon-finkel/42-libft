@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 19:26:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 19:55:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void						pf_buff_format(t_data *data, const char *format)
 	while (format && *format)
 	{
 		while (*format == '{')
-			format = pf_ansi_color(data, format);
+			format = pf_ansi_color(data, format, WIDE);
 		if (*format && *format != '%')
 			pf_fill_buffer(data, *format++, NULL, PRINT);
 		else if (*format == '%' && ++format)
