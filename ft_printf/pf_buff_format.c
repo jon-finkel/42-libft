@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/18 17:52:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 18:41:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static const char			*print_conversion(t_data *data, const char *format)
 	if (*format == 'n' || *format == 'v')
 		return (pf_output_extras(data, format));
 	k = -1;
-	while (++k < LAST_CONVERSION)
+	while (++k < LAST_CONVERSION_FLAG)
 		if ((unsigned char)*format == (unsigned char)g_conv[k].letter)
 		{
 			if (g_conv[k].range != VOID && data->range != LONG)
@@ -76,7 +76,7 @@ static const char			*print_conversion(t_data *data, const char *format)
 			NEG_PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
 			break ;
 		}
-	if (k == LAST_CONVERSION)
+	if (k == LAST_CONVERSION_FLAG)
 	{
 		data->range = CHAR;
 		data->c = *format;
@@ -100,6 +100,7 @@ void						pf_buff_format(t_data *data, const char *format)
 			else if (*format)
 			{
 				data->range = INT;
+				ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 				data->c = 0;
 				data->flags = 0;
 				data->field_width = 0;

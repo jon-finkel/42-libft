@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 15:24:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int					pf_output_double(t_data *data, const char *base)
 	size_t			len;
 	uintmax_t		integer;
 
-	ft_bzero(buff, 256);
+	ft_memset(buff, '\0', 256);
 	nb = va_arg(data->ap, double);
 	k = map_precision(data, base, buff, (nb < 0 ? -nb : nb));
 	if (k > -1)

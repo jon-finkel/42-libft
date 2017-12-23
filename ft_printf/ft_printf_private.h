@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/22 23:21:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 18:48:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 # include "../includes/libft.h"
 
-# define PRINTF_BUFFSIZE 4096
+# define ANSI_STRING_BUFFSIZE 12
 # define ASPRINTF_BUFFSIZE 128
+# define PRINTF_BUFFSIZE 4096
 
-# define LAST_COLOR 17
-# define LAST_CONVERSION 18
+# define LAST_COLOR_FLAG 22
+# define LAST_CONVERSION_FLAG 18
 # define MAX_LEN_INTMAX_T 20
 # define MAX_LEN_BINARY_UINTMAX_T 64
 # define MAX_LEN_POINTER 18
@@ -75,9 +76,12 @@ typedef struct		s_data
 	size_t			index;
 	size_t			non_printable;
 	enum e_range	range;
+	char			ansi_colors[ANSI_STRING_BUFFSIZE];
+	t_bool			color_multiple_flags;
+	t_bool			end_color;
 	char			error;
 	char			c;
-	char			flags;
+	flagholder		flags;
 	int				field_width;
 	int				precision;
 	va_list			ap;
@@ -85,9 +89,8 @@ typedef struct		s_data
 
 struct				s_color
 {
-	char			*flag;
-	size_t			len;
-	char			*code;
+	char			letter;
+	mini_int		code;
 };
 
 struct				s_conv

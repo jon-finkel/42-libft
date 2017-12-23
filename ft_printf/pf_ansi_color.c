@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 00:02:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 18:49:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,71 @@
 
 static const struct s_color		g_color[] =
 {
-	{"{eoc}", 5, "\033[0m"},
-	{"{black}", 7, "\033[30m"},
-	{"{red}", 5, "\033[31m"},
-	{"{green}", 7, "\033[32m"},
-	{"{yellow}", 8, "\033[33m"},
-	{"{blue}", 6, "\033[34m"},
-	{"{magenta}", 9, "\033[35m"},
-	{"{cyan}", 6, "\033[36m"},
-	{"{white}", 7, "\033[37m"},
-	{"{bright_black}", 14, "\033[1;30m"},
-	{"{bright_red}", 12, "\033[1;31m"},
-	{"{bright_green}", 14, "\033[1;32m"},
-	{"{bright_yellow}", 15, "\033[1;33m"},
-	{"{bright_blue}", 13, "\033[1;34m"},
-	{"{bright_magenta}", 16, "\033[1;35m"},
-	{"{bright_cyan}", 13, "\033[1;36m"},
-	{"{bright_white}", 14, "\033[1;37m"},
+	{'x', 0},
+	{'1', 1},
+	{'4', 4},
+	{'5', 5},
+	{'7', 7},
+	{'8', 8},
+	{'a', 30},
+	{'b', 31},
+	{'c', 32},
+	{'d', 33},
+	{'e', 34},
+	{'f', 35},
+	{'g', 36},
+	{'h', 37},
+	{'A', 90},
+	{'B', 91},
+	{'C', 92},
+	{'D', 93},
+	{'E', 94},
+	{'F', 95},
+	{'G', 96},
+	{'H', 97},
 };
 
-static int			check_end_of_color_flag(const char *format)
+static int			check_end_of_color_flag(t_data *data, const char *format)
 {
-	while (*format)
+	if (ft_strnequ(format, "{eoc}", 5))
 	{
-		if (ft_strnequ(format, "{eoc}", 5))
-			return (1);
-		++format;
+		data->end_color = FALSE;
+		pf_fill_buffer(data, 0, "\033[0m", NON_PRINT);
+		return (5);
 	}
-	return (0);
+	if (ft_strstr(format, "{eoc}"))
+	{
+		data->end_color = TRUE;
+		return (0);
+	}
+	pf_fill_buffer(data, '{', NULL, PRINT);
+	return (1);
 }
 
 const char			*pf_ansi_color(t_data *data, const char *format)
 {
-	int		k;
+	int			k;
+	size_t		n;
 
-	k = -1;
-	while (++k < LAST_COLOR)
-		if (ft_strnequ(format, g_color[k].flag, g_color[k].len))
-		{
-			if (!check_end_of_color_flag(format))
+	if ((n = check_end_of_color_flag(data, format)))
+		return (format + n);
+	ft_strcat(data->ansi_colors, "\033[");
+	while (++format && *format != '}' && n <= 10)
+	{
+		k = 0;
+		while (*format != 'x' && ++k < LAST_COLOR_FLAG)
+			if (*format == g_color[k].letter)
 			{
-				k = LAST_COLOR;
+				if (data->color_multiple_flags == TRUE)
+					ft_strcat(data->ansi_colors, ";");
+				ft_strcat(data->ansi_colors, ft_itoa(g_color[k].code + n));
+				data->color_multiple_flags = TRUE;
 				break ;
 			}
-			pf_fill_buffer(data, 0, g_color[k].code, NON_PRINT);
-			format += g_color[k].len;
-			break ;
-		}
-	if (k == LAST_COLOR)
-	{
-		pf_fill_buffer(data, '{', NULL, PRINT);
-		++format;
+		n += ((!k || (k > 5 && k < LAST_COLOR_FLAG)) ? 10 : 0);
 	}
-	return (format);
+	ft_strcat(data->ansi_colors, "m");
+	data->color_multiple_flags = FALSE;
+	pf_fill_buffer(data, 0, data->ansi_colors, NON_PRINT);
+	return (format + 1);
 }

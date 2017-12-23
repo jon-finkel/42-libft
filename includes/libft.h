@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/22 12:06:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/23 17:38:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,21 @@ enum				e_type
 	NO_FREE
 };
 
+typedef enum		e_bool
+{
+	FALSE = 0,
+	TRUE = 1
+}					t_bool;
+
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef char		mini_int;
+typedef char		flagholder;
 
 /*
 **##############################
