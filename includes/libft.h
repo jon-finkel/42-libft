@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:22:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 19:01:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 ** Protection macros
 */
 # define PROTECT(x, y) ({if(!(x)) return(y);})
+# define ERR_PROTECT(x, y, z) ({if(!(x)) {ft_perror(y);return(z);}})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
 # define CONTINUE(x) ({if(!(x)) continue;})
@@ -168,6 +169,7 @@ int					ft_vsnprintf(char *str, size_t size, const char *format,
 					va_list ap);
 
 void				ft_kill(const char *s);
+void				ft_perror(const char *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(const char *s);
