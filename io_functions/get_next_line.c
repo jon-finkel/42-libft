@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:27:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:13:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 static t_list			*get_correct_link(t_list **head, const int fd)
 {
-	struct s_data		*data;
-	t_list				*list;
-	t_list				*newlink;
+	t_data		*data;
+	t_list		*list;
+	t_list		*newlink;
 
 	list = *head;
 	while (list && LIST_CONTENT->fd != fd)
 		list = list->next;
 	if (!list)
 	{
-		PROTECT(data = (struct s_data *)malloc(sizeof(struct s_data)), NULL);
+		PROTECT(data = (t_data *)malloc(sizeof(t_data)), NULL);
 		PROTECT(data->str = ft_strnew(0), NULL);
 		data->begin = data->str;
 		data->fd = fd;
-		PROTECT(newlink = ft_lstnew(data, sizeof(struct s_data)), NULL);
+		PROTECT(newlink = ft_lstnew(data, sizeof(t_data)), NULL);
 		free(data);
 		ft_lstadd(head, newlink);
 		list = *head;

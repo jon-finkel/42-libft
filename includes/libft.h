@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 00:26:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:22:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SET_FLAG(x, y) ((y) |= (x))
 # define UNSET_FLAG(x, y) ((y) &= ~(x))
 # define IS_FLAG(x, y) (((y) & (x)) == (x))
-# define IS_NOT(x, y) (!((y) & (x)))
+# define NOT_FLAG(x, y) (!((y) & (x)))
 
 /*
 ** General evaluation macros
@@ -48,13 +48,13 @@
 # define CONTINUE(x) ({if(!(x)) continue;})
 # define NEG_CONTINUE(x) ({if((x) == -1) continue;})
 
-enum				e_type
+typedef enum		e_type
 {
 	E_APTR,
 	E_PTR,
 	E_FREE,
 	E_NO_FREE
-};
+}					t_type;
 
 typedef enum		e_bool
 {
@@ -91,7 +91,7 @@ char				*ft_strdup(const char *s1);
 int					ft_strequ(const char *s1, const char *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strjoin(char *s1, const char *s2, enum e_type type);
+char				*ft_strjoin(char *s1, const char *s2, t_type type);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strmap(const char *s, char (*f)(char));
@@ -110,8 +110,8 @@ int					ft_strrewrite(char *big, const char *little,
 char				**ft_strsplit(const char *s, char c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(char *s, unsigned int start, size_t len,
-					enum e_type type);
-char				*ft_strtrim(char *s, enum e_type type);
+					t_type type);
+char				*ft_strtrim(char *s, t_type type);
 
 /*
 **##############################
@@ -167,7 +167,7 @@ int					ft_vsprintf(char *str, const char *format, va_list ap);
 int					ft_vsnprintf(char *str, size_t size, const char *format,
 					va_list ap);
 
-void				ft_kill(const char *s, const int fd);
+void				ft_kill(const char *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(const char *s);

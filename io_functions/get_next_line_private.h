@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 17:23:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 19:02:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:13:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include "../includes/libft.h"
 
-# define LIST_CONTENT ((struct s_data *)(list->content))
+# define LIST_CONTENT ((t_data *)(list->content))
 
 # define BUFF_SIZE 4095
 
-struct		s_data
+typedef struct	s_data
 {
-	char	*begin;
-	char	*str;
-	int		fd;
-};
+	char		*begin;
+	char		*str;
+	int			fd;
+}				t_data;
 
 #endif

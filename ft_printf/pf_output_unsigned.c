@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:25:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:41:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void					left_field_width(t_data *data, const char *base,
 	size_t	blen;
 
 	field_width = data->field_width;
-	if (IS_NOT(E_ZERO, data->flags))
+	if (NOT_FLAG(E_ZERO, data->flags))
 		while (field_width-- > *precision)
 			pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	blen = ft_strlen(base);
@@ -89,7 +89,7 @@ static void					apply_flags(t_data *data, const char *s,
 	int			precision;
 	size_t		len;
 
-	if (IS_NOT(E_PRECISION_CHANGED, data->flags))
+	if (NOT_FLAG(E_PRECISION_CHANGED, data->flags))
 		data->precision = 0;
 	else if (data->precision >= 0)
 		UNSET_FLAG(E_ZERO, data->flags);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:22:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:25:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static const char			*get_field_width(t_data *data, const char *format)
 }
 
 static const char			*get_modifiers(t_data *data, const char *format,
-							enum e_flags flag)
+							t_flag flag)
 {
 	while (*format == '#' || *format == ' ' || *format == '+' || *format == '-'
 		|| *format == '0')
@@ -85,7 +85,7 @@ static const char			*get_modifiers(t_data *data, const char *format,
 }
 
 const char					*pf_get_flags(t_data *data, const char *format,
-							enum e_flags flag)
+							t_flag flag)
 {
 	while (*format == '{')
 		format = pf_ansi_color(data, format, E_NARROW);

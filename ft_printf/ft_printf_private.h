@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 09:41:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:24:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define TWO_BYTES_UNICODE_BODY(x) ((x >> 6 & 0x3F) | 0x80)
 # define UNICODE_TAIL(x) ((x & 0x3F) | 0x80)
 
-enum				e_flags
+typedef enum		e_flag
 {
 	E_ALTERNATE = 1,
 	E_NEGATIVE = 2,
@@ -55,9 +55,9 @@ enum				e_flags
 	E_PRINTF,
 	E_SPRINTF,
 	E_ASPRINTF
-};
+}					t_flag;
 
-enum				e_range
+typedef enum		e_range
 {
 	E_VOID = 0,
 	E_INT = 1,
@@ -67,18 +67,18 @@ enum				e_range
 	E_LONG = 5,
 	E_LONG_LONG = 6,
 	E_INTMAX_T = 7
-};
+}					t_range;
 
 typedef struct		s_data
 {
-	enum e_flags	pf_type;
+	t_flag			pf_type;
 	char			*pf_buffer;
 	size_t			pf_len;
 	size_t			pf_max_len;
 	int				fd;
 	size_t			index;
 	size_t			non_printable;
-	enum e_range	range;
+	t_range			range;
 	char			ansi_colors[ANSI_STRING_BUFFSIZE];
 	t_bool			color_multiple_flags;
 	char			error;
@@ -104,11 +104,11 @@ struct				s_conv
 };
 
 void				pf_fill_buffer(t_data *data, const char filler,
-					const char *s_filler, enum e_flags flag);
+					const char *s_filler, t_flag flag);
 const char			*pf_get_flags(t_data *data, const char *format,
-					enum e_flags flag);
+					t_flag flag);
 const char			*pf_ansi_color(t_data *data, const char *format,
-					enum e_flags flag);
+					t_flag flag);
 void				pf_buff_format(t_data *data, const char *format);
 int					pf_output_char(t_data *data, const char *base);
 int					pf_output_double(t_data *data, const char *base);

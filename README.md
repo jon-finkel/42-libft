@@ -12,7 +12,7 @@ Disclaimer: *As a freshman and an overall rookie in programming, my implementati
 
 ### What's in it?
 
-As you can see from the [Project instructions][1], there are 3 sections:
+As you can see from the [project instructions][1], there are 3 sections:
 
 1.  **Libc functions:** Some of the standard C functions, I've marked them with an (L) next to their name.
 2.  **Additional functions:** Functions 42 deems will be useful for later projects, I've marked them with an (A) next to their name.

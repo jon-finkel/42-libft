@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:24:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:41:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void				apply_precision(t_data *data, char *string,
 	while (++k < precision)
 		adjusted_string[k] = string[k];
 	adjusted_string[precision] = '\0';
-	if (IS_NOT(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+	if (NOT_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
 		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
 	pf_fill_buffer(data, 0, adjusted_string, E_PRINT);
 	field_width = -data->field_width;

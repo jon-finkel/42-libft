@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:24:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:41:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static void				left_field_width(t_data *data, int *precision, int neg)
 		else
 			--field_width;
 	}
-	if (!neg && IS_FLAG(E_PLUS, data->flags) && IS_NOT(E_ZERO, data->flags))
+	if (!neg && IS_FLAG(E_PLUS, data->flags) && NOT_FLAG(E_ZERO, data->flags))
 		--field_width;
-	if (IS_NOT(E_ZERO, data->flags))
+	if (NOT_FLAG(E_ZERO, data->flags))
 		while (field_width-- > *precision)
 			pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	if (!neg && IS_FLAG(E_PLUS, data->flags) && ++*precision)
@@ -51,7 +51,7 @@ static void				left_field_width(t_data *data, int *precision, int neg)
 	if (IS_FLAG(E_ZERO, data->flags))
 		while (field_width-- > *precision)
 			pf_fill_buffer(data, '0', NULL, E_PRINT);
-	if (neg && IS_NOT(E_ZERO, data->flags) && ++*precision)
+	if (neg && NOT_FLAG(E_ZERO, data->flags) && ++*precision)
 		pf_fill_buffer(data, '-', NULL, E_PRINT);
 }
 
@@ -97,7 +97,7 @@ int						pf_output_signed(t_data *data, const char *base)
 		n /= 10;
 	}
 	tmp[++k] = '\0';
-	if (IS_NOT(E_PRECISION_CHANGED, data->flags))
+	if (NOT_FLAG(E_PRECISION_CHANGED, data->flags))
 		data->precision = 0;
 	else if (data->precision >= 0)
 		UNSET_FLAG(E_ZERO, data->flags);

@@ -6,14 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:29:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:22:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strsub(char *s, unsigned int start, size_t len,
-				enum e_type type)
+char			*ft_strsub(char *s, unsigned int start, size_t len, t_type type)
 {
 	char		*begin;
 	char		*sub;

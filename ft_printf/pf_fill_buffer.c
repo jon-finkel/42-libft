@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:20:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:25:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void			asprintf_fill(t_data *data, const char filler,
 }
 
 void				pf_fill_buffer(t_data *data, const char filler,
-					const char *s_filler, enum e_flags flag)
+					const char *s_filler, t_flag flag)
 {
 	size_t		n;
 

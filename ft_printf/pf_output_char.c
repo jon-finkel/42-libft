@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:23:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:40:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int						pf_output_char(t_data *data, const char *base)
 		NEG_PROTECT(output_wide_char(data, wc), -1);
 	else
 	{
-		if (IS_NOT(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
+		if (NOT_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
 			pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
 		if (data->range == E_CHAR)
 			pf_fill_buffer(data, data->c, NULL, E_PRINT);

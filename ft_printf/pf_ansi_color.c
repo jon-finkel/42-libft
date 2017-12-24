@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:05:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 11:24:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int			check_end_of_color_flag(t_data *data, const char *format)
 }
 
 const char			*pf_ansi_color(t_data *data, const char *format,
-					enum e_flags flag)
+					t_flag flag)
 {
 	int			k;
 	size_t		n;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:23:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:40:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void			apply_left_field_width(t_data *data, size_t len, double nb)
 		pf_fill_buffer(data, '-', NULL, E_PRINT);
 	while (field_width-- > (int)len)
 		pf_fill_buffer(data, filler, NULL, E_PRINT);
-	if (IS_NOT(E_ZERO, data->flags) && nb < 0)
+	if (NOT_FLAG(E_ZERO, data->flags) && nb < 0)
 		pf_fill_buffer(data, '-', NULL, E_PRINT);
 }
 
