@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/24 18:53:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 19:17:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 19:35:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void			ft_perror(const char *s, ...)
 	va_list		ap;
 
 	va_start(ap, s);
-	ft_vdprintf(STDERR_FILENO, "%s\n", ap);
+	ft_vdprintf(STDERR_FILENO, s, ap);
 	va_end(ap);
 }
