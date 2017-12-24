@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:23:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 21:50:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int					pf_output_noprint(t_data *data, const char *base)
 	int			precision;
 	size_t		len;
 
-	string = va_arg(data->ap, char *);
+	string = va_arg(data->arg, char *);
 	string = (!string ? "(null)" : string);
 	begin = string;
 	precision = 0;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:06:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 23:29:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ int			ft_vdprintf(int fd, const char *format, va_list ap)
 	data->error = 0;
 	data->index = 0;
 	data->non_printable = 0;
+	data->positional = E_UNDEFINED;
 	va_copy(data->ap, ap);
 	pf_buff_format(data, format);
 	write(fd, data->pf_buffer, data->index);
 	data->pf_len -= data->non_printable;
 	va_end(data->ap);
+	if (data->positional == E_NON_POSITIONAL)
+		va_end(data->arg);
 	return (data->error ? -1 : (int)data->pf_len);
 }

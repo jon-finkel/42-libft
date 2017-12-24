@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:41:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 21:52:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static uintmax_t			typecast(t_data *data, enum e_range range)
 {
 	if (range == E_LONG)
-		return (va_arg(data->ap, unsigned long));
+		return (va_arg(data->arg, unsigned long));
 	else if (range == E_LONG_LONG)
-		return (va_arg(data->ap, unsigned long long));
+		return (va_arg(data->arg, unsigned long long));
 	else if (range == E_INTMAX_T)
-		return (va_arg(data->ap, uintmax_t));
+		return (va_arg(data->arg, uintmax_t));
 	else if (range == E_SHORT)
-		return ((unsigned short)va_arg(data->ap, unsigned int));
+		return ((unsigned short)va_arg(data->arg, unsigned int));
 	else if (range == E_CHAR)
-		return ((unsigned char)va_arg(data->ap, unsigned int));
+		return ((unsigned char)va_arg(data->arg, unsigned int));
 	else if (range == E_SIZE_T)
-		return (va_arg(data->ap, ssize_t));
-	return (va_arg(data->ap, unsigned int));
+		return (va_arg(data->arg, ssize_t));
+	return (va_arg(data->arg, unsigned int));
 }
 
 static void					adjust_field_width(t_data *data, const char *base,

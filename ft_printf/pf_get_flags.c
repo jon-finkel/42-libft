@@ -6,11 +6,30 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:25:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 23:48:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
+
+static const char			*positional_wildcard(t_data *data,
+							const char *format, t_flag flag)
+{
+	int			nb;
+	size_t		len;
+
+	nb = ft_atoi(format);
+	len = ft_intlen(nb);
+	va_copy(data->wildcard, data->ap);
+	while (--nb)
+		va_arg(data->wildcard, void *);
+	if (flag == E_PRECISION)
+		data->precision = va_arg(data->wildcard, int);
+	else
+		data->field_width = va_arg(data->wildcard, int);
+	va_end(data->wildcard);
+	return (format + len + 1);
+}
 
 static const char			*get_precision(t_data *data, const char *format)
 {
@@ -27,15 +46,15 @@ static const char			*get_precision(t_data *data, const char *format)
 	}
 	else if (*format == '*')
 	{
-		data->precision = va_arg(data->ap, int);
-		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 		++format;
-	}
-	else if (*format < '0' || *format > '9')
-	{
-		data->precision = 0;
+		if (data->positional == E_POSITIONAL)
+			format = positional_wildcard(data, format, E_PRECISION);
+		else
+			data->precision = va_arg(data->arg, int);
 		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 	}
+	else if ((*format < '0' || *format > '9') && !(data->precision = 0))
+		SET_FLAG(E_PRECISION_CHANGED, data->flags);
 	return (format);
 }
 
@@ -55,8 +74,11 @@ static const char			*get_field_width(t_data *data, const char *format)
 	{
 		if (nb)
 			format += ft_intlen(nb);
-		data->field_width = va_arg(data->ap, int);
 		++format;
+		if (data->positional == E_POSITIONAL)
+			format = positional_wildcard(data, format, E_FIELD_WIDTH);
+		else
+			data->field_width = va_arg(data->arg, int);
 	}
 	else
 		data->field_width = 0;

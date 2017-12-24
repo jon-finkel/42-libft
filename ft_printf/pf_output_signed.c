@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:41:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 21:51:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static intmax_t			typecast(t_data *data, enum e_range range)
 {
 	if (range == E_LONG)
-		return (va_arg(data->ap, long));
+		return (va_arg(data->arg, long));
 	else if (range == E_LONG_LONG)
-		return (va_arg(data->ap, long long));
+		return (va_arg(data->arg, long long));
 	else if (range == E_INTMAX_T)
-		return (va_arg(data->ap, intmax_t));
+		return (va_arg(data->arg, intmax_t));
 	else if (range == E_SHORT)
-		return ((short)va_arg(data->ap, int));
+		return ((short)va_arg(data->arg, int));
 	else if (range == E_CHAR)
-		return ((char)va_arg(data->ap, int));
+		return ((char)va_arg(data->arg, int));
 	else if (range == E_SIZE_T)
-		return (va_arg(data->ap, size_t));
-	return (va_arg(data->ap, int));
+		return (va_arg(data->arg, size_t));
+	return (va_arg(data->arg, int));
 }
 
 static void				left_field_width(t_data *data, int *precision, int neg)

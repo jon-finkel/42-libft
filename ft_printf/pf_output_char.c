@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:40:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 21:50:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static wchar_t			adjust_field_width(t_data *data, int *width)
 {
 	wchar_t		wc;
 
-	wc = va_arg(data->ap, wchar_t);
+	wc = va_arg(data->arg, wchar_t);
 	if (FOUR_BYTES_UNICODE(wc))
 		*width = 4;
 	else if (THREE_BYTES_UNICODE(wc))
@@ -89,7 +89,7 @@ int						pf_output_char(t_data *data, const char *base)
 		if (data->range == E_CHAR)
 			pf_fill_buffer(data, data->c, NULL, E_PRINT);
 		else
-			pf_fill_buffer(data, (char)va_arg(data->ap, int), NULL, E_PRINT);
+			pf_fill_buffer(data, (char)va_arg(data->arg, int), NULL, E_PRINT);
 	}
 	field_width = -data->field_width;
 	while (field_width-- > (data->range == E_LONG ? width : 1))

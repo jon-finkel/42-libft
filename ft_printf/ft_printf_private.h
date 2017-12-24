@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:24:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 23:36:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ typedef enum		e_flag
 	E_WIDE,
 	E_PRINTF,
 	E_SPRINTF,
-	E_ASPRINTF
+	E_ASPRINTF,
+	E_UNDEFINED,
+	E_NON_POSITIONAL,
+	E_POSITIONAL,
+	E_PRECISION,
+	E_FIELD_WIDTH
 }					t_flag;
 
 typedef enum		e_range
@@ -86,7 +91,10 @@ typedef struct		s_data
 	bitmap8_t		flags;
 	int				field_width;
 	int				precision;
+	t_flag			positional;
 	va_list			ap;
+	va_list			arg;
+	va_list			wildcard;
 }					t_data;
 
 struct				s_color

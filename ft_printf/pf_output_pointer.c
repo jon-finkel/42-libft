@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:23:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 21:51:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int					pf_output_pointer(t_data *data, const char *base)
 	int				precision;
 	uintmax_t		nb;
 
-	nb = (uintmax_t)va_arg(data->ap, intptr_t);
+	nb = (uintmax_t)va_arg(data->arg, intptr_t);
 	k = -1;
 	if (!nb && data->precision)
 		tmp[++k] = '0';

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 10:50:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 23:32:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@ static const struct s_conv		g_conv[] =
 	{'S', &pf_output_string, NULL, E_LONG},
 	{'C', &pf_output_char, NULL, E_LONG}
 };
+
+static const char			*check_positional_argument(t_data *data,
+							const char *format)
+{
+	int			nb;
+	size_t		len;
+
+	if (data->positional == E_UNDEFINED)
+	{
+		nb = ft_atoi(format);
+		if (nb && *(format + (len = ft_intlen(nb))) == '$')
+			data->positional = E_POSITIONAL;
+		else
+		{
+			data->positional = E_NON_POSITIONAL;
+			va_copy(data->arg, data->ap);
+		}
+	}
+	if (data->positional == E_POSITIONAL)
+	{
+		nb = ft_atoi(format);
+		va_copy(data->arg, data->ap);
+		while (--nb)
+			va_arg(data->arg, void *);
+		format = ft_strchr(format, '$') + 1;
+	}
+	return (format);
+}
 
 static const char			*get_range(t_data *data, const char *format)
 {
@@ -61,7 +89,6 @@ static const char			*print_conversion(t_data *data, const char *format)
 {
 	int		k;
 
-	format = get_range(data, format);
 	format = pf_get_flags(data, format, E_SECOND);
 	if (!*format)
 		return (format);
@@ -74,6 +101,8 @@ static const char			*print_conversion(t_data *data, const char *format)
 			if (g_conv[k].range != E_VOID && data->range != E_LONG)
 				data->range = g_conv[k].range;
 			NEG_PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
+			if (data->positional == E_POSITIONAL)
+				va_end(data->arg);
 			break ;
 		}
 	if (k == LAST_CONVERSION_FLAG)
@@ -104,7 +133,9 @@ void						pf_buff_format(t_data *data, const char *format)
 				data->flags = 0;
 				data->field_width = 0;
 				data->precision = INT_MAX;
+				format = check_positional_argument(data, format);
 				format = pf_get_flags(data, format, E_FIRST);
+				format = get_range(data, format);
 				if (!(format = print_conversion(data, format)))
 					data->error = 1;
 			}

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 19:02:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 23:29:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 	data->error = 0;
 	data->non_printable = 0;
+	data->positional = E_UNDEFINED;
 	va_copy(data->ap, ap);
 	pf_buff_format(data, format);
 	*ret = data->pf_buffer;
 	data->pf_len -= data->non_printable;
 	va_end(data->ap);
+	if (data->positional == E_NON_POSITIONAL)
+		va_end(data->arg);
 	return (data->error ? -1 : (int)data->pf_len);
 }
