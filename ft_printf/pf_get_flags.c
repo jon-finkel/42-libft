@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 23:48:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/25 00:35:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ static const char			*get_field_width(t_data *data, const char *format)
 			format = positional_wildcard(data, format, E_FIELD_WIDTH);
 		else
 			data->field_width = va_arg(data->arg, int);
+		if (IS_FLAG(E_NEGATIVE, data->flags) && data->field_width > 0)
+			data->field_width *= -1;
 	}
 	else
 		data->field_width = 0;
