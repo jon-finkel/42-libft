@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 19:17:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 19:55:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define ERR_PROTECT(x, y, z) ({if(!(x)) {ft_perror(y);return(z);}})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
-# define NEG_PROTECT(x, y) ({if((x) == -1) return(y);})
+# define NEG_PROTECT(x, y) ({if((x) < 0) return(y);})
+# define NEG_ERRPROTECT(x, y, z) ({if((x) < 0) {ft_perror(y);return(z);}})
 # define CONTINUE(x) ({if(!(x)) continue;})
-# define NEG_CONTINUE(x) ({if((x) == -1) continue;})
+# define NEG_CONTINUE(x) ({if((x) < 0) continue;})
 
 typedef enum		e_type
 {
