@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 00:26:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 09:41:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../includes/libft.h"
 
-# define ANSI_STRING_BUFFSIZE 12
+# define ANSI_STRING_BUFFSIZE 18
 # define ASPRINTF_BUFFSIZE 128
 # define PRINTF_BUFFSIZE 4096
 

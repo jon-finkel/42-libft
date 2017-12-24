@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:27:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:06:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int			ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
 	}
 	data->pf_buffer = str;
 	data->pf_len = 0;
+	ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 	data->error = 0;
 	data->index = size - 1;
 	data->non_printable = 0;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/23 21:17:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/24 10:05:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,25 @@ static const struct s_color		g_color[] =
 
 static int			check_end_of_color_flag(t_data *data, const char *format)
 {
-	if (ft_strnequ(format, "{eoc}", 5))
+	char	buff[PRINTF_BUFFSIZE];
+	char	*eoc_start;
+
+	if (ft_strnequ(format, "{eoc}", 5) && ft_strlen(data->ansi_colors))
 	{
 		pf_fill_buffer(data, 0, "\033[0m", E_NON_PRINT);
 		return (5);
 	}
-	if (ft_strstr(format + 1, "{eoc}"))
+	++format;
+	if ((eoc_start = ft_strstr(format, "{eoc}")))
 	{
-		ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
-		ft_strcat(data->ansi_colors, "\033[");
-		data->color_multiple_flags = FALSE;
-		return (0);
+		ft_memnccpy(buff, format, *eoc_start, PRINTF_BUFFSIZE);
+		if (ft_strchr(buff, '}'))
+		{
+			ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
+			ft_strcat(data->ansi_colors, "\033[");
+			data->color_multiple_flags = FALSE;
+			return (0);
+		}
 	}
 	pf_fill_buffer(data, '{', NULL, E_PRINT);
 	return (1);
