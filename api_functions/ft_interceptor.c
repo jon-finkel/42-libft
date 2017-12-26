@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 19:48:03 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 19:56:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 20:00:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			ft_interceptor(void (*handler)(int), int total, ...)
 	while (total--)
 	{
 		signo = va_arg(ap, int);
-		handler(signo);
+		signal(signo, handler);
 	}
 	va_end(ap);
 }
