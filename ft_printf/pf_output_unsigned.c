@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:52:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static uintmax_t			typecast(t_data *data, enum e_range range)
+static uintmax_t			typecast(t_printf *data, enum e_range range)
 {
 	if (range == E_LONG)
 		return (va_arg(data->arg, unsigned long));
@@ -29,7 +29,7 @@ static uintmax_t			typecast(t_data *data, enum e_range range)
 	return (va_arg(data->arg, unsigned int));
 }
 
-static void					adjust_field_width(t_data *data, const char *base,
+static void					adjust_field_width(t_printf *data, const char *base,
 							uintmax_t nb, size_t len)
 {
 	size_t		blen;
@@ -55,7 +55,7 @@ static void					adjust_field_width(t_data *data, const char *base,
 	}
 }
 
-static void					left_field_width(t_data *data, const char *base,
+static void					left_field_width(t_printf *data, const char *base,
 							int *precision, uintmax_t nb)
 {
 	int		field_width;
@@ -82,7 +82,7 @@ static void					left_field_width(t_data *data, const char *base,
 			pf_fill_buffer(data, '0', NULL, E_PRINT);
 }
 
-static void					apply_flags(t_data *data, const char *s,
+static void					apply_flags(t_printf *data, const char *s,
 							const char *base, uintmax_t nb)
 {
 	int			k;
@@ -111,7 +111,7 @@ static void					apply_flags(t_data *data, const char *s,
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
-int							pf_output_unsigned(t_data *data, const char *base)
+int							pf_output_unsigned(t_printf *data, const char *base)
 {
 	char			tmp[MAX_LEN_BINARY_UINTMAX_T];
 	int				k;

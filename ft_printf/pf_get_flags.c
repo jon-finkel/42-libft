@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/25 00:35:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:16:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static const char			*positional_wildcard(t_data *data,
+static const char			*positional_wildcard(t_printf *data,
 							const char *format, t_flag flag)
 {
 	int			nb;
@@ -31,7 +31,7 @@ static const char			*positional_wildcard(t_data *data,
 	return (format + len + 1);
 }
 
-static const char			*get_precision(t_data *data, const char *format)
+static const char			*get_precision(t_printf *data, const char *format)
 {
 	int		nb;
 
@@ -58,7 +58,7 @@ static const char			*get_precision(t_data *data, const char *format)
 	return (format);
 }
 
-static const char			*get_field_width(t_data *data, const char *format)
+static const char			*get_field_width(t_printf *data, const char *format)
 {
 	int		nb;
 
@@ -87,7 +87,7 @@ static const char			*get_field_width(t_data *data, const char *format)
 	return (format);
 }
 
-static const char			*get_modifiers(t_data *data, const char *format,
+static const char			*get_modifiers(t_printf *data, const char *format,
 							t_flag flag)
 {
 	while (*format == '#' || *format == ' ' || *format == '+' || *format == '-'
@@ -108,7 +108,7 @@ static const char			*get_modifiers(t_data *data, const char *format,
 	return (format);
 }
 
-const char					*pf_get_flags(t_data *data, const char *format,
+const char					*pf_get_flags(t_printf *data, const char *format,
 							t_flag flag)
 {
 	while (*format == '{')

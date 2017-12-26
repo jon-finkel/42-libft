@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:51:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static intmax_t			typecast(t_data *data, enum e_range range)
+static intmax_t			typecast(t_printf *data, enum e_range range)
 {
 	if (range == E_LONG)
 		return (va_arg(data->arg, long));
@@ -29,7 +29,8 @@ static intmax_t			typecast(t_data *data, enum e_range range)
 	return (va_arg(data->arg, int));
 }
 
-static void				left_field_width(t_data *data, int *precision, int neg)
+static void				left_field_width(t_printf *data, int *precision,
+						int neg)
 {
 	int		field_width;
 
@@ -55,7 +56,7 @@ static void				left_field_width(t_data *data, int *precision, int neg)
 		pf_fill_buffer(data, '-', NULL, E_PRINT);
 }
 
-static void				apply_flags(t_data *data, const char *s, intmax_t nb)
+static void				apply_flags(t_printf *data, const char *s, intmax_t nb)
 {
 	int			k;
 	int			precision;
@@ -79,7 +80,7 @@ static void				apply_flags(t_data *data, const char *s, intmax_t nb)
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
-int						pf_output_signed(t_data *data, const char *base)
+int						pf_output_signed(t_printf *data, const char *base)
 {
 	char			tmp[MAX_LEN_INTMAX_T];
 	int				k;

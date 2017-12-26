@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 23:32:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:16:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static const struct s_conv		g_conv[] =
 	{'C', &pf_output_char, NULL, E_LONG}
 };
 
-static const char			*check_positional_argument(t_data *data,
+static const char			*check_positional_argument(t_printf *data,
 							const char *format)
 {
 	int			nb;
@@ -62,7 +62,7 @@ static const char			*check_positional_argument(t_data *data,
 	return (format);
 }
 
-static const char			*get_range(t_data *data, const char *format)
+static const char			*get_range(t_printf *data, const char *format)
 {
 	while (*format == 'j' || *format == 'z' || *format == 'l' || *format == 'h')
 	{
@@ -85,7 +85,7 @@ static const char			*get_range(t_data *data, const char *format)
 	return (format);
 }
 
-static const char			*print_conversion(t_data *data, const char *format)
+static const char			*print_conversion(t_printf *data, const char *format)
 {
 	int		k;
 
@@ -114,7 +114,7 @@ static const char			*print_conversion(t_data *data, const char *format)
 	return (format + 1);
 }
 
-void						pf_buff_format(t_data *data, const char *format)
+void						pf_buff_format(t_printf *data, const char *format)
 {
 	while (format && *format)
 	{

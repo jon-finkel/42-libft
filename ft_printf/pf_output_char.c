@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:50:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:16:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static wchar_t			adjust_field_width(t_data *data, int *width)
+static wchar_t			adjust_field_width(t_printf *data, int *width)
 {
 	wchar_t		wc;
 
@@ -28,7 +28,7 @@ static wchar_t			adjust_field_width(t_data *data, int *width)
 	return (wc);
 }
 
-static void				apply_left_field_width(t_data *data, int width)
+static void				apply_left_field_width(t_printf *data, int width)
 {
 	char	filler;
 	int		field_width;
@@ -43,7 +43,7 @@ static void				apply_left_field_width(t_data *data, int width)
 		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
-static int				output_wide_char(t_data *data, int c)
+static int				output_wide_char(t_printf *data, int c)
 {
 	if (c < 0 || c > 0x10ffff
 		|| (MB_CUR_MAX == 1 && c > 0xff && c <= 0x10ffff)
@@ -70,7 +70,7 @@ static int				output_wide_char(t_data *data, int c)
 	return (0);
 }
 
-int						pf_output_char(t_data *data, const char *base)
+int						pf_output_char(t_printf *data, const char *base)
 {
 	int					field_width;
 	int					width;

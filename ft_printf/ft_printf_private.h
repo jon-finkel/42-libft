@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 23:36:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:16:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef enum		e_range
 	E_INTMAX_T = 7
 }					t_range;
 
-typedef struct		s_data
+typedef struct		s_printf
 {
 	t_flag			pf_type;
 	char			*pf_buffer;
@@ -95,7 +95,7 @@ typedef struct		s_data
 	va_list			ap;
 	va_list			arg;
 	va_list			wildcard;
-}					t_data;
+}					t_printf;
 
 struct				s_color
 {
@@ -106,25 +106,25 @@ struct				s_color
 struct				s_conv
 {
 	char			letter;
-	int				(*f)(t_data *, const char *);
+	int				(*f)(t_printf *, const char *);
 	const char		*base;
 	enum e_range	range;
 };
 
-void				pf_fill_buffer(t_data *data, const char filler,
+void				pf_fill_buffer(t_printf *data, const char filler,
 					const char *s_filler, t_flag flag);
-const char			*pf_get_flags(t_data *data, const char *format,
+const char			*pf_get_flags(t_printf *data, const char *format,
 					t_flag flag);
-const char			*pf_ansi_color(t_data *data, const char *format,
+const char			*pf_ansi_color(t_printf *data, const char *format,
 					t_flag flag);
-void				pf_buff_format(t_data *data, const char *format);
-int					pf_output_char(t_data *data, const char *base);
-int					pf_output_double(t_data *data, const char *base);
-const char			*pf_output_extras(t_data *data, const char *format);
-int					pf_output_noprint(t_data *data, const char *base);
-int					pf_output_pointer(t_data *data, const char *base);
-int					pf_output_signed(t_data *data, const char *base);
-int					pf_output_string(t_data *data, const char *base);
-int					pf_output_unsigned(t_data *data, const char *base);
+void				pf_buff_format(t_printf *data, const char *format);
+int					pf_output_char(t_printf *data, const char *base);
+int					pf_output_double(t_printf *data, const char *base);
+const char			*pf_output_extras(t_printf *data, const char *format);
+int					pf_output_noprint(t_printf *data, const char *base);
+int					pf_output_pointer(t_printf *data, const char *base);
+int					pf_output_signed(t_printf *data, const char *base);
+int					pf_output_string(t_printf *data, const char *base);
+int					pf_output_unsigned(t_printf *data, const char *base);
 
 #endif

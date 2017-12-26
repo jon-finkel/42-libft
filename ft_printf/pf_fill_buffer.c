@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:25:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:16:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static void			printf_fill(t_data *data, const char filler,
+static void			printf_fill(t_printf *data, const char filler,
 					const char *s_filler, size_t n)
 {
 	int			k;
@@ -39,7 +39,7 @@ static void			printf_fill(t_data *data, const char filler,
 	}
 }
 
-static void			sprintf_fill(t_data *data, const char filler,
+static void			sprintf_fill(t_printf *data, const char filler,
 					const char *s_filler, size_t n)
 {
 	int			k;
@@ -56,7 +56,7 @@ static void			sprintf_fill(t_data *data, const char filler,
 	}
 }
 
-static void			asprintf_fill(t_data *data, const char filler,
+static void			asprintf_fill(t_printf *data, const char filler,
 					const char *s_filler, size_t n)
 {
 	int			k;
@@ -78,7 +78,7 @@ static void			asprintf_fill(t_data *data, const char filler,
 	}
 }
 
-void				pf_fill_buffer(t_data *data, const char filler,
+void				pf_fill_buffer(t_printf *data, const char filler,
 					const char *s_filler, t_flag flag)
 {
 	size_t		n;

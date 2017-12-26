@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:50:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static int			map_precision(t_data *data, const char *base, char *buff,
+static int			map_precision(t_printf *data, const char *base, char *buff,
 					double nb)
 {
 	double			mantissa;
@@ -41,7 +41,8 @@ static int			map_precision(t_data *data, const char *base, char *buff,
 	return (k);
 }
 
-static void			apply_left_field_width(t_data *data, size_t len, double nb)
+static void			apply_left_field_width(t_printf *data, size_t len,
+					double nb)
 {
 	char		filler;
 	int			field_width;
@@ -56,7 +57,7 @@ static void			apply_left_field_width(t_data *data, size_t len, double nb)
 		pf_fill_buffer(data, '-', NULL, E_PRINT);
 }
 
-static void			apply_right_field_width(t_data *data, size_t len)
+static void			apply_right_field_width(t_printf *data, size_t len)
 {
 	int			field_width;
 
@@ -65,7 +66,7 @@ static void			apply_right_field_width(t_data *data, size_t len)
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
-int					pf_output_double(t_data *data, const char *base)
+int					pf_output_double(t_printf *data, const char *base)
 {
 	char			buff[256];
 	double			nb;

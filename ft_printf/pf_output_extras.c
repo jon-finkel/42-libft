@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:50:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static void			n_conversion(t_data *data)
+static void			n_conversion(t_printf *data)
 {
 	int		*ptr;
 
@@ -21,7 +21,7 @@ static void			n_conversion(t_data *data)
 		*ptr = (int)data->pf_len;
 }
 
-static void			v_conversion(t_data *data)
+static void			v_conversion(t_printf *data)
 {
 	char	*buff;
 	char	*var;
@@ -34,7 +34,7 @@ static void			v_conversion(t_data *data)
 	}
 }
 
-const char			*pf_output_extras(t_data *data, const char *format)
+const char			*pf_output_extras(t_printf *data, const char *format)
 {
 	if (*format == 'n')
 		n_conversion(data);

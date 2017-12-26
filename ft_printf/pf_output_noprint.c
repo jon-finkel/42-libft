@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:50:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void			copy_string(char *dst, char *src, const char *base,
 	}
 }
 
-static void			apply_left_field_width(t_data *data, int precision)
+static void			apply_left_field_width(t_printf *data, int precision)
 {
 	char		filler;
 	int			field_width;
@@ -44,7 +44,7 @@ static void			apply_left_field_width(t_data *data, int precision)
 		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
-static void			apply_right_field_width(t_data *data, int precision)
+static void			apply_right_field_width(t_printf *data, int precision)
 {
 	int			field_width;
 
@@ -53,7 +53,7 @@ static void			apply_right_field_width(t_data *data, int precision)
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
-int					pf_output_noprint(t_data *data, const char *base)
+int					pf_output_noprint(t_printf *data, const char *base)
 {
 	char		*begin;
 	char		*string;

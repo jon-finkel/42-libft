@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 21:51:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 16:17:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static void			apply_field_width(t_data *data, char *address)
+static void			apply_field_width(t_printf *data, char *address)
 {
 	int			field_width;
 	size_t		len;
@@ -31,7 +31,7 @@ static void			apply_field_width(t_data *data, char *address)
 	}
 }
 
-static void			apply_zero_width(t_data *data, char *s, size_t len)
+static void			apply_zero_width(t_printf *data, char *s, size_t len)
 {
 	char		address[MAX_LEN_POINTER];
 	int			k;
@@ -47,7 +47,7 @@ static void			apply_zero_width(t_data *data, char *s, size_t len)
 	pf_fill_buffer(data, 0, address, E_PRINT);
 }
 
-static void			apply_precision(t_data *data, char *s, int precision,
+static void			apply_precision(t_printf *data, char *s, int precision,
 					size_t len)
 {
 	char		address[MAX_LEN_POINTER];
@@ -65,7 +65,7 @@ static void			apply_precision(t_data *data, char *s, int precision,
 	apply_field_width(data, address);
 }
 
-int					pf_output_pointer(t_data *data, const char *base)
+int					pf_output_pointer(t_printf *data, const char *base)
 {
 	char			tmp[MAX_LEN_INTMAX_T];
 	int				k;
