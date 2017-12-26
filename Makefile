@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/24 18:53:28 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/26 19:57:11 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ STRING_DIR :=				./string_functions/
 
 #	Sources
 API +=						ft_getenv.c ft_setenv.c ft_unsetenv.c
+API +=						ft_interceptor.c
 CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
 CHARACTER +=				ft_isalnum.c ft_isascii.c
 CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c ft_toupper.c
