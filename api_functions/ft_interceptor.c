@@ -1,51 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cleanup.c                                       :+:      :+:    :+:   */
+/*   ft_interceptor.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/15 19:40:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 19:49:26 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/26 19:48:03 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/26 19:56:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static void			cleanup_pointers_array(char **aptr)
+void			ft_interceptor(void (*handler)(int), int total, ...)
 {
-	int		k;
+	int			signo;
+	va_list		ap;
 
-	k = -1;
-	while (aptr[++k])
-		free(aptr[k]);
-	free(aptr);
-}
-
-void				ft_cleanup(const int total, ...)
-{
-	char			*ptr;
-	char			**aptr;
-	enum e_type		type;
-	int				k;
-	va_list			ap;
-
-	k = -1;
 	va_start(ap, total);
-	while (++k < total)
+	while (total--)
 	{
-		type = (enum e_type)va_arg(ap, int);
-		if (type == E_PTR)
-		{
-			ptr = va_arg(ap, char *);
-			free(ptr);
-		}
-		else
-		{
-			aptr = va_arg(ap, char **);
-			cleanup_pointers_array(aptr);
-		}
-		++k;
+		signo = va_arg(ap, int);
+		handler(signo);
 	}
 	va_end(ap);
 }

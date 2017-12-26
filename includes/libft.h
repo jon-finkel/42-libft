@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 20:14:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/26 19:56:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ char				*ft_strtrim(char *s, t_type type);
 **##############################
 */
 void				ft_bzero(void *s, size_t n);
-void				ft_cleanup(const int nb, ...);
+void				ft_cleanup(const int total, ...);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -201,6 +201,7 @@ int					ft_toupper(int c);
 **##############################
 */
 char				*ft_getenv(const char *name);
+void				ft_interceptor(void (*handler)(int), int total, ...);
 int					ft_setenv(const char *name, const char *value,
 					int overwrite);
 int					ft_unsetenv(const char *name);
