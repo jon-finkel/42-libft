@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/30 15:53:34 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/30 16:26:45 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ DYN_NAME :=					${NAME:a=so}
 
 #	Compiler
 CC :=						gcc
-DEBUG :=					# void #
 
 ifneq ($(OS), Linux)
 	FLAGS +=				-Wall -Wextra -Werror 
@@ -147,10 +146,6 @@ clean:
 	@/bin/rm -rf $(DYN_OBJDIR)
 	@printf "\e[32m\e[1m[Object files cleaned]\e[m\n"
 
-debug: CC := clang
-debug: DEBUG := -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined 
-debug: fclean all
-
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
@@ -166,7 +161,7 @@ so: $(DYN_OBJECTS)
 	@clear
 	@printf "\e[32m\e[1m[Shared library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
 
-.PHONY: all cat clean debug fclean noflags re so
+.PHONY: all cat clean fclean noflags re so
 
 #################
 ##  WITH LOVE  ##
