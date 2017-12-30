@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/26 19:57:11 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/30 15:53:34 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CC :=						gcc
 DEBUG :=					# void #
 
 ifneq ($(OS), Linux)
-	FLAGS +=				-Wall -Wextra -Werror
+	FLAGS +=				-Wall -Wextra -Werror 
 endif
 
 DYN_FLAG :=					-shared
@@ -130,7 +130,7 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	$(CC) $(DEBUG) $(FLAGS) $(O_FLAG) $(HEADERS) -c $< -o $@
+	$(CC) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)
 
@@ -147,14 +147,17 @@ clean:
 	@/bin/rm -rf $(DYN_OBJDIR)
 	@printf "\e[32m\e[1m[Object files cleaned]\e[m\n"
 
-debug: DEBUG := clang
-debug: DEBUG := -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
+debug: CC := clang
+debug: DEBUG := -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined 
 debug: fclean all
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
 	@printf "\e[32m\e[1m[Library cleaned]\e[m\n"
+
+noflags: FLAGS := 
+noflags: re
 
 re: fclean all
 
@@ -163,7 +166,7 @@ so: $(DYN_OBJECTS)
 	@clear
 	@printf "\e[32m\e[1m[Shared library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
 
-.PHONY: all cat clean debug fclean re so
+.PHONY: all cat clean debug fclean noflags re so
 
 #################
 ##  WITH LOVE  ##
