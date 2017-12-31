@@ -20,29 +20,16 @@ As you can see from the [project instructions][1], there are 3 sections:
 4. **Projects functions:** These are 42 projects by themselves, asking us to either recode an existing function or group of functions, or create a new one. They're marked with a (P) next to their name and their documentation can be accessed from the PDF located in the projects_instructions folder.
 5.  All the other functions are personal functions, their documentation can be checked on the [wiki][3], and they're not marked.
 
-API functions | Character functions | IO functions | Linked List functions | Memory functions | String functions
-:-----------: | :-----------: | :--------------: | :------------: | :------------: | :------------:
-ft_getenv	 | ft_isalnum(L) | ft_asprintf(P)	|
-ft_setenv	 | ft_isalpha(L) | ft_dprintf(P)	|
-ft_unsetenv	 | ft_isascii(L) | ft_kill			|
- | ft_isdigit(L)	| ft_printf(P)		|
- | ft_islower	| ft_putchar(A)		|
- | ft_isprint(L) | ft_putchar_fd(A)	|
- | ft_isupper	| ft_putendl(A)		|
- | ft_tolower(L) | ft_putendl_fd(A)	|
- | ft_toupper(L) | ft_putnbr(A)		|
- |	| ft_putnbr_fd(A)	|
- |	| ft_putstr(A)		|
- |	| ft_putstr_fd(A)	|
- |	| ft_snprintf(P)	|
- |	| ft_sprintf(P)		|
- |	| ft_vasprintf(P)	|
- |	| ft_vdprintf(P)	|
- |	| ft_vprintf(P)		|
- |	| ft_vsnprintf(P)	|
- |	| ft_vsprintf(P)	|
- |	| get_next_line(P)	|
-
+String functions | IO functions | Character functions | Linked List functions | Memory functions | API functions
+:-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------:
+ft_atoi(L)	  | f
+ft_intlen	  | l
+ft_itoa(A)	  |
+ft_strcat(L)  |
+ft_strchr(L)  |
+ft_strclr(A)  |
+ft_striteri(A)| p
+ft_strrewrite |
 
 Notes:
 
