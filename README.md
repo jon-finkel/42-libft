@@ -18,22 +18,22 @@ As you can see from the [project instructions][1], there are 3 sections:
 2.  **Additional functions:** Functions 42 deems will be useful for later projects, I've marked them with an (A) next to their name.
 3.  **Bonus functions:** Linked list manipulation functions 42 deems will be useful, I've marked them with a (B) next to their name.
 4. **Projects functions:** These are 42 projects by themselves, asking us to either recode an existing function or group of functions, or create a new one. They're marked with a (P) next to their name and their documentation can be accessed from the PDF located in the projects_instructions folder.
-5.  All the other functions are personal functions, their documentation can be checked on the [wiki][3], and they're not marked.
+5.  All the other functions are personal functions, their documentation can be checked on the [wiki][3], they're not marked, except for some that are modified versions of some libraries functions and share the same name, which are marked with an (~).
 
-String functions | IO functions | Character functions | Linked List functions | Memory functions | API functions
-:-----------: | :-------------: | :-----------: | :-----------: | :-----------: | :-----------:
-ft_atoi(L)	  | ft_asprintf(P)	|
-ft_intlen	  | ft_dprintf(P)	|
-ft_itoa(A)	  | ft_fatal		|
-ft_strcat(L)  | ft_perror		|
-ft_strchr(L)  | ft_printf(P)	|
-ft_strclr(A)  | ft_putchar(A)	|
-ft_strcmp(L)  | ft_putchar_fd(A)|
-ft_strcpy(L)  | ft_putendl(A)	|
-ft_strdel(A)  | ft_putendl_fd(A)|
-ft_strdup(L)  | ft_putnbr(A)	|
-ft_strequ(A)  | ft_putnbr_fd(A)	|
-ft_striter(A) | ft_putstr(A)	|
+String functions | IO functions | Memory functions | Linked List functions | Character functions | API functions
+:-----------: | :-------------: | :-----------: | :------------: | :-----------: | :-----------:
+ft_atoi(L)	  | ft_asprintf(P)	| ft_bzero(L)	| ft_lstadd(B)	 | ft_isalnum(L) | ft_getenv(~)
+ft_intlen	  | ft_dprintf(P)	| ft_cleanup	| ft_lstappend	 | ft_isalpha(L) | ft_setenv(~)
+ft_itoa(A)	  | ft_fatal		| ft_memalloc(A)| ft_lstdel(B)	 | ft_isascii(L) | ft_unsetenv(~)
+ft_strcat(L)  | ft_perror(~)	| ft_memccpy(L)	| ft_lstdelone(B)| ft_isdigit(L) |
+ft_strchr(L)  | ft_printf(P)	| ft_memchr(L)	| ft_lstfree	 | ft_islower	 |
+ft_strclr(A)  | ft_putchar(A)	| ft_memcmp(L)	| ft_lstgetnode	 | ft_isprint(L) |
+ft_strcmp(L)  | ft_putchar_fd(A)| ft_memcpy(L)	| ft_lstiter(B)	 | ft_isupper	 |
+ft_strcpy(L)  | ft_putendl(A)	| ft_memdel(A)	| ft_lstmap(B)	 | ft_tolower(L) |
+ft_strdel(A)  | ft_putendl_fd(A)| ft_memmove(L)	| ft_lstnew(B)	 | ft_toupper(L) |
+ft_strdup(L)  | ft_putnbr(A)	| ft_memnccpy	| ft_lstsize	 |
+ft_strequ(A)  | ft_putnbr_fd(A)	| ft_memset(L)	| ft_lstsnipe	 |
+ft_striter(A) | ft_putstr(A)	| ft_realloc(~)	|
 ft_striteri(A)| ft_putstr_fd(A)	|
 ft_strjoin(A) | ft_snprintf(P)	|
 ft_strlcat(L) | ft_sprintf(P)	|
