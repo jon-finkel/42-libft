@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_kill.c                                          :+:      :+:    :+:   */
+/*   ft_fatal.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 18:15:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:15:30 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/12/31 16:46:11 by nfinkel           #+#    #+#             */
+/*   Updated: 2017/12/31 16:46:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void			ft_kill(const char *s)
+void			ft_fatal(const char *s)
 {
 	if (s)
-		ft_putendl_fd(s, STDERR_FILENO);
+		ft_dprintf(STDERR_FILENO, "fatal: %s", s);
 	exit(EXIT_FAILURE);
 }

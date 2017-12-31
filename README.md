@@ -21,15 +21,39 @@ As you can see from the [project instructions][1], there are 3 sections:
 5.  All the other functions are personal functions, their documentation can be checked on the [wiki][3], and they're not marked.
 
 String functions | IO functions | Character functions | Linked List functions | Memory functions | API functions
-:-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------:
-ft_atoi(L)	  | f
-ft_intlen	  | l
-ft_itoa(A)	  |
-ft_strcat(L)  |
-ft_strchr(L)  |
-ft_strclr(A)  |
-ft_striteri(A)| p
+:-----------: | :-------------: | :-----------: | :-----------: | :-----------: | :-----------:
+ft_atoi(L)	  | ft_asprintf(P)	|
+ft_intlen	  | ft_dprintf(P)	|
+ft_itoa(A)	  | ft_fatal		|
+ft_strcat(L)  | ft_perror		|
+ft_strchr(L)  | ft_printf(P)	|
+ft_strclr(A)  | ft_putchar(A)	|
+ft_strcmp(L)  | ft_putchar_fd(A)|
+ft_strcpy(L)  | ft_putendl(A)	|
+ft_strdel(A)  | ft_putendl_fd(A)|
+ft_strdup(L)  | ft_putnbr(A)	|
+ft_strequ(A)  | ft_putnbr_fd(A)	|
+ft_striter(A) | ft_putstr(A)	|
+ft_striteri(A)| ft_putstr_fd(A)	|
+ft_strjoin(A) | ft_snprintf(P)	|
+ft_strlcat(L) | ft_sprintf(P)	|
+ft_strlen(L)  | ft_vasprintf(P)	|
+ft_strmap(A)  | ft_vdprintf(P)	|
+ft_strmapi(A) | ft_vprintf(P)	|
+ft_strncat(L) | ft_vsnprintf(P)	|
+ft_strncmp(L) | ft_vsprintf(P)	|
+ft_strncpy(L) | get_next_line(P)|
+ft_strnequ(A) |
+ft_strnew(A)  |
+ft_strnstr(L) |
+ft_strrchr(L) |
+ft_strrev	  |
+ft_strrevcpy  |
 ft_strrewrite |
+ft_strsplit(A)|
+ft_strstr(L)  |
+ft_strsub(A)  |
+ft_strtrim(A) |
 
 Notes:
 

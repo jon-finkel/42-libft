@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2017/12/30 22:36:19 by nfinkel          ###   ########.fr        #
+#    Updated: 2017/12/31 16:45:56 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c
 INPUT_OUTPUT +=				ft_printf.c ft_vprintf.c
 INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c
 INPUT_OUTPUT +=				ft_sprintf.c ft_vsprintf.c
-INPUT_OUTPUT +=				ft_kill.c ft_perror.c
+INPUT_OUTPUT +=				ft_fatal.c ft_perror.c
 INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c
 INPUT_OUTPUT +=				ft_putendl.c ft_putendl_fd.c
 INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c
