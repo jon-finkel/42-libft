@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:16:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 13:40:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,21 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 	return (len);
 }
 
-static int				copy_wide_string(const wchar_t *restrict w,
-						char *restrict s, int precision)
+static int				copy_wide_string(char *restrict s,
+						const wchar_t *w, int precision)
 {
 	while (*w && precision--)
 	{
-		if (*w < 0 || *w > 0x10ffff
-			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff)
-			|| (*w >= 0xd800 && *w <= 0xdfff))
+		if (*w < 0 || *w > 0x10ffff || (*w >= 0xd800 && *w <= 0xdfff)
+			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff))
+		{
+			free(s);
 			return (-1);
+		}
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
-		if (FOUR_BYTES_UNICODE(*w))
-		{
-			*s++ = FOUR_BYTES_UNICODE_HEAD(*w);
+		if (FOUR_BYTES_UNICODE(*w) && (*s++ = FOUR_BYTES_UNICODE_HEAD(*w)))
 			*s++ = THREE_BYTES_UNICODE_BODY(*w);
-		}
 		if (THREE_BYTES_UNICODE(*w))
 			*s++ = THREE_BYTES_UNICODE_HEAD(*w);
 		if (THREE_OR_MORE_BYTES_UNICODE(*w))
@@ -110,12 +109,13 @@ int						pf_output_string(t_printf *data, const char *base)
 
 	(void)base;
 	string = NULL;
+	wide_string = NULL;
 	if (data->precision < 0)
 		data->precision = INT_MAX;
 	if (data->range == E_LONG && (wide_string = va_arg(data->arg, wchar_t *)))
 	{
 		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
-		NEG_PROTECT(copy_wide_string(wide_string, string, data->precision), -1);
+		NEG_PROTECT(copy_wide_string(string, wide_string, data->precision), -1);
 	}
 	else if (data->range != E_LONG)
 		string = va_arg(data->arg, char *);
