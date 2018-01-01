@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:22:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:14:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strjoin(char *const s1, const char *const s2, t_type type)
+char			*ft_strjoin(char *s1, const char *s2, t_type type)
 {
 	char		*join;
 	size_t		len_s2;
@@ -24,6 +24,6 @@ char			*ft_strjoin(char *const s1, const char *const s2, t_type type)
 	join = ft_strcpy(join, s1);
 	join = ft_strncat(join, s2, len_s2);
 	if (type == E_FREE)
-		free(s1);
+		ft_strdel(&s1);
 	return (join);
 }

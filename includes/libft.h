@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:31:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:12:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@
 
 typedef enum		e_type
 {
-	E_APTR,
-	E_PTR,
 	E_FREE,
 	E_NO_FREE
 }					t_type;
@@ -115,7 +113,7 @@ char				*ft_strtrim(char *s, t_type type);
 **##############################
 */
 void				ft_bzero(void *s, size_t n);
-void				ft_cleanup(const int total, ...);
+void				ft_cleanup(const char *args, ...);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);

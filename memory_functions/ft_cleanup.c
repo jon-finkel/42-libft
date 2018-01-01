@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:40:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 19:49:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:09:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 static void			cleanup_pointers_array(char **aptr)
 {
-	int		k;
+	int			k;
 
 	k = -1;
 	while (aptr[++k])
+	{
 		free(aptr[k]);
+		aptr[k] = NULL;
+	}
 	free(aptr);
+	aptr = NULL;
 }
 
-void				ft_cleanup(const int total, ...)
+void				ft_cleanup(const char *args, ...)
 {
 	char			*ptr;
 	char			**aptr;
-	enum e_type		type;
-	int				k;
 	va_list			ap;
 
-	k = -1;
-	va_start(ap, total);
-	while (++k < total)
+	va_start(ap, args);
+	while (args && *args)
 	{
-		type = (enum e_type)va_arg(ap, int);
-		if (type == E_PTR)
+		if (*args == 'P')
 		{
 			ptr = va_arg(ap, char *);
-			free(ptr);
+			ft_strdel(&ptr);
 		}
-		else
+		else if (*args == 'A')
 		{
 			aptr = va_arg(ap, char **);
 			cleanup_pointers_array(aptr);
 		}
-		++k;
+		++args;
 	}
 	va_end(ap);
 }

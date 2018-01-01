@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 11:22:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:13:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ char					*ft_strtrim(char *s, t_type type)
 		*(trim + ++k) = *s;
 		++s;
 	}
+	s = begin;
 	if (type == E_FREE)
-		free(begin);
+		ft_strdel(&s);
 	return (trim);
 }
