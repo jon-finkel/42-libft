@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:16:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:32:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct		s_printf
 	t_bool			color_multiple_flags;
 	char			error;
 	char			c;
-	bitmap8_t		flags;
+	int8_t			flags;
 	int				field_width;
 	int				precision;
 	t_flag			positional;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:19:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:31:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef int8_t		bitmap8_t;
-typedef int16_t		bitmap16_t;
-typedef int32_t		bitmap32_t;
 
 /*
 **##############################

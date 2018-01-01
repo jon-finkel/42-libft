@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:16:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:39:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static const char			*get_range(t_printf *data, const char *format)
 	return (format);
 }
 
-static const char			*print_conversion(t_printf *data, const char *format)
+static const char			*find_conversion(t_printf *data, const char *format)
 {
 	int		k;
 
@@ -136,7 +136,7 @@ void						pf_buff_format(t_printf *data, const char *format)
 				format = check_positional_argument(data, format);
 				format = pf_get_flags(data, format, E_FIRST);
 				format = get_range(data, format);
-				if (!(format = print_conversion(data, format)))
+				if (!(format = find_conversion(data, format)))
 					data->error = 1;
 			}
 		}
