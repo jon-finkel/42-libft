@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:15:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 17:12:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,19 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 	return (1);
 }
 
+static int			cat_string(t_printf *data, size_t n, int k)
+{
+	char		*str;
+
+	if (data->color_multiple_flags == TRUE)
+		ft_strcat(data->ansi_colors, ";");
+	PROTECT(str = ft_itoa(g_color[k].code + n), -1);
+	ft_strcat(data->ansi_colors, str);
+	ft_strdel(&str);
+	data->color_multiple_flags = TRUE;
+	return (0);
+}
+
 const char			*pf_ansi_color(t_printf *data, const char *format,
 					t_flag flag)
 {
@@ -78,13 +91,11 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 		while (*format != 'x' && ++k < LAST_COLOR_FLAG)
 			if (*format == g_color[k].letter)
 			{
-				if (data->color_multiple_flags == TRUE)
-					ft_strcat(data->ansi_colors, ";");
-				ft_strcat(data->ansi_colors, ft_itoa(g_color[k].code + n));
-				data->color_multiple_flags = TRUE;
+				NEG_PROTECT(cat_string(data, n, k), NULL);
 				break ;
 			}
-		n += ((!k || (k > 5 && k < LAST_COLOR_FLAG)) ? 10 : 0);
+		if (!k || (k > 5 && k < LAST_COLOR_FLAG))
+			n+= 10;
 	}
 	ft_strcat(data->ansi_colors, "m");
 	if (flag == E_WIDE)
