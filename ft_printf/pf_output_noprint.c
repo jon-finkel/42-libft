@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:07:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static void			copy_string(char *dst, char *src, const char *base,
-					int precision)
+static void			copy_string(char *restrict dst, const char *restrict src,
+					const char *base, int precision)
 {
 	while (*src && precision)
 	{

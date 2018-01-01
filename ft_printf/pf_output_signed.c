@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:11:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static intmax_t			typecast(t_printf *data, enum e_range range)
+static intmax_t			typecast(t_printf *data, t_range range)
 {
 	if (range == E_LONG)
 		return (va_arg(data->arg, long));

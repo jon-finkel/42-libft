@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:11:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static void			apply_field_width(t_printf *data, char *address)
+static void			apply_field_width(t_printf *data, const char *address)
 {
 	int			field_width;
 	size_t		len;
@@ -31,7 +31,7 @@ static void			apply_field_width(t_printf *data, char *address)
 	}
 }
 
-static void			apply_zero_width(t_printf *data, char *s, size_t len)
+static void			apply_zero_width(t_printf *data, const char *s, size_t len)
 {
 	char		address[MAX_LEN_POINTER];
 	int			k;
@@ -47,8 +47,8 @@ static void			apply_zero_width(t_printf *data, char *s, size_t len)
 	pf_fill_buffer(data, 0, address, E_PRINT);
 }
 
-static void			apply_precision(t_printf *data, char *s, int precision,
-					size_t len)
+static void			apply_precision(t_printf *data, const char *s,
+					int precision, size_t len)
 {
 	char		address[MAX_LEN_POINTER];
 	int			k;

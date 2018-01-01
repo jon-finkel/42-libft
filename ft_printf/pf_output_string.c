@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:16:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 	return (len);
 }
 
-static int				copy_wide_string(const wchar_t *w, char *s,
-						int precision)
+static int				copy_wide_string(const wchar_t *restrict w,
+						char *restrict s, int precision)
 {
 	while (*w && precision--)
 	{
@@ -83,7 +83,7 @@ static void				apply_left_field_width(t_printf *data, int precision)
 		pf_fill_buffer(data, filler, NULL, E_PRINT);
 }
 
-static void				apply_precision(t_printf *data, char *string,
+static void				apply_precision(t_printf *data, const char *s,
 						int precision)
 {
 	char		adjusted_string[precision + 1];
@@ -92,7 +92,7 @@ static void				apply_precision(t_printf *data, char *string,
 
 	k = -1;
 	while (++k < precision)
-		adjusted_string[k] = string[k];
+		adjusted_string[k] = s[k];
 	adjusted_string[precision] = '\0';
 	if (NOT_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
 		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);

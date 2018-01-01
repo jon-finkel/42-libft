@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:05:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static int			map_precision(t_printf *data, const char *base, char *buff,
-					double nb)
+static int			map_precision(t_printf *data, const char *restrict base,
+					char *restrict buff, double nb)
 {
 	double			mantissa;
 	int				k;

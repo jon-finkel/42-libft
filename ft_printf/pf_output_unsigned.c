@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:17:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 11:13:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static uintmax_t			typecast(t_printf *data, enum e_range range)
+static uintmax_t			typecast(t_printf *data, t_range range)
 {
 	if (range == E_LONG)
 		return (va_arg(data->arg, unsigned long));
@@ -82,8 +82,8 @@ static void					left_field_width(t_printf *data, const char *base,
 			pf_fill_buffer(data, '0', NULL, E_PRINT);
 }
 
-static void					apply_flags(t_printf *data, const char *s,
-							const char *base, uintmax_t nb)
+static void					apply_flags(t_printf *data, const char *restrict s,
+							const char *restrict base, uintmax_t nb)
 {
 	int			k;
 	int			precision;
