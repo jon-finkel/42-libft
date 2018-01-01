@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 16:12:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 22:09:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ int					ft_vsnprintf(char *str, size_t size, const char *format,
 					va_list ap);
 
 void				ft_fatal(const char *s);
-void				ft_perror(const char *s, ...);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(const char *s);
