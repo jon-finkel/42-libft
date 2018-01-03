@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/01 22:10:03 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/03 14:08:14 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,20 +45,17 @@ PRINTF_DIR :=				./ft_printf/
 STRING_DIR :=				./string_functions/
 
 #	Sources
-API +=						ft_getenv.c ft_setenv.c ft_unsetenv.c
+API +=						ft_ctime.c ft_getenv.c ft_setenv.c ft_unsetenv.c
 CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
-CHARACTER +=				ft_isalnum.c ft_isascii.c
-CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c ft_toupper.c
-INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c
-INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c
-INPUT_OUTPUT +=				ft_printf.c ft_vprintf.c
-INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c
-INPUT_OUTPUT +=				ft_sprintf.c ft_vsprintf.c
-INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c
-INPUT_OUTPUT +=				ft_putendl.c ft_putendl_fd.c
-INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c
-INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c
-INPUT_OUTPUT +=				ft_fatal.c get_next_line.c
+CHARACTER +=				ft_isalnum.c ft_isascii.c ft_toupper.c
+CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
+INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
+INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c
+INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c ft_sprintf.c
+INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c ft_putendl.c
+INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c ft_putendl_fd.c
+INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c ft_fatal.c
+INPUT_OUTPUT +=				get_next_line.c
 LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
 LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c

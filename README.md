@@ -22,10 +22,10 @@ As you can see from the [project instructions][1], there are 3 sections:
 
 String functions | IO functions | Memory functions | Linked List functions | Character functions | API functions
 :-----------: | :-------------: | :-----------: | :------------: | :-----------: | :-----------:
-ft_atoi(L)	  | ft_asprintf(P)	| ft_bzero(L)	| ft_lstadd(B)	 | ft_isalnum(L) | ft_getenv(~)
-ft_intlen	  | ft_dprintf(P)	| ft_cleanup	| ft_lstappend	 | ft_isalpha(L) | ft_setenv(~)
-ft_itoa(A)	  | ft_fatal		| ft_memalloc(A)| ft_lstdel(B)	 | ft_isascii(L) | ft_unsetenv(~)
-ft_strcat(L)  | ft_perror(~)	| ft_memccpy(L)	| ft_lstdelone(B)| ft_isdigit(L) |
+ft_atoi(L)	  | ft_asprintf(P)	| ft_bzero(L)	| ft_lstadd(B)	 | ft_isalnum(L) | ft_ctime(~)
+ft_intlen	  | ft_dprintf(P)	| ft_cleanup	| ft_lstappend	 | ft_isalpha(L) | ft_getenv(~)
+ft_itoa(A)	  | ft_fatal		| ft_memalloc(A)| ft_lstdel(B)	 | ft_isascii(L) | ft_setenv(~)
+ft_strcat(L)  | ft_perror(~)	| ft_memccpy(L)	| ft_lstdelone(B)| ft_isdigit(L) | ft_unsetenv(~)
 ft_strchr(L)  | ft_printf(P)	| ft_memchr(L)	| ft_lstfree	 | ft_islower	 |
 ft_strclr(A)  | ft_putchar(A)	| ft_memcmp(L)	| ft_lstgetnode	 | ft_isprint(L) |
 ft_strcmp(L)  | ft_putchar_fd(A)| ft_memcpy(L)	| ft_lstiter(B)	 | ft_isupper	 |
