@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 13:40:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/03 17:32:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,13 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 }
 
 static int				copy_wide_string(char *restrict s,
-						const wchar_t *w, int precision)
+						const wchar_t *restrict w, int precision)
 {
 	while (*w && precision--)
 	{
 		if (*w < 0 || *w > 0x10ffff || (*w >= 0xd800 && *w <= 0xdfff)
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff))
-		{
-			free(s);
 			return (-1);
-		}
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w) && (*s++ = FOUR_BYTES_UNICODE_HEAD(*w)))

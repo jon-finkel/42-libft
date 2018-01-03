@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 22:04:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/03 17:10:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static const char			*find_conversion(t_printf *data, const char *format)
 	format = pf_get_flags(data, format, E_SECOND);
 	if (!*format)
 		return (format);
-	if (*format == 'n' || *format == 'v')
+	if (*format == 'k' || *format == 'n' || *format == 't' || *format == 'v')
 		return (pf_output_extras(data, format));
 	k = -1;
 	while (++k < LAST_CONVERSION_FLAG)
@@ -116,7 +116,7 @@ static const char			*find_conversion(t_printf *data, const char *format)
 
 void						pf_buff_format(t_printf *data, const char *format)
 {
-	while (format && *format)
+	while (format && *format && !data->error)
 	{
 		while (*format == '{')
 			format = pf_ansi_color(data, format, E_WIDE);
