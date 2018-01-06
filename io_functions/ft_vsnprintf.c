@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:18:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 09:16:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf/ft_printf_private.h"
 
-int			ft_vsnprintf(char *str, size_t size, const char *format, va_list ap)
+int			ft_vsnprintf(char *restrict str, size_t size,
+			const char *restrict format, va_list ap)
 {
 	static t_printf		*data = NULL;
 

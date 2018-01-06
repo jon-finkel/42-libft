@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 13:22:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 09:44:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,25 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdio.h>
 
-/*
-** Bitmap flags macros
-*/
+# ifdef __cplusplus
+#  define restrict
+# endif
+# if defined(__STDC_VERSION__) && (__STDC_VERSION__ < 199901L)
+#  define restrict
+# endif
+# define REST restrict
+
 # define SET_FLAG(x, y) ((y) |= (x))
 # define UNSET_FLAG(x, y) ((y) &= ~(x))
 # define IS_FLAG(x, y) (((y) & (x)) == (x))
 # define NOT_FLAG(x, y) (!((y) & (x)))
-
-/*
-** General evaluation macros
-*/
 # define IS_WHITESPACE(x) ((x) == ' ' || (x) == '\n' || (x) == '\t')
-
-/*
-** Math macros
-*/
 # define _ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
 # define _MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
 # define _MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
 
-/*
-** Protection macros
-*/
 # define PROTECT(x, y) ({if(!(x)) return(y);})
 # define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # define NEG_PROTECT(x, y) ({if((x) < 0) return(y);})
@@ -149,17 +144,21 @@ void				ft_lstsnipe(t_list **alst, t_list *target,
 **##############################
 */
 int					ft_asprintf(char **ret, const char *format, ...);
-int					ft_dprintf(int fd, const char *format, ...);
-int					ft_printf(const char *format, ...);
-int					ft_snprintf(char *str, size_t size, const char *format,
-					...);
-int					ft_sprintf(char *str, const char *format, ...);
+int					ft_dprintf(int fd, const char *REST format, ...);
+int					ft_fprintf(FILE *REST stream, const char *REST format, ...);
+int					ft_printf(const char *REST format, ...);
+int					ft_snprintf(char *REST str, size_t size,
+					const char *REST format, ...);
+int					ft_sprintf(char *REST str, const char *REST format, ...);
 int					ft_vasprintf(char **ret, const char *format, va_list ap);
-int					ft_vdprintf(int fd, const char *format, va_list ap);
-int					ft_vprintf(const char *format, va_list ap);
-int					ft_vsprintf(char *str, const char *format, va_list ap);
-int					ft_vsnprintf(char *str, size_t size, const char *format,
+int					ft_vdprintf(int fd, const char *REST format, va_list ap);
+int					ft_vfprintf(FILE *REST stream, const char *REST format,
 					va_list ap);
+int					ft_vprintf(const char *REST format, va_list ap);
+int					ft_vsprintf(char *REST str, const char *REST format,
+					va_list ap);
+int					ft_vsnprintf(char *REST str, size_t size,
+					const char *REST format, va_list ap);
 
 void				ft_fatal(const char *s);
 void				ft_putchar(char c);

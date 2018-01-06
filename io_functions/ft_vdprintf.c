@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:18:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 09:15:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf/ft_printf_private.h"
 
-int			ft_vdprintf(int fd, const char *format, va_list ap)
+int			ft_vdprintf(int fd, const char *restrict format, va_list ap)
 {
 	char				buff[PRINTF_BUFFSIZE + 1];
 	static t_printf		*data = NULL;

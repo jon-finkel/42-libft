@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:28:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/11/30 21:34:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 09:14:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int			ft_snprintf(char *str, size_t size, const char *format, ...)
+int			ft_snprintf(char *restrict str, size_t size,
+			const char *restrict format, ...)
 {
 	int			len;
 	va_list		ap;
