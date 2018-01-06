@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/03 14:08:14 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/06 09:47:29 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,10 @@ CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
 INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
 INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c
 INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c ft_sprintf.c
+INPUT_OUTPUT +=				ft_fprintf.c ft_vfprintf.c ft_fatal.c
 INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c ft_putendl.c
 INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c ft_putendl_fd.c
-INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c ft_fatal.c
-INPUT_OUTPUT +=				get_next_line.c
+INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c get_next_line.c
 LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
 LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
