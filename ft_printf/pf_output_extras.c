@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 17:17:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 13:39:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static int			k_conversion(t_printf *data)
 {
-	char		buff[26];
+	char		buff[25];
 	char		*begin;
 	char		*tm;
 	time_t		time;
 
-	ft_memset(buff, '\0', 26);
+	ft_memset(buff, '\0', 25);
 	time = va_arg(data->arg, time_t);
 	PROTECT(tm = ft_ctime(&time), -1);
 	begin = tm;
 	if (NOT_FLAG(E_ALTERNATE, data->flags))
-		ft_strcpy(buff, tm);
+		ft_strncpy(buff, tm, 24);
 	else
 	{
 		ft_strncat(buff, tm, 3);
