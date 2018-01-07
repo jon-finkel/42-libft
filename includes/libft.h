@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/06 09:44:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/07 15:57:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ int					ft_toupper(int c);
 */
 char				*ft_ctime(const time_t *clock);
 char				*ft_getenv(const char *name);
+int					ft_putenv(char *string);
 int					ft_setenv(const char *name, const char *value,
 					int overwrite);
 int					ft_unsetenv(const char *name);

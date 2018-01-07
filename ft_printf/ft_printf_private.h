@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 21:41:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/07 14:38:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ struct				s_conv
 	char			letter;
 	int				(*f)(t_printf *, const char *);
 	const char		*base;
-	enum e_range	range;
+	t_range			range;
 };
 
 void				pf_fill_buffer(t_printf *data, const char filler,
