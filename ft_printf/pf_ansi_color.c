@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 17:12:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/09 15:34:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 				break ;
 			}
 		if (!k || (k > 5 && k < LAST_COLOR_FLAG))
-			n+= 10;
+			n += 10;
 	}
 	ft_strcat(data->ansi_colors, "m");
 	if (flag == E_WIDE)

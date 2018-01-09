@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/07 15:57:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/09 15:50:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-
-# ifdef __cplusplus
-#  define restrict
-# endif
-# if defined(__STDC_VERSION__) && (__STDC_VERSION__ < 199901L)
-#  define restrict
-# endif
-# define REST restrict
 
 # define SET_FLAG(x, y) ((y) |= (x))
 # define UNSET_FLAG(x, y) ((y) &= ~(x))
@@ -90,14 +82,15 @@ int					ft_strnequ(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
-char				*ft_strnstr(const char *big, const char *little, size_t n);
+char				*ft_strnstr(const char *haystack, const char *needle,
+					size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *const s);
 char				*ft_strrevcpy(const char *const s);
-int					ft_strrewrite(char *big, const char *little,
+int					ft_strrewrite(char *haystack, const char *needle,
 					const char *filler);
 char				**ft_strsplit(const char *s, char c);
-char				*ft_strstr(const char *big, const char *little);
+char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strsub(char *s, unsigned int start, size_t len,
 					t_type type);
 char				*ft_strtrim(char *s, t_type type);
@@ -144,21 +137,19 @@ void				ft_lstsnipe(t_list **alst, t_list *target,
 **##############################
 */
 int					ft_asprintf(char **ret, const char *format, ...);
-int					ft_dprintf(int fd, const char *REST format, ...);
-int					ft_fprintf(FILE *REST stream, const char *REST format, ...);
-int					ft_printf(const char *REST format, ...);
-int					ft_snprintf(char *REST str, size_t size,
-					const char *REST format, ...);
-int					ft_sprintf(char *REST str, const char *REST format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+int					ft_fprintf(FILE *stream, const char *format, ...);
+int					ft_printf(const char *format, ...);
+int					ft_snprintf(char *str, size_t size,
+					const char *format, ...);
+int					ft_sprintf(char *str, const char *format, ...);
 int					ft_vasprintf(char **ret, const char *format, va_list ap);
-int					ft_vdprintf(int fd, const char *REST format, va_list ap);
-int					ft_vfprintf(FILE *REST stream, const char *REST format,
+int					ft_vdprintf(int fd, const char *format, va_list ap);
+int					ft_vfprintf(FILE *stream, const char *format, va_list ap);
+int					ft_vprintf(const char *format, va_list ap);
+int					ft_vsprintf(char *str, const char *format, va_list ap);
+int					ft_vsnprintf(char *str, size_t size, const char *format,
 					va_list ap);
-int					ft_vprintf(const char *REST format, va_list ap);
-int					ft_vsprintf(char *REST str, const char *REST format,
-					va_list ap);
-int					ft_vsnprintf(char *REST str, size_t size,
-					const char *REST format, va_list ap);
 
 void				ft_fatal(const char *s);
 void				ft_putchar(char c);

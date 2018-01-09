@@ -6,38 +6,39 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 11:53:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/09 15:48:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
 /*
-** Find the string little in the string big, and replace the little part with
-** filler. If little isn't present in big, ft_strrewrite doesn't do anything.
-** If filler is NULL, little will effectively be erased from big.
-** ft_strrewrite does not check that the size of the big is sufficiently large
+** Find the string needle in the string haystack, and replace the needle part
+** with filler. If needle isn't present in haystack, ft_strrewrite doesn't do
+** anything. If filler is NULL, needle will effectively be erased from haystack.
+** ft_strrewrite does not check that the size of the haystack is large enough
 ** to hold the rewritten string, it is up to the user to do so.
 */
 
-int			ft_strrewrite(char *big, const char *little, const char *filler)
+int			ft_strrewrite(char *restrict haystack, const char *restrict needle,
+			const char *restrict filler)
 {
 	char		*copy;
 	int			k;
-	size_t		big_len;
+	size_t		haystack_len;
 	size_t		lit_len;
 
-	lit_len = ft_strlen(little);
-	big_len = ft_strlen(big);
-	PROTECT(little = ft_strstr(big, little), 0);
-	PROTECT(copy = ft_strdup(little + lit_len), -1);
-	big += big_len - ft_strlen(little);
+	lit_len = ft_strlen(needle);
+	haystack_len = ft_strlen(haystack);
+	PROTECT(needle = ft_strstr(haystack, needle), 0);
+	PROTECT(copy = ft_strdup(needle + lit_len), -1);
+	haystack += haystack_len - ft_strlen(needle);
 	while (*filler)
-		*big++ = *filler++;
+		*haystack++ = *filler++;
 	k = -1;
 	while (copy[++k])
-		*big++ = copy[k];
-	*big = '\0';
+		*haystack++ = copy[k];
+	*haystack = '\0';
 	free(copy);
 	return (0);
 }
