@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 16:13:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:39:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ char					*ft_strtrim(char *s, t_type type)
 	if (!s)
 		return (NULL);
 	begin = s;
-	PROTECT(rev = ft_strrevcpy(s), NULL);
+	FAILZ(rev = ft_strrevcpy(s), NULL);
 	k = -1;
 	len = ft_strlen(s) - value_to_trim(s, rev);
 	ft_strclr(rev);
-	PROTECT(trim = ft_strnew(len), NULL);
+	FAILZ(trim = ft_strnew(len), NULL);
 	while (IS_WHITESPACE(*s))
 		++s;
 	while (len--)

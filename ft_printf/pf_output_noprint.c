@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:07:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:36:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int					pf_output_noprint(t_printf *data, const char *base)
 			if ((int)len <= data->precision)
 				precision += 5;
 	}
-	EXIT_PROTECT(string = ft_strnew(precision));
+	IMOUTTAHERE(string = ft_strnew(precision));
 	copy_string(string, begin, base, precision);
 	apply_left_field_width(data, precision);
 	pf_fill_buffer(data, 0, string, E_PRINT);

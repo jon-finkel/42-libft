@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 17:10:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:35:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static const char			*find_conversion(t_printf *data, const char *format)
 		{
 			if (g_conv[k].range != E_VOID && data->range != E_LONG)
 				data->range = g_conv[k].range;
-			NEG_PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
+			EPICFAILZ(g_conv[k].f(data, g_conv[k].base), NULL);
 			if (data->positional == E_POSITIONAL)
 				va_end(data->arg);
 			break ;

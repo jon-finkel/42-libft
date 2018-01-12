@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 17:32:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:36:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ int						pf_output_string(t_printf *data, const char *base)
 		data->precision = INT_MAX;
 	if (data->range == E_LONG && (wide_string = va_arg(data->arg, wchar_t *)))
 	{
-		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
-		NEG_PROTECT(copy_wide_string(string, wide_string, data->precision), -1);
+		FAILZ(string = ft_strnew(get_wide_length(data, wide_string)), -1);
+		EPICFAILZ(copy_wide_string(string, wide_string, data->precision), -1);
 	}
 	else if (data->range != E_LONG)
 		string = va_arg(data->arg, char *);

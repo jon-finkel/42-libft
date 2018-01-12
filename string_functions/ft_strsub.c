@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 16:12:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:39:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char			*ft_strsub(char *s, unsigned int start, size_t len, t_type type)
 	if (!s)
 		return (NULL);
 	begin = s;
-	PROTECT(sub = ft_strnew(len), NULL);
+	FAILZ(sub = ft_strnew(len), NULL);
 	s += start;
 	k = -1;
 	while ((unsigned int)++k < len)

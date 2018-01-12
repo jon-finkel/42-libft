@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/09 15:48:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:38:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int			ft_strrewrite(char *restrict haystack, const char *restrict needle,
 
 	lit_len = ft_strlen(needle);
 	haystack_len = ft_strlen(haystack);
-	PROTECT(needle = ft_strstr(haystack, needle), 0);
-	PROTECT(copy = ft_strdup(needle + lit_len), -1);
+	FAILZ(needle = ft_strstr(haystack, needle), 0);
+	FAILZ(copy = ft_strdup(needle + lit_len), -1);
 	haystack += haystack_len - ft_strlen(needle);
 	while (*filler)
 		*haystack++ = *filler++;

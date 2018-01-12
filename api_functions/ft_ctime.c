@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/09 15:36:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:34:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char						*minitoa(int n)
 {
 	char		*str;
 
-	PROTECT(str = ft_strnew(2), NULL);
+	FAILZ(str = ft_strnew(2), NULL);
 	if (n > 9)
 	{
 		str[0] = n / 10 + 48;
@@ -93,7 +93,7 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 		++leap;
 		leap = (leap == 4 ? 0 : leap);
 	}
-	PROTECT(tm->year = ft_itoa(tm->year_n), -1);
+	FAILZ(tm->year = ft_itoa(tm->year_n), -1);
 	while ((!leap && *epoch_secs >= 24 * 3600 * g_month_leap_day[tm->month - 1])
 		|| (leap && *epoch_secs >= 24 * 3600 * g_month_day[tm->month - 1]))
 	{
@@ -103,7 +103,7 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 	}
 	while (++tm->day_n && *epoch_secs >= 24 * 3600)
 		*epoch_secs -= 24 * 3600;
-	PROTECT(tm->day = minitoa(tm->day_n), -1);
+	FAILZ(tm->day = minitoa(tm->day_n), -1);
 	if ((tm->month == 3 && tm->day_n > 26) || (tm->month > 3 && tm->month < 10)
 		|| (tm->month == 10 && tm->day_n < 26))
 		*epoch_secs += 3600;
@@ -116,21 +116,21 @@ static struct s_time			*initialize_struct(const time_t *clock)
 	struct s_time		*tm;
 	time_t				epoch_secs;
 
-	PROTECT(tm = (struct s_time *)malloc(sizeof(struct s_time)), NULL);
+	FAILZ(tm = (struct s_time *)malloc(sizeof(struct s_time)), NULL);
 	tm->year_n = 1969;
 	tm->month = 1;
 	tm->day_n = 0;
 	epoch_secs = *clock;
-	NEG_PROTECT(get_ymd(tm, &epoch_secs), NULL);
+	EPICFAILZ(get_ymd(tm, &epoch_secs), NULL);
 	n = 0;
 	while (epoch_secs >= 3600 && ++n)
 		epoch_secs -= 3600;
-	PROTECT(tm->hour = minitoa(n), NULL);
+	FAILZ(tm->hour = minitoa(n), NULL);
 	n = 0;
 	while (epoch_secs >= 60 && ++n)
 		epoch_secs -= 60;
-	PROTECT(tm->minutes = minitoa(n), NULL);
-	PROTECT(tm->seconds = minitoa(epoch_secs), NULL);
+	FAILZ(tm->minutes = minitoa(n), NULL);
+	FAILZ(tm->seconds = minitoa(epoch_secs), NULL);
 	return (tm);
 }
 
@@ -139,8 +139,8 @@ char							*ft_ctime(const time_t *clock)
 	char				*string;
 	struct s_time		*tm;
 
-	PROTECT(string = ft_strnew(25), NULL);
-	PROTECT(tm = initialize_struct(clock), NULL);
+	FAILZ(string = ft_strnew(25), NULL);
+	FAILZ(tm = initialize_struct(clock), NULL);
 	ft_strncat(string, g_days[get_day(tm)], 3);
 	ft_strcat(string, " ");
 	ft_strncat(string, g_months[tm->month - 1], 3);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 16:09:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:35:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static int			copy_and_relocate(size_t len, int n)
 	int				k;
 	int				p;
 
-	PROTECT(env_copy = (char **)malloc(sizeof(char *) * (len)), -1);
+	FAILZ(env_copy = (char **)malloc(sizeof(char *) * (len)), -1);
 	k = -1;
 	p = -1;
 	while ((unsigned int)++k < len - 1)
 	{
 		if (k == n)
 			++p;
-		PROTECT(env_copy[k] = ft_strdup(environ[++p]), -1);
+		FAILZ(env_copy[k] = ft_strdup(environ[++p]), -1);
 	}
 	env_copy[k] = NULL;
 	aenv = &environ;

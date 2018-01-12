@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 14:57:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:33:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 # define _MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
 # define _MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
 
-# define PROTECT(x, y) ({if(!(x)) return(y);})
-# define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
-# define NEG_PROTECT(x, y) ({if((x) < 0) return(y);})
+# define FAILZ(x, y) ({if(!(x)) return(y);})
+# define EPICFAILZ(x, y) ({if((x) < 0) return(y);})
+# define IMOUTTAHERE(x) ({if(!(x)) exit(EXIT_FAILURE);})
 
 typedef enum		e_type
 {
