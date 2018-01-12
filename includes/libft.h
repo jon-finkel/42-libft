@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:33:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:48:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define FAILZ(x, y) ({if(!(x)) return(y);})
 # define EPICFAILZ(x, y) ({if((x) < 0) return(y);})
 # define IMOUTTAHERE(x) ({if(!(x)) exit(EXIT_FAILURE);})
+# define BYEZ return
+# define KTHXBYE return (0)
+# define GIMME(x) return (x)
 
 typedef enum		e_type
 {
