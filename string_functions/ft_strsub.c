@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:39:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:49:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char			*ft_strsub(char *s, unsigned int start, size_t len, t_type type)
 	int			k;
 
 	if (!s)
-		return (NULL);
+		ZOMG;
 	begin = s;
 	FAILZ(sub = ft_strnew(len), NULL);
 	s += start;

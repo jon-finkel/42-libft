@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:13:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:45:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,5 @@ int							pf_output_unsigned(t_printf *data, const char *base)
 	}
 	tmp[++k] = '\0';
 	apply_flags(data, ft_strrev(tmp), base, nb);
-	return (0);
+	KTHXBYE;
 }

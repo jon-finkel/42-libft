@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:36:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:45:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	static t_printf		*data = NULL;
 
 	if (!ret)
-		return (0);
+		KTHXBYE;
 	if (!data)
 	{
 		FAILZ(data = (t_printf *)malloc(sizeof(t_printf)), -1);

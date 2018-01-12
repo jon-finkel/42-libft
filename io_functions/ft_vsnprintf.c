@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:37:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:45:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			ft_vsnprintf(char *restrict str, size_t size,
 	static t_printf		*data = NULL;
 
 	if (!size)
-		return (0);
+		KTHXBYE;
 	ft_strclr(str);
 	if (!data)
 	{

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 22:58:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:34:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:43:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char				*ft_getenv(const char *name)
 	size_t			len;
 
 	if (!environ || !name)
-		return (NULL);
+		ZOMG;
 	buff = NULL;
 	len = ft_strlen(name);
 	k = -1;

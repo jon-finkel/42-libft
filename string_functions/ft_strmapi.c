@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:32:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:38:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:48:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char			*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	size_t		len;
 
 	if (!s || !f)
-		return (NULL);
+		ZOMG;
 	len = ft_strlen(s);
 	FAILZ(map = ft_strnew(len), NULL);
 	k = -1;

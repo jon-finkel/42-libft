@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:34:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:43:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int			realloc_and_expand(const char *name, const char *value,
 	env_copy[++k] = NULL;
 	ft_cleanup("A", environ);
 	environ = env_copy;
-	return (0);
+	KTHXBYE;
 }
 
 int					ft_setenv(const char *name, const char *value,
@@ -53,7 +53,7 @@ int					ft_setenv(const char *name, const char *value,
 				free(environ[k]);
 				EPICFAILZ(ft_asprintf(&environ[k], "%s=%s", name, value), -1);
 			}
-			return (0);
+			KTHXBYE;
 		}
 	}
 	return (realloc_and_expand(name, value, (size_t)(k + 1)));

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:38:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:49:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ int			ft_strrewrite(char *restrict haystack, const char *restrict needle,
 		*haystack++ = copy[k];
 	*haystack = '\0';
 	free(copy);
-	return (0);
+	KTHXBYE;
 }

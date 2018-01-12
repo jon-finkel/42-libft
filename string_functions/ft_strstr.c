@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 23:11:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/09 15:43:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:49:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ char			*ft_strstr(const char *haystack, const char *needle)
 			return ((char *)haystack - k);
 		haystack -= k - 1;
 	}
-	return (NULL);
+	ZOMG;
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:34:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:52:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char						*minitoa(int n)
 		str[0] = 48;
 		str[1] = n + 48;
 	}
-	return (str);
+	GIMME(str);
 }
 
 static int8_t					get_day(const struct s_time *tm)
@@ -107,7 +107,7 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 	if ((tm->month == 3 && tm->day_n > 26) || (tm->month > 3 && tm->month < 10)
 		|| (tm->month == 10 && tm->day_n < 26))
 		*epoch_secs += 3600;
-	return (0);
+	KTHXBYE;
 }
 
 static struct s_time			*initialize_struct(const time_t *clock)

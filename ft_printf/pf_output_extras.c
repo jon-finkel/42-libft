@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:36:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:44:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int			k_conversion(t_printf *data)
 	}
 	ft_strdel(&begin);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	return (0);
+	KTHXBYE;
 }
 
 static void			n_conversion(t_printf *data)
@@ -63,7 +63,7 @@ static int			t_conversion(t_printf *data)
 		buff[k - 11] = tm[k];
 	ft_strdel(&tm);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	return (0);
+	KTHXBYE;
 }
 
 static void			v_conversion(t_printf *data)

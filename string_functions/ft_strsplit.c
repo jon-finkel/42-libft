@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:38:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:49:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static size_t			count_words(const char *s, char c)
 
 	size = 0;
 	if (!s)
-		return (0);
+		KTHXBYE;
 	while (*s)
 	{
 		while (*s == c)

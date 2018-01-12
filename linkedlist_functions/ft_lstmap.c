@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 22:42:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:37:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:46:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 	t_list		*tmp;
 
 	if (!lst)
-		return (NULL);
+		ZOMG;
 	tmp = f(lst);
 	FAILZ(new = ft_lstnew(tmp->content, tmp->content_size), NULL);
 	begin = new;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:35:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:44:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 			ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 			ft_strcat(data->ansi_colors, "\033[");
 			data->color_multiple_flags = FALSE;
-			return (0);
+			KTHXBYE;
 		}
 	}
 	pf_fill_buffer(data, '{', NULL, E_PRINT);
@@ -74,7 +74,7 @@ static int			cat_string(t_printf *data, size_t n, int k)
 	ft_strcat(data->ansi_colors, str);
 	ft_strdel(&str);
 	data->color_multiple_flags = TRUE;
-	return (0);
+	KTHXBYE;
 }
 
 const char			*pf_ansi_color(t_printf *data, const char *format,

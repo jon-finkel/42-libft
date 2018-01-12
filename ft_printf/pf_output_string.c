@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:36:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:53:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int				copy_wide_string(char *restrict s,
 	{
 		if (*w < 0 || *w > 0x10ffff || (*w >= 0xd800 && *w <= 0xdfff)
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff))
-			return (-1);
+			ONOES;
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w) && (*s++ = FOUR_BYTES_UNICODE_HEAD(*w)))
@@ -61,7 +61,7 @@ static int				copy_wide_string(char *restrict s,
 			*s++ = UNICODE_TAIL(*w);
 		++w;
 	}
-	return (0);
+	KTHXBYE;
 }
 
 static void				apply_left_field_width(t_printf *data, int precision)
@@ -122,5 +122,5 @@ int						pf_output_string(t_printf *data, const char *base)
 	apply_precision(data, string, precision);
 	if (data->range == E_LONG && wide_string)
 		free(string);
-	return (0);
+	KTHXBYE;
 }
