@@ -6,27 +6,27 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 23:11:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:49:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:09:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char			*ft_strstr(const char *haystack, const char *needle)
+char			*ft_strstr(const char *big, const char *little)
 {
 	int		k;
 
-	if (!*needle)
-		return ((char *)haystack);
-	while (*haystack)
+	if (!*little)
+		return ((char *)big);
+	while (*big)
 	{
 		k = -1;
-		while (*(unsigned char *)haystack == *((unsigned char *)needle + ++k)
-			&& *(needle + k))
-			++haystack;
-		if (*(needle + k) == '\0')
-			return ((char *)haystack - k);
-		haystack -= k - 1;
+		while (*(unsigned char *)big == *((unsigned char *)little + ++k)
+			&& *(little + k))
+			++big;
+		if (*(little + k) == '\0')
+			return ((char *)big - k);
+		big -= k - 1;
 	}
-	ZOMG;
+	return (NULL);
 }

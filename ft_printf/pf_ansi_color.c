@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:44:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/17 18:16:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 		{
 			ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 			ft_strcat(data->ansi_colors, "\033[");
-			data->color_multiple_flags = FALSE;
-			KTHXBYE;
+			data->color_multiple_flags = false;
+			return (0);
 		}
 	}
 	pf_fill_buffer(data, '{', NULL, E_PRINT);
@@ -68,13 +68,13 @@ static int			cat_string(t_printf *data, size_t n, int k)
 {
 	char		*str;
 
-	if (data->color_multiple_flags == TRUE)
+	if (data->color_multiple_flags == true)
 		ft_strcat(data->ansi_colors, ";");
-	FAILZ(str = ft_itoa(g_color[k].code + n), -1);
+	PROTECT(str = ft_itoa(g_color[k].code + n), -1);
 	ft_strcat(data->ansi_colors, str);
 	ft_strdel(&str);
-	data->color_multiple_flags = TRUE;
-	KTHXBYE;
+	data->color_multiple_flags = true;
+	return (0);
 }
 
 const char			*pf_ansi_color(t_printf *data, const char *format,
@@ -91,11 +91,11 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 		while (*format != 'x' && ++k < LAST_COLOR_FLAG)
 			if (*format == g_color[k].letter)
 			{
-				EPICFAILZ(cat_string(data, n, k), NULL);
+				NEG_PROTECT(cat_string(data, n, k), NULL);
 				break ;
 			}
 		if (!k || (k > 5 && k < LAST_COLOR_FLAG))
-			n += 10;
+			n+= 10;
 	}
 	ft_strcat(data->ansi_colors, "m");
 	if (flag == E_WIDE)

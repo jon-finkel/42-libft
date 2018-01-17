@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:45:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/06 09:16:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int			ft_vsnprintf(char *restrict str, size_t size,
 	static t_printf		*data = NULL;
 
 	if (!size)
-		KTHXBYE;
+		return (0);
 	ft_strclr(str);
 	if (!data)
 	{
-		FAILZ(data = (t_printf *)malloc(sizeof(t_printf)), -1);
+		PROTECT(data = (t_printf *)malloc(sizeof(t_printf)), -1);
 		data->pf_type = E_SPRINTF;
 	}
 	data->pf_buffer = str;

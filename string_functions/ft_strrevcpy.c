@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:42:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:38:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:09:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char			*ft_strrevcpy(const char *const s)
 	size_t		len;
 
 	len = ft_strlen(s);
-	FAILZ(string = ft_strnew(len), NULL);
+	PROTECT(string = ft_strnew(len), NULL);
 	start = string;
 	while (len > 0)
 		*string++ = s[--len];

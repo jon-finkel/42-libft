@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 18:16:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:47:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/22 14:10:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t			ft_memnccpy(void *dst, const void *src, int c, size_t n)
 	size_t		len;
 
 	if (!dst || !src)
-		KTHXBYE;
+		return (0);
 	k = -1;
 	len = 0;
 	while ((unsigned int)++k < n)

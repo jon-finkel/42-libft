@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:57:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:49:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/01 12:10:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char			*ft_strrev(char *const s)
 	size_t		len;
 
 	if (!s)
-		ZOMG;
+		return (NULL);
 	k = -1;
 	len = ft_strlen(s);
 	while ((unsigned int)++k < len--)

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:28:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:37:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/19 21:55:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ char			*ft_itoa(int n)
 	if (n < 0)
 		tmp[++k] = '-';
 	tmp[++k] = '\0';
-	FAILZ(string = ft_strrevcpy(tmp), NULL);
+	PROTECT(string = ft_strrevcpy(tmp), NULL);
 	return (string);
 }

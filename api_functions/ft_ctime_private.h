@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:23:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/09 15:37:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/03 16:41:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "../includes/libft.h"
 
-# define LEAP_YEAR_SECONDS 31622400
-# define YEAR_SECONDS 31536000
+#define LEAP_YEAR_SECONDS 31622400
+#define YEAR_SECONDS 31536000
 
 struct		s_time
 {

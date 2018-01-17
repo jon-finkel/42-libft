@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:49:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/17 18:21:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t			value_to_trim(const char *s1, const char *s2)
 	return (trim == len * 2 ? len : trim);
 }
 
-char					*ft_strtrim(char *s, t_type type)
+char					*ft_strtrim(char *s, bool free)
 {
 	char		*begin;
 	char		*rev;
@@ -41,13 +41,13 @@ char					*ft_strtrim(char *s, t_type type)
 	size_t		len;
 
 	if (!s)
-		ZOMG;
+		return (NULL);
 	begin = s;
-	FAILZ(rev = ft_strrevcpy(s), NULL);
+	PROTECT(rev = ft_strrevcpy(s), NULL);
 	k = -1;
 	len = ft_strlen(s) - value_to_trim(s, rev);
 	ft_strclr(rev);
-	FAILZ(trim = ft_strnew(len), NULL);
+	PROTECT(trim = ft_strnew(len), NULL);
 	while (IS_WHITESPACE(*s))
 		++s;
 	while (len--)
@@ -56,7 +56,7 @@ char					*ft_strtrim(char *s, t_type type)
 		++s;
 	}
 	s = begin;
-	if (type == E_FREE)
+	if (free == true)
 		ft_strdel(&s);
 	return (trim);
 }

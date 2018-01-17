@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 17:17:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/17 18:29:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdbool.h>
 # include <stdio.h>
 
 # define SET_FLAG(x, y) ((y) |= (x))
@@ -25,30 +26,13 @@
 # define IS_FLAG(x, y) (((y) & (x)) == (x))
 # define NOT_FLAG(x, y) (!((y) & (x)))
 # define IS_WHITESPACE(x) ((x) == ' ' || (x) == '\n' || (x) == '\t')
-# define _ABS(x) ({typeof(x) _x = (x);_x < 0 ? -_x : _x;})
-# define _MIN(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a > _b ? _b : _a;})
-# define _MAX(a, b) ({typeof(a) _a = (a);typeof(b) _b = (b);_a < _b ? _b : _a;})
+# define _ABS(x) ({__typeof__(x) _x = (x);_x < 0 ? -_x : _x;})
+# define _MIN(a, b) ({__typeof__(a)_a=(a);__typeof__(b)_b=(b);_a>_b ? _b : _a;})
+# define _MAX(a, b) ({__typeof__(a)_a=(a);__typeof__(b)_b=(b);_a<_b ? _b : _a;})
 
-# define FAILZ(x, y) ({if(!(x)) return(y);})
-# define EPICFAILZ(x, y) ({if((x) < 0) return(y);})
-# define IMOUTTAHERE(x) ({if(!(x)) exit(EXIT_FAILURE);})
-# define BYEZ return
-# define KTHXBYE return (0)
-# define GIMME(x) return (x)
-# define ONOES return (-1)
-# define ZOMG return (NULL)
-
-typedef enum		e_type
-{
-	E_FREE,
-	E_NO_FREE
-}					t_type;
-
-typedef enum		e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}					t_bool;
+# define PROTECT(x, y) ({if(!(x)) return(y);})
+# define NEG_PROTECT(x, y) ({if((x) < 0) return(y);})
+# define EXIT_PROTECT(x) ({if(!(x)) exit(EXIT_FAILURE);})
 
 typedef struct		s_list
 {
@@ -75,7 +59,7 @@ char				*ft_strdup(const char *s1);
 int					ft_strequ(const char *s1, const char *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strjoin(char *s1, const char *s2, t_type type);
+char				*ft_strjoin(char *s1, const char *s2, bool free);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strmap(const char *s, char (*f)(char));
@@ -85,18 +69,17 @@ int					ft_strnequ(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
-char				*ft_strnstr(const char *haystack, const char *needle,
-					size_t n);
+char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *const s);
 char				*ft_strrevcpy(const char *const s);
-int					ft_strrewrite(char *haystack, const char *needle,
+int					ft_strrewrite(char *big, const char *little,
 					const char *filler);
 char				**ft_strsplit(const char *s, char c);
-char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(char *s, unsigned int start, size_t len,
-					t_type type);
-char				*ft_strtrim(char *s, t_type type);
+					bool free);
+char				*ft_strtrim(char *s, bool free);
 
 /*
 **##############################
@@ -143,8 +126,8 @@ int					ft_asprintf(char **ret, const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 int					ft_fprintf(FILE *stream, const char *format, ...);
 int					ft_printf(const char *format, ...);
-int					ft_snprintf(char *str, size_t size,
-					const char *format, ...);
+int					ft_snprintf(char *str, size_t size, const char *format,
+					...);
 int					ft_sprintf(char *str, const char *format, ...);
 int					ft_vasprintf(char **ret, const char *format, va_list ap);
 int					ft_vdprintf(int fd, const char *format, va_list ap);

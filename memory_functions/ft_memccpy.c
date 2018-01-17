@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:50:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:46:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/20 18:17:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void			*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		}
 		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
 	}
-	ZOMG;
+	return (NULL);
 }

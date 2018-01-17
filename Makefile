@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/07 15:57:31 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/17 17:56:10 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ DYN_NAME :=					${NAME:a=so}
 
 #	Compiler
 CC :=						gcc
+VERSION :=					-std=c11
 
 ifneq ($(OS), Linux)
 	FLAGS +=				-Wall -Wextra -Werror 
@@ -125,7 +126,7 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	$(CC) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
+	$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)
 
@@ -134,7 +135,7 @@ $(DYN_OBJDIR):
 
 $(DYN_OBJDIR)%.o: %.c
 	@printf "\e[93m\e[1m"
-	$(CC) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
+	$(CC) $(VERSION) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
 	@printf "\e[m"
 
 clean:
@@ -153,7 +154,7 @@ noflags: re
 re: fclean all
 
 so: $(DYN_OBJECTS)
-	@$(CC) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
+	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
 	@clear
 	@printf "\e[32m\e[1m[Shared library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
 

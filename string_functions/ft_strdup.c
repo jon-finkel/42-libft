@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 17:04:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 15:38:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/02 20:13:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char			*ft_strdup(const char *s1)
 	size_t		len;
 
 	len = ft_strlen(s1);
-	FAILZ(s2 = ft_strnew(len), NULL);
+	PROTECT(s2 = ft_strnew(len), NULL);
 	while (*s1)
 	{
 		*s2 = *s1;

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:44:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:09:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ static int			copy_and_relocate(size_t len, int n)
 	int				k;
 	int				p;
 
-	FAILZ(env_copy = (char **)malloc(sizeof(char *) * (len)), -1);
+	PROTECT(env_copy = (char **)malloc(sizeof(char *) * (len)), -1);
 	k = -1;
 	p = -1;
 	while ((unsigned int)++k < len - 1)
 	{
 		if (k == n)
 			++p;
-		FAILZ(env_copy[k] = ft_strdup(environ[++p]), -1);
+		PROTECT(env_copy[k] = ft_strdup(environ[++p]), -1);
 	}
 	env_copy[k] = NULL;
 	aenv = &environ;
 	ft_cleanup("A", environ);
 	*aenv = env_copy;
-	KTHXBYE;
+	return (0);
 }
 
 int					ft_unsetenv(const char *name)
@@ -60,5 +60,5 @@ int					ft_unsetenv(const char *name)
 			return (copy_and_relocate(len, k));
 		}
 	}
-	KTHXBYE;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:49:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2017/12/12 21:09:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static size_t			count_words(const char *s, char c)
 
 	size = 0;
 	if (!s)
-		KTHXBYE;
+		return (0);
 	while (*s)
 	{
 		while (*s == c)
@@ -50,7 +50,7 @@ static char				*string_shred(const char *s, char c)
 		++size;
 	}
 	s -= size;
-	FAILZ(dup = ft_strnew(size), NULL);
+	PROTECT(dup = ft_strnew(size), NULL);
 	while (*s && *s != c)
 		dup[++k] = *s++;
 	return (dup);
@@ -64,13 +64,13 @@ char					**ft_strsplit(const char *s, char c)
 
 	k = -1;
 	len = count_words(s, c) + 1;
-	FAILZ(dup = (char **)malloc(sizeof(char *) * len), NULL);
+	PROTECT(dup = (char **)malloc(sizeof(char *) * len), NULL);
 	while (s && *s)
 	{
 		while (*s == c)
 			++s;
 		if (*s)
-			FAILZ(dup[++k] = string_shred(s, c), NULL);
+			PROTECT(dup[++k] = string_shred(s, c), NULL);
 		while (*s && *s != c)
 			++s;
 	}

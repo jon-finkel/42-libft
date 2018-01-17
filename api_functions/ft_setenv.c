@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 19:00:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/12 21:43:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/01 16:09:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ static int			realloc_and_expand(const char *name, const char *value,
 	extern char		**environ;
 	int				k;
 
-	FAILZ(env_copy = (char **)malloc(sizeof(char *) * (len + 1)), -1);
+	PROTECT(env_copy = (char **)malloc(sizeof(char *) * (len + 1)), -1);
 	k = -1;
 	while (environ[++k])
-		FAILZ(env_copy[k] = ft_strdup(environ[k]), -1);
-	EPICFAILZ(ft_asprintf(&env_copy[k], "%s=%s", name, value), -1);
+		PROTECT(env_copy[k] = ft_strdup(environ[k]), -1);
+	NEG_PROTECT(ft_asprintf(&env_copy[k], "%s=%s", name, value), -1);
 	env_copy[++k] = NULL;
 	ft_cleanup("A", environ);
 	environ = env_copy;
-	KTHXBYE;
+	return (0);
 }
 
 int					ft_setenv(const char *name, const char *value,
@@ -51,9 +51,9 @@ int					ft_setenv(const char *name, const char *value,
 			if (overwrite)
 			{
 				free(environ[k]);
-				EPICFAILZ(ft_asprintf(&environ[k], "%s=%s", name, value), -1);
+				NEG_PROTECT(ft_asprintf(&environ[k], "%s=%s", name, value), -1);
 			}
-			KTHXBYE;
+			return (0);
 		}
 	}
 	return (realloc_and_expand(name, value, (size_t)(k + 1)));
