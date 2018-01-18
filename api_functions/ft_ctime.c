@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 16:52:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/18 18:47:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 
 static struct s_time			*initialize_struct(const time_t *clock)
 {
-	int			n;
+	int					n;
 	struct s_time		*tm;
 	time_t				epoch_secs;
 
