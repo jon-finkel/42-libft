@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:21:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 19:34:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 	GIMME(len);
 }
 
-static int				copy_wide_string(char *restrict s,
+static int				copy_wstring(char *restrict s,
 						const wchar_t *restrict w, int precision)
 {
 	while (*w && precision--)
@@ -98,13 +98,11 @@ static void				apply_precision(t_printf *data, const char *s,
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 }
 
-int						pf_output_string(t_printf *data, const char *base)
+int						pf_output_string(t_printf *data, const char *string)
 {
-	char		*string;
 	int			precision;
 	wchar_t		*wide_string;
 
-	(void)base;
 	string = NULL;
 	wide_string = NULL;
 	if (data->precision < 0)
@@ -112,7 +110,11 @@ int						pf_output_string(t_printf *data, const char *base)
 	if (data->range == E_LONG && (wide_string = va_arg(data->arg, wchar_t *)))
 	{
 		FAILZ(string = ft_strnew(get_wide_length(data, wide_string)), -1);
-		EPICFAILZ(copy_wide_string(string, wide_string, data->precision), -1);
+		if (copy_wstring((char *)string, wide_string, data->precision) == -1)
+		{
+			free((char *)string);
+			return (-1);
+		}
 	}
 	else if (data->range != E_LONG)
 		string = va_arg(data->arg, char *);
@@ -121,6 +123,6 @@ int						pf_output_string(t_printf *data, const char *base)
 	apply_left_field_width(data, precision);
 	apply_precision(data, string, precision);
 	if (data->range == E_LONG && wide_string)
-		free(string);
+		free((char *)string);
 	KTHXBYE;
 }
