@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:13:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 17:40:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:45:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ inline size_t				ft_vecalloc(t_vector *vector, size_t size)
 {
 	if (vector->capacity != size)
 	{
-		vector->buff = ft_vecrealloc(vector->buff,\
-			vector->len * vector->data_size, size * vector->data_size);
+		FAILZ(vector->buff = ft_vecrealloc(vector->buff,\
+			vector->len * vector->data_size, size * vector->data_size), 0);
 		vector->capacity = size;
 		if (vector->len > size)
 			vector->len = size;
