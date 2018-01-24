@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 16:11:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:04:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:37:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./linkedlist_private.h"
+#include "./linkedlist.h"
 
 inline size_t			ft_lstsize(t_list *list)
 {

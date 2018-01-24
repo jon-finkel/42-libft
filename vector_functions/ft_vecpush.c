@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:06:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:27:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:43:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vector_private.h"
+#include "./vector.h"
 
 inline void			*ft_vecpush(t_vector *vector)
 {

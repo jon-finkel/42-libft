@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linkedlist_private.h                               :+:      :+:    :+:   */
+/*   linkedlist.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 14:59:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:01:41 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:37 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LINKEDLIST_PRIVATE_H
-# define LINKEDLIST_PRIVATE_H
+#ifndef LINKEDLIST_H
+# define LINKEDLIST_H
 
 # include "../includes/dependencies.h"
 

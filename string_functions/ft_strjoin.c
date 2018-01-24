@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:24:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:41:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./string_private.h"
+#include "./string.h"
 
 char			*ft_strjoin(char *s1, const char *s2, bool free)
 {

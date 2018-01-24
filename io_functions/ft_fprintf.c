@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 09:06:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:20:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:34:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./io_private.h"
+#include "./io.h"
 
 int			ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
 {

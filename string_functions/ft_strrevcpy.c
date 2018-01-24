@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:42:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:27:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:42:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./string_private.h"
+#include "./string.h"
 
 char			*ft_strrevcpy(const char *const s)
 {

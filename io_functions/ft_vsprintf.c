@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:38:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:15:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:36:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./io_private.h"
+#include "./io.h"
 
 int			ft_vsprintf(char *restrict str, const char *restrict format,
 			va_list ap)

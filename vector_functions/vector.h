@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character_private.h                                :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 14:54:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 14:56:05 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:44:03 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:44:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_PRIVATE_H
-# define CHARACTER_PRIVATE_H
+#ifndef VECTOR_H
+# define VECTOR_H
 
 # include "../includes/dependencies.h"
 
-extern int			ft_isalpha(int c);
-extern int			ft_isalnum(int c);
-extern int			ft_isascii(int c);
-extern int			ft_isdigit(int c);
-extern int			ft_islower(int c);
-extern int			ft_isprint(int c);
-extern int			ft_isupper(int c);
-extern int			ft_tolower(int c);
-extern int			ft_toupper(int c);
+# define VEC_MIN_LIMIT 4
+
+typedef struct		s_vector
+{
+	void			*buff;
+	size_t			capacity;
+	size_t			len;
+	size_t			data_size;
+}					t_vector;
+
+extern size_t		ft_vecalloc(t_vector *vector, size_t size);
+extern void			*ft_vecend(t_vector *vector);
+extern size_t		ft_vecgrow(t_vector *vector, size_t size);
+extern void			*ft_vecnpush(t_vector *vector, size_t size);
+extern void			*ft_vecpush(t_vector *vector);
 
 #endif

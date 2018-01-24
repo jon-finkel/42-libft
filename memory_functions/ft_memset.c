@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:48:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:26:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:40:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 void			*ft_memset(void *b, int c, size_t len)
 {

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_private.h                                   :+:      :+:    :+:   */
+/*   string.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/23 19:52:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:29:07 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:43:13 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:43:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_PRIVATE_H
-# define STRING_PRIVATE_H
+#ifndef STRING_H
+# define STRING_H
 
 # include "../includes/dependencies.h"
 

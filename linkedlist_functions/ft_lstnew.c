@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 21:30:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:04:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:37:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./linkedlist_private.h"
-#include "../memory_functions/memory_private.h"
+#include "./linkedlist.h"
+#include "../memory_functions/memory.h"
 
 inline t_list			*ft_lstnew(const void *content, size_t content_size)
 {

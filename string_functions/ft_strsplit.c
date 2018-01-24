@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:28:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:42:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./string_private.h"
+#include "./string.h"
 
 static size_t			count_words(const char *s, char c)
 {

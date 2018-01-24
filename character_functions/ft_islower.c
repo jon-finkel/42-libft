@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:37:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 14:57:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:33:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./character_private.h"
+#include "./character.h"
 
 inline int			ft_islower(int c)
 {

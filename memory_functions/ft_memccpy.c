@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:50:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:24:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:44:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_private.h                            :+:      :+:    :+:   */
+/*   character.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/27 17:23:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:36:38 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:15 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_PRIVATE_H
-# define GET_NEXT_LINE_PRIVATE_H
+#ifndef CHARACTER_H
+# define CHARACTER_H
 
 # include "../includes/dependencies.h"
-# include "../linkedlist_functions/linkedlist.h"
-# include "../memory_functions/memory.h"
-# include "../string_functions/string.h"
 
-# define LIST_CONTENT ((t_data *)(list->content))
-
-# define BUFF_SIZE 4095
-
-typedef struct		s_data
-{
-	char			*begin;
-	char			*str;
-	int				fd;
-}					t_data;
+extern int			ft_isalpha(int c);
+extern int			ft_isalnum(int c);
+extern int			ft_isascii(int c);
+extern int			ft_isdigit(int c);
+extern int			ft_islower(int c);
+extern int			ft_isprint(int c);
+extern int			ft_isupper(int c);
+extern int			ft_tolower(int c);
+extern int			ft_toupper(int c);
 
 #endif

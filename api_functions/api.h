@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   api_private.h                                      :+:      :+:    :+:   */
+/*   api.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 14:46:03 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:18:20 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:08 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef API_PRIVATE_H
-# define API_PRIVATE_H
+#ifndef API_H
+# define API_H
 
 # include "../includes/dependencies.h"
 

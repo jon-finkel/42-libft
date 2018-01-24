@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 14:20:54 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/23 19:52:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:40:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./memory_private.h"
-#include "../string_functions/string_private.h"
+#include "./memory.h"
+#include "../string_functions/string.h"
 
 inline void			*ft_realloc(void *ptr, size_t size)
 {

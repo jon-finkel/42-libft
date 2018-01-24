@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 10:21:47 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:25:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:40:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 int			ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:08:39 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 17:33:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:43:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vector_private.h"
-#include "../math_functions/math_private.h"
+#include "./vector.h"
+#include "../math_functions/math.h"
 
 inline size_t			ft_vecgrow(t_vector *vector, size_t size)
 {

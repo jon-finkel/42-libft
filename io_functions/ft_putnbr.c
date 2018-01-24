@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 09:59:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:23:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:35:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./io_private.h"
+#include "./io.h"
 
 void			ft_putnbr(int n)
 {

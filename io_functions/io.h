@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io_private.h                                       :+:      :+:    :+:   */
+/*   io.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 15:11:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:19:08 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IO_PRIVATE_H
-# define IO_PRIVATE_H
+#ifndef IO_H
+# define IO_H
 
 # include "../includes/dependencies.h"
 
@@ -39,5 +39,7 @@ extern void			ft_putnbr(int n);
 extern void			ft_putnbr_fd(int n, int fd);
 extern void			ft_putstr(const char *s);
 extern void			ft_putstr_fd(const char *s, int fd);
+
+extern int			get_next_line(const int fd, char **line);
 
 #endif

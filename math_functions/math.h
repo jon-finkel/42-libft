@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_private.h                                     :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 15:51:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:53:31 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATH_PRIVATE_H
-# define MATH_PRIVATE_H
+#ifndef MATH_H
+# define MATH_H
 
 # include "../includes/dependencies.h"
 

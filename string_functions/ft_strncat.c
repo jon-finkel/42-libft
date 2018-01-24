@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:26:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:25:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:42:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./string_private.h"
+#include "./string.h"
 
 char			*ft_strncat(char *restrict s1, const char *restrict s2,
 				size_t n)

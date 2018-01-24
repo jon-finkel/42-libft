@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_private.h                                   :+:      :+:    :+:   */
+/*   memory.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/23 19:49:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:20:25 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:00 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/24 18:39:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MEMORY_PRIVATE_H
-# define MEMORY_PRIVATE_H
+#ifndef MEMORY_H
+# define MEMORY_H
 
 # include "../includes/dependencies.h"
 

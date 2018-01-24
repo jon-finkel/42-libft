@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 22:42:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:03:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:37:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./linkedlist_private.h"
+#include "./linkedlist.h"
 
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {

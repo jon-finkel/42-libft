@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:28:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:25:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:40:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 void			ft_memdel(void **ap)
 {

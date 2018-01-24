@@ -6,14 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:23:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/18 18:48:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:30:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CTIME_PRIVATE_H
 # define FT_CTIME_PRIVATE_H
 
-# include "../includes/libft.h"
+# include "../memory_functions/memory.h"
+# include "../string_functions/string.h"
 
 # define LEAP_YEAR_SECONDS 31622400
 # define YEAR_SECONDS 31536000

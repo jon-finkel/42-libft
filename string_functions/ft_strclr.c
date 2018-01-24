@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:15:13 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:21:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:41:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../string_functions/string_private.h"
+#include "./string.h"
 
 void			ft_strclr(char *s)
 {

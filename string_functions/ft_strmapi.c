@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:32:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:25:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:42:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./string_private.h"
+#include "./string.h"
 
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {

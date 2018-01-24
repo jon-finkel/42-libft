@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:13:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 17:45:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:43:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vector_private.h"
-#include "../memory_functions/memory_private.h"
+#include "./vector.h"
+#include "../memory_functions/memory.h"
 
 static inline void			*ft_vecrealloc(void *ptr, size_t len, size_t zlen)
 {

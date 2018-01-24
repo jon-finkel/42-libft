@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:21:59 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:18:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:35:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../string_functions/string_private.h"
+#include "../string_functions/string.h"
 
 void			ft_putstr_fd(const char *restrict s, int fd)
 {

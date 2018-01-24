@@ -6,13 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 14:52:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 18:29:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./api_private.h"
-#include "../memory_functions/memory_private.h"
-#include "../string_functions/string_private.h"
+#include "./ft_ctime_private.h"
 
 static const char		g_month_day[12] =
 {
