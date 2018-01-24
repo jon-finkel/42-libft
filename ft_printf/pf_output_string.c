@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 17:32:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:21:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 		++s;
 	}
 	data->precision = precision;
-	return (len);
+	GIMME(len);
 }
 
 static int				copy_wide_string(char *restrict s,
@@ -46,7 +46,7 @@ static int				copy_wide_string(char *restrict s,
 	{
 		if (*w < 0 || *w > 0x10ffff || (*w >= 0xd800 && *w <= 0xdfff)
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff))
-			return (-1);
+			ONOES;
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w) && (*s++ = FOUR_BYTES_UNICODE_HEAD(*w)))
@@ -61,7 +61,7 @@ static int				copy_wide_string(char *restrict s,
 			*s++ = UNICODE_TAIL(*w);
 		++w;
 	}
-	return (0);
+	KTHXBYE;
 }
 
 static void				apply_left_field_width(t_printf *data, int precision)
@@ -111,16 +111,16 @@ int						pf_output_string(t_printf *data, const char *base)
 		data->precision = INT_MAX;
 	if (data->range == E_LONG && (wide_string = va_arg(data->arg, wchar_t *)))
 	{
-		PROTECT(string = ft_strnew(get_wide_length(data, wide_string)), -1);
-		NEG_PROTECT(copy_wide_string(string, wide_string, data->precision), -1);
+		FAILZ(string = ft_strnew(get_wide_length(data, wide_string)), -1);
+		EPICFAILZ(copy_wide_string(string, wide_string, data->precision), -1);
 	}
 	else if (data->range != E_LONG)
 		string = va_arg(data->arg, char *);
 	string = (!string ? "(null)" : string);
-	precision = _MIN(data->precision, (int)ft_strlen(string));
+	precision = MIN(data->precision, (int)ft_strlen(string));
 	apply_left_field_width(data, precision);
 	apply_precision(data, string, precision);
 	if (data->range == E_LONG && wide_string)
 		free(string);
-	return (0);
+	KTHXBYE;
 }

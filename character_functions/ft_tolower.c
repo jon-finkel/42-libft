@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:46:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:09:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:57:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./character_private.h"
 
-int			ft_tolower(int c)
+inline int			ft_tolower(int c)
 {
-	return (ft_isupper(c) ? (c | 1 << 5) : c);
+	GIMME(ft_isupper(c) ? (c | 1 << 5) : c);
 }

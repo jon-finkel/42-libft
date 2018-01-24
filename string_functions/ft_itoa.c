@@ -6,15 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:28:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/19 21:55:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/23 19:59:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-
-/*
-** Converts an integer 'n' into an array of characters representing 'n'.
-*/
+#include "../string_functions/string_private.h"
 
 char			*ft_itoa(int n)
 {
@@ -35,6 +31,6 @@ char			*ft_itoa(int n)
 	if (n < 0)
 		tmp[++k] = '-';
 	tmp[++k] = '\0';
-	PROTECT(string = ft_strrevcpy(tmp), NULL);
-	return (string);
+	FAILZ(string = ft_strrevcpy(tmp), NULL);
+	GIMME(string);
 }

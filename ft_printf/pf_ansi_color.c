@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/18 18:47:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:07:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 	if (ft_strnequ(format, "{eoc}", 5) && ft_strlen(data->ansi_colors))
 	{
 		pf_fill_buffer(data, 0, "\033[0m", E_NON_PRINT);
-		return (5);
+		GIMME(5);
 	}
 	++format;
 	if ((eoc_start = ft_strstr(format, "{eoc}")))
@@ -57,11 +57,11 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 			ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
 			ft_strcat(data->ansi_colors, "\033[");
 			data->color_multiple_flags = false;
-			return (0);
+			KTHXBYE;
 		}
 	}
 	pf_fill_buffer(data, '{', NULL, E_PRINT);
-	return (1);
+	GIMME(1);
 }
 
 static int			cat_string(t_printf *data, size_t n, int k)
@@ -70,11 +70,11 @@ static int			cat_string(t_printf *data, size_t n, int k)
 
 	if (data->color_multiple_flags == true)
 		ft_strcat(data->ansi_colors, ";");
-	PROTECT(str = ft_itoa(g_color[k].code + n), -1);
+	FAILZ(str = ft_itoa(g_color[k].code + n), -1);
 	ft_strcat(data->ansi_colors, str);
 	ft_strdel(&str);
 	data->color_multiple_flags = true;
-	return (0);
+	KTHXBYE;
 }
 
 const char			*pf_ansi_color(t_printf *data, const char *format,
@@ -84,14 +84,14 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 	size_t		n;
 
 	if ((n = check_end_of_color_flag(data, format)))
-		return (format + n);
+		GIMME(format + n);
 	while (++format && *format != '}' && n <= 10)
 	{
 		k = 0;
 		while (*format != 'x' && ++k < LAST_COLOR_FLAG)
 			if (*format == g_color[k].letter)
 			{
-				NEG_PROTECT(cat_string(data, n, k), NULL);
+				EPICFAILZ(cat_string(data, n, k), NULL);
 				break ;
 			}
 		if (!k || (k > 5 && k < LAST_COLOR_FLAG))
@@ -102,5 +102,5 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 		pf_fill_buffer(data, 0, data->ansi_colors, E_NON_PRINT);
 	else
 		SET_FLAG(E_ANSI_COLOR, data->flags);
-	return (ft_strchr(format, '}') + 1);
+	GIMME(ft_strchr(format, '}') + 1);
 }

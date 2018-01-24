@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/03 17:10:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:07:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static const char			*check_positional_argument(t_printf *data,
 			va_arg(data->arg, void *);
 		format = ft_strchr(format, '$') + 1;
 	}
-	return (format);
+	GIMME(format);
 }
 
 static const char			*get_range(t_printf *data, const char *format)
@@ -82,7 +82,7 @@ static const char			*get_range(t_printf *data, const char *format)
 			data->range = E_SHORT;
 		++format;
 	}
-	return (format);
+	GIMME(format);
 }
 
 static const char			*find_conversion(t_printf *data, const char *format)
@@ -91,16 +91,16 @@ static const char			*find_conversion(t_printf *data, const char *format)
 
 	format = pf_get_flags(data, format, E_SECOND);
 	if (!*format)
-		return (format);
+		GIMME(format);
 	if (*format == 'k' || *format == 'n' || *format == 't' || *format == 'v')
-		return (pf_output_extras(data, format));
+		GIMME(pf_output_extras(data, format));
 	k = -1;
 	while (++k < LAST_CONVERSION_FLAG)
 		if ((unsigned char)*format == (unsigned char)g_conv[k].letter)
 		{
 			if (g_conv[k].range != E_VOID && data->range != E_LONG)
 				data->range = g_conv[k].range;
-			NEG_PROTECT(g_conv[k].f(data, g_conv[k].base), NULL);
+			EPICFAILZ(g_conv[k].f(data, g_conv[k].base), NULL);
 			if (data->positional == E_POSITIONAL)
 				va_end(data->arg);
 			break ;
@@ -111,7 +111,7 @@ static const char			*find_conversion(t_printf *data, const char *format)
 		data->c = *format;
 		pf_output_char(data, NULL);
 	}
-	return (format + 1);
+	GIMME(format + 1);
 }
 
 void						pf_buff_format(t_printf *data, const char *format)

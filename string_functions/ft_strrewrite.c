@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/20 11:53:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:27:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./string_private.h"
 
 /*
 ** Find the string little in the string big, and replace the little part with
@@ -20,7 +20,7 @@
 ** to hold the rewritten string, it is up to the user to do so.
 */
 
-int			ft_strrewrite(char *big, const char *little, const char *filler)
+int			ft_strrewrite(char *big, const char *little, const char *fill)
 {
 	char		*copy;
 	int			k;
@@ -29,15 +29,15 @@ int			ft_strrewrite(char *big, const char *little, const char *filler)
 
 	lit_len = ft_strlen(little);
 	big_len = ft_strlen(big);
-	PROTECT(little = ft_strstr(big, little), 0);
-	PROTECT(copy = ft_strdup(little + lit_len), -1);
+	FAILZ(little = ft_strstr(big, little), 0);
+	FAILZ(copy = ft_strdup(little + lit_len), -1);
 	big += big_len - ft_strlen(little);
-	while (*filler)
-		*big++ = *filler++;
+	while (*fill)
+		*big++ = *fill++;
 	k = -1;
 	while (copy[++k])
 		*big++ = copy[k];
 	*big = '\0';
 	free(copy);
-	return (0);
+	KTHXBYE;
 }

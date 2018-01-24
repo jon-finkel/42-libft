@@ -6,14 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:17:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:50:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:23:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/dependencies.h"
 
 void			ft_striter(char *s, void (*f)(char *))
 {
 	if (!s || !f)
-		return ;
+		BYEZ;
 	while (*s)
 	{
 		f(s);

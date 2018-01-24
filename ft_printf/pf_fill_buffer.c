@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:03:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:20:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void			printf_fill(t_printf *data, const char filler,
 		if (n > PRINTF_BUFFSIZE)
 		{
 			ft_putstr(s_filler);
-			return ;
+			BYEZ;
 		}
 	}
 	if (!s_filler)
@@ -48,7 +48,7 @@ static void			sprintf_fill(t_printf *data, const char filler,
 		data->pf_buffer[data->pf_len++] = filler;
 	else if (s_filler)
 	{
-		n = _MIN(n, data->index);
+		n = MIN(n, data->index);
 		data->index -= n;
 		k = -1;
 		while ((unsigned int)++k < n)
@@ -66,7 +66,7 @@ static void			asprintf_fill(t_printf *data, const char filler,
 	{
 		data->pf_max_len += ASPRINTF_BUFFSIZE;
 		size = data->pf_max_len + 1;
-		EXIT_PROTECT(data->pf_buffer = ft_realloc(data->pf_buffer, size));
+		IMOUTTAHERE(data->pf_buffer = ft_realloc(data->pf_buffer, size));
 	}
 	if (!s_filler)
 		data->pf_buffer[data->pf_len++] = filler;
@@ -87,9 +87,9 @@ void				pf_fill_buffer(t_printf *data, const char filler,
 	if (flag == E_NON_PRINT)
 		data->non_printable += n;
 	if (data->pf_type == E_PRINTF)
-		return (printf_fill(data, filler, s_filler, n));
+		GIMME(printf_fill(data, filler, s_filler, n));
 	else if (data->pf_type == E_SPRINTF)
-		return (sprintf_fill(data, filler, s_filler, n));
+		GIMME(sprintf_fill(data, filler, s_filler, n));
 	else
-		return (asprintf_fill(data, filler, s_filler, n));
+		GIMME(asprintf_fill(data, filler, s_filler, n));
 }

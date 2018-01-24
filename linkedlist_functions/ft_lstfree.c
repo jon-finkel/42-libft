@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 08:24:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 08:24:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:02:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./linkedlist_private.h"
 
-void			ft_lstfree(void *data, size_t size)
+inline void			ft_lstfree(void *data, size_t size)
 {
 	(void)size;
 	if (data)

@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:26:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:49:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:22:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../string_functions/string_private.h"
 
 void			ft_putnbr_fd(int n, int fd)
 {

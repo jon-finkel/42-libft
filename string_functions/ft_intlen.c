@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 05:48:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:09:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/23 19:58:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 size_t			ft_intlen(intmax_t n)
 {
@@ -24,5 +24,5 @@ size_t			ft_intlen(intmax_t n)
 		n /= 10;
 		++len;
 	}
-	return (len);
+	GIMME(len);
 }

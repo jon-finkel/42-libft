@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:11:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:21:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static intmax_t			typecast(t_printf *data, t_range range)
 {
 	if (range == E_LONG)
-		return (va_arg(data->arg, long));
+		GIMME(va_arg(data->arg, long));
 	else if (range == E_LONG_LONG)
-		return (va_arg(data->arg, long long));
+		GIMME(va_arg(data->arg, long long));
 	else if (range == E_INTMAX_T)
-		return (va_arg(data->arg, intmax_t));
+		GIMME(va_arg(data->arg, intmax_t));
 	else if (range == E_SHORT)
-		return ((short)va_arg(data->arg, int));
+		GIMME((short)va_arg(data->arg, int));
 	else if (range == E_CHAR)
-		return ((char)va_arg(data->arg, int));
+		GIMME((char)va_arg(data->arg, int));
 	else if (range == E_SIZE_T)
-		return (va_arg(data->arg, size_t));
-	return (va_arg(data->arg, int));
+		GIMME(va_arg(data->arg, size_t));
+	GIMME(va_arg(data->arg, int));
 }
 
 static void				left_field_width(t_printf *data, int *precision,
@@ -65,7 +65,7 @@ static void				apply_flags(t_printf *data, const char *s, intmax_t nb)
 	len = ft_strlen(s);
 	if (data->precision > 0)
 		UNSET_FLAG(E_ZERO, data->flags);
-	precision = _MAX(data->precision, (int)len);
+	precision = MAX(data->precision, (int)len);
 	k = precision;
 	if (nb >= 0 && IS_FLAG(E_SPACE, data->flags))
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
@@ -94,7 +94,7 @@ int						pf_output_signed(t_printf *data, const char *base)
 	n = nb;
 	while (n)
 	{
-		tmp[++k] = base[_ABS(n % 10)];
+		tmp[++k] = base[ABS(n % 10)];
 		n /= 10;
 	}
 	tmp[++k] = '\0';
@@ -103,5 +103,5 @@ int						pf_output_signed(t_printf *data, const char *base)
 	else if (data->precision >= 0)
 		UNSET_FLAG(E_ZERO, data->flags);
 	apply_flags(data, ft_strrev(tmp), nb);
-	return (0);
+	KTHXBYE;
 }

@@ -6,11 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:17:53 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:06:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:58:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isascii(int c)
+#include "./character_private.h"
+
+inline int			ft_isascii(int c)
 {
-	return (c >= 0 && c < 128);
+	GIMME(c >= 0 && c < 128);
 }

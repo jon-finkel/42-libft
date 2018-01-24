@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/17 18:19:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:24:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./string_private.h"
 
 char			*ft_strjoin(char *s1, const char *s2, bool free)
 {
@@ -18,12 +18,12 @@ char			*ft_strjoin(char *s1, const char *s2, bool free)
 	size_t		len_s2;
 
 	if (!s1 || !s2)
-		return (NULL);
+		ZOMG;
 	len_s2 = ft_strlen(s2);
-	PROTECT(join = ft_strnew(ft_strlen(s1) + len_s2), NULL);
+	FAILZ(join = ft_strnew(ft_strlen(s1) + len_s2), NULL);
 	join = ft_strcpy(join, s1);
 	join = ft_strncat(join, s2, len_s2);
 	if (free == true)
 		ft_strdel(&s1);
-	return (join);
+	GIMME(join);
 }

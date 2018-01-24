@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:41:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 22:26:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:26:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 char			*ft_strrchr(const char *s, int c)
 {
@@ -24,6 +24,6 @@ char			*ft_strrchr(const char *s, int c)
 		++s;
 	}
 	if (!(char)c)
-		return ((char *)s);
-	return (last);
+		GIMME((char *)s);
+	GIMME(last);
 }

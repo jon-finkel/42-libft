@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:16:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:08:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static wchar_t			adjust_field_width(t_printf *data, int *width)
 		*width = 2;
 	else
 		*width = 1;
-	return (wc);
+	GIMME(wc);
 }
 
 static void				apply_left_field_width(t_printf *data, int width)
@@ -48,11 +48,11 @@ static int				output_wide_char(t_printf *data, int c)
 	if (c < 0 || c > 0x10ffff
 		|| (MB_CUR_MAX == 1 && c > 0xff && c <= 0x10ffff)
 		|| (c >= 0xd800 && c <= 0xdfff))
-		return (-1);
+		ONOES;
 	if (c >= 0 && (c < 128 || (MB_CUR_MAX == 1 && c <= 0x100)))
 	{
 		pf_fill_buffer(data, c, NULL, E_PRINT);
-		return (0);
+		KTHXBYE;
 	}
 	if (FOUR_BYTES_UNICODE(c))
 	{
@@ -67,7 +67,7 @@ static int				output_wide_char(t_printf *data, int c)
 		pf_fill_buffer(data, TWO_BYTES_UNICODE_HEAD(c), NULL, E_PRINT);
 	if (TWO_OR_MORE_BYTES_UNICODE(c))
 		pf_fill_buffer(data, UNICODE_TAIL(c), NULL, E_PRINT);
-	return (0);
+	KTHXBYE;
 }
 
 int						pf_output_char(t_printf *data, const char *base)
@@ -81,7 +81,7 @@ int						pf_output_char(t_printf *data, const char *base)
 		wc = adjust_field_width(data, &width);
 	apply_left_field_width(data, (data->range == E_LONG ? width : 1));
 	if (data->range == E_LONG)
-		NEG_PROTECT(output_wide_char(data, wc), -1);
+		EPICFAILZ(output_wide_char(data, wc), -1);
 	else
 	{
 		if (NOT_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))
@@ -94,5 +94,5 @@ int						pf_output_char(t_printf *data, const char *base)
 	field_width = -data->field_width;
 	while (field_width-- > (data->range == E_LONG ? width : 1))
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
-	return (0);
+	KTHXBYE;
 }

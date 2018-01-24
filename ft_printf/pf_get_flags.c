@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:16:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:08:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static const char			*positional_wildcard(t_printf *data,
 	else
 		data->field_width = va_arg(data->wildcard, int);
 	va_end(data->wildcard);
-	return (format + len + 1);
+	GIMME(format + len + 1);
 }
 
 static const char			*get_precision(t_printf *data, const char *format)
@@ -55,7 +55,7 @@ static const char			*get_precision(t_printf *data, const char *format)
 	}
 	else if ((*format < '0' || *format > '9') && !(data->precision = 0))
 		SET_FLAG(E_PRECISION_CHANGED, data->flags);
-	return (format);
+	GIMME(format);
 }
 
 static const char			*get_field_width(t_printf *data, const char *format)
@@ -84,7 +84,7 @@ static const char			*get_field_width(t_printf *data, const char *format)
 	}
 	else
 		data->field_width = 0;
-	return (format);
+	GIMME(format);
 }
 
 static const char			*get_modifiers(t_printf *data, const char *format,
@@ -105,7 +105,7 @@ static const char			*get_modifiers(t_printf *data, const char *format,
 			SET_FLAG(E_ZERO, data->flags);
 		++format;
 	}
-	return (format);
+	GIMME(format);
 }
 
 const char					*pf_get_flags(t_printf *data, const char *format,
@@ -128,5 +128,5 @@ const char					*pf_get_flags(t_printf *data, const char *format,
 	}
 	if (IS_FLAG(E_PLUS, data->flags))
 		UNSET_FLAG(E_SPACE, data->flags);
-	return (format);
+	GIMME(format);
 }

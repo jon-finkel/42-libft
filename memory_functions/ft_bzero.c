@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:30:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/12 21:07:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/23 19:56:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 void			ft_bzero(void *s, size_t n)
 {

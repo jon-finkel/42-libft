@@ -6,16 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:25:56 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:49:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:22:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./io_private.h"
+#include "../string_functions/string_private.h"
 
 void			ft_putendl_fd(const char *s, int fd)
 {
 	if (!s)
-		return ;
+		BYEZ;
 	write(fd, s, ft_strlen(s));
 	ft_putchar_fd('\n', fd);
 }

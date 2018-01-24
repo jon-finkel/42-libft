@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:01:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:08:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:24:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 size_t			ft_strlen(const char *s)
 {
@@ -22,5 +22,5 @@ size_t			ft_strlen(const char *s)
 		++s;
 		++len;
 	}
-	return (len);
+	GIMME(len);
 }

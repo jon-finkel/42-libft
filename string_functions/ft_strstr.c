@@ -6,18 +6,18 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 23:11:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:09:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:28:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 char			*ft_strstr(const char *big, const char *little)
 {
 	int		k;
 
 	if (!*little)
-		return ((char *)big);
+		GIMME((char *)big);
 	while (*big)
 	{
 		k = -1;
@@ -25,8 +25,8 @@ char			*ft_strstr(const char *big, const char *little)
 			&& *(little + k))
 			++big;
 		if (*(little + k) == '\0')
-			return ((char *)big - k);
+			GIMME((char *)big - k);
 		big -= k - 1;
 	}
-	return (NULL);
+	ZOMG;
 }

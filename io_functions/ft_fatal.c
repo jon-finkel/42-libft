@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/31 16:46:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/06 09:13:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:20:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./io_private.h"
 
 void			ft_fatal(const char *restrict s)
 {

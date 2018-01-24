@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 18:29:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:08:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:24:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./string_private.h"
 
 size_t			ft_strlcat(char *restrict dst, const char *restrict src,
 				size_t n)
@@ -25,9 +25,9 @@ size_t			ft_strlcat(char *restrict dst, const char *restrict src,
 	len_src = ft_strlen(src);
 	p = len_dst - 1;
 	if (n < len_dst + 1)
-		return (len_src + n);
+		GIMME(len_src + n);
 	while (++p < n - 1)
 		*(dst + p) = *(src + ++k);
 	*(dst + p) = '\0';
-	return (len_dst + len_src);
+	GIMME(len_dst + len_src);
 }

@@ -6,11 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:38:21 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:10:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:57:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isupper(int c)
+#include "./character_private.h"
+
+inline int			ft_isupper(int c)
 {
-	return (c > 64 && c < 91);
+	GIMME(c > 64 && c < 91);
 }

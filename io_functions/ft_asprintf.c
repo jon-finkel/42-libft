@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 22:59:22 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/25 22:59:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:20:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./io_private.h"
 
 int			ft_asprintf(char **ret, const char *format, ...)
 {
@@ -20,5 +20,5 @@ int			ft_asprintf(char **ret, const char *format, ...)
 	va_start(ap, format);
 	len = ft_vasprintf(ret, format, ap);
 	va_end(ap);
-	return (len);
+	GIMME(len);
 }

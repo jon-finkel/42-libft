@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:42:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/02 20:09:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:27:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./string_private.h"
 
 char			*ft_strrevcpy(const char *const s)
 {
@@ -19,10 +19,10 @@ char			*ft_strrevcpy(const char *const s)
 	size_t		len;
 
 	len = ft_strlen(s);
-	PROTECT(string = ft_strnew(len), NULL);
+	FAILZ(string = ft_strnew(len), NULL);
 	start = string;
 	while (len > 0)
 		*string++ = s[--len];
 	*string = '\0';
-	return (start);
+	GIMME(start);
 }

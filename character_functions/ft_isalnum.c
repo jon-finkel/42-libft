@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:17:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:06:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:58:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./character_private.h"
 
-int			ft_isalnum(int c)
+inline int			ft_isalnum(int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	GIMME(ft_isalpha(c) || ft_isdigit(c));
 }

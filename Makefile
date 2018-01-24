@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/17 17:56:10 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/24 16:35:51 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,14 @@ API_DIR :=					./api_functions/
 CHARACTER_DIR :=			./character_functions/
 INPUT_OUTPUT_DIR :=			./io_functions/
 LINKEDLIST_DIR :=			./linkedlist_functions/
+MATH_DIR :=					./math_functions/
 MEMORY_DIR :=				./memory_functions/
 PRINTF_DIR :=				./ft_printf/
 STRING_DIR :=				./string_functions/
+VECTOR_DIR :=				./vector_functions/
 
 #	Sources
-API +=						ft_ctime.c
-API +=						ft_getenv.c ft_putenv.c ft_setenv.c ft_unsetenv.c
+API +=						ft_ctime.c ft_getenv.c
 CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
 CHARACTER +=				ft_isalnum.c ft_isascii.c ft_toupper.c
 CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
@@ -63,6 +64,7 @@ LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
 LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
+MATH +=						ft_nextpower2.c
 MEMORY +=					ft_bzero.c ft_memmove.c
 MEMORY +=					ft_cleanup.c ft_memdel.c
 MEMORY +=					ft_memalloc.c ft_memset.c ft_realloc.c
@@ -88,6 +90,8 @@ STRING +=					ft_strmap.c ft_strmapi.c
 STRING +=					ft_strstr.c ft_strnstr.c
 STRING +=					ft_strrev.c ft_strrevcpy.c
 STRING +=					ft_strsplit.c ft_strrewrite.c
+VECTOR +=					ft_vecpush.c ft_vecnpush.c ft_vecgrow.c
+VECTOR +=					ft_vecend.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
@@ -96,17 +100,21 @@ SRCS +=						$(API)
 SRCS +=						$(CHARACTER)
 SRCS +=						$(INPUT_OUTPUT)
 SRCS +=						$(LINKEDLIST)
+SRCS +=						$(MATH)
 SRCS +=						$(MEMORY)
 SRCS +=						$(PRINTF)
 SRCS +=						$(STRING)
+SRCS +=						$(VECTOR)
 
 vpath %.c $(API_DIR)
 vpath %.c $(CHARACTER_DIR)
 vpath %.c $(INPUT_OUTPUT_DIR)
 vpath %.c $(LINKEDLIST_DIR)
+vpath %.c $(MATH_DIR)
 vpath %.c $(MEMORY_DIR)
 vpath %.c $(PRINTF_DIR)
 vpath %.c $(STRING_DIR)
+vpath %.c $(VECTOR_DIR)
 
 #################
 ##    RULES    ##

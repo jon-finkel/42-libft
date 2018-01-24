@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 22:11:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:03:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:22:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 int			ft_atoi(const char *str)
 {
@@ -28,8 +28,8 @@ int			ft_atoi(const char *str)
 	{
 		sum = sum * 10uLL + (unsigned long long)(*str - 48);
 		if (sum > (unsigned long long)LLONG_MAX)
-			return (neg < 0 ? 0 : -1);
+			GIMME(neg < 0 ? 0 : -1);
 		++str;
 	}
-	return (neg * (int)sum);
+	GIMME(neg * (int)sum);
 }

@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 17:15:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:08:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:25:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/dependencies.h"
 
 char			*ft_strncpy(char *dst, const char *src, size_t n)
 {
@@ -27,5 +27,5 @@ char			*ft_strncpy(char *dst, const char *src, size_t n)
 		else
 			*(dst + k) = '\0';
 	}
-	return (dst);
+	GIMME(dst);
 }

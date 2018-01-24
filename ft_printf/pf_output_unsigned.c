@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/01 11:13:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:21:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static uintmax_t			typecast(t_printf *data, t_range range)
 {
 	if (range == E_LONG)
-		return (va_arg(data->arg, unsigned long));
+		GIMME(va_arg(data->arg, unsigned long));
 	else if (range == E_LONG_LONG)
-		return (va_arg(data->arg, unsigned long long));
+		GIMME(va_arg(data->arg, unsigned long long));
 	else if (range == E_INTMAX_T)
-		return (va_arg(data->arg, uintmax_t));
+		GIMME(va_arg(data->arg, uintmax_t));
 	else if (range == E_SHORT)
-		return ((unsigned short)va_arg(data->arg, unsigned int));
+		GIMME((unsigned short)va_arg(data->arg, unsigned int));
 	else if (range == E_CHAR)
-		return ((unsigned char)va_arg(data->arg, unsigned int));
+		GIMME((unsigned char)va_arg(data->arg, unsigned int));
 	else if (range == E_SIZE_T)
-		return (va_arg(data->arg, ssize_t));
-	return (va_arg(data->arg, unsigned int));
+		GIMME(va_arg(data->arg, ssize_t));
+	GIMME(va_arg(data->arg, unsigned int));
 }
 
 static void					adjust_field_width(t_printf *data, const char *base,
@@ -96,7 +96,7 @@ static void					apply_flags(t_printf *data, const char *restrict s,
 	len = ft_strlen(s);
 	if (data->precision)
 		UNSET_FLAG(E_ZERO, data->flags);
-	precision = _MAX(data->precision, (int)len);
+	precision = MAX(data->precision, (int)len);
 	if ((int)len < precision && ft_strlen(base) == 8)
 		UNSET_FLAG(E_ALTERNATE, data->flags);
 	if (IS_FLAG(E_ALTERNATE, data->flags))
@@ -135,5 +135,5 @@ int							pf_output_unsigned(t_printf *data, const char *base)
 	}
 	tmp[++k] = '\0';
 	apply_flags(data, ft_strrev(tmp), base, nb);
-	return (0);
+	KTHXBYE;
 }

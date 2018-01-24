@@ -6,11 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:37:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 12:10:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:57:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_islower(int c)
+#include "./character_private.h"
+
+inline int			ft_islower(int c)
 {
-	return (c > 96 && c < 123);
+	GIMME(c > 96 && c < 123);
 }

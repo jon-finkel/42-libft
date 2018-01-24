@@ -6,18 +6,18 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 15:31:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/15 08:23:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:02:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./linkedlist_private.h"
 
-void			ft_lstappend(t_list **alst, t_list *newlink)
+inline void			ft_lstappend(t_list **alst, t_list *newlink)
 {
 	if (!*alst)
 	{
 		*alst = newlink;
-		return ;
+		BYEZ;
 	}
 	while ((*alst)->next)
 		*alst = (*alst)->next;

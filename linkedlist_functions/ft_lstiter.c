@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 22:38:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/24 00:02:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:03:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./linkedlist_private.h"
 
-void			ft_lstiter(t_list *lst, void (*f)(t_list *))
+inline void			ft_lstiter(t_list *lst, void (*f)(t_list *))
 {
 	while (lst)
 	{

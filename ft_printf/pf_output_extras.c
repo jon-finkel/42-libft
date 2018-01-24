@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/06 13:39:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:35:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int			k_conversion(t_printf *data)
 
 	ft_memset(buff, '\0', 25);
 	time = va_arg(data->arg, time_t);
-	PROTECT(tm = ft_ctime(&time), -1);
+	FAILZ(tm = ft_ctime(&time), -1);
 	begin = tm;
 	if (NOT_FLAG(E_ALTERNATE, data->flags))
 		ft_strncpy(buff, tm, 24);
@@ -36,7 +36,7 @@ static int			k_conversion(t_printf *data)
 	}
 	ft_strdel(&begin);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	return (0);
+	KTHXBYE;
 }
 
 static void			n_conversion(t_printf *data)
@@ -57,13 +57,13 @@ static int			t_conversion(t_printf *data)
 
 	ft_memset(buff, '\0', 9);
 	time = va_arg(data->arg, time_t);
-	PROTECT(tm = ft_ctime(&time), -1);
+	FAILZ(tm = ft_ctime(&time), -1);
 	k = 10;
 	while (++k < 19)
 		buff[k - 11] = tm[k];
 	ft_strdel(&tm);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	return (0);
+	KTHXBYE;
 }
 
 static void			v_conversion(t_printf *data)
@@ -73,21 +73,18 @@ static void			v_conversion(t_printf *data)
 
 	var = va_arg(data->arg, char *);
 	if ((buff = ft_getenv(var)))
-	{
 		pf_fill_buffer(data, 0, buff, E_PRINT);
-		free(buff);
-	}
 }
 
 const char			*pf_output_extras(t_printf *data, const char *format)
 {
 	if (*format == 'k')
-		NEG_PROTECT(k_conversion(data), NULL);
+		EPICFAILZ(k_conversion(data), NULL);
 	else if (*format == 'n')
 		n_conversion(data);
 	else if (*format == 't')
-		NEG_PROTECT(t_conversion(data), NULL);
+		EPICFAILZ(t_conversion(data), NULL);
 	else
 		v_conversion(data);
-	return (format + 1);
+	GIMME(format + 1);
 }

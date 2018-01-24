@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/26 16:18:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:17:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	static t_printf		*data = NULL;
 
 	if (!ret)
-		return (0);
+		KTHXBYE;
 	if (!data)
 	{
-		PROTECT(data = (t_printf *)malloc(sizeof(t_printf)), -1);
+		FAILZ(data = (t_printf *)malloc(sizeof(t_printf)), -1);
 		data->pf_type = E_ASPRINTF;
 	}
-	PROTECT(data->pf_buffer = ft_strnew(ASPRINTF_BUFFSIZE), -1);
+	FAILZ(data->pf_buffer = ft_strnew(ASPRINTF_BUFFSIZE), -1);
 	data->pf_len = 0;
 	data->pf_max_len = ASPRINTF_BUFFSIZE;
 	ft_memset(data->ansi_colors, '\0', ANSI_STRING_BUFFSIZE);
@@ -37,5 +37,5 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	va_end(data->ap);
 	if (data->positional == E_NON_POSITIONAL)
 		va_end(data->arg);
-	return (data->error ? -1 : (int)data->pf_len);
+	GIMME(data->error ? -1 : (int)data->pf_len);
 }

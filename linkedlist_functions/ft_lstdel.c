@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 21:50:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2017/12/01 11:53:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:02:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./linkedlist_private.h"
 
-void			ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+inline void			ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list		*tmp;
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/06 09:16:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:15:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int			ft_vsnprintf(char *restrict str, size_t size,
 	static t_printf		*data = NULL;
 
 	if (!size)
-		return (0);
+		KTHXBYE;
 	ft_strclr(str);
 	if (!data)
 	{
-		PROTECT(data = (t_printf *)malloc(sizeof(t_printf)), -1);
+		FAILZ(data = (t_printf *)malloc(sizeof(t_printf)), -1);
 		data->pf_type = E_SPRINTF;
 	}
 	data->pf_buffer = str;
@@ -39,5 +39,5 @@ int			ft_vsnprintf(char *restrict str, size_t size,
 	va_end(data->ap);
 	if (data->positional == E_NON_POSITIONAL)
 		va_end(data->arg);
-	return (data->error ? -1 : (int)data->pf_len);
+	GIMME(data->error ? -1 : (int)data->pf_len);
 }

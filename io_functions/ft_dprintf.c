@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:09:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/06 09:09:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:20:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "./io_private.h"
 
 int			ft_dprintf(int fd, const char *restrict format, ...)
 {
@@ -20,5 +20,5 @@ int			ft_dprintf(int fd, const char *restrict format, ...)
 	va_start(ap, format);
 	len = ft_vdprintf(fd, format, ap);
 	va_end(ap);
-	return (len);
+	GIMME(len);
 }
