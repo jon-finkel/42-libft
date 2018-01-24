@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:08:39 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 17:27:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:33:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 inline size_t			ft_vecgrow(t_vector *vector, size_t size)
 {
-	if (vector->len + size > vector->capacity)
-	{
-		if (vector->capacity < VEC_MIN_LIMIT)
-			ft_vecalloc(vector, VEC_MIN_LIMIT);
-		else
-			ft_vecalloc(vector, (IS_POW2(size) ? size : ft_nextpower2(size)));
-	}
+	if ((size += vector->len + 1) < VEC_MIN_LIMIT
+		&& VEC_MIN_LIMIT > vector->capacity)
+		GIMME(ft_vecalloc(vector, VEC_MIN_LIMIT));
+	else if (size > vector->capacity)
+		GIMME(ft_vecalloc(vector, IS_POW2(size) ? size : ft_nextpower2(size)));
 	GIMME(vector->capacity);
 }
