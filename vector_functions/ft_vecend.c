@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:29:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:16:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:21:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 inline void			*ft_vecend(t_vector *vector)
 {
-	GIMME((char *)vector->buff + (vector->size * vector->len));
+	GIMME((char *)vector->buff + (vector->data_size * vector->len));
 }
