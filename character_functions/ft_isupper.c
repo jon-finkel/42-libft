@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:38:21 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:33:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/25 13:25:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./character.h"
+#include "../includes/dependencies.h"
 
 inline int			ft_isupper(int c)
 {

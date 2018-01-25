@@ -6,10 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:49:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:34:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/25 13:26:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/dependencies.h"
 #include "./character.h"
 
 inline int			ft_toupper(int c)
