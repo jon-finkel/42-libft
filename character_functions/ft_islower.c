@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:37:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/25 13:25:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/25 14:18:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-inline int			ft_islower(int c)
+int			ft_islower(int c)
 {
 	GIMME(c > 96 && c < 123);
 }

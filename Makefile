@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/24 16:52:14 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/25 14:23:35 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,8 +125,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
 	@ranlib $@
-	@clear
-	@printf "\e[32m\e[1m[Static library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
+	@printf  "\033[32m\033[1mCompiling \033[0m\033[91m$(NAME)\033[0m:%-7s\033[32m[✔]\033[0m\n"
 
 $(OBJECTS): | $(OBJDIR)
 
@@ -134,7 +133,9 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
+	@printf  "\r%-25s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
+	@printf "\033[A\033[2K"
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)
 
@@ -142,19 +143,19 @@ $(DYN_OBJDIR):
 	@mkdir -p $@
 
 $(DYN_OBJDIR)%.o: %.c
-	@printf "\e[93m\e[1m"
-	$(CC) $(VERSION) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
-	@printf "\e[m"
+	@printf  "\r%-25s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@$(CC) $(VERSION) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
+	@printf "\033[A\033[2K"
 
 clean:
 	@/bin/rm -rf $(OBJDIR)
 	@/bin/rm -rf $(DYN_OBJDIR)
-	@printf "\e[32m\e[1m[Object files cleaned]\e[m\n"
+	@printf  "\033[1:32m%-25s\033[0m\033[32m[✔]\033[0m\n" "Cleaning object files:"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
-	@printf "\e[32m\e[1m[Library cleaned]\e[m\n"
+	@printf  "\033[1:32mCleaning \033[0m\033[91m${NAME:.a=}\033[0m:%-10s\033[32m[✔]\033[0m\n"
 
 noflags: FLAGS := 
 noflags: re
@@ -163,10 +164,9 @@ re: fclean all
 
 so: $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
-	@clear
-	@printf "\e[32m\e[1m[Shared library \e[91m\e[1m$(NAME) \e[32m\e[1mcompiled!]\e[m\n"
+	@printf  "\033[32m\033[1mCompiling \033[0m\033[91m$(DYN_NAME)\033[0m:%-6s\033[32m[✔]\033[0m\n"
 
-.PHONY: all cat clean fclean noflags re so
+.PHONY: all cat clean fclean noflags re so $(NAME)
 
 #################
 ##  WITH LOVE  ##

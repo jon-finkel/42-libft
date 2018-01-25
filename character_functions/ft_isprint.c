@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:18:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/25 13:25:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/25 14:18:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-inline int			ft_isprint(int c)
+int			ft_isprint(int c)
 {
 	GIMME(c > 31 && c < 127);
 }
