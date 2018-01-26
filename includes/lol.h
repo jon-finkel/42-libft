@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/26 19:37:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/26 21:50:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 
 # ifndef KTHXBYE
 #  define KTHXBYE return (0)
+# endif
+
+# ifndef IMOUTTAYR
+#  define IMOUTTAYR return
 # endif
 
 # ifndef ONOES
