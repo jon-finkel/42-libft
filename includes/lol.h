@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/26 19:35:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/26 19:37:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 #  define GIMME(x) return (x)
 # endif
 
-# ifndef KEEPITBRA
-#  define KEEPITBRA continue
+# ifndef KEEPATITBRA
+#  define KEEPATITBRA continue
 # endif
 
 # ifndef KTHXBYE
