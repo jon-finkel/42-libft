@@ -6,72 +6,68 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:15:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 15:01:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./get_next_line_private.h"
 
-static t_list			*get_correct_link(t_list **head, const int fd)
+static char				*strnjoin(const char *s1, const char *s2, size_t len)
 {
-	t_data		*data;
-	t_list		*list;
-	t_list		*newlink;
+	char	*s;
+	char	*ret;
 
-	list = *head;
-	while (list && LIST_CONTENT->fd != fd)
-		list = list->next;
-	if (!list)
+	s = ft_strnew(ft_strlen(s1) + len + 1);
+	ret = s;
+	while (*s1)
+		*s++ = *s1++;
+	while (*s2 && len--)
+		*s++ = *s2++;
+	free((char *)s1);
+	GIMME(ret);
+}
+
+static t_list			*get_node(t_list **begin, int fd)
+{
+	t_list		*list;
+
+	list = *begin;
+	while (list)
 	{
-		FAILZ(data = (t_data *)malloc(sizeof(t_data)), NULL);
-		FAILZ(data->str = ft_strnew(0), NULL);
-		data->begin = data->str;
-		data->fd = fd;
-		FAILZ(newlink = ft_lstnew(data, sizeof(t_data)), NULL);
-		free(data);
-		ft_lstadd(head, newlink);
-		list = *head;
+		if (fd == (int)list->content_size)
+			GIMME(list);
+		list = list->next;
 	}
+	list = ft_lstnew("\0", 1);
+	list->content_size = fd;
+	ft_lstadd(begin, list);
 	GIMME(list);
 }
 
-static void				*copy_until_newline(t_list *list, char **line)
-{
-	size_t		len;
-
-	len = 0;
-	while (LIST_CONTENT->str[len] && LIST_CONTENT->str[len] != '\n')
-		++len;
-	FAILZ(*line = ft_strnew(len), NULL);
-	ft_memccpy(*line, LIST_CONTENT->str, '\n', len);
-	LIST_CONTENT->str += len + 1;
-	GIMME(*line);
-}
-
-int						get_next_line(const int fd, char **line)
+int						get_next_line(int const fd, char **line)
 {
 	char				buff[BUFF_SIZE + 1];
-	ssize_t				bytes;
-	t_list				*list;
-	static t_list		*head = NULL;
+	int					ret;
+	static t_list		*list;
+	t_list				*begin;
+	char				*tmp;
 
-	if (fd < 0 || !line)
+	if (fd < 0 || line == NULL || read(fd, buff, 0) < 0)
 		ONOES;
-	FAILZ(list = get_correct_link(&head, fd), -1);
-	while ((bytes = read(fd, buff, BUFF_SIZE)))
-	{
-		if (bytes == -1)
-			ONOES;
-		buff[bytes] = '\0';
-		if (!(LIST_CONTENT->str = ft_strjoin(LIST_CONTENT->str, buff, false)))
-			ONOES;
-		free(LIST_CONTENT->begin);
-		LIST_CONTENT->begin = LIST_CONTENT->str;
-		if (ft_strchr(LIST_CONTENT->str, '\n'))
-			break ;
-	}
-	if (!bytes && LIST_CONTENT->str[0] == '\0')
-		KTHXBYE;
-	FAILZ(copy_until_newline(list, line), -1);
-	GIMME(1);
+	begin = list;
+	list = get_node(&begin, fd);
+	while (!ft_strchr(list->content, '\n') && (ret = read(fd, buff, BUFF_SIZE)))
+		list->content = strnjoin(list->content, buff, ret);
+	ret = 0;
+	while (((char*)list->content)[ret] && ((char*)list->content)[ret] != '\n')
+		++ret;
+	*line = ft_strndup(list->content, ret);
+	(((char*)list->content)[ret] == '\n') ? ++ret : 0;
+	tmp = list->content;
+	list->content = ft_strdup(tmp + ret);
+	list = begin;
+	free(tmp);
+	if (ret)
+		GIMME(1);
+	KTHXBYE;
 }

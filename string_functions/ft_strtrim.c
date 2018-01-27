@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:16:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:43:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:55:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-static size_t			value_to_trim(const char *s1, const char *s2)
+static inline size_t			value_to_trim(const char *s1, const char *s2)
 {
 	size_t		trim;
 	size_t		len;
@@ -32,7 +32,7 @@ static size_t			value_to_trim(const char *s1, const char *s2)
 	GIMME(trim == len * 2 ? len : trim);
 }
 
-char					*ft_strtrim(char *s, bool free)
+inline char						*ft_strtrim(char *s, bool free)
 {
 	char		*begin;
 	char		*rev;

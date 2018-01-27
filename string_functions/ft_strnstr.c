@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 11:16:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:42:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:53:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-char			*ft_strnstr(const char *big, const char *little, size_t n)
+inline char			*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t		len;
 

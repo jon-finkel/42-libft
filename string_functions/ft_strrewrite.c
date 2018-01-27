@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:42:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:54:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** to hold the rewritten string, it is up to the user to do so.
 */
 
-int			ft_strrewrite(char *big, const char *little, const char *fill)
+inline int		ft_strrewrite(char *big, const char *little, const char *fill)
 {
 	char		*copy;
 	int			k;

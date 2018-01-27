@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:42:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:55:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-static size_t			count_words(const char *s, char c)
+static inline size_t			count_words(const char *s, char c)
 {
 	size_t		size;
 
@@ -31,7 +31,7 @@ static size_t			count_words(const char *s, char c)
 	GIMME(size);
 }
 
-static char				*string_shred(const char *s, char c)
+static inline char				*string_shred(const char *s, char c)
 {
 	char		*dup;
 	int			k;
@@ -51,7 +51,7 @@ static char				*string_shred(const char *s, char c)
 	GIMME(dup);
 }
 
-char					**ft_strsplit(const char *s, char c)
+inline char						**ft_strsplit(const char *s, char c)
 {
 	char		**dup;
 	int			k;

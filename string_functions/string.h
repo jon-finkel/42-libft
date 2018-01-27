@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:43:13 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:43:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:56:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ extern size_t	ft_strlcat(char *dst, const char *src, size_t size);
 extern char		*ft_strmap(const char *s, char (*f)(char));
 extern char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 extern char		*ft_strncat(char *s1, const char *s2, size_t n);
+extern char		*ft_strndup(const char *s, size_t n);
 extern int		ft_strnequ(const char *s1, const char *s2, size_t n);
 extern char		*ft_strnew(size_t size);
 extern int		ft_strncmp(const char *s1, const char *s2, size_t n);
