@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 17:23:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/25 13:28:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/28 18:24:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define LIST_CONTENT ((t_data *)(list->content))
 
-# define BUFF_SIZE 4095
+# define BUFF_SIZE 4096
 
 typedef struct		s_data
 {
