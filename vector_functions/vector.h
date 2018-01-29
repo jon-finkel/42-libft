@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:44:03 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:08:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/29 05:57:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct		s_vector
 }					t_vector;
 
 extern size_t		ft_vecalloc(t_vector *vector, size_t size);
+extern void			*ft_vecbegin(t_vector *vector);
 extern void			*ft_vecend(t_vector *vector);
-extern void			ft_vecfree(t_vector *vector);
+extern void			ft_vecfree(t_vector *vector, void (*del)(void *));
 extern size_t		ft_vecgrow(t_vector *vector, size_t size);
 extern void			*ft_vecnpush(t_vector *vector, size_t size);
 extern void			*ft_vecpush(t_vector *vector);
