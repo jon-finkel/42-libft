@@ -6,12 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 05:09:03 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:57:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/29 05:57:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./vector.h"
-#include "../memory_functions/memory.h"
 
 inline void			ft_vecfree(t_vector *vector, void (*del)(void *))
 {
