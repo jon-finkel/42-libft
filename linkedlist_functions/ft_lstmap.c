@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 22:42:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:37:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/29 04:50:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./linkedlist.h"
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
+inline t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {
 	t_list		*begin;
 	t_list		*new;

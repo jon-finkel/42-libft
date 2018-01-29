@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.h                                             :+:      :+:    :+:   */
+/*   ft_vecfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:02:41 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/29 05:09:03 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/01/29 05:12:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATH_H
-# define MATH_H
+#include "./vector.h"
+#include "../memory_functions/memory.h"
 
-# include "../includes/dependencies.h"
+inline void			ft_vecfree(t_vector *vector)
+{
+	int		k;
 
-extern size_t			ft_nextpower2(size_t nb);
-
-#endif
+	k = -1;
+	while ((size_t)++k < vector->len)
+		ft_memdel(&vector->buff[k]);
+}

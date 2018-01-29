@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/27 14:49:18 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/01/29 05:12:38 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ STRING +=					ft_strstr.c ft_strnstr.c
 STRING +=					ft_strrev.c ft_strrevcpy.c
 STRING +=					ft_strsplit.c ft_strrewrite.c
 VECTOR +=					ft_vecalloc.c ft_vecgrow.c ft_vecend.c
-VECTOR +=					ft_vecpush.c ft_vecnpush.c
+VECTOR +=					ft_vecpush.c ft_vecnpush.c ft_vecfree.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
