@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:37:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/30 16:37:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@
 
 # ifndef MAX
 #  define MAX(a, b) ({__typeof__(a)_a=(a);__typeof__(b)_b=(b);_a<_b ? _b : _a;})
+# endif
+
+# ifndef POW2
+#  define POW2(x) ((x) * (x))
 # endif
 
 #endif
