@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/26 21:55:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/01/30 15:02:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # endif
 
 # ifndef KEEPATITBRA
-#  define KEEPATITBRA continue
+#  define KEEPATITBRA(x) ({while(!(x)) continue;})
 # endif
 
 # ifndef KTHXBYE
