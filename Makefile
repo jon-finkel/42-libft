@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/01 15:48:52 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/01 16:10:18 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
 	@ranlib $@
-	@printf  "\033[91m$(NAME)\033[0m\033[92m \033[1:32m- Compiling:\033[0m%-20s\033[32m[✔]\033[0m\n"
+	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(NAME)\033[0m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
 $(OBJECTS): | $(OBJDIR)
 
@@ -134,7 +134,7 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	@printf  "\033[91m$(NAME)\033[0m \r%-40s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@printf  "\033[1:92mCompiling $(NAME)\033[0m %-28s\033[32m[$<]\033[0m\n" ""
 	@$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
 	@printf "\033[A\033[2K"
 
@@ -144,28 +144,28 @@ $(DYN_OBJDIR):
 	@mkdir -p $@
 
 $(DYN_OBJDIR)%.o: %.c
-	@printf  "$@ \r%-31s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@printf  "\033[1:92mCompiling $(NAME:a=so)\033[0m %-27s\033[32m[$<]\033[0m\n" ""
 	@$(CC) $(VERSION) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
 	@printf "\033[A\033[2K"
 
 clean:
 	@/bin/rm -rf $(OBJDIR)
 	@/bin/rm -rf $(DYN_OBJDIR)
-	@printf  "\033[91m$(NAME)\033[0m\033[1:32m - Cleaning object files:\033[0m\033[0m%-8s\033[32m[✔]\033[0m\n"
+	@printf  "\033[1:32mCleaning object files -> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
-	@printf  "\033[91m$(NAME)\033[0m\033[1:32m - Cleaning binary:\033[0m\033[0m%-14s\033[32m[✔]\033[0m\n"
+	@printf  "\033[1:32mCleaning binary -------> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
 noflags: FLAGS := 
 noflags: re
 
 re: fclean all
 
-so: $(DYN_OBJECTS)
+so: fclean $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
-	@printf  "\033[32m\033[1mCompiling \033[0m\033[91m$(DYN_NAME)\033[0m:%-6s\033[32m[✔]\033[0m\n"
+	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(DYN_NAME)\033[0m:\033[0m%-12s\033[32m[✔]\033[0m\n"
 
 .PHONY: all cat clean fclean noflags re so $(NAME)
 
