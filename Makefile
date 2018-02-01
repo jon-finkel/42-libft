@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/01/29 06:26:52 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/01 15:48:52 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
 	@ranlib $@
-	@printf  "\033[32m\033[1mCompiling \033[0m\033[91m$(NAME)\033[0m:%-7s\033[32m[✔]\033[0m\n"
+	@printf  "\033[91m$(NAME)\033[0m\033[92m \033[1:32m- Compiling:\033[0m%-20s\033[32m[✔]\033[0m\n"
 
 $(OBJECTS): | $(OBJDIR)
 
@@ -134,7 +134,7 @@ $(OBJDIR):
 	@mkdir -p $@
 
 $(OBJDIR)%.o: %.c
-	@printf  "\r%-25s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@printf  "\033[91m$(NAME)\033[0m \r%-40s\033[32m[$<]\033[0m\n" "$(NAME):"
 	@$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
 	@printf "\033[A\033[2K"
 
@@ -144,19 +144,19 @@ $(DYN_OBJDIR):
 	@mkdir -p $@
 
 $(DYN_OBJDIR)%.o: %.c
-	@printf  "\r%-25s\033[32m[$<]\033[0m\n" "$(NAME):"
+	@printf  "$@ \r%-31s\033[32m[$<]\033[0m\n" "$(NAME):"
 	@$(CC) $(VERSION) $(FLAGS) $(O_FLAG) $(HEADERS) -fpic -c $< -o $@
 	@printf "\033[A\033[2K"
 
 clean:
 	@/bin/rm -rf $(OBJDIR)
 	@/bin/rm -rf $(DYN_OBJDIR)
-	@printf  "\033[1:32m%-25s\033[0m\033[32m[✔]\033[0m\n" "Cleaning object files:"
+	@printf  "\033[91m$(NAME)\033[0m\033[1:32m - Cleaning object files:\033[0m\033[0m%-8s\033[32m[✔]\033[0m\n"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
-	@printf  "\033[1:32mCleaning \033[0m\033[91m${NAME:.a=}\033[0m:%-10s\033[32m[✔]\033[0m\n"
+	@printf  "\033[91m$(NAME)\033[0m\033[1:32m - Cleaning binary:\033[0m\033[0m%-14s\033[32m[✔]\033[0m\n"
 
 noflags: FLAGS := 
 noflags: re
