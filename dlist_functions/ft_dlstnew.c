@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/03 14:23:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/03 14:31:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/03 22:50:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ inline t_dlist			*ft_dlstnew(const void *data, size_t data_size)
 	if (data)
 	{
 		FAILZ(dlist->data = malloc(data_size), NULL);
-		ft_memmove(dlist->data, data, data_size);
+		dlist->data = ft_memmove(dlist->data, data, data_size);
 		dlist->data_size = data_size;
 	}
 	GIMME(dlist);
