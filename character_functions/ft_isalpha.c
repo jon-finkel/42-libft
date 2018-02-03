@@ -6,11 +6,10 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:00:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/25 14:18:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/03 13:56:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
 #include "./character.h"
 
 int			ft_isalpha(int c)

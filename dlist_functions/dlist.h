@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   dlist.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 20:17:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/03 13:56:52 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/03 13:55:51 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/03 14:31:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./character.h"
+#ifndef DLIST_H
+# define DLIST_H
 
-int			ft_isalnum(int c)
+# include "../includes/dependencies.h"
+
+typedef struct		s_dlist
 {
-	GIMME(ft_isalpha(c) || ft_isdigit(c));
-}
+	size_t			data_size;
+	void			*data;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}					t_dlist;
+
+extern void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink);
+extern void			ft_dlstappend(t_dlist *dlist, t_dlist *newlink);
+extern t_dlist		*ft_dlstnew(const void *content, size_t content_size);
+
+#endif

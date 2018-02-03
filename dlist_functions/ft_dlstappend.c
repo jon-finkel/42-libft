@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putenv.c                                        :+:      :+:    :+:   */
+/*   ft_dlstappend.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 15:58:14 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:32:28 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/03 14:19:14 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/03 14:23:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./api.h"
-#include "../memory_functions/memory.h"
-#include "../string_functions/string.h"
+#include "./dlist.h"
 
-int			ft_putenv(char *string)
+inline void			ft_dlstappend(t_dlist *dlist, t_dlist *newlink)
 {
-	char		name[1024];
-	char		*value;
-
-	if (!string || !(value = ft_strchr(string, '=')))
-		ONOES;
-	ft_memnccpy(name, string, '=', 1024);
-	EPICFAILZ(ft_setenv(name, value + 1, 1), -1);
-	KTHXBYE;
+	while (dlist->next)
+		dlist = dlist->next;
+	dlist->next = newlink;
+	newlink->prev = dlist;
 }

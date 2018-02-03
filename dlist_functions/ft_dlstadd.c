@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_dlstadd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 20:17:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/03 13:56:52 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/03 14:13:29 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/03 14:18:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./character.h"
+#include "./dlist.h"
 
-int			ft_isalnum(int c)
+inline void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink)
 {
-	GIMME(ft_isalpha(c) || ft_isdigit(c));
+	(*adlst)->prev = newlink;
+	newlink->next = *adlst;
+	newlink->prev = NULL;
+	*adlst = newlink;
 }

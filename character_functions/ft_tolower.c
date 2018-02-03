@@ -6,11 +6,10 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:46:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/25 14:18:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/03 13:57:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
 #include "./character.h"
 
 int			ft_tolower(int c)
