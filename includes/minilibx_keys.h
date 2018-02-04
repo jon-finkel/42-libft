@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_keys.h                                         :+:      :+:    :+:   */
+/*   minilibx_keys.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/04 16:34:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/04 16:48:25 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/04 17:30:53 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/04 17:30:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_KEYS_H
-# define MLX_KEYS_H
+#ifndef MINILIBX_KEYS_H
+# define MINILIBX_KEYS_H
 
 # define MLX_A 0
 # define MLX_S 1
