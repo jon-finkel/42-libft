@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/07 15:26:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/07 15:28:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@
 #  define GIMME(x) return (x)
 # endif
 
-# ifndef KEEPATITBRA
-#  define MOAR continue
-# endif
-
 # ifndef KTHXBYE
 #  define KTHXBYE return (0)
 # endif
 
-# ifndef IMOUTTAYR
-#  define IMOUTTAYR break
+# ifndef MOAR
+#  define MOAR continue
+# endif
+
+# ifndef NOMOAR
+#  define NOMOAR break
 # endif
 
 # ifndef ONOES
