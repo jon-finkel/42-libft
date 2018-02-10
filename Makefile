@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/03 14:10:38 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/10 16:33:15 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ STRING +=					ft_strcmp.c ft_strncmp.c
 STRING +=					ft_strcpy.c ft_strncpy.c ft_strdup.c ft_strndup.c
 STRING +=					ft_strequ.c ft_strnequ.c
 STRING +=					ft_striter.c ft_striteri.c
-STRING +=					ft_strjoin.c ft_strsub.c ft_strtrim.c
+STRING +=					ft_strcjoin.c ft_strjoin.c ft_strsub.c ft_strtrim.c
 STRING +=					ft_strmap.c ft_strmapi.c
 STRING +=					ft_strstr.c ft_strnstr.c
 STRING +=					ft_strrev.c ft_strrevcpy.c

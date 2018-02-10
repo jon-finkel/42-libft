@@ -4,3 +4,4 @@
    After all this library is for my personal use and highly unlikely to be used by anyone else.
  - Added a define for continue in lol.h.
  - Renamed IMOUTTAYR to NOMOAR to avoid confusion.
+ - Added ft_strcjoin

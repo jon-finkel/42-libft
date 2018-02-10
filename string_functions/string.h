@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:43:13 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 14:56:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/10 16:32:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ extern char		*ft_itoa(int n);
 extern size_t	ft_intlen(intmax_t n);
 extern char		*ft_strcat(char *s1, const char *s2);
 extern char		*ft_strchr(const char *s, int c);
+extern char		*ft_strcjoin(char *s1, const char *s2, const char c, bool free);
 extern void		ft_strclr(char *s);
 extern int		ft_strcmp(const char *s1, const char *s2);
 extern char		*ft_strcpy(char *dst, const char *src);
