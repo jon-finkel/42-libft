@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:21:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:50:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void					adjust_field_width(t_printf *data, const char *base,
 static void					left_field_width(t_printf *data, const char *base,
 							int *precision, uintmax_t nb)
 {
-	int		field_width;
-	size_t	blen;
+	int			field_width;
+	size_t		blen;
 
 	field_width = data->field_width;
 	if (NOT_FLAG(E_ZERO, data->flags))

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:48:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:04:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:45:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			*ft_memset(void *b, int c, size_t len)
 {
-	int			k;
+	int		k;
 
 	k = -1;
 	while ((unsigned int)++k < len)

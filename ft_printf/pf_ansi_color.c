@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:07:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:47:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static const struct s_color		g_color[] =
 
 static int			check_end_of_color_flag(t_printf *data, const char *format)
 {
-	char	buff[PRINTF_BUFFSIZE];
-	char	*eoc_start;
+	char		buff[PRINTF_BUFFSIZE];
+	char		*eoc_start;
 
 	if (ft_strnequ(format, "{eoc}", 5) && ft_strlen(data->ansi_colors))
 	{

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 19:24:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:04:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:45:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int				k;
+	int		k;
 
 	k = -1;
 	if (src < dst)

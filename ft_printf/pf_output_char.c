@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:08:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:48:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static wchar_t			adjust_field_width(t_printf *data, int *width)
 
 static void				apply_left_field_width(t_printf *data, int width)
 {
-	char	filler;
-	int		field_width;
+	char		filler;
+	int			field_width;
 
 	if (data->field_width < 0)
 		UNSET_FLAG(E_ZERO, data->flags);
@@ -72,9 +72,9 @@ static int				output_wide_char(t_printf *data, int c)
 
 int						pf_output_char(t_printf *data, const char *base)
 {
-	int					field_width;
-	int					width;
-	wchar_t				wc;
+	int			field_width;
+	int			width;
+	wchar_t		wc;
 
 	(void)base;
 	if (data->range == E_LONG)

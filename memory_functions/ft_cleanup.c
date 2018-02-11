@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:40:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:03:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:44:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static inline void			cleanup_pointers_array(char **aptr)
 {
-	int			k;
+	int		k;
 
 	k = -1;
 	while (aptr[++k])
@@ -28,9 +28,9 @@ static inline void			cleanup_pointers_array(char **aptr)
 
 void						ft_cleanup(const char *args, ...)
 {
-	char			*ptr;
-	char			**aptr;
-	va_list			ap;
+	char		*ptr;
+	char		**aptr;
+	va_list		ap;
 
 	va_start(ap, args);
 	while (args && *args)

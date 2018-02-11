@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 16:35:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:49:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static int			t_conversion(t_printf *data)
 
 static void			v_conversion(t_printf *data)
 {
-	char	*buff;
-	char	*var;
+	char		*buff;
+	char		*var;
 
 	var = va_arg(data->arg, char *);
 	if ((buff = ft_getenv(var)))

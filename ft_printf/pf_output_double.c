@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:09:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/11 08:48:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void			apply_left_field_width(t_printf *data, size_t len,
 
 static void			apply_right_field_width(t_printf *data, size_t len)
 {
-	int			field_width;
+	int		field_width;
 
 	field_width = -data->field_width;
 	while (field_width-- > (int)len)
