@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/03 14:19:14 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/03 14:23:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:12:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./dlist.h"
 
-inline void			ft_dlstappend(t_dlist *dlist, t_dlist *newlink)
+void		ft_dlstappend(t_dlist *restrict dlist, t_dlist *restrict newlink)
 {
 	while (dlist->next)
 		dlist = dlist->next;

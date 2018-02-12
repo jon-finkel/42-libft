@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:47:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:13:32 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,16 @@ static int			check_end_of_color_flag(t_printf *data, const char *format)
 	GIMME(1);
 }
 
-static int			cat_string(t_printf *data, size_t n, int k)
+static void			cat_string(t_printf *data, size_t n, int k)
 {
 	char		*str;
 
 	if (data->color_multiple_flags == true)
 		ft_strcat(data->ansi_colors, ";");
-	FAILZ(str = ft_itoa(g_color[k].code + n), -1);
+	str = ft_itoa(g_color[k].code + n);
 	ft_strcat(data->ansi_colors, str);
 	ft_strdel(&str);
 	data->color_multiple_flags = true;
-	KTHXBYE;
 }
 
 const char			*pf_ansi_color(t_printf *data, const char *format,
@@ -91,8 +90,8 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 		while (*format != 'x' && ++k < LAST_COLOR_FLAG)
 			if (*format == g_color[k].letter)
 			{
-				EPICFAILZ(cat_string(data, n, k), NULL);
-				break ;
+				cat_string(data, n, k);
+				NOMOAR;
 			}
 		if (!k || (k > 5 && k < LAST_COLOR_FLAG))
 			n += 10;

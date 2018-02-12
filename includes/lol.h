@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/07 15:28:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 19:53:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,6 @@
 
 # ifndef ZOMG
 #  define ZOMG return (NULL)
-# endif
-
-# ifndef FAILZ
-#  define FAILZ(x, y) ({if(!(x)) return(y);})
-# endif
-
-# ifndef EPICFAILZ
-#  define EPICFAILZ(x, y) ({if((x) < 0) return(y);})
-# endif
-
-# ifndef IMOUTTAHERE
-#  define IMOUTTAHERE(x) ({if(!(x)) exit(EXIT_FAILURE);})
 # endif
 
 #endif

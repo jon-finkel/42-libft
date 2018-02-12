@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_errhdl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 18:37:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:24:50 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/12 19:38:08 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/12 19:51:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "../io_functions/io.h"
 
-int			ft_strequ(const char *restrict s1, const char *restrict s2)
+void			ft_errhdl(int errno)
 {
-	while (*s1 && *(unsigned char *)s1 == *(unsigned char *)s2)
-	{
-		++s1;
-		++s2;
-	}
-	GIMME(*s1 == *s2 ? 1 : 0);
+	(void)errno;
+	ft_fatal("allocation failed.");
 }

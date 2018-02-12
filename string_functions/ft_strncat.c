@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 22:26:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 14:55:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:26:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-inline char			*ft_strncat(char *restrict s1, const char *restrict s2,
-					size_t n)
+char			*ft_strncat(char *restrict s1, const char *restrict s2,
+				size_t n)
 {
 	int			k;
 	size_t		len;

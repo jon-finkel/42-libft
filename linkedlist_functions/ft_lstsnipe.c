@@ -6,14 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 22:44:30 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/03 14:25:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:53:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./linkedlist.h"
 
-inline void			ft_lstsnipe(t_list **alst, t_list *target,
-					void (*del)(void *, size_t))
+void			ft_lstsnipe(t_list **alst, t_list *target, t_ldtor del)
 {
 	t_list		*list;
 

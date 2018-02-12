@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 10:21:47 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:04:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:22:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-int			ft_memcmp(const void *s1, const void *s2, size_t n)
+int			ft_memcmp(const void *restrict s1, const void *restrict s2,
+			size_t n)
 {
 	while (n--)
 	{

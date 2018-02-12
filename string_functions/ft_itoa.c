@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 10:28:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 14:52:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:23:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-inline char			*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char				tmp[13];
 	char				*string;
@@ -31,6 +31,6 @@ inline char			*ft_itoa(int n)
 	if (n < 0)
 		tmp[++k] = '-';
 	tmp[++k] = '\0';
-	FAILZ(string = ft_strrevcpy(tmp), NULL);
+	string = ft_strrevcpy(tmp);
 	GIMME(string);
 }

@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 06:27:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 06:27:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:55:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./vector.h"
 #include "../memory_functions/memory.h"
 
-inline void			ft_vecclear(t_vector *vector, t_del del)
+void			ft_vecclear(t_vector *vector, t_vdtor del)
 {
 	char		*ptr;
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:02:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:17:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:01:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			ft_vdprintf(int fd, const char *restrict format, va_list ap)
 
 	if (!data)
 	{
-		FAILZ(data = (t_printf *)malloc(sizeof(t_printf)), -1);
+		data = (t_printf *)ft_memalloc(sizeof(t_printf));
 		data->pf_type = E_PRINTF;
 	}
 	data->pf_buffer = buff;

@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:49:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:15:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static int			k_conversion(t_printf *data)
+static void			conv_k(t_printf *data)
 {
 	char		buff[25];
 	char		*begin;
@@ -21,7 +21,7 @@ static int			k_conversion(t_printf *data)
 
 	ft_memset(buff, '\0', 25);
 	time = va_arg(data->arg, time_t);
-	FAILZ(tm = ft_ctime(&time), -1);
+	tm = ctime(&time);
 	begin = tm;
 	if (NOT_FLAG(E_ALTERNATE, data->flags))
 		ft_strncpy(buff, tm, 24);
@@ -36,10 +36,9 @@ static int			k_conversion(t_printf *data)
 	}
 	ft_strdel(&begin);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	KTHXBYE;
 }
 
-static void			n_conversion(t_printf *data)
+static void			conv_n(t_printf *data)
 {
 	int		*ptr;
 
@@ -48,7 +47,7 @@ static void			n_conversion(t_printf *data)
 		*ptr = (int)data->pf_len;
 }
 
-static int			t_conversion(t_printf *data)
+static void			conv_t(t_printf *data)
 {
 	char		buff[9];
 	char		*tm;
@@ -57,16 +56,15 @@ static int			t_conversion(t_printf *data)
 
 	ft_memset(buff, '\0', 9);
 	time = va_arg(data->arg, time_t);
-	FAILZ(tm = ft_ctime(&time), -1);
+	tm = ft_ctime(&time);
 	k = 10;
 	while (++k < 19)
 		buff[k - 11] = tm[k];
 	ft_strdel(&tm);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
-	KTHXBYE;
 }
 
-static void			v_conversion(t_printf *data)
+static void			conv_v(t_printf *data)
 {
 	char		*buff;
 	char		*var;
@@ -79,12 +77,12 @@ static void			v_conversion(t_printf *data)
 const char			*pf_output_extras(t_printf *data, const char *format)
 {
 	if (*format == 'k')
-		EPICFAILZ(k_conversion(data), NULL);
+		conv_k(data);
 	else if (*format == 'n')
-		n_conversion(data);
+		conv_n(data);
 	else if (*format == 't')
-		EPICFAILZ(t_conversion(data), NULL);
+		conv_t(data);
 	else
-		v_conversion(data);
+		conv_v(data);
 	GIMME(format + 1);
 }

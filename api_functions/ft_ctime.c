@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 18:29:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:11:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char						*minitoa(int n)
 {
 	char		*str;
 
-	FAILZ(str = ft_strnew(2), NULL);
+	str = ft_strnew(2);
 	if (n > 9)
 	{
 		str[0] = n / 10 + 48;
@@ -81,7 +81,7 @@ static int8_t					get_day(const struct s_time *tm)
 	GIMME(day);
 }
 
-static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
+static void						get_ymd(struct s_time *tm, time_t *epoch_secs)
 {
 	int8_t		leap;
 
@@ -93,7 +93,7 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 		++leap;
 		leap = (leap == 4 ? 0 : leap);
 	}
-	FAILZ(tm->year = ft_itoa(tm->year_n), -1);
+	tm->year = ft_itoa(tm->year_n);
 	while ((!leap && *epoch_secs >= 24 * 3600 * g_month_leap_day[tm->month - 1])
 		|| (leap && *epoch_secs >= 24 * 3600 * g_month_day[tm->month - 1]))
 	{
@@ -103,11 +103,10 @@ static int						get_ymd(struct s_time *tm, time_t *epoch_secs)
 	}
 	while (++tm->day_n && *epoch_secs >= 24 * 3600)
 		*epoch_secs -= 24 * 3600;
-	FAILZ(tm->day = minitoa(tm->day_n), -1);
+	tm->day = minitoa(tm->day_n);
 	if ((tm->month == 3 && tm->day_n > 26) || (tm->month > 3 && tm->month < 10)
 		|| (tm->month == 10 && tm->day_n < 26))
 		*epoch_secs += 3600;
-	KTHXBYE;
 }
 
 static struct s_time			*initialize_struct(const time_t *clock)
@@ -116,21 +115,20 @@ static struct s_time			*initialize_struct(const time_t *clock)
 	struct s_time		*tm;
 	time_t				epoch_secs;
 
-	FAILZ(tm = (struct s_time *)malloc(sizeof(struct s_time)), NULL);
+	tm = (struct s_time *)ft_memalloc(sizeof(struct s_time));
 	tm->year_n = 1969;
 	tm->month = 1;
-	tm->day_n = 0;
 	epoch_secs = *clock;
-	EPICFAILZ(get_ymd(tm, &epoch_secs), NULL);
+	get_ymd(tm, &epoch_secs);
 	n = 0;
 	while (epoch_secs >= 3600 && ++n)
 		epoch_secs -= 3600;
-	FAILZ(tm->hour = minitoa(n), NULL);
+	tm->hour = minitoa(n);
 	n = 0;
 	while (epoch_secs >= 60 && ++n)
 		epoch_secs -= 60;
-	FAILZ(tm->minutes = minitoa(n), NULL);
-	FAILZ(tm->seconds = minitoa(epoch_secs), NULL);
+	tm->minutes = minitoa(n);
+	tm->seconds = minitoa(epoch_secs);
 	GIMME(tm);
 }
 
@@ -139,8 +137,8 @@ char							*ft_ctime(const time_t *clock)
 	char				*string;
 	struct s_time		*tm;
 
-	FAILZ(string = ft_strnew(25), NULL);
-	FAILZ(tm = initialize_struct(clock), NULL);
+	string = ft_strnew(25);
+	tm = initialize_struct(clock);
 	ft_strncat(string, g_days[get_day(tm)], 3);
 	ft_strcat(string, " ");
 	ft_strncat(string, g_months[tm->month - 1], 3);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 19:34:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:16:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,11 @@ int						pf_output_string(t_printf *data, const char *string)
 		data->precision = INT_MAX;
 	if (data->range == E_LONG && (wide_string = va_arg(data->arg, wchar_t *)))
 	{
-		FAILZ(string = ft_strnew(get_wide_length(data, wide_string)), -1);
+		string = ft_strnew(get_wide_length(data, wide_string));
 		if (copy_wstring((char *)string, wide_string, data->precision) == -1)
 		{
 			free((char *)string);
-			return (-1);
+			ONOES;
 		}
 	}
 	else if (data->range != E_LONG)

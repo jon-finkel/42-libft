@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 18:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 14:54:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:29:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 ** to hold the rewritten string, it is up to the user to do so.
 */
 
-inline int		ft_strrewrite(char *big, const char *little, const char *fill)
+int			ft_strrewrite(char *restrict big, const char *restrict little,
+			const char *fill)
 {
 	char		*copy;
 	int			k;
@@ -29,8 +30,8 @@ inline int		ft_strrewrite(char *big, const char *little, const char *fill)
 
 	lit_len = ft_strlen(little);
 	big_len = ft_strlen(big);
-	FAILZ(little = ft_strstr(big, little), 0);
-	FAILZ(copy = ft_strdup(little + lit_len), -1);
+	little = ft_strstr(big, little);
+	copy = ft_strdup(little + lit_len);
 	big += big_len - ft_strlen(little);
 	while (*fill)
 		*big++ = *fill++;

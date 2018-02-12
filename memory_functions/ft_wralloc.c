@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_wralloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 18:37:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:24:50 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/12 19:36:18 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/12 19:50:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
+#include "../handlers/handlers.h"
 
-int			ft_strequ(const char *restrict s1, const char *restrict s2)
+void			*ft_wralloc(size_t size)
 {
-	while (*s1 && *(unsigned char *)s1 == *(unsigned char *)s2)
-	{
-		++s1;
-		++s2;
-	}
-	GIMME(*s1 == *s2 ? 1 : 0);
+	extern int		errno;
+	void			*ptr;
+
+	if (!(ptr = malloc(size)))
+		FT_ERRHDL(errno);
+	GIMME(ptr);
 }

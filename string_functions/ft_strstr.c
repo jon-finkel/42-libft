@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 23:11:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 15:04:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:30:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-char			*ft_strstr(const char *big, const char *little)
+char			*ft_strstr(const char *restrict big,
+				const char *restrict little)
 {
 	int		k;
 

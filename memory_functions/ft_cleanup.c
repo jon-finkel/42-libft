@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:40:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:44:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:21:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../string_functions/string.h"
 
-static inline void			cleanup_pointers_array(char **aptr)
+static void			cleanup_pointers_array(char **aptr)
 {
 	int		k;
 
@@ -26,7 +26,7 @@ static inline void			cleanup_pointers_array(char **aptr)
 	aptr = NULL;
 }
 
-void						ft_cleanup(const char *args, ...)
+void				ft_cleanup(const char *args, ...)
 {
 	char		*ptr;
 	char		**aptr;

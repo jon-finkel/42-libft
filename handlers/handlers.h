@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   handlers.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 18:37:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:24:50 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/12 20:57:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#ifndef HANDLERS_H
+# define HANDLERS_H
 
-int			ft_strequ(const char *restrict s1, const char *restrict s2)
-{
-	while (*s1 && *(unsigned char *)s1 == *(unsigned char *)s2)
-	{
-		++s1;
-		++s2;
-	}
-	GIMME(*s1 == *s2 ? 1 : 0);
-}
+# include "../includes/dependencies.h"
+
+# define FT_ERRHDL ft_errhdl
+
+typedef void		(*t_ldtor)(void *, size_t, ...);
+typedef void		(*t_vdtor)(void *, ...);
+
+extern void			ft_errhdl(int errno);
+
+#endif

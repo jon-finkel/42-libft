@@ -1,3 +1,8 @@
+0.3.3
+ - Removed inline keyword and segfault protection from some functions.
+ - Removed protection macros.
+ - Added ft_wralloc and ft_errhdl.
+
 0.3.2
  - Added multiple defines for mlx keys.
  - Updated the README, won't be listing all functions anymore, and removed the wiki.

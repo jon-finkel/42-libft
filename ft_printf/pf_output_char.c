@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:48:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:03:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int						pf_output_char(t_printf *data, const char *base)
 		wc = adjust_field_width(data, &width);
 	apply_left_field_width(data, (data->range == E_LONG ? width : 1));
 	if (data->range == E_LONG)
-		EPICFAILZ(output_wide_char(data, wc), -1);
+		output_wide_char(data, wc);
 	else
 	{
 		if (NOT_FLAG(E_ZERO, data->flags) && IS_FLAG(E_ANSI_COLOR, data->flags))

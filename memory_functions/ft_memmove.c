@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 19:24:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:45:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:22:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-void			*ft_memmove(void *dst, const void *src, size_t len)
+void			*ft_memmove(void *restrict dst, const void *restrict src,
+				size_t len)
 {
 	int		k;
 

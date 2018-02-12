@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 17:15:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 15:03:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:27:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dependencies.h"
 
-char			*ft_strncpy(char *dst, const char *src, size_t n)
+char			*ft_strncpy(char *restrict dst, const char *restrict src,
+				size_t n)
 {
 	int		k;
 

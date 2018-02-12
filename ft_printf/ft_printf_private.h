@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/28 18:24:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:15:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_PRIVATE_H
 
 # include "../includes/libft.h"
+# include <time.h>
 
 # define ANSI_STRING_BUFFSIZE 32
 # define ASPRINTF_BUFFSIZE 128

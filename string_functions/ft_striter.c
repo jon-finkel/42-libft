@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:17:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 15:04:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:25:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void			ft_striter(char *s, void (*f)(char *))
 {
-	if (!s || !f)
-		BYEZ;
 	while (*s)
 	{
 		f(s);

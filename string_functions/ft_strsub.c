@@ -6,22 +6,20 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/27 14:55:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/12 20:30:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./string.h"
 
-inline char		*ft_strsub(char *s, unsigned int start, size_t len, bool free)
+char			*ft_strsub(char *s, unsigned int start, size_t len, bool free)
 {
 	char		*begin;
 	char		*sub;
 	int			k;
 
-	if (!s)
-		ZOMG;
 	begin = s;
-	FAILZ(sub = ft_strnew(len), NULL);
+	sub = ft_strnew(len);
 	s += start;
 	k = -1;
 	while ((unsigned int)++k < len)
