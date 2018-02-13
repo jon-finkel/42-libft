@@ -3,6 +3,7 @@
  - Removed protection macros.
  - Added ft_wralloc and ft_errhdl.
  - Removed ft_errhdl.
+ - Updated handlers.h and ft_wralloc.
 
 0.3.2
  - Added multiple defines for mlx keys.

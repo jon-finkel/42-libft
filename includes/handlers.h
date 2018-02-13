@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/13 07:45:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/13 08:06:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define HANDLERS_H
 
 # include "../includes/dependencies.h"
+# include <errno.h>
 
 typedef void		(*t_ldtor)(void *, size_t, ...);
 typedef void		(*t_vdtor)(void *, ...);
 
-extern void			ft_errhdl(int errno);
+extern void			ft_errhdl(int errcode);
 
 #endif
