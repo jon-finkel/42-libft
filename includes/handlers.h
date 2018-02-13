@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errhdl.c                                        :+:      :+:    :+:   */
+/*   handlers.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:38:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 19:51:03 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/13 07:45:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../io_functions/io.h"
+#ifndef HANDLERS_H
+# define HANDLERS_H
 
-void			ft_errhdl(int errno)
-{
-	(void)errno;
-	ft_fatal("allocation failed.");
-}
+# include "../includes/dependencies.h"
+
+typedef void		(*t_ldtor)(void *, size_t, ...);
+typedef void		(*t_vdtor)(void *, ...);
+
+extern void			ft_errhdl(int errno);
+
+#endif

@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:37 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 21:01:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/13 07:46:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKEDLIST_H
 # define LINKEDLIST_H
 
-# include "../handlers/handlers.h"
+# include "../includes/handlers.h"
 
 typedef struct			s_list
 {

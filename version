@@ -2,6 +2,7 @@
  - Removed inline keyword and segfault protection from some functions.
  - Removed protection macros.
  - Added ft_wralloc and ft_errhdl.
+ - Removed ft_errhdl.
 
 0.3.2
  - Added multiple defines for mlx keys.

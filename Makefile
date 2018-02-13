@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/12 19:46:09 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/13 07:45:41 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ DYN_OBJDIR :=				./dyn_build/
 API_DIR :=					./api_functions/
 CHARACTER_DIR :=			./character_functions/
 DLIST_DIR :=				./dlist_functions/
-HANDLERS_DIR :=				./handlers/
 INPUT_OUTPUT_DIR :=			./io_functions/
 LINKEDLIST_DIR :=			./linkedlist_functions/
 MATH_DIR :=					./math_functions/
@@ -55,7 +54,6 @@ CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
 CHARACTER +=				ft_isalnum.c ft_isascii.c ft_toupper.c
 CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
 DLIST +=					ft_dlstadd.c ft_dlstappend.c ft_dlstnew.c
-HANDLERS +=					ft_errhdl.c
 INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
 INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c
 INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c ft_sprintf.c
@@ -104,7 +102,6 @@ OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 SRCS +=						$(API)
 SRCS +=						$(CHARACTER)
 SRCS +=						$(DLIST)
-SRCS +=						$(HANDLERS)
 SRCS +=						$(INPUT_OUTPUT)
 SRCS +=						$(LINKEDLIST)
 SRCS +=						$(MATH)
@@ -116,7 +113,6 @@ SRCS +=						$(VECTOR)
 vpath %.c $(API_DIR)
 vpath %.c $(CHARACTER_DIR)
 vpath %.c $(DLIST_DIR)
-vpath %.c $(HANDLERS_DIR)
 vpath %.c $(INPUT_OUTPUT_DIR)
 vpath %.c $(LINKEDLIST_DIR)
 vpath %.c $(MATH_DIR)

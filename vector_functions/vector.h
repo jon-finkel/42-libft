@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:44:03 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:54:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/13 07:46:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 
-# include "../handlers/handlers.h"
+# include "../includes/handlers.h"
 
 # define VEC_MIN_LIMIT 4
 
