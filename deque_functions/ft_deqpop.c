@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_deqpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:29:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/16 20:32:50 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/16 20:34:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./deque.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
+void			ft_deqpop(t_deque *deque, t_dqtor dqtor)
+{
+	t_dlist		*tmp;
 
-typedef void		(*t_dqtor)(void *, size_t, ...);
-typedef void		(*t_ldtor)(void *, size_t, ...);
-typedef void		(*t_vdtor)(void *, ...);
-
-extern void			ft_errhdl(int errcode);
-
-#endif
+	tmp = deque->head;
+	deque->head = tmp->next;
+	deque->head->prev = NULL;
+	dqtor(tmp->data, tmp->data_size);
+}

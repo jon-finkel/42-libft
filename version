@@ -4,6 +4,8 @@
  - Added ft_wralloc and ft_errhdl.
  - Removed ft_errhdl.
  - Updated handlers.h and ft_wralloc.
+ - Renamed dlist_functions to deque_functions.
+ - Added ft_deqadd, ft_deqappend, ft_deqeject and ft_deqpop.
 
 0.3.2
  - Added multiple defines for mlx keys.

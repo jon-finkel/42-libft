@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_dlstappend.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:29:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/03 14:19:14 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/16 15:48:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./deque.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
-
-typedef void		(*t_dqtor)(void *, size_t, ...);
-typedef void		(*t_ldtor)(void *, size_t, ...);
-typedef void		(*t_vdtor)(void *, ...);
-
-extern void			ft_errhdl(int errcode);
-
-#endif
+void		ft_dlstappend(t_dlist *restrict dlist, t_dlist *restrict newlink)
+{
+	while (dlist->next)
+		dlist = dlist->next;
+	dlist->next = newlink;
+	newlink->prev = dlist;
+}

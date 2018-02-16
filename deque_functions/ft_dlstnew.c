@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_dlstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:29:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/03 14:23:29 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/16 15:48:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./deque.h"
+#include "../memory_functions/memory.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
+t_dlist			*ft_dlstnew(const void *data, size_t data_size)
+{
+	t_dlist		*dlist;
 
-typedef void		(*t_dqtor)(void *, size_t, ...);
-typedef void		(*t_ldtor)(void *, size_t, ...);
-typedef void		(*t_vdtor)(void *, ...);
-
-extern void			ft_errhdl(int errcode);
-
-#endif
+	dlist = (t_dlist *)ft_memalloc(sizeof(t_dlist));
+	if (data)
+	{
+		dlist->data = ft_wralloc(data_size);
+		dlist->data = ft_memmove(dlist->data, data, data_size);
+		dlist->data_size = data_size;
+	}
+	GIMME(dlist);
+}

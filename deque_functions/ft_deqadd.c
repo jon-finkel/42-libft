@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_deqadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:29:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/16 20:21:13 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/16 20:26:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./deque.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
-
-typedef void		(*t_dqtor)(void *, size_t, ...);
-typedef void		(*t_ldtor)(void *, size_t, ...);
-typedef void		(*t_vdtor)(void *, ...);
-
-extern void			ft_errhdl(int errcode);
-
-#endif
+void			ft_deqadd(t_deque *deque, t_dlist *newlink)
+{
+	deque->head->prev = newlink;
+	newlink->next = deque->head;
+	deque->head = newlink;
+}
