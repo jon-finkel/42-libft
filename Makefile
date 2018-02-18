@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/16 20:43:05 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/18 15:28:44 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ API +=						ft_ctime.c ft_getenv.c
 CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
 CHARACTER +=				ft_isalnum.c ft_isascii.c ft_toupper.c
 CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
-DEQUE +=					ft_deqadd.c ft_deqappend.c ft_deqeject.c ft_deqpop.c
+DEQUE +=					ft_deqadd.c ft_deqappend.c
+DEQUE +=					ft_deqeject.c ft_deqpop.c ft_deqdel.c
 DEQUE +=					ft_dlstadd.c ft_dlstappend.c ft_dlstnew.c
 INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
 INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c

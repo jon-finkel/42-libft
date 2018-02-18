@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 15:46:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:43:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/18 15:30:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_deque
 
 extern void			ft_deqadd(t_deque *deque, t_dlist *newlink);
 extern void			ft_deqappend(t_deque *deque, t_dlist *newlink);
+extern void			ft_deqdel(t_deque **adeq, t_dqtor dqtor);
 extern void			ft_deqeject(t_deque *deque, t_dqtor dqtor);
 extern void			ft_deqpop(t_deque *deque, t_dqtor dqtor);
 extern void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink);
