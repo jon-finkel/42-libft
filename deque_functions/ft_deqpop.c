@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 20:32:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/18 09:39:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/18 14:49:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ void			ft_deqpop(t_deque *deque, t_dqtor dqtor)
 	else
 		deque->tail = NULL;
 	dqtor(tmp->data, tmp->data_size);
+	free(tmp);
+	tmp = NULL;
 }
