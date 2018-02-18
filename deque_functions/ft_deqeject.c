@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 20:27:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/16 20:33:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/18 09:39:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void			ft_deqeject(t_deque *deque, t_dqtor dqtor)
 
 	tmp = deque->tail;
 	deque->tail = tmp->prev;
-	deque->tail->next = NULL;
+	if (deque->tail)
+		deque->tail->next = NULL;
+	else
+		deque->head = NULL;
 	dqtor(tmp->data, tmp->data_size);
 }
