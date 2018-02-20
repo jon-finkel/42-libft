@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 06:27:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/20 09:18:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:44:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@ void			ft_vecclear(t_vector *vector, t_vdtor vdtor, ...)
 {
 	char		*ptr;
 	va_list		ap;
+	va_list		cpy;
 
 	va_start(ap, vdtor);
 	if (vector->buff)
 	{
 		ptr = (char *)ft_vecbegin(vector) - vector->data_size;
 		while ((ptr += vector->data_size) != ft_vecend(vector))
-			vdtor(ptr, ap);
+		{
+			va_copy(cpy, ap);
+			vdtor(ptr, cpy);
+			va_end(cpy);
+		}
 		free(vector->buff);
 	}
 	va_end(ap);
