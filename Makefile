@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/18 15:28:44 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/20 09:23:58 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,7 @@ INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c ft_putendl.c
 INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c ft_putendl_fd.c
 INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c get_next_line.c
 LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
-LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c
-LINKEDLIST +=				ft_lstfree.c ft_lstsnipe.c
+LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstinsert.c ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
 MATH +=						ft_nextpower2.c

@@ -1,3 +1,7 @@
+0.3.4
+ - Removed ft_lstfree.
+ - Modified dtor functions prototypes.
+
 0.3.3
  - Removed inline keyword and segfault protection from some functions.
  - Removed protection macros.
