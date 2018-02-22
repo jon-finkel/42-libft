@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/20 09:23:58 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/22 11:21:07 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c ft_lstsnipe.c
 LINKEDLIST += 				ft_lstinsert.c ft_lstiter.c ft_lstmap.c
 LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
 MATH +=						ft_nextpower2.c
-MEMORY +=					ft_bzero.c ft_memmove.c
+MEMORY +=					ft_bzero.c ft_memmove.c ft_swap.c
 MEMORY +=					ft_cleanup.c ft_memdel.c ft_memset.c
 MEMORY +=					ft_memalloc.c ft_realloc.c ft_wralloc.c
 MEMORY +=					ft_memcpy.c ft_memccpy.c ft_memnccpy.c

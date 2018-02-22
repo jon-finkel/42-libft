@@ -2,6 +2,7 @@
  - Removed ft_lstfree.
  - Modified dtor functions prototypes.
  - Added _Noreturn keyword to ft_fatal.
+ - Added ft_swap.
 
 0.3.3
  - Removed inline keyword and segfault protection from some functions.

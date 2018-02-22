@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 19:36:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/22 11:22:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ extern void			*ft_memmove(void *dst, const void *src, size_t len);
 extern size_t		ft_memnccpy(void *dst, const void *src, int c, size_t n);
 extern void			*ft_memset(void *b, int c, size_t len);
 extern void			*ft_realloc(void *ptr, size_t size);
+extern void			ft_swap(void *a, void *b, size_t size);
 extern void			*ft_wralloc(size_t size);
 
 #endif
