@@ -1,4 +1,4 @@
-# Libft - @42Born2Code
+# LIBFT - @42Born2Code
 My implementation of some of the Standard C Library functions and some additional ones.
 
 ### TOC
