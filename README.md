@@ -25,5 +25,9 @@ Notes:
 - You can run a "make" to create a static library, and a "make so" to create a shared library.
 - This repository shall be updated everytime there is a function I deem useful to be added to the library. If you don't know what a function does, refer to the [Project instructions][1].
 
+### Final Mark
+
+`125/125`
+
 [1]: https://github.com/jon-finkel/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
 [2]: http://42.fr "42 Paris"
