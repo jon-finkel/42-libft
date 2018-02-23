@@ -6,32 +6,82 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:13:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/23 22:03:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf_private.h"
 
-static const struct s_conv		g_conv[] =
+static const struct s_conv		g_conv[128] =
 {
-	{'d', &pf_output_signed, "0123456789", E_VOID},
-	{'s', &pf_output_string, NULL, E_VOID},
-	{'u', &pf_output_unsigned, "0123456789", E_VOID},
-	{'p', &pf_output_pointer, "0123456789abcdef", E_VOID},
-	{'c', &pf_output_char, NULL, E_VOID},
-	{'i', &pf_output_signed, "0123456789", E_VOID},
-	{'f', &pf_output_double, "0123456789", E_VOID},
-	{'F', &pf_output_double, "0123456789", E_VOID},
-	{'x', &pf_output_unsigned, "0123456789abcdef", E_VOID},
-	{'X', &pf_output_unsigned, "0123456789ABCDEF", E_VOID},
-	{'b', &pf_output_unsigned, "01", E_VOID},
-	{'o', &pf_output_unsigned, "01234567", E_VOID},
-	{'r', &pf_output_noprint, "0123456789abcdef", E_VOID},
-	{'D', &pf_output_signed, "0123456789", E_LONG},
-	{'U', &pf_output_unsigned, "0123456789", E_LONG},
-	{'O', &pf_output_unsigned, "01234567", E_LONG},
-	{'S', &pf_output_string, NULL, E_LONG},
-	{'C', &pf_output_char, NULL, E_LONG}
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_LONG},
+	{pf_output_signed, "0123456789", E_LONG}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_double, "0123456789", E_VOID}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_unsigned, "01234567", E_LONG},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_string, NULL, E_LONG},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_unsigned, "0123456789", E_LONG},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_unsigned, "0123456789ABCDEF", E_VOID},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_unsigned, "01", E_VOID},
+	{pf_output_char, NULL, E_VOID}, {pf_output_signed, "0123456789", E_VOID},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_double, "0123456789", E_VOID},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_signed, "0123456789", E_VOID}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_extras, NULL, E_VOID}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_extras, NULL, E_VOID},
+	{pf_output_unsigned, "01234567", E_VOID},
+	{pf_output_pointer, "0123456789abcdef", E_VOID},
+	{pf_output_char, NULL, E_CHAR},
+	{pf_output_noprint, "0123456789abcdef", E_VOID},
+	{pf_output_string, NULL, E_VOID}, {pf_output_extras, NULL, E_VOID},
+	{pf_output_unsigned, "0123456789", E_VOID},
+	{pf_output_extras, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_unsigned, "0123456789abcdef", E_VOID},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}, {pf_output_char, NULL, E_CHAR},
+	{pf_output_char, NULL, E_CHAR}
 };
 
 static const char			*check_positional_argument(t_printf *data,
@@ -90,27 +140,14 @@ static const char			*find_conversion(t_printf *data, const char *format)
 	int		k;
 
 	format = pf_get_flags(data, format, E_SECOND);
-	if (!*format)
+	if (!(k = *format))
 		GIMME(format);
-	if (*format == 'k' || *format == 'n' || *format == 't' || *format == 'v')
-		GIMME(pf_output_extras(data, format));
-	k = -1;
-	while (++k < LAST_CONVERSION_FLAG)
-		if ((unsigned char)*format == (unsigned char)g_conv[k].letter)
-		{
-			if (g_conv[k].range != E_VOID && data->range != E_LONG)
-				data->range = g_conv[k].range;
-			g_conv[k].f(data, g_conv[k].base);
-			if (data->positional == E_POSITIONAL)
-				va_end(data->arg);
-			NOMOAR;
-		}
-	if (k == LAST_CONVERSION_FLAG)
-	{
-		data->range = E_CHAR;
-		data->c = *format;
-		pf_output_char(data, NULL);
-	}
+	data->c = *format;
+	if (g_conv[k].range != E_VOID && data->range != E_LONG)
+		data->range = g_conv[k].range;
+	g_conv[k].f(data, g_conv[k].base);
+	if (data->positional == E_POSITIONAL)
+		va_end(data->arg);
 	GIMME(format + 1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:15:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/23 21:20:36 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ struct				s_color
 
 struct				s_conv
 {
-	char			letter;
 	int				(*f)(t_printf *, const char *);
 	const char		*base;
 	t_range			range;
@@ -121,7 +120,7 @@ const char			*pf_ansi_color(t_printf *data, const char *format,
 void				pf_buff_format(t_printf *data, const char *format);
 int					pf_output_char(t_printf *data, const char *base);
 int					pf_output_double(t_printf *data, const char *base);
-const char			*pf_output_extras(t_printf *data, const char *format);
+int					pf_output_extras(t_printf *data, const char *base);
 int					pf_output_noprint(t_printf *data, const char *base);
 int					pf_output_pointer(t_printf *data, const char *base);
 int					pf_output_signed(t_printf *data, const char *base);

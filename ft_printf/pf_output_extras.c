@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:15:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/23 21:22:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,16 @@ static void			conv_v(t_printf *data)
 		pf_fill_buffer(data, 0, buff, E_PRINT);
 }
 
-const char			*pf_output_extras(t_printf *data, const char *format)
+int					pf_output_extras(t_printf *data, const char *base)
 {
-	if (*format == 'k')
+	(void)base;
+	if (data->c == 'k')
 		conv_k(data);
-	else if (*format == 'n')
+	else if (data->c == 'n')
 		conv_n(data);
-	else if (*format == 't')
+	else if (data->c == 't')
 		conv_t(data);
 	else
 		conv_v(data);
-	GIMME(format + 1);
+	KTHXBYE;
 }
