@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_dstrnpush.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/24 22:45:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/24 23:07:35 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/24 23:09:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./dynstr.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
-
-typedef void		(*t_dqtor)(void *, size_t, va_list ap);
-typedef void		(*t_ldtor)(void *, size_t, va_list ap);
-typedef void		(*t_vdtor)(void *, va_list ap);
-typedef void		(*t_vdstor)(void *, va_list ap);
-
-extern void			ft_errhdl(void **aptr, size_t size, int errcode);
-
-#endif
+char			*ft_dstrnpush(t_dstr *dstr, size_t size)
+{
+	ft_dstrgrow(dstr, size);
+	dstr->len += size;
+	GIMME(ft_dstrend(dstr));
+}

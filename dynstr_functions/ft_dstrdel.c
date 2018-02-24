@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.h                                         :+:      :+:    :+:   */
+/*   ft_dstrdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/24 22:45:11 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/24 23:13:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/24 23:15:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HANDLERS_H
-# define HANDLERS_H
+#include "./dynstr.h"
 
-# include "../includes/dependencies.h"
-# include <errno.h>
+void			ft_dstrdel(t_dstr *dstr, t_vdstor vdstor, ...)
+{
+	char		*ptr;
+	va_list		ap;
+	va_list		cpy;
 
-typedef void		(*t_dqtor)(void *, size_t, va_list ap);
-typedef void		(*t_ldtor)(void *, size_t, va_list ap);
-typedef void		(*t_vdtor)(void *, va_list ap);
-typedef void		(*t_vdstor)(void *, va_list ap);
-
-extern void			ft_errhdl(void **aptr, size_t size, int errcode);
-
-#endif
+	va_start(ap, vdstor);
+	if (dstr->buff)
+	{
+		ptr = ft_dstrbegin(dstr) - sizeof(char);
+		while ((ptr += sizeof(char)) != ft_dstrend(dstr))
+		{
+			va_copy(cpy, ap);
+			vdstor(dstr, cpy);
+			va_end(cpy);
+		}
+		dstr->len = 0;
+	}
+	va_end(ap);
+}

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vecalloc.c                                      :+:      :+:    :+:   */
+/*   ft_dstralloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/23 19:13:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/24 22:55:19 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/24 22:53:32 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/24 22:56:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vector.h"
+#include "./dynstr.h"
 #include "../memory_functions/memory.h"
 
-static void			*ft_vecrealloc(void *ptr, size_t len, size_t zlen)
+static void			*ft_dstrrealloc(char *ptr, size_t len, size_t zlen)
 {
 	void		*tmp;
 
@@ -21,22 +21,20 @@ static void			*ft_vecrealloc(void *ptr, size_t len, size_t zlen)
 	if (ptr)
 	{
 		ft_memmove(tmp, ptr, len);
-		ft_memdel(&ptr);
+		ft_memdel((void **)&ptr);
 	}
 	GIMME(tmp);
 }
 
-size_t				ft_vecalloc(t_vector *vector, size_t size)
+size_t				ft_dstralloc(t_dstr *dstr, size_t size)
 {
-	if (vector->capacity != size)
+	if (dstr->capacity != size)
 	{
-		vector->buff = ft_vecrealloc(vector->buff,\
-			vector->len * vector->data_size, size * vector->data_size);
-		vector->capacity = size;
-		if (vector->len > size)
-			vector->len = size;
-		ft_memset(vector->buff + (vector->len * vector->data_size), '\0',\
-			(vector->capacity - vector->len) * vector->data_size);
+		dstr->buff = ft_dstrrealloc(dstr->buff, dstr->len, size);
+		dstr->capacity = size;
+		if (dstr->len > size)
+			dstr->len = size;
+		ft_memset(dstr->buff + dstr->len, '\0', dstr->capacity - dstr->len);
 	}
-	GIMME(vector->capacity);
+	GIMME(dstr->capacity);
 }
