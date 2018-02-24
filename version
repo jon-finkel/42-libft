@@ -4,6 +4,7 @@
  - Added _Noreturn keyword to ft_fatal.
  - Added ft_swap.
  - Added jump table to ft_printf.
+ - Minor bug fix.
 
 0.3.3
  - Removed inline keyword and segfault protection from some functions.
