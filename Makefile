@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/25 22:39:39 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/25 23:04:11 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,23 +48,27 @@ STR_DIR :=					./str/
 VARY_DIR :=					./vary/
 
 #	Sources
-API +=						ctime.c env.c
+API +=						api_ctime.c api_env.c
 CHAR +=						char1.c char2.c
 IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
-LIST +=						add.c append.c del.c del2.c insert.c
-LIST +=						iter.c map.c new.c node.c size.c
+LIST +=						list_add.c list_append.c list_del.c list_del2.c
+LIST +=						list_insert.c list_iter.c list_map.c list_new.c
+LIST +=						list_node.c list_size.c
 MATH +=						power.c
-MEM +=						alloc.c cmp.c cpy.c del.c set.c swap.c
+MEM +=						mem_alloc.c mem_cmp.c mem_cpy.c
+MEM +=						mem_del.c mem_set.c mem_swap.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
 PRINTF +=					pf_output_extras.c pf_output_noprint.c
 PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
-STR +=						cat.c chr.c cmp.c cpy.c del.c iter.c join.c
-STR +=						len.c map.c new.c rev.c split.c sub.c
-VARY +=						alloc.c begin.c clr.c del.c end.c grow.c
-VARY +=						ncpush.c ncpy.c npush.c push.c
+STR +=						str_cat.c str_chr.c str_cmp.c str_cpy.c
+STR +=						str_del.c str_iter.c str_join.c str_len.c
+STR +=						str_map.c str_new.c str_rev.c str_split.c str_sub.c
+VARY +=						vary_alloc.c vary_begin.c vary_clr.c vary_del.c
+VARY +=						vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
+VARY +=						vary_npush.c vary_push.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
