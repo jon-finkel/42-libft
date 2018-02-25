@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   char2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 18:32:35 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 21:35:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "./char.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+int			ft_isalpha(int c)
+{
+	GIMME(ft_islower(c) || ft_isupper(c));
+}
 
-#endif
+int			ft_isalnum(int c)
+{
+	GIMME(ft_isalpha(c) || ft_isdigit(c));
+}
+
+int			ft_toupper(int c)
+{
+	GIMME(ft_islower(c) ? (c & ~(1 << 5)) : c);
+}
+
+int			ft_tolower(int c)
+{
+	GIMME(ft_isupper(c) ? (c | 1 << 5) : c);
+}

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   set.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/23 22:48:10 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 22:15:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../includes/dependencies.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+void			ft_bzero(void *s, size_t n)
+{
+	int		k;
 
-#endif
+	k = -1;
+	while ((unsigned int)++k < n)
+		((unsigned char *)s)[k] = '\0';
+}
+
+void			*ft_memset(void *b, int c, size_t len)
+{
+	int		k;
+
+	k = -1;
+	while ((unsigned int)++k < len)
+		*((unsigned char *)b + k) = (unsigned char)c;
+	GIMME(b);
+}

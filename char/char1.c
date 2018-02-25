@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   char1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 18:31:47 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 18:34:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../includes/dependencies.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+int			ft_isdigit(int c)
+{
+	GIMME(c > 47 && c < 58);
+}
 
-#endif
+int			ft_isupper(int c)
+{
+	GIMME(c > 64 && c < 91);
+}
+
+int			ft_islower(int c)
+{
+	GIMME(c > 96 && c < 123);
+}
+
+int			ft_isprint(int c)
+{
+	GIMME(c > 31 && c < 127);
+}
+
+int			ft_isascii(int c)
+{
+	GIMME(c >= 0 && c < 128);
+}

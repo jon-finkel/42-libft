@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   gnl_priv.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/27 17:23:30 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 22:05:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GNL_PRIV_H
+# define GNL_PRIV_H
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
+# include "../includes/dependencies.h"
 # include "../mem/mem.h"
 # include "../str/str.h"
 # include "../vary/vary.h"
+
+# define BUFF_SIZE 4096
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/25 09:47:17 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/25 22:39:39 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,89 +37,56 @@ O_FLAG :=					-O2
 OBJDIR :=					./build/
 DYN_OBJDIR :=				./dyn_build/
 
-API_DIR :=					./api_functions/
-CHARACTER_DIR :=			./character_functions/
-DEQUE_DIR :=				./deque_functions/
-INPUT_OUTPUT_DIR :=			./io_functions/
-LINKEDLIST_DIR :=			./linkedlist_functions/
-MATH_DIR :=					./math_functions/
-MEMORY_DIR :=				./memory_functions/
-PRINTF_DIR :=				./ft_printf/
-STRING_DIR :=				./string_functions/
-VARY_DIR :=					./vary_functions/
+API_DIR :=					./api/
+CHAR_DIR :=					./char/
+IO_DIR :=					./io/
+LIST_DIR :=					./list/
+MATH_DIR :=					./math/
+MEM_DIR :=					./mem/
+PRINTF_DIR :=				./printf/
+STR_DIR :=					./str/
+VARY_DIR :=					./vary/
 
 #	Sources
-API +=						ft_ctime.c ft_getenv.c
-CHARACTER +=				ft_isalpha.c ft_isdigit.c ft_isprint.c
-CHARACTER +=				ft_isalnum.c ft_isascii.c ft_toupper.c
-CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
-DEQUE +=					ft_deqadd.c ft_deqappend.c
-DEQUE +=					ft_deqeject.c ft_deqpop.c ft_deqdel.c
-DEQUE +=					ft_dlstadd.c ft_dlstappend.c ft_dlstnew.c
-INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
-INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c
-INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c ft_sprintf.c
-INPUT_OUTPUT +=				ft_fprintf.c ft_vfprintf.c ft_fatal.c
-INPUT_OUTPUT +=				ft_putchar.c ft_putchar_fd.c ft_putendl.c
-INPUT_OUTPUT +=				ft_putnbr.c ft_putnbr_fd.c ft_putendl_fd.c
-INPUT_OUTPUT +=				ft_putstr.c ft_putstr_fd.c get_next_line.c
-LINKEDLIST +=				ft_lstnew.c ft_lstadd.c ft_lstappend.c
-LINKEDLIST +=				ft_lstdel.c ft_lstdelone.c ft_lstsnipe.c
-LINKEDLIST += 				ft_lstinsert.c ft_lstiter.c ft_lstmap.c
-LINKEDLIST +=				ft_lstgetnode.c ft_lstsize.c
-MATH +=						ft_nextpower2.c
-MEMORY +=					ft_bzero.c ft_memmove.c ft_swap.c
-MEMORY +=					ft_cleanup.c ft_memdel.c ft_memset.c
-MEMORY +=					ft_memalloc.c ft_realloc.c ft_wralloc.c
-MEMORY +=					ft_memcpy.c ft_memccpy.c ft_memnccpy.c
-MEMORY +=					ft_memchr.c ft_memcmp.c
+API +=						ctime.c env.c
+CHAR +=						char1.c char2.c
+IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
+LIST +=						add.c append.c del.c del2.c insert.c
+LIST +=						iter.c map.c new.c node.c size.c
+MATH +=						power.c
+MEM +=						alloc.c cmp.c cpy.c del.c set.c swap.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
 PRINTF +=					pf_output_extras.c pf_output_noprint.c
 PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
-STRING +=					ft_atoi.c ft_itoa.c
-STRING +=					ft_intlen.c ft_strlen.c
-STRING +=					ft_strcat.c ft_strncat.c ft_strlcat.c
-STRING +=					ft_strchr.c ft_strrchr.c
-STRING +=					ft_strclr.c ft_strdel.c ft_strnew.c
-STRING +=					ft_strcmp.c ft_strncmp.c
-STRING +=					ft_strcpy.c ft_strncpy.c ft_strdup.c ft_strndup.c
-STRING +=					ft_strequ.c ft_strnequ.c
-STRING +=					ft_striter.c ft_striteri.c
-STRING +=					ft_strcjoin.c ft_strjoin.c ft_strsub.c ft_strtrim.c
-STRING +=					ft_strmap.c ft_strmapi.c
-STRING +=					ft_strstr.c ft_strnstr.c
-STRING +=					ft_strrev.c ft_strrevcpy.c
-STRING +=					ft_strsplit.c ft_strrewrite.c
-VARY +=						ft_varyalloc.c ft_varybegin.c ft_varyend.c
-VARY +=						ft_varypush.c ft_varynpush.c ft_varygrow.c
-VARY +=						ft_varyclr.c ft_varydel.c
+STR +=						cat.c chr.c cmp.c cpy.c del.c iter.c join.c
+STR +=						len.c map.c new.c rev.c split.c sub.c
+VARY +=						alloc.c begin.c clr.c del.c end.c grow.c
+VARY +=						ncpush.c ncpy.c npush.c push.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 
 SRCS +=						$(API)
-SRCS +=						$(CHARACTER)
-SRCS +=						$(DEQUE)
-SRCS +=						$(INPUT_OUTPUT)
-SRCS +=						$(LINKEDLIST)
+SRCS +=						$(CHAR)
+SRCS +=						$(IO)
+SRCS +=						$(LIST)
 SRCS +=						$(MATH)
-SRCS +=						$(MEMORY)
+SRCS +=						$(MEM)
 SRCS +=						$(PRINTF)
-SRCS +=						$(STRING)
+SRCS +=						$(STR)
 SRCS +=						$(VARY)
 
 vpath %.c $(API_DIR)
-vpath %.c $(CHARACTER_DIR)
-vpath %.c $(DEQUE_DIR)
-vpath %.c $(INPUT_OUTPUT_DIR)
-vpath %.c $(LINKEDLIST_DIR)
+vpath %.c $(CHAR_DIR)
+vpath %.c $(IO_DIR)
+vpath %.c $(LIST_DIR)
 vpath %.c $(MATH_DIR)
-vpath %.c $(MEMORY_DIR)
+vpath %.c $(MEM_DIR)
 vpath %.c $(PRINTF_DIR)
-vpath %.c $(STRING_DIR)
+vpath %.c $(STR_DIR)
 vpath %.c $(VARY_DIR)
 
 #################

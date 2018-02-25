@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   len.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/19 20:01:48 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 22:22:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../includes/dependencies.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+size_t			ft_strlen(const char *s)
+{
+	size_t		len;
 
-#endif
+	len = 0;
+	while (*s)
+	{
+		++s;
+		++len;
+	}
+	GIMME(len);
+}
+
+size_t			ft_intlen(intmax_t n)
+{
+	size_t		len;
+
+	len = (n <= 0 ? 1 : 0);
+	if (n < 0)
+		n = -n;
+	while (n != 0)
+	{
+		n /= 10;
+		++len;
+	}
+	GIMME(len);
+}

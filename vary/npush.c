@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   npush.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 17:21:24 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 17:34:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "./vary.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+char			*ft_dstrnpush(t_dstr *dstr, size_t size)
+{
+	char		*str;
 
-#endif
+	ft_dstrgrow(dstr, size);
+	str = ft_dstrend(dstr);
+	dstr->len += size;
+	str[size] = '\0';
+	GIMME(str);
+}
+
+void			*ft_varynpush(t_vary *vary, size_t size)
+{
+	void		*ptr;
+
+	ft_varygrow(vary, size);
+	ptr = ft_varyend(vary);
+	vary->len += size;
+	GIMME(ptr);
+}

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_ctime_private.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/03 13:23:24 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 22:07:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FT_CTIME_PRIVATE_H
+# define FT_CTIME_PRIVATE_H
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
 # include "../mem/mem.h"
 # include "../str/str.h"
-# include "../vary/vary.h"
+
+# define LEAP_YEAR_SECONDS 31622400
+# define YEAR_SECONDS 31536000
+
+struct		s_time
+{
+	int16_t	year_n;
+	char	*year;
+	int8_t	month;
+	int8_t	day_n;
+	char	*day;
+	char	*hour;
+	char	*minutes;
+	char	*seconds;
+};
 
 #endif

@@ -1,3 +1,8 @@
+0.3.5
+ - Improved directories structure.
+ - Added dstr functions.
+ - Fixed memory leak in get_next_line.
+
 0.3.4
  - Removed ft_lstfree.
  - Modified dtor functions prototypes.

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   char.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/01/24 18:39:15 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 21:35:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef CHAR_H
+# define CHAR_H
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+# include "../includes/dependencies.h"
+
+extern int			ft_isalpha(int c);
+extern int			ft_isalnum(int c);
+extern int			ft_isascii(int c);
+extern int			ft_isdigit(int c);
+extern int			ft_islower(int c);
+extern int			ft_isprint(int c);
+extern int			ft_isupper(int c);
+extern int			ft_tolower(int c);
+extern int			ft_toupper(int c);
 
 #endif

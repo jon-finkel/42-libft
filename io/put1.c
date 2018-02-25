@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   put1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:41:32 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 21:59:10 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/02/25 21:59:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "./io.h"
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/math.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+void			ft_putchar(char c)
+{
+	ft_putchar_fd(c, STDOUT_FILENO);
+}
 
-#endif
+void			ft_putnbr(int n)
+{
+	ft_putchar_fd(n, STDOUT_FILENO);
+}
+
+void			ft_putstr(const char *restrict s)
+{
+	ft_putstr_fd(s, STDOUT_FILENO);
+}
+
+void			ft_putendl(const char *s)
+{
+	ft_putendl_fd(s, STDOUT_FILENO);
+}
