@@ -1,6 +1,3 @@
-0.3.4b
- - Added several dynamic strings functions.
-
 0.3.4
  - Removed ft_lstfree.
  - Modified dtor functions prototypes.

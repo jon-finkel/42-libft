@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/24 23:12:18 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/25 08:44:38 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ DYN_OBJDIR :=				./dyn_build/
 API_DIR :=					./api_functions/
 CHARACTER_DIR :=			./character_functions/
 DEQUE_DIR :=				./deque_functions/
-DYNSTR_DIR :=				./dynstr_functions/
 INPUT_OUTPUT_DIR :=			./io_functions/
 LINKEDLIST_DIR :=			./linkedlist_functions/
 MATH_DIR :=					./math_functions/
@@ -57,9 +56,6 @@ CHARACTER +=				ft_islower.c ft_isupper.c ft_tolower.c
 DEQUE +=					ft_deqadd.c ft_deqappend.c
 DEQUE +=					ft_deqeject.c ft_deqpop.c ft_deqdel.c
 DEQUE +=					ft_dlstadd.c ft_dlstappend.c ft_dlstnew.c
-DYNSTR +=					ft_dstralloc.c ft_dstrbegin.c ft_dstrend.c
-DYNSTR +=					ft_dstrpush.c ft_dstrnpush.c ft_dstrgrow.c
-DYNSTR +=					ft_dstrclear.c ft_dstrdel.c
 INPUT_OUTPUT +=				ft_asprintf.c ft_vasprintf.c ft_vsprintf.c
 INPUT_OUTPUT +=				ft_dprintf.c ft_vdprintf.c ft_printf.c ft_vprintf.c
 INPUT_OUTPUT +=				ft_snprintf.c ft_vsnprintf.c ft_sprintf.c
@@ -107,7 +103,6 @@ OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 SRCS +=						$(API)
 SRCS +=						$(CHARACTER)
 SRCS +=						$(DEQUE)
-SRCS +=						$(DYNSTR)
 SRCS +=						$(INPUT_OUTPUT)
 SRCS +=						$(LINKEDLIST)
 SRCS +=						$(MATH)
@@ -119,7 +114,6 @@ SRCS +=						$(VECTOR)
 vpath %.c $(API_DIR)
 vpath %.c $(CHARACTER_DIR)
 vpath %.c $(DEQUE_DIR)
-vpath %.c $(DYNSTR_DIR)
 vpath %.c $(INPUT_OUTPUT_DIR)
 vpath %.c $(LINKEDLIST_DIR)
 vpath %.c $(MATH_DIR)
