@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/25 08:44:38 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/25 09:14:10 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ MATH_DIR :=					./math_functions/
 MEMORY_DIR :=				./memory_functions/
 PRINTF_DIR :=				./ft_printf/
 STRING_DIR :=				./string_functions/
-VECTOR_DIR :=				./vector_functions/
+VARY_DIR :=					./vary_functions/
 
 #	Sources
 API +=						ft_ctime.c ft_getenv.c
@@ -93,9 +93,9 @@ STRING +=					ft_strmap.c ft_strmapi.c
 STRING +=					ft_strstr.c ft_strnstr.c
 STRING +=					ft_strrev.c ft_strrevcpy.c
 STRING +=					ft_strsplit.c ft_strrewrite.c
-VECTOR +=					ft_vecalloc.c ft_vecbegin.c ft_vecend.c
-VECTOR +=					ft_vecpush.c ft_vecnpush.c ft_vecgrow.c
-VECTOR +=					ft_vecclear.c ft_vecdel.c
+VARY +=						ft_varyalloc.c ft_varybegin.c ft_varyend.c
+VARY +=						ft_varypush.c ft_varynpush.c ft_varygrow.c
+VARY +=						ft_varyclr.c ft_varydel.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
@@ -109,7 +109,7 @@ SRCS +=						$(MATH)
 SRCS +=						$(MEMORY)
 SRCS +=						$(PRINTF)
 SRCS +=						$(STRING)
-SRCS +=						$(VECTOR)
+SRCS +=						$(VARY)
 
 vpath %.c $(API_DIR)
 vpath %.c $(CHARACTER_DIR)
@@ -120,7 +120,7 @@ vpath %.c $(MATH_DIR)
 vpath %.c $(MEMORY_DIR)
 vpath %.c $(PRINTF_DIR)
 vpath %.c $(STRING_DIR)
-vpath %.c $(VECTOR_DIR)
+vpath %.c $(VARY_DIR)
 
 #################
 ##    RULES    ##

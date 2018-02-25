@@ -5,6 +5,7 @@
  - Added ft_swap.
  - Added jump table to ft_printf.
  - Minor bug fix.
+ - Renamed vector to vary.
 
 0.3.3
  - Removed inline keyword and segfault protection from some functions.
