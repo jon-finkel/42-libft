@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:05:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/02/26 04:22:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./gnl_priv.h"
+#include "./get_next_line_private.h"
 
 int				get_next_line(int const fd, char **line)
 {
