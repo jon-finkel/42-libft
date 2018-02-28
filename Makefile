@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/28 09:57:24 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/28 10:08:07 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,7 +134,8 @@ fclean: clean
 	@/bin/rm -f $(DYN_NAME)
 	@printf  "\033[1:32mCleaning binary -------> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
-errhdl: HDL :=
+nohdl: HDL :=
+nohdl: re
 
 noflags: FLAGS := 
 noflags: re
@@ -145,7 +146,7 @@ so: fclean $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
 	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(DYN_NAME)\033[0m:\033[0m%-12s\033[32m[✔]\033[0m\n"
 
-.PHONY: all cat clean fclean noflags re so
+.PHONY: all cat clean fclean noflags nohdl re so
 
 #################
 ##  WITH LOVE  ##
