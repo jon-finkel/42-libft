@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/02/26 04:45:48 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/02/28 09:57:24 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ DYN_OBJDIR :=				./dyn_build/
 
 API_DIR :=					./api/
 CHAR_DIR :=					./char/
+HDL_DIR :=					./hdl/
 IO_DIR :=					./io/
 LIST_DIR :=					./list/
 MATH_DIR :=					./math/
@@ -50,6 +51,7 @@ VARY_DIR :=					./vary/
 #	Sources
 API +=						ctime.c env.c
 CHAR +=						char1.c char2.c
+HDL +=						err.c
 IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
 LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
@@ -71,6 +73,7 @@ OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 
 SRCS +=						$(API)
 SRCS +=						$(CHAR)
+SRCS +=						$(HDL)
 SRCS +=						$(IO)
 SRCS +=						$(LIST)
 SRCS +=						$(MATH)
@@ -81,6 +84,7 @@ SRCS +=						$(VARY)
 
 vpath %.c $(API_DIR)
 vpath %.c $(CHAR_DIR)
+vpath %.c $(HDL_DIR)
 vpath %.c $(IO_DIR)
 vpath %.c $(LIST_DIR)
 vpath %.c $(MATH_DIR)
@@ -129,6 +133,8 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
 	@printf  "\033[1:32mCleaning binary -------> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
+
+errhdl: HDL :=
 
 noflags: FLAGS := 
 noflags: re
