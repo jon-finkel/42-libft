@@ -3,7 +3,6 @@
  - Added dstr functions.
  - Fixed memory leak in get_next_line.
  - Added hdl dir.
- - Added ft_wropen and ft_wread.
  - Added ft_exit.
 
 0.3.4
