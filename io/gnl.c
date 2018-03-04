@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/26 04:22:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/04 17:43:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int				get_next_line(int const fd, char **line)
 
 	end = NULL;
 	while ((!dstr[fd].len || (end || !(end = ft_strchr(dstr[fd].buff, '\n')))))
-		if ((nb = read(fd, buf, BUFF_SIZE)) == 0)
+		if ((nb = ft_wread(fd, buf, BUFF_SIZE)) == 0)
 			NOMOAR;
-		else if (nb == -1 || !(end = ft_dstrncpush(dstr + fd, buf, (size_t)nb)))
+		else if (!(end = ft_dstrncpush(dstr + fd, buf, (size_t)nb)))
 			ONOES;
 		else if ((end = ft_strchr(end, '\n')))
 			NOMOAR;
