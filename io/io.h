@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/03 22:28:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/04 17:39:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ extern int			ft_wread(int filedes, void *buf, size_t nbyte);
 extern int			ft_wropen(const char *path, int oflag, ...);
 extern int			get_next_line(const int fd, char **line);
 
+_Noreturn void		ft_exit(const char *s, const int ret);
 _Noreturn void		ft_fatal(const char *s);
 
 #endif

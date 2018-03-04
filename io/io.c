@@ -6,14 +6,14 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 22:06:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/03 22:22:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/04 17:37:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/handlers.h"
 #include <fcntl.h>
 
-int			ft_wread(int filedes, void *buf, size_t nbyte)
+int						ft_wread(int filedes, void *buf, size_t nbyte)
 {
 	size_t		bytes;
 
@@ -22,7 +22,7 @@ int			ft_wread(int filedes, void *buf, size_t nbyte)
 	GIMME(bytes);
 }
 
-int			ft_wropen(const char *path, int oflag, ...)
+int						ft_wropen(const char *path, int oflag, ...)
 {
 	int			fd;
 	mode_t		mode;
