@@ -6,21 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:11:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/10 18:21:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_ctime_private.h"
-
-static const char		g_month_day[12] =
-{
-	31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-};
-
-static const char		g_month_leap_day[12] =
-{
-	31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-};
+#include <time.h>
+#include "../str/str.h"
 
 static const char		g_months[12][3] =
 {
@@ -40,120 +31,48 @@ static const char		g_months[12][3] =
 
 static const char		g_days[7][3] =
 {
+	"Sun",
 	"Mon",
 	"Tue",
 	"Wed",
 	"Thu",
 	"Fri",
-	"Sat",
-	"Sun"
+	"Sat"
 };
 
-static char						*minitoa(int n)
+static const char		*g_num[60] =
 {
-	char		*str;
+	"00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+	"10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+	"20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+	"30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
+	"40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+	"50", "51", "52", "53", "54", "55", "56", "57", "58", "59"
+};
 
-	str = ft_strnew(2);
-	if (n > 9)
-	{
-		str[0] = n / 10 + 48;
-		str[1] = n % ((n / 10) * 10) + 48;
-	}
-	else
-	{
-		str[0] = 48;
-		str[1] = n + 48;
-	}
-	GIMME(str);
-}
-
-static int8_t					get_day(const struct s_time *tm)
+char				*ft_ctime(const time_t *clock)
 {
-	int8_t		day;
-
-	day = (tm->day_n\
-		+ ((153 * (tm->month + 12 * ((14 - tm->month) / 12) - 3) + 2) / 5)\
-		+ (365 * (tm->year_n + 4800 - ((14 - tm->month) / 12)))\
-		+ ((tm->year_n + 4800 - ((14 - tm->month) / 12)) / 4)\
-		- ((tm->year_n + 4800 - ((14 - tm->month) / 12)) / 100)\
-		+ ((tm->year_n + 4800 - ((14 - tm->month) / 12)) / 400)\
-		- 32045) % 7;
-	GIMME(day);
-}
-
-static void						get_ymd(struct s_time *tm, time_t *epoch_secs)
-{
-	int8_t		leap;
-
-	leap = 2;
-	while (++tm->year_n && ((!leap && *epoch_secs >= LEAP_YEAR_SECONDS)
-		|| (leap && *epoch_secs >= YEAR_SECONDS)))
-	{
-		*epoch_secs -= YEAR_SECONDS + (!leap ? 24 * 3600 : 0);
-		++leap;
-		leap = (leap == 4 ? 0 : leap);
-	}
-	tm->year = ft_itoa(tm->year_n);
-	while ((!leap && *epoch_secs >= 24 * 3600 * g_month_leap_day[tm->month - 1])
-		|| (leap && *epoch_secs >= 24 * 3600 * g_month_day[tm->month - 1]))
-	{
-		*epoch_secs -= 24 * 3600 * g_month_day[tm->month - 1]\
-			+ (!leap && tm->month == 2 ? 24 * 3600 : 0);
-		++tm->month;
-	}
-	while (++tm->day_n && *epoch_secs >= 24 * 3600)
-		*epoch_secs -= 24 * 3600;
-	tm->day = minitoa(tm->day_n);
-	if ((tm->month == 3 && tm->day_n > 26) || (tm->month > 3 && tm->month < 10)
-		|| (tm->month == 10 && tm->day_n < 26))
-		*epoch_secs += 3600;
-}
-
-static struct s_time			*initialize_struct(const time_t *clock)
-{
-	int					n;
-	struct s_time		*tm;
-	time_t				epoch_secs;
-
-	tm = (struct s_time *)ft_memalloc(sizeof(struct s_time));
-	tm->year_n = 1969;
-	tm->month = 1;
-	epoch_secs = *clock;
-	get_ymd(tm, &epoch_secs);
-	n = 0;
-	while (epoch_secs >= 3600 && ++n)
-		epoch_secs -= 3600;
-	tm->hour = minitoa(n);
-	n = 0;
-	while (epoch_secs >= 60 && ++n)
-		epoch_secs -= 60;
-	tm->minutes = minitoa(n);
-	tm->seconds = minitoa(epoch_secs);
-	GIMME(tm);
-}
-
-char							*ft_ctime(const time_t *clock)
-{
-	char				*string;
-	struct s_time		*tm;
+	char			*string;
+	char			*year;
+	struct tm		*tm;
 
 	string = ft_strnew(25);
-	tm = initialize_struct(clock);
-	ft_strncat(string, g_days[get_day(tm)], 3);
+	tm = localtime(clock);
+	ft_strncat(string, g_days[tm->tm_wday], 3);
 	ft_strcat(string, " ");
-	ft_strncat(string, g_months[tm->month - 1], 3);
+	ft_strncat(string, g_months[tm->tm_mon], 3);
 	ft_strcat(string, " ");
-	ft_strcat(string, tm->day);
+	ft_strcat(string, g_num[tm->tm_mday]);
 	ft_strcat(string, " ");
-	ft_strcat(string, tm->hour);
+	ft_strcat(string, g_num[tm->tm_hour]);
 	ft_strcat(string, ":");
-	ft_strcat(string, tm->minutes);
+	ft_strcat(string, g_num[tm->tm_min]);
 	ft_strcat(string, ":");
-	ft_strcat(string, tm->seconds);
+	ft_strcat(string, g_num[tm->tm_sec]);
 	ft_strcat(string, " ");
-	ft_strcat(string, tm->year);
+	year = ft_itoa(tm->tm_year + 1900);
+	ft_strcat(string, year);
+	ft_strdel(&year);
 	string[24] = '\n';
-	ft_cleanup("PPPPP", tm->year, tm->day, tm->hour, tm->minutes, tm->seconds);
-	ft_memdel((void **)&tm);
 	GIMME(string);
 }

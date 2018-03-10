@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/23 21:20:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/10 16:15:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,30 +65,30 @@ typedef enum		e_flag
 
 typedef enum		e_range
 {
-	E_VOID = 0,
-	E_INT = 1,
-	E_CHAR = 2,
-	E_SHORT = 3,
-	E_SIZE_T = 4,
-	E_LONG = 5,
-	E_LONG_LONG = 6,
-	E_INTMAX_T = 7
+	E_VOID,
+	E_INT,
+	E_CHAR,
+	E_SHORT,
+	E_SIZE_T,
+	E_LONG,
+	E_LONG_LONG,
+	E_INTMAX_T
 }					t_range;
 
 typedef struct		s_printf
 {
 	t_flag			pf_type;
 	char			*pf_buffer;
+	int				fd;
 	size_t			pf_len;
 	size_t			pf_max_len;
-	int				fd;
 	size_t			index;
 	size_t			non_printable;
 	t_range			range;
-	char			ansi_colors[ANSI_STRING_BUFFSIZE];
 	bool			color_multiple_flags;
-	char			error;
+	char			ansi_colors[ANSI_STRING_BUFFSIZE];
 	char			c;
+	int8_t			error;
 	int8_t			flags;
 	int				field_width;
 	int				precision;

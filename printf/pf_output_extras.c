@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/23 21:22:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/10 16:47:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void			conv_k(t_printf *data)
 
 	ft_memset(buff, '\0', 25);
 	time = va_arg(data->arg, time_t);
-	tm = ctime(&time);
+	tm = ft_ctime(&time);
 	begin = tm;
 	if (NOT_FLAG(E_ALTERNATE, data->flags))
 		ft_strncpy(buff, tm, 24);
