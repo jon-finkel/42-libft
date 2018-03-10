@@ -31,7 +31,7 @@ Notes:
 
 `Get_Next_Line: 125/100 (MAX GRADE)`
 
-`ft_printf: 115/100 (MAX GRADE)`
+`ft_printf: 115/100`
 
 [1]: https://github.com/jon-finkel/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
 [2]: http://42.fr "42 Paris"
