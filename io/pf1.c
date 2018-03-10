@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/10 16:23:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/10 19:27:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int			ft_vsnprintf(char *restrict str, size_t size,
 
 	if (!size)
 		KTHXBYE;
-	ft_memset(str, '\0', size);
 	if (!data && (data = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		data->pf_type = E_SPRINTF;
 	data->pf_buffer = str;
