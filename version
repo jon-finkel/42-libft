@@ -5,6 +5,7 @@
  - Added hdl dir.
  - Added ft_exit.
  - Changes on ft_ctime and ft_printf.
+ - Added ft_pgcd and ft_polynomial, the latter still needs work.
 
 0.3.4
  - Removed ft_lstfree.
