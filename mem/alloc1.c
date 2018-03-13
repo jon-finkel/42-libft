@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:11:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 00:39:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void			*ft_wralloc(size_t size)
 	void		*ptr;
 
 	if (!(ptr = malloc(size)))
-		ft_errhdl(&ptr, size, ENOMEM);
+		ft_errhdl(&ptr, size, (int)ERR_NOMEM);
 	GIMME(ptr);
 }
