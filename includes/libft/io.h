@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/04 17:49:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 21:47:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IO_H
 # define IO_H
 
-# include "../includes/dependencies.h"
+# include "dependencies.h"
 
 extern int			ft_asprintf(char **ret, const char *format, ...);
 extern int			ft_dprintf(int fd, const char *format, ...);

@@ -6,37 +6,40 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:42:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/10 16:15:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:42:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_PRIVATE_H
 # define FT_PRINTF_PRIVATE_H
 
-# include "../includes/libft.h"
-# include <time.h>
+# include "libft/api.h"
+# include "libft/char.h"
+# include "libft/io.h"
+# include "libft/mem.h"
+# include "libft/str.h"
 
-# define ANSI_STRING_BUFFSIZE 32
-# define ASPRINTF_BUFFSIZE 128
-# define PRINTF_BUFFSIZE 4096
+# define ANSI_STRING_BUFFSIZE (32)
+# define ASPRINTF_BUFFSIZE (128)
+# define PRINTF_BUFFSIZE (4096)
 
-# define LAST_COLOR_FLAG 22
-# define LAST_CONVERSION_FLAG 18
-# define MAX_LEN_INTMAX_T 20
-# define MAX_LEN_BINARY_UINTMAX_T 64
-# define MAX_LEN_POINTER 18
+# define LAST_COLOR_FLAG (22)
+# define LAST_CONVERSION_FLAG (18)
+# define MAX_LEN_INTMAX_T (20)
+# define MAX_LEN_BINARY_UINTMAX_T (64)
+# define MAX_LEN_POINTER (18)
 
-# define FOUR_BYTES_UNICODE(x) (x >= 0x10000 && x <= 0x10FFFF)
-# define THREE_BYTES_UNICODE(x) (x >= 0x800 && x < 0x10000)
-# define TWO_BYTES_UNICODE(x) (x >= 0x80 && x < 0x800)
-# define THREE_OR_MORE_BYTES_UNICODE(x) (x >= 0x800 && x <= 0x10FFFF)
-# define TWO_OR_MORE_BYTES_UNICODE(x) (x >= 0x80 && x <= 0x10FFFF)
-# define FOUR_BYTES_UNICODE_HEAD(x) (x >> 18 | 0xF0)
-# define THREE_BYTES_UNICODE_HEAD(x) (x >> 12 | 0xE0)
-# define THREE_BYTES_UNICODE_BODY(x) ((x >> 12 & 0x3F) | 0x80)
-# define TWO_BYTES_UNICODE_HEAD(x) (x >> 6 | 0xC0)
-# define TWO_BYTES_UNICODE_BODY(x) ((x >> 6 & 0x3F) | 0x80)
-# define UNICODE_TAIL(x) ((x & 0x3F) | 0x80)
+# define FOUR_BYTES_UNICODE(x) ((x) >= 0x10000 && (x) <= 0x10FFFF)
+# define THREE_BYTES_UNICODE(x) ((x) >= 0x800 && (x) < 0x10000)
+# define TWO_BYTES_UNICODE(x) ((x) >= 0x80 && (x) < 0x800)
+# define THREE_OR_MORE_BYTES_UNICODE(x) ((x) >= 0x800 && (x) <= 0x10FFFF)
+# define TWO_OR_MORE_BYTES_UNICODE(x) ((x) >= 0x80 && (x) <= 0x10FFFF)
+# define FOUR_BYTES_UNICODE_HEAD(x) ((x) >> 18 | 0xF0)
+# define THREE_BYTES_UNICODE_HEAD(x) ((x) >> 12 | 0xE0)
+# define THREE_BYTES_UNICODE_BODY(x) (((x) >> 12 & 0x3F) | 0x80)
+# define TWO_BYTES_UNICODE_HEAD(x) ((x) >> 6 | 0xC0)
+# define TWO_BYTES_UNICODE_BODY(x) (((x) >> 6 & 0x3F) | 0x80)
+# define UNICODE_TAIL(x) (((x) & 0x3F) | 0x80)
 
 typedef enum		e_flag
 {

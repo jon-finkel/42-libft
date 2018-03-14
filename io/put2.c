@@ -6,19 +6,19 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:00:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/04 17:37:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:37:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./io.h"
-#include "../str/str.h"
+#include "libft/str.h"
 
-void			ft_putchar_fd(char c, int fd)
+
+void					ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void					ft_putnbr_fd(int n, int fd)
 {
 	char				buff[12];
 	int					k;
@@ -39,12 +39,12 @@ void			ft_putnbr_fd(int n, int fd)
 	write(fd, ft_strrev(buff), ft_strlen(buff));
 }
 
-void			ft_putstr_fd(const char *restrict s, int fd)
+void					ft_putstr_fd(const char *restrict s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 }
 
-void			ft_putendl_fd(const char *s, int fd)
+void					ft_putendl_fd(const char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 	ft_putchar_fd('\n', fd);

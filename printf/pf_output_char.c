@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:40:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:03:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:35:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static wchar_t			adjust_field_width(t_printf *data, int *width)
 {

@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:39:23 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:42:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:38:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./list.h"
-#include "../mem/mem.h"
+#include "libft/list.h"
+#include "libft/mem.h"
 
 t_list			*ft_lstnew(const void *data, size_t data_size)
 {

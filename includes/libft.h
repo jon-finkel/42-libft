@@ -6,21 +6,23 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/11 20:31:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:30:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "./dependencies.h"
-# include "../api/api.h"
-# include "../char/char.h"
-# include "../io/io.h"
-# include "../list/list.h"
-# include "../math/mat.h"
-# include "../mem/mem.h"
-# include "../str/str.h"
-# include "../vary/vary.h"
+# include "dependencies.h"
+
+# include "libft/api.h"
+# include "libft/char.h"
+# include "libft/hdl.h"
+# include "libft/io.h"
+# include "libft/list.h"
+# include "libft/mat.h"
+# include "libft/mem.h"
+# include "libft/str.h"
+# include "libft/vary.h"
 
 #endif

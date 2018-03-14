@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/10 18:21:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:31:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <time.h>
-#include "../str/str.h"
+#include "libft/str.h"
 
 static const char		g_months[12][3] =
 {
@@ -50,7 +50,7 @@ static const char		*g_num[60] =
 	"50", "51", "52", "53", "54", "55", "56", "57", "58", "59"
 };
 
-char				*ft_ctime(const time_t *clock)
+char			*ft_ctime(const time_t *clock)
 {
 	char			*string;
 	char			*year;

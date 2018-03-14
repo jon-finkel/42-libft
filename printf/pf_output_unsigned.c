@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/11 08:50:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:35:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static uintmax_t			typecast(t_printf *data, t_range range)
 {

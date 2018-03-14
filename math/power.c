@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:54:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/29 05:03:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:33:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "dependencies.h"
 
 size_t			ft_nextpower2(size_t nb)
 {

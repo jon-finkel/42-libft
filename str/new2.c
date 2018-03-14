@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:33:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/26 04:34:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:44:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
-#include "../mem/mem.h"
+#include "libft/mem.h"
+#include "libft/str.h"
 
 char		*ft_strnew(size_t size)
 {

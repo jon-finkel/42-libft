@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:04:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:04:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:34:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./io.h"
+#include "libft/io.h"
 
 int			ft_printf(const char *restrict format, ...)
 {

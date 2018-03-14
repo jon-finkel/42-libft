@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 17:32:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:46:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vary.h"
+#include "libft/vary.h"
 
 char			*ft_dstrpush(t_dstr *dstr)
 {

@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:37:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:44:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
-#include "../mem/mem.h"
+#include "libft/mem.h"
+#include "libft/str.h"
 
 static size_t			count_words(const char *s, char c)
 {

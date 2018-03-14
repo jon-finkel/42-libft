@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:29:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:43:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
+#include "libft/str.h"
 
 static size_t			value_to_trim(const char *restrict s1,
 						const char *restrict s2)

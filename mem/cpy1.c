@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:30:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:16:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:40:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "dependencies.h"
 
 void			*ft_memmove(void *restrict dst, const void *restrict src,
 				size_t len)
@@ -38,8 +38,8 @@ void			*ft_memcpy(void *restrict dst, const void *restrict src,
 	GIMME(dst);
 }
 
-void			*ft_memccpy(void *restrict dst, const void *restrict src, int c,
-				size_t n)
+void			*ft_memccpy(void *restrict dst, const void *restrict src,
+				int c, size_t n)
 {
 	int		k;
 

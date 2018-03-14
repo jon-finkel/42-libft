@@ -6,13 +6,22 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 00:39:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:40:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mem.h"
-#include "../str/str.h"
-#include "../includes/handlers.h"
+#include "libft/hdl.h"
+#include "libft/mem.h"
+#include "libft/str.h"
+
+void			*ft_wralloc(size_t size)
+{
+	void		*ptr;
+
+	if (!(ptr = malloc(size)))
+		ft_errhdl(&ptr, size, ENOMEM);
+	GIMME(ptr);
+}
 
 void			*ft_memalloc(size_t size)
 {
@@ -46,14 +55,5 @@ void			*ft_realloc(void *ptr, size_t size)
 		free(ptr);
 		ptr = tmp;
 	}
-	GIMME(ptr);
-}
-
-void			*ft_wralloc(size_t size)
-{
-	void		*ptr;
-
-	if (!(ptr = malloc(size)))
-		ft_errhdl(&ptr, size, (int)ERR_NOMEM);
 	GIMME(ptr);
 }

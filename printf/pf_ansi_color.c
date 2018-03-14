@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:13:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:36:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static const struct s_color		g_color[] =
 {

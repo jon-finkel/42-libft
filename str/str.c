@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 04:31:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/26 04:32:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:43:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
+#include "libft/str.h"
 
 char			*ft_strstr(const char *restrict big,
 				const char *restrict little)

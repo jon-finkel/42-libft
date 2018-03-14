@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:36:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 21:44:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 
-# include "./lol.h"
-# include "./macros.h"
+# include "lol.h"
+# include "macros.h"
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:10:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:08:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:36:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static const char			*positional_wildcard(t_printf *data,
 							const char *format, t_flag flag)

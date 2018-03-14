@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:27:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:37:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:37:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./list.h"
+#include "libft/list.h"
 
 void			ft_lstadd(t_list **alst, t_list *newlink)
 {

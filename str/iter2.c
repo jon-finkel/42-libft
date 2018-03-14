@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:17:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:27:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:36:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "dependencies.h"
 
 void			ft_striter(char *s, void (*f)(char *))
 {

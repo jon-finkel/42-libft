@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:05:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:35:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static void			copy_string(char *restrict dst, const char *restrict src,
 					const char *base, int precision)

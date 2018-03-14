@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 20:16:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:35:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 {

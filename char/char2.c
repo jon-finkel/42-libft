@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 18:32:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:35:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:31:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./char.h"
+#include "libft/char.h"
 
 int			ft_isalpha(int c)
 {

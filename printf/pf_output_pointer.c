@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/01/24 15:10:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:35:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_private.h"
+#include "ft_printf_private.h"
 
 static void			apply_field_width(t_printf *data, const char *address)
 {

@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 08:58:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 18:19:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:32:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VARY_H
 # define VARY_H
 
-# include "../includes/handlers.h"
+# include "hdl.h"
 
-# define DSTR_MIN_SIZE 32
-# define VARY_MIN_SIZE 4
+# define DSTR_MIN_SIZE (32)
+# define VARY_MIN_SIZE (4)
 
 typedef struct		s_dstr
 {

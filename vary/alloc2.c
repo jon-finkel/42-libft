@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:20:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:19:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:45:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vary.h"
-#include "../mem/mem.h"
+#include "libft/mem.h"
+#include "libft/vary.h"
 
 static void			*reall(void *ptr, size_t len, size_t zlen)
 {

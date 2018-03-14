@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/11 23:19:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:46:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vary.h"
-#include "../math/mat.h"
+#include "libft/mat.h"
+#include "libft/vary.h"
 
 size_t			ft_dstrgrow(t_dstr *dstr, size_t size)
 {

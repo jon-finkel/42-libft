@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 17:28:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:46:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vary.h"
+#include "libft/vary.h"
 
 char			*ft_dstrend(t_dstr *dstr)
 {

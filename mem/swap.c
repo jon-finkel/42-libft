@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 11:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:15:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:40:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mem.h"
+#include "libft/mem.h"
 
 void			ft_swap(void *a, void *b, size_t size)
 {

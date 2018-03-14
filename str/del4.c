@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:34:57 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:28:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:43:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
+#include "libft/str.h"
 
 void			ft_strdel(char **as)
 {

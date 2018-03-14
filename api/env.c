@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 22:58:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:07:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:31:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../str/str.h"
+#include "libft/str.h"
 
 char			*ft_getenv(const char *name)
 {

@@ -6,13 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/04 17:51:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:33:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line_private.h"
+#include "libft/mem.h"
+#include "libft/str.h"
+#include "libft/vary.h"
 
-int				get_next_line(int const fd, char **line)
+#define BUFF_SIZE (4096)
+
+int			get_next_line(int const fd, char **line)
 {
 	char				buf[BUFF_SIZE + 1];
 	char				*end;

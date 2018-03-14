@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:29:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:33:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:38:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./list.h"
+#include "libft/list.h"
 
 void			ft_lstdelone(t_list **alst, t_ldtor ldtor, va_list ap)
 {

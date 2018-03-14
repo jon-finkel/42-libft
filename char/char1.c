@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 18:31:47 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 18:34:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:06:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "dependencies.h"
 
 int			ft_isdigit(int c)
 {

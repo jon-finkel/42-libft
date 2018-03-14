@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:01:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:24:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:42:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./str.h"
+#include "libft/str.h"
 
 char			*ft_strcat(char *restrict dst, const char *restrict src)
 {

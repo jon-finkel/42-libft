@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:56:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:31:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:36:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/dependencies.h"
+#include "dependencies.h"
 
 int			ft_strcmp(const char *restrict s1, const char *restrict s2)
 {

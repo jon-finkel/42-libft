@@ -6,14 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/12 19:53:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:25:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LOL_H
 # define LOL_H
-
-# include "./dependencies.h"
 
 # ifndef BYEZ
 #  define BYEZ return

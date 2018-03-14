@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:20:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 10:46:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./vary.h"
-#include "../mem/mem.h"
-#include "../str/str.h"
+#include "libft/mem.h"
+#include "libft/str.h"
+#include "libft/vary.h"
 
 void			ft_dstrdel(t_dstr **adstr)
 {

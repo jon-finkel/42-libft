@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:43:13 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 22:08:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 22:37:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STR_H
 # define STR_H
 
-# include "../includes/dependencies.h"
+# include "dependencies.h"
 
 extern int		ft_atoi(const char *str);
 extern char		*ft_itoa(int n);

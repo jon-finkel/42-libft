@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/02/25 21:35:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/13 21:46:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHAR_H
 # define CHAR_H
 
-# include "../includes/dependencies.h"
+# include "dependencies.h"
 
 extern int			ft_isalpha(int c);
 extern int			ft_isalnum(int c);
