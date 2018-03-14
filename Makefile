@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/03/13 23:20:08 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/03/14 21:16:47 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ HDL +=						err.c
 IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
 LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
-MATH +=						power.c mat1.c
+MATH +=						pow1.c pow2.c mat1.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c

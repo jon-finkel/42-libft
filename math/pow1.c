@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat.h                                              :+:      :+:    :+:   */
+/*   pow1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 21:16:27 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/03/14 21:08:34 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/03/14 21:19:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAT_H
-# define MAT_H
+#include "dependencies.h"
 
-# include "dependencies.h"
+int32_t			ft_32npow(const int32_t nb, int power)
+{
+	int32_t		sum;
 
-extern size_t			ft_nextpower2(size_t nb);
-extern int				ft_pgcd(int a, int b);
-extern int32_t			ft_32npow(const int32_t nb, int power);
-extern int64_t			ft_64npow(const int64_t nb, int power);
+	if (!power)
+		GIMME(1);
+	sum = nb;
+	while (--power)
+		sum *= nb;
+	GIMME(sum);
+}
 
-#endif
+int64_t			ft_64npow(const int64_t nb, int power)
+{
+	int64_t		sum;
+
+	if (!power)
+		GIMME(1);
+	sum = nb;
+	while (--power)
+		sum *= nb;
+	GIMME(sum);
+}

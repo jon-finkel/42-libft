@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 04:34:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 21:46:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-int			ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	int						neg;
 	unsigned long long		sum;
@@ -34,7 +34,7 @@ int			ft_atoi(const char *str)
 	GIMME(neg * (int)sum);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char				tmp[13];
 	char				*string;

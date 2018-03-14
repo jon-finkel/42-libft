@@ -1,5 +1,6 @@
 0.3.6
  - Reworked header inclusions.
+ - Added ft_mtoi, ft_32npow and ft_64npow.
 
 0.3.5
  - Improved directories structure.

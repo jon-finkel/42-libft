@@ -6,11 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 10:16:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:33:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/14 21:47:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/mat.h"
 
 int				ft_memcmp(const void *restrict s1, const void *restrict s2,
 				size_t n)
@@ -34,4 +34,14 @@ void			*ft_memchr(const void *s, int c, size_t n)
 		if (*((unsigned char *)s + k) == (unsigned char)c)
 			GIMME((void *)s + k);
 	ZOMG;
+}
+
+int				ft_mtoi(const unsigned char *mem, size_t len)
+{
+	int		sum;
+
+	sum = 0;
+	while (len)
+		sum += (int)*mem++ * ft_32npow(16, (int)(--len * 2));
+	GIMME(sum);
 }
