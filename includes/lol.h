@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:35:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:25:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/18 11:44:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 # ifndef KTHXBYE
-#  define KTHXBYE return (0)
+#  define KTHXBYE return (EXIT_SUCCESS)
 # endif
 
 # ifndef MOAR
@@ -34,7 +34,7 @@
 # endif
 
 # ifndef ONOES
-#  define ONOES return (-1)
+#  define ONOES return (EXIT_FAILURE)
 # endif
 
 # ifndef ZOMG
