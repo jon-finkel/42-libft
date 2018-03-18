@@ -1,6 +1,7 @@
 0.3.6
  - Reworked header inclusions.
  - Added ft_mtoi, ft_32npow and ft_64npow.
+ - Added t_vec4 and t_matrix4 typedefs.
 
 0.3.5
  - Improved directories structure.

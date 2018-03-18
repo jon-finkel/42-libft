@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 21:16:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:11:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,26 @@
 
 # include "dependencies.h"
 
+typedef struct		s_vec4
+{
+	float			x;
+	float			y;
+	float			z;
+	bool			type;
+}					t_vec4;
+
+typedef struct		s_matrix4
+{
+	float			a[4];
+	float			b[4];
+	float			c[4];
+	float			d[4];
+}					t_matrix4;
+
 extern size_t			ft_nextpower2(size_t nb);
 extern int				ft_pgcd(int a, int b);
-extern int32_t			ft_32npow(const int32_t nb, int power);
-extern int64_t			ft_64npow(const int64_t nb, int power);
+extern int32_t			ft_32npow(const intmax_t nb, uint8_t power);
+extern int64_t			ft_64npow(const intmax_t nb, uint8_t power);
+extern size_t			ft_stnpow(const intmax_t nb, uint8_t power);
 
 #endif
