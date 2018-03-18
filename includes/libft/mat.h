@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/18 10:11:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/18 11:11:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct		s_vec4
 	float			x;
 	float			y;
 	float			z;
-	bool			type;
+	bool			w;
 }					t_vec4;
 
 typedef struct		s_matrix4
