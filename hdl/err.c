@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 09:57:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:31:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:51:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ _Noreturn void			ft_errhdl(void **aptr, size_t size, int errcode)
 	(void)size;
 	(void)errcode;
 	if (errcode <= ERRMAX)
-		ft_fatal(g_errcode[errcode - 1]);
+		ft_fatal(g_errcode[errcode]);
 	else
 		ft_fatal("unknown error.");
 }
