@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   vec.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/28 09:57:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/19 15:46:35 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/03/19 15:29:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/03/19 15:30:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/hdl.h"
-#include "libft/io.h"
+#include "libft/mat.h"
+#include "libft/mem.h"
 
-static const char		*g_errcode[ERRMAX] =
+t_vec4			*ft_vecnew(float x, float y, float z, bool w)
 {
-	"could not allocate memory",
-	"could not open file",
-	"could not initialize mlx",
-	"could not initialize mlx window"
-};
+	t_vec4		*vec;
 
-_Noreturn void			ft_errhdl(void **aptr, size_t size, int errcode)
-{
-	(void)aptr;
-	(void)size;
-	if (errcode <= ERRMAX)
-		ft_fatal(g_errcode[errcode]);
-	else
-		ft_fatal("unknown error.");
+	vec = (t_vec4 *)ft_wralloc(sizeof(t_vec4));
+	vec->x = x;
+	vec->y = y;
+	vec->z = z;
+	vec->w = w;
+	GIMME(vec);
 }

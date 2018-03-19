@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/18 11:11:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/19 15:32:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ extern int				ft_pgcd(int a, int b);
 extern int32_t			ft_32npow(const intmax_t nb, uint8_t power);
 extern int64_t			ft_64npow(const intmax_t nb, uint8_t power);
 extern size_t			ft_stnpow(const intmax_t nb, uint8_t power);
+extern t_vec4			*ft_vecnew(float x, float y, float z, bool w);
 
 #endif

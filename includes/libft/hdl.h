@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:30:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/19 15:46:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 # include <errno.h>
 # include "dependencies.h"
 
-# define ERRMAX (2)
+# define ERRMAX (4)
 
 typedef enum			s_err
 {
 	ERR_NOMEM,
-	ERR_FD
+	ERR_FD,
+	ERR_MLX,
+	ERR_MLXWIN
 }						t_err;
 
 typedef void			(*t_dqtor)(void *, size_t, va_list ap);
