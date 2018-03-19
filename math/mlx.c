@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/19 16:09:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/19 16:23:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void			ft_mlxaddwin(t_mlx *mlx, int x, int y, char *title)
 {
 	void		*win;
 
-	if (!mlx)
-		ft_mlxinit(mlx);
 	if (!(win = mlx_new_window(mlx->mlx, x, y, title)))
 		ft_errhdl(NULL, 0, ERR_MLXWIN);
 	*(void **)ft_varypush(g_vary) = win;

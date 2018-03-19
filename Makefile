@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/03/19 15:50:33 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/03/19 16:21:38 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ IO_DIR :=					./io/
 LIST_DIR :=					./list/
 MATH_DIR :=					./math/
 MEM_DIR :=					./mem/
-MLX_DIR :=					./mlx/
 PRINTF_DIR :=				./printf/
 STR_DIR :=					./str/
 VARY_DIR :=					./vary/
@@ -56,9 +55,8 @@ HDL +=						err.c
 IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
 LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
-MATH +=						pow1.c pow2.c mat1.c vec.c
+MATH +=						pow1.c pow2.c mat1.c mlx.c vec.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
-MLX +=						init.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
@@ -80,7 +78,6 @@ SRCS +=						$(IO)
 SRCS +=						$(LIST)
 SRCS +=						$(MATH)
 SRCS +=						$(MEM)
-SCRS +=						$(MLX)
 SRCS +=						$(PRINTF)
 SRCS +=						$(STR)
 SRCS +=						$(VARY)
@@ -92,7 +89,6 @@ vpath %.c $(IO_DIR)
 vpath %.c $(LIST_DIR)
 vpath %.c $(MATH_DIR)
 vpath %.c $(MEM_DIR)
-vpath %.c $(MLX_DIR)
 vpath %.c $(PRINTF_DIR)
 vpath %.c $(STR_DIR)
 vpath %.c $(VARY_DIR)
