@@ -4,6 +4,7 @@
  - Added t_vec4 and t_matrix4 typedefs.
  - Minor tweaks.
  - Added ft_mlxinit, ft_mlxaddwin and ft_vecnew.
+ - Added ft_vecrotx, ft_vecroty and ft_vecrotz.
 
 0.3.5
  - Improved directories structure.
