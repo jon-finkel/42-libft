@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:38:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 19:58:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/23 23:13:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,17 @@ t_vec4			*ft_vecnew(double x, double y, double z, bool w)
 
 t_vec4			*ft_v4_m4(t_vec4 *vec, const t_m4 matrix)
 {
-	double		x;
-	double		y;
-	double		z;
-	double		w;
+	t_vec4		tmp;
 
-	x = vec->x * matrix.a + vec->y * matrix.b + vec->z * matrix.c;
-	x += (vec->w ? 1.0 : 0.0) * (matrix.d ? 1.0 : 0.0);
-	y = vec->x * matrix.e + vec->y * matrix.f + vec->z * matrix.g;
-	y += (vec->w ? 1.0 : 0.0) * (matrix.h ? 1.0 : 0.0);
-	z = vec->x * matrix.i + vec->y * matrix.j + vec->z * matrix.k;
-	z += (vec->w ? 1.0 : 0.0) * (matrix.l ? 1.0 : 0.0);
-	w = vec->x * matrix.m + vec->y * matrix.n + vec->z * matrix.o;
-	w += (vec->w ? 1.0 : 0.0) * (matrix.p ? 1.0 : 0.0);
-	vec->x = x;
-	vec->y = y;
-	vec->z = z;
-	vec->w = (w ? true : false);
+	tmp.x = (vec->x * matrix.a) + (vec->y * matrix.b) + (vec->z * matrix.c);
+	tmp.x += (vec->w * matrix.d);
+	tmp.y = (vec->x * matrix.e) + (vec->y * matrix.f) + (vec->z * matrix.g);
+	tmp.y += (vec->w * matrix.h);
+	tmp.z = (vec->x * matrix.i) + (vec->y * matrix.j) + (vec->z * matrix.k);
+	tmp.z += (vec->w * matrix.l);
+	tmp.w = (vec->x * matrix.m) + (vec->y * matrix.n) + (vec->z * matrix.o);
+	tmp.w += (vec->w * matrix.p);
+	ft_memmove(vec, &tmp, sizeof(t_vec4));
 	GIMME(vec);
 }
 
