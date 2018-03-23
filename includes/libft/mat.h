@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 19:59:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/23 23:25:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ extern t_m4			*ft_m4rotz(t_m4 *matrix, double theta);
 extern t_m4			*ft_m4scale(t_m4 *matrix, double sx, double sy, double sz);
 extern t_m4			*ft_m4trans(t_m4 *matrix, double x, double y, double z);
 extern t_m4			*ft_m4_m4(t_m4 *m1, const t_m4 *m2);
-extern t_vec4		*ft_v4_m4(t_vec4 *vec, const t_m4 matrix);
+extern t_vec4		*ft_m4_v4(const t_m4 *matrix, t_vec4 *vec);
 extern t_vec4		*ft_vecnew(double x, double y, double z, bool w);
 
 #endif
