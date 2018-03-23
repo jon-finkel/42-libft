@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:38:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 23:26:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/23 23:27:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_vec4			*ft_vecnew(double x, double y, double z, bool w)
 	GIMME(vec);
 }
 
-t_vec4			*ft_v4_m4(const t_m4 *matrix, t_vec4 *vec)
+t_vec4			*ft_m4_v4(const t_m4 *matrix, t_vec4 *vec)
 {
 	t_vec4		tmp;
 
