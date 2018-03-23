@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:29:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/22 16:26:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/23 19:24:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,24 @@ t_vec4			*ft_vecnew(double x, double y, double z, bool w)
 	GIMME(vec);
 }
 
-t_vec4			*ft_vecrotx(t_vec4 *vec, double theta)
+t_vec4			*ft_v4_m4(t_vec4 *vec, const t_m4 matrix)
 {
-	double		tmp;
+	double		x;
+	double		y;
+	double		z;
+	double		w;
 
-	tmp = (sin(theta) * vec->y) + (cos(theta) * vec->z);
-	vec->y = (cos(theta) * vec->y) - (sin(theta) * vec->z);
-	vec->z = tmp;
-	GIMME(vec);
-}
-
-t_vec4			*ft_vecroty(t_vec4 *vec, double theta)
-{
-	double		tmp;
-
-	tmp = -(sin(theta) * vec->x) + (cos(theta) * vec->z);
-	vec->x = (cos(theta) * vec->x) + (sin(theta) * vec->z);
-	vec->z = tmp;
-	GIMME(vec);
-}
-
-t_vec4			*ft_vecrotz(t_vec4 *vec, double theta)
-{
-	double		tmp;
-
-	tmp = (sin(theta) * vec->x) + (cos(theta) * vec->y);
-	vec->x = (cos(theta) * vec->x) - (sin(theta) * vec->y);
-	vec->y = tmp;
+	x = vec->x * matrix.a[0] + vec->y * matrix.a[1] + vec->z * matrix.a[2];
+	x += (vec->w ? 1.0 : 0.0) * (matrix.a[3] ? 1.0 : 0.0);
+	y = vec->x * matrix.b[0] + vec->y * matrix.b[1] + vec->z * matrix.b[2];
+	y += (vec->w ? 1.0 : 0.0) * (matrix.b[3] ? 1.0 : 0.0);
+	z = vec->x * matrix.c[0] + vec->y * matrix.c[1] + vec->z * matrix.c[2];
+	z += (vec->w ? 1.0 : 0.0) * (matrix.c[3] ? 1.0 : 0.0);
+	w = vec->x * matrix.d[0] + vec->y * matrix.d[1] + vec->z * matrix.d[2];
+	w += (vec->w ? 1.0 : 0.0) * (matrix.d[3] ? 1.0 : 0.0);
+	vec->x = x;
+	vec->y = y;
+	vec->z = z;
+	vec->w = (w ? true : false);
 	GIMME(vec);
 }
