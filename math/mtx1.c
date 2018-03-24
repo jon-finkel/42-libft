@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:05:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 19:50:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/24 16:03:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_m4			*ft_m4rotx(t_m4 *matrix, double theta)
 	ft_memset(matrix, '\0', sizeof(t_m4));
 	matrix->a = 1;
 	matrix->f = cos(theta);
-	matrix->g = -sin(theta);
+	matrix->g = 0 - sin(theta);
 	matrix->j = sin(theta);
 	matrix->k = cos(theta);
 	matrix->p = true;
@@ -31,7 +31,7 @@ t_m4			*ft_m4roty(t_m4 *matrix, double theta)
 	matrix->a = cos(theta);
 	matrix->c = sin(theta);
 	matrix->f = 1;
-	matrix->i = -sin(theta);
+	matrix->i = 0 - sin(theta);
 	matrix->k = cos(theta);
 	matrix->p = true;
 	GIMME(matrix);
@@ -41,7 +41,7 @@ t_m4			*ft_m4rotz(t_m4 *matrix, double theta)
 {
 	ft_memset(matrix, '\0', sizeof(t_m4));
 	matrix->a = cos(theta);
-	matrix->b = -sin(theta);
+	matrix->b = 0 - sin(theta);
 	matrix->e = sin(theta);
 	matrix->f = cos(theta);
 	matrix->k = 1;
