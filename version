@@ -7,6 +7,7 @@
  - Added ft_vecrotx, ft_vecroty and ft_vecrotz.
  - Renamed ft_vecrotx, ft_vecroty and ft_vecrotz to ft_m4rotx, ft_m4roty and ft_m4rotz respectively. Added ft_m4scale, ft_m4trans and ft_v4_m4.
  - Added ft_m4_m4.
+ - Added ft_putmatrix and ft_putvector.
 
 0.3.5
  - Improved directories structure.

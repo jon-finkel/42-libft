@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/03/23 19:58:41 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/03/24 21:10:55 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ VARY_DIR :=					./vary/
 API +=						ctime.c env.c
 CHAR +=						char1.c char2.c
 HDL +=						err.c
-IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c
+IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c
 LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
 MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c mlx.c
