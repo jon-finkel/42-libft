@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:05:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/24 16:03:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/24 16:52:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,50 @@
 
 t_m4			*ft_m4rotx(t_m4 *matrix, double theta)
 {
+	double		c;
+	double		s;
+
+	c = cos(theta);
+	s = sin(theta);
 	ft_memset(matrix, '\0', sizeof(t_m4));
 	matrix->a = 1;
-	matrix->f = cos(theta);
-	matrix->g = 0 - sin(theta);
-	matrix->j = sin(theta);
-	matrix->k = cos(theta);
+	matrix->f = c;
+	matrix->g = (s ? -s : 0);
+	matrix->j = s;
+	matrix->k = c;
 	matrix->p = true;
 	GIMME(matrix);
 }
 
 t_m4			*ft_m4roty(t_m4 *matrix, double theta)
 {
+	double		c;
+	double		s;
+
+	c = cos(theta);
+	s = sin(theta);
 	ft_memset(matrix, '\0', sizeof(t_m4));
-	matrix->a = cos(theta);
-	matrix->c = sin(theta);
+	matrix->a = c;
+	matrix->c = s;
 	matrix->f = 1;
-	matrix->i = 0 - sin(theta);
-	matrix->k = cos(theta);
+	matrix->i = (s ? -s : 0);
+	matrix->k = c;
 	matrix->p = true;
 	GIMME(matrix);
 }
 
 t_m4			*ft_m4rotz(t_m4 *matrix, double theta)
 {
+	double		c;
+	double		s;
+
+	c = cos(theta);
+	s = sin(theta);
 	ft_memset(matrix, '\0', sizeof(t_m4));
-	matrix->a = cos(theta);
-	matrix->b = 0 - sin(theta);
-	matrix->e = sin(theta);
-	matrix->f = cos(theta);
+	matrix->a = c;
+	matrix->b = (s ? -s : 0);
+	matrix->e = s;
+	matrix->f = c;
 	matrix->k = 1;
 	matrix->p = true;
 	GIMME(matrix);
