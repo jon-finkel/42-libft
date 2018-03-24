@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:38:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 23:27:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/24 19:56:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ t_vec4			*ft_m4_v4(const t_m4 *matrix, t_vec4 *vec)
 	t_vec4		tmp;
 
 	tmp.x = (vec->x * matrix->a) + (vec->y * matrix->b) + (vec->z * matrix->c);
-	tmp.x += (vec->w * matrix->d);
+	tmp.x += (vec->w ? matrix->d : 0);
 	tmp.y = (vec->x * matrix->e) + (vec->y * matrix->f) + (vec->z * matrix->g);
-	tmp.y += (vec->w * matrix->h);
+	tmp.y += (vec->w ? matrix->h : 0);
 	tmp.z = (vec->x * matrix->i) + (vec->y * matrix->j) + (vec->z * matrix->k);
-	tmp.z += (vec->w * matrix->l);
+	tmp.z += (vec->w ? matrix->l : 0);
 	tmp.w = (vec->x * matrix->m) + (vec->y * matrix->n) + (vec->z * matrix->o);
-	tmp.w += (vec->w * matrix->p);
+	tmp.w += (vec->w ? matrix->p : 0);
 	ft_memmove(vec, &tmp, sizeof(t_vec4));
 	GIMME(vec);
 }
