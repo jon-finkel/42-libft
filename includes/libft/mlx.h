@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 23:01:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:32:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_mlx_img
 typedef struct		s_mlx
 {
 	t_mlx_img		**img;
+	uint16_t		cur_win;
 	void			*mlx;
 	void			**win;
 }					t_mlx;
