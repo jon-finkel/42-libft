@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 21:50:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:00:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/mem.h"
 #include "libft/mlx.h"
 
-static t_vary		g_mlx_img_vary_null = {NULL, 0, 0, sizeof(void *)};
+static t_vary		g_mlx_img_vary_null = {NULL, 0, 0, sizeof(t_mlx_img *)};
 static t_vary		g_mlx_win_vary_null = {NULL, 0, 0, sizeof(void *)};
 t_vary				*g_mlx_img_vary = &g_mlx_img_vary_null;
 t_vary				*g_mlx_win_vary = &g_mlx_win_vary_null;
@@ -38,10 +38,12 @@ void			ft_mlxaddwin(t_mlx *mlx, int x, int y, char *title)
 
 void			ft_mlxaddimg(t_mlx *mlx, int x, int y)
 {
-	void		*img;
+	t_mlx_img		*img;
 
-	if (!(img = mlx_new_image(mlx->mlx, x, y)))
+	img = (t_mlx_img *)ft_memalloc(sizeof(t_mlx_img));
+	if (!(img->img = mlx_new_image(mlx->mlx, x, y)))
 		ft_errhdl(NULL, 0, ERR_MLXIMG);
-	*(void **)ft_varypush(g_mlx_img_vary) = img;
+	img->addr = mlx_get_data_addr(img->img, &img->bppx, &img->sl, &img->endian);
+	*(t_mlx_img **)ft_varypush(g_mlx_img_vary) = img;
 	mlx->img = g_mlx_img_vary->buff;
 }
