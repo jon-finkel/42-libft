@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:24:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:33:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:52:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ extern void			ft_lstappend(t_list *list, t_list *newlink);
 extern void			ft_lstdel(t_list **alst, t_ldtor ldtor, ...);
 extern void			ft_lstdelone(t_list **alst, t_ldtor ldtor, va_list ap);
 extern t_list		*ft_lstgetnode(const t_list *list, size_t n);
-extern void			ft_lstinsert(t_list **alst, t_list *newlink,
-					int (*cmp)(void *, void *));
+extern void			ft_lstinsert(t_list **alst, t_list *newlink,\
+						int (*cmp)(void *, void *));
 extern void			ft_lstiter(t_list *lst, void (*f)(t_list *));
 extern t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *));
 extern t_list		*ft_lstnew(const void *data, size_t data_size);
 extern size_t		ft_lstsize(const t_list *list);
-extern void			ft_lstsnipe(t_list **alst, t_list *target, t_ldtor ldtor,
-					...);
+extern void			ft_lstsnipe(t_list **alst, t_list *target, t_ldtor ldtor,\
+						...);
 
 extern void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink);
 extern void			ft_dlstappend(t_dlist *dlist, t_dlist *newlink);

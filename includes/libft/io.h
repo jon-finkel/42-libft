@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/24 21:15:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:52:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ extern void			ft_putnbr_fd(int n, int fd);
 extern void			ft_putstr(const char *s);
 extern void			ft_putstr_fd(const char *s, int fd);
 extern void			ft_putvector(const t_vec4 *vec);
-extern int			ft_snprintf(char *str, size_t size, const char *format,
-					...);
+extern int			ft_snprintf(char *str, size_t size, const char *format,\
+						...);
 extern int			ft_sprintf(char *str, const char *format, ...);
 extern int			ft_vasprintf(char **ret, const char *format, va_list ap);
 extern int			ft_vdprintf(int fd, const char *format, va_list ap);
 extern int			ft_vfprintf(FILE *stream, const char *format, va_list ap);
 extern int			ft_vprintf(const char *format, va_list ap);
 extern int			ft_vsprintf(char *str, const char *format, va_list ap);
-extern int			ft_vsnprintf(char *str, size_t size, const char *format,
-					va_list ap);
+extern int			ft_vsnprintf(char *str, size_t size, const char *format,\
+						va_list ap);
 extern int			get_next_line(const int fd, char **line);
 
 _Noreturn void		ft_exit(const char *s, const int ret);

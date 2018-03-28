@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/18 10:13:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/29 00:42:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "dependencies.h"
 
+extern int			ft_bswap(int nb);
+extern int16_t		ft_bswap16(int16_t nb);
+extern int32_t		ft_bswap32(int32_t nb);
+extern int64_t		ft_bswap64(int64_t nb);
 extern void			ft_bzero(void *s, size_t n);
 extern void			ft_cleanup(const char *args, ...);
 extern void			*ft_memalloc(size_t size);

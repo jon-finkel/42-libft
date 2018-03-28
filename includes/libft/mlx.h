@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 23:32:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:53:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct		s_mlx_img
 	int				bppx;
 	int				endian;
 	int				sl;
+	int				height;
+	int				width;
 	void			*img;
 }					t_mlx_img;
 
@@ -36,14 +38,15 @@ typedef struct		s_mlx
 extern t_vary		*g_mlx_win_vary;
 
 extern void			ft_mlxinit(t_mlx *mlx);
-extern void			ft_mlxaddwin(t_mlx *mlx, int x, int y, char *title);
-extern void			ft_mlxaddimg(t_mlx *mlx, int x, int y);
+extern void			ft_mlxaddwin(t_mlx *mlx, int size_x, int size_y,\
+						char *title);
+extern void			ft_mlxaddimg(t_mlx *mlx, int width, int height);
 
-extern char			*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,
-					int *size_line, int *endian);
+extern char			*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,\
+						int *size_line, int *endian);
 extern void			*mlx_new_image(void *mlx_ptr, int width, int height);
-extern void			*mlx_new_window(void *mlx_ptr, int size_x, int size_y,
-					char *title);
+extern void			*mlx_new_window(void *mlx_ptr, int size_x, int size_y,\
+						char *title);
 extern void			*mlx_init(void);
 
 #endif

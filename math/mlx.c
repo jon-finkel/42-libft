@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 23:00:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 23:48:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,25 @@ void			ft_mlxinit(t_mlx *mlx)
 		ft_errhdl(NULL, 0, ERR_MLX);
 }
 
-void			ft_mlxaddwin(t_mlx *mlx, int x, int y, char *title)
+void			ft_mlxaddwin(t_mlx *mlx, int size_x, int size_y, char *title)
 {
 	void		*win;
 
-	if (!(win = mlx_new_window(mlx->mlx, x, y, title)))
+	if (!(win = mlx_new_window(mlx->mlx, size_x, size_y, title)))
 		ft_errhdl(NULL, 0, ERR_MLXWIN);
 	*(void **)ft_varypush(g_mlx_win_vary) = win;
 	mlx->win = g_mlx_win_vary->buff;
 }
 
-void			ft_mlxaddimg(t_mlx *mlx, int x, int y)
+void			ft_mlxaddimg(t_mlx *mlx, int width, int height)
 {
 	t_mlx_img		*img;
 
 	img = (t_mlx_img *)ft_memalloc(sizeof(t_mlx_img));
-	if (!(img->img = mlx_new_image(mlx->mlx, x, y)))
+	if (!(img->img = mlx_new_image(mlx->mlx, width, height)))
 		ft_errhdl(NULL, 0, ERR_MLXIMG);
+	img->height = height;
+	img->width = width;
 	img->addr = mlx_get_data_addr(img->img, &img->bppx, &img->sl, &img->endian);
 	*(t_mlx_img **)ft_varypush(g_mlx_img_vary) = img;
 	mlx->img = g_mlx_img_vary->buff;
