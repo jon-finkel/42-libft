@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/03/24 21:10:55 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/03/28 22:00:24 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,13 @@ VERSION :=					-std=c11
 ifneq ($(OS), Linux)
 	FLAGS +=				-Wall -Wextra -Werror 
 endif
+ifeq ($(OS), Darwin)
+	THREADS := 				$(shell sysctl -n hw.ncpu)
+else
+	THREADS :=				1
+endif
+
+FAST :=						-j$(THREADS)
 
 DYN_FLAG :=					-shared
 HEADERS :=					-I ./includes/
@@ -129,6 +136,9 @@ clean:
 	@/bin/rm -rf $(DYN_OBJDIR)
 	@printf  "\033[1:32mCleaning object files -> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
+fast:
+	@$(MAKE) $(FAST)
+
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(DYN_NAME)
@@ -146,7 +156,7 @@ so: fclean $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
 	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(DYN_NAME)\033[0m:\033[0m%-12s\033[32m[✔]\033[0m\n"
 
-.PHONY: all cat clean fclean noflags nohdl re so
+.PHONY: all cat clean fast fclean noflags nohdl re so
 
 #################
 ##  WITH LOVE  ##
