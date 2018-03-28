@@ -6,17 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/19 16:23:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 20:59:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/hdl.h"
 #include "libft/mem.h"
 #include "libft/mlx.h"
-#include "libft/vary.h"
 
-static t_vary		g_vary_null = {NULL, 0, 0, sizeof(void *)};
-static t_vary		*g_vary = &g_vary_null;
+static t_vary		g_mlx_win_vary_null = {NULL, 0, 0, sizeof(void *)};
+t_vary				*g_mlx_win_vary = &g_mlx_win_vary_null;
 
 void			ft_mlxinit(t_mlx *mlx)
 {
@@ -31,6 +30,6 @@ void			ft_mlxaddwin(t_mlx *mlx, int x, int y, char *title)
 
 	if (!(win = mlx_new_window(mlx->mlx, x, y, title)))
 		ft_errhdl(NULL, 0, ERR_MLXWIN);
-	*(void **)ft_varypush(g_vary) = win;
-	mlx->win = g_vary->buff;
+	*(void **)ft_varypush(g_mlx_win_vary) = win;
+	mlx->win = g_mlx_win_vary->buff;
 }
