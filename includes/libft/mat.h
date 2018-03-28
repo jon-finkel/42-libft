@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/23 23:25:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 20:49:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ extern int			ft_pgcd(int a, int b);
 extern int32_t		ft_32npow(const intmax_t nb, uint8_t power);
 extern int64_t		ft_64npow(const intmax_t nb, uint8_t power);
 extern size_t		ft_stnpow(const intmax_t nb, uint8_t power);
+extern t_m4			*ft_m4iso(t_m4 *matrix);
 extern t_m4			*ft_m4rotx(t_m4 *matrix, double theta);
 extern t_m4			*ft_m4roty(t_m4 *matrix, double theta);
 extern t_m4			*ft_m4rotz(t_m4 *matrix, double theta);

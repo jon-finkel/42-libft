@@ -6,12 +6,29 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 19:38:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/24 19:56:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/28 20:52:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 #include "libft/mem.h"
+
+t_m4			*ft_m4iso(t_m4 *matrix)
+{
+	double		r1;
+	double		r2;
+
+	ft_memset(matrix, '\0', sizeof(t_m4));
+	r1 = sqrt((double)2);
+	r2 = -1 / sqrt((double)6);
+	matrix->a = r1 / (double)2;
+	matrix->b = r1 / (double)-2;
+	matrix->e = r2;
+	matrix->f = r2;
+	matrix->g = sqrt((double)2 / (double)3);
+	matrix->p = true;
+	GIMME(matrix);
+}
 
 t_vec4			*ft_vecnew(double x, double y, double z, bool w)
 {
