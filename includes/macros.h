@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/11 20:26:10 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/29 18:37:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@
 #  define ABS(x) ({__typeof__(x) _x = (x);_x < 0 ? -_x : _x;})
 # endif
 
+# ifndef FLOOR
+#  define FLOOR(x) ((x) - FRAC(x))
+# endif
+
+# ifndef FRAC
+#  define FRAC(x) ((x) - (long long)(x))
+# endif
+
 # ifndef INVERT
 #  define INVERT(x) (0 - (x))
 # endif
@@ -55,6 +63,10 @@
 
 # ifndef POW2
 #  define POW2(x) ((x) * (x))
+# endif
+
+# ifndef SIGN
+#  define SIGN(x) ((x) < 0 ? -1 : (x > 0))
 # endif
 
 #endif
