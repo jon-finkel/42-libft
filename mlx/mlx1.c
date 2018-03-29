@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 23:48:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/29 12:38:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static t_vary		g_mlx_win_vary_null = {NULL, 0, 0, sizeof(void *)};
 t_vary				*g_mlx_img_vary = &g_mlx_img_vary_null;
 t_vary				*g_mlx_win_vary = &g_mlx_win_vary_null;
 
-void			ft_mlxinit(t_mlx *mlx)
+void			ftx_init(t_mlx *mlx)
 {
 	ft_memset(mlx, '\0', sizeof(t_mlx));
 	if (!(mlx->mlx = mlx_init()))
 		ft_errhdl(NULL, 0, ERR_MLX);
 }
 
-void			ft_mlxaddwin(t_mlx *mlx, int size_x, int size_y, char *title)
+void			ftx_addwin(t_mlx *mlx, int size_x, int size_y, char *title)
 {
 	void		*win;
 
@@ -36,7 +36,7 @@ void			ft_mlxaddwin(t_mlx *mlx, int size_x, int size_y, char *title)
 	mlx->win = g_mlx_win_vary->buff;
 }
 
-void			ft_mlxaddimg(t_mlx *mlx, int width, int height)
+void			ftx_addimg(t_mlx *mlx, int width, int height)
 {
 	t_mlx_img		*img;
 

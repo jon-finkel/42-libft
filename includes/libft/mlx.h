@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/29 12:31:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/29 12:38:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ typedef struct		s_mlx
 
 extern t_vary		*g_mlx_win_vary;
 
-extern void			ft_mlxinit(t_mlx *mlx);
-extern void			ft_mlxaddwin(t_mlx *mlx, int size_x, int size_y,\
+extern void			ftx_init(t_mlx *mlx);
+extern void			ftx_addwin(t_mlx *mlx, int size_x, int size_y,\
 						char *title);
-extern void			ft_mlxaddimg(t_mlx *mlx, int width, int height);
+extern void			ftx_addimg(t_mlx *mlx, int width, int height);
 
 extern char			*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,\
 						int *size_line, int *endian);
