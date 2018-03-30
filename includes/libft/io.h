@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/28 23:52:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/30 12:43:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ extern void			ft_putchar(char c);
 extern void			ft_putchar_fd(char c, int fd);
 extern void			ft_putendl(const char *s);
 extern void			ft_putendl_fd(const char *s, int fd);
-extern void			ft_putmatrix(const t_m4 *matrix);
+extern void			ft_putmatrix(const t_m4 matrix);
 extern void			ft_putnbr(int n);
 extern void			ft_putnbr_fd(int n, int fd);
 extern void			ft_putstr(const char *s);
 extern void			ft_putstr_fd(const char *s, int fd);
-extern void			ft_putvector(const t_vec4 *vec);
+extern void			ft_putvector(const t_vec4 vec);
 extern int			ft_snprintf(char *str, size_t size, const char *format,\
 						...);
 extern int			ft_sprintf(char *str, const char *format, ...);
