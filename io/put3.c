@@ -6,7 +6,7 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 21:02:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/30 12:43:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/31 01:12:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void			ft_putmatrix(const t_m4 matrix)
 
 void			ft_putvector(const t_vec4 vec)
 {
-	ft_printf("4x1 VECTOR (%p)\n[%9f]\n[%9f]\n[%9f]\n[%9c]\n", vec, vec.x,\
+	ft_printf("4x1 VECTOR (%p)\n[%9f]\n[%9f]\n[%9f]\n[%9c]\n", &vec, vec.x,\
 		vec.y, vec.z, vec.w ? '1' : '0');
 }
