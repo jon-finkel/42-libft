@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/31 12:18:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:25:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/01 00:48:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_mlx_img			*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 
 	if (x < 0 || x > img->width || y < 0 || y > img->height)
 		GIMME(img);
-	pos = img->addr + (y * img->width * 4) + (x * 4);
+	pos = img->addr + (y * img->sl) + (x * img->bppx / 8);
 	if (img->endian)
 		color = ft_bswap(color);
 	ft_memmove(pos, &color, sizeof(color));
