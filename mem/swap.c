@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 11:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/29 00:43:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/31 02:20:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int64_t				ft_bswap64(int64_t nb)
 
 int					ft_bswap(int nb)
 {
-	if (sizeof(nb) == 16)
+	if (sizeof(nb) == 2)
 		GIMME(ft_bswap16(nb));
 	else
 		GIMME(ft_bswap32(nb));
