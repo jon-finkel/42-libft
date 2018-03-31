@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:36:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/31 12:42:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "mlx_keys.h"
 # include "libft/mat.h"
 # include "libft/vary.h"
+
+# define _MLX_ID mlx->mlx
+# define _MLX_IMG mlx->img[mlx->cur_img]
+# define _MLX_WIN mlx->win[mlx->cur_win]
 
 typedef struct			s_mlx_img
 {
@@ -37,6 +41,7 @@ typedef struct			s_mlx
 	void				**win;
 }						t_mlx;
 
+extern t_vary			*g_mlx_img_vary;
 extern t_vary			*g_mlx_win_vary;
 
 extern void				ftx_addwin(t_mlx *mlx, int size_x, int size_y,

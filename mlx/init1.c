@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:36:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/03/31 12:43:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vary				*g_mlx_win_vary = &g_mlx_win_vary_null;
 void				ftx_init(t_mlx *mlx)
 {
 	ft_memset(mlx, '\0', sizeof(t_mlx));
-	if (!(mlx->mlx = mlx_init()))
+	if (!(_MLX_ID = mlx_init()))
 		ft_errhdl(NULL, 0, ERR_MLX);
 }
 
@@ -30,7 +30,7 @@ void				ftx_addwin(t_mlx *mlx, int size_x, int size_y, char *title)
 {
 	void		*win;
 
-	if (!(win = mlx_new_window(mlx->mlx, size_x, size_y, title)))
+	if (!(win = mlx_new_window(_MLX_ID, size_x, size_y, title)))
 		ft_errhdl(NULL, 0, ERR_MLXWIN);
 	*(void **)ft_varypush(g_mlx_win_vary) = win;
 	mlx->win = g_mlx_win_vary->buff;
@@ -39,7 +39,7 @@ void				ftx_addwin(t_mlx *mlx, int size_x, int size_y, char *title)
 void				*ftx_setwin(t_mlx *mlx, uint16_t n)
 {
 	mlx->cur_win = n;
-	GIMME(mlx->win[mlx->cur_win]);
+	GIMME(_MLX_WIN);
 }
 
 t_mlx_img			*ftx_addimg(t_mlx *mlx, int width, int height)
@@ -60,5 +60,5 @@ t_mlx_img			*ftx_addimg(t_mlx *mlx, int width, int height)
 t_mlx_img			*ftx_setimg(t_mlx *mlx, uint16_t n)
 {
 	mlx->cur_img = n;
-	GIMME(mlx->img[mlx->cur_img]);
+	GIMME(_MLX_IMG);
 }
