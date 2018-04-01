@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/29 18:37:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 00:12:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@
 
 # ifndef POW2
 #  define POW2(x) ((x) * (x))
+# endif
+
+# ifndef ROUND
+#  define ROUND(x) (FRAC(x) < 0.5 ? FLOOR(x) : FLOOR(x) + 1)
 # endif
 
 # ifndef SIGN
