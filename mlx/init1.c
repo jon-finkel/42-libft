@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:43:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 00:16:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void				ftx_addwin(t_mlx *mlx, int size_x, int size_y, char *title)
 void				*ftx_setwin(t_mlx *mlx, uint16_t n)
 {
 	mlx->cur_win = n;
-	GIMME(_MLX_WIN);
+	GIMME(_MLX_WIN_ID);
 }
 
 t_mlx_img			*ftx_addimg(t_mlx *mlx, int width, int height)
