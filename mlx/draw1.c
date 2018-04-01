@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/31 12:18:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/01 00:48:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/01 16:02:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_mlx_img			*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 t_mlx_img			*ftx_hline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
 					int color)
 {
-	int				k;
-	int				p;
+	int		k;
+	int		p;
 
 	if (v1.y < 0 || v1.y >= img->height)
 		GIMME(img);
@@ -45,8 +45,8 @@ t_mlx_img			*ftx_hline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
 t_mlx_img			*ftx_vline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
 					int color)
 {
-	int				k;
-	int				p;
+	int		k;
+	int		p;
 
 	if (v1.x < 0 || v1.x >= img->width)
 		GIMME(img);

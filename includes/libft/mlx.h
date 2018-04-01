@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:42:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/01 16:03:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 # define _MLX_ID mlx->mlx
 # define _MLX_IMG mlx->img[mlx->cur_img]
-# define _MLX_WIN mlx->win[mlx->cur_win]
+# define _MLX_IMG_ID mlx->img[mlx->cur_img]->img
+# define _MLX_WIN_ID mlx->win[mlx->cur_win]
 
 typedef struct			s_mlx_img
 {
