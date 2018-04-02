@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 09:57:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 16:43:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 18:50:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 static const char		*g_errcode[ERRMAX] =
 {
 	"could not allocate memory",
-	"could not open file",
+	"could not open a valid file descriptor",
+	"could not close file descriptor",
 	"could not initialize mlx",
 	"could not initialize mlx window",
 	"could not initialize mlx image"

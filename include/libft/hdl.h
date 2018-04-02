@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 16:43:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 18:50:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <errno.h>
 # include "dependencies.h"
 
-# define ERRMAX (5)
+# define ERRMAX (6)
 
 typedef enum			s_err
 {
 	ERR_NOMEM,
-	ERR_FD,
+	ERR_OPEN,
+	ERR_CLOSE,
 	ERR_MLX,
 	ERR_MLXWIN,
 	ERR_MLXIMG
