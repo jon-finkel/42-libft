@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/03/31 12:18:22 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/02 11:00:31 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ endif
 FAST :=						-j$(THREADS)
 
 DYN_FLAG :=					-shared
-HEADERS :=					-I ./includes/
+HEADERS :=					-I ./include/
 O_FLAG :=					-O2
 
 #	Directories
@@ -151,16 +151,13 @@ fclean: clean
 nohdl: HDL :=
 nohdl: re
 
-noflags: FLAGS := 
-noflags: re
-
 re: fclean all
 
 so: fclean $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
 	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(DYN_NAME)\033[0m:\033[0m%-12s\033[32m[✔]\033[0m\n"
 
-.PHONY: all cat clean fast fclean noflags nohdl re so
+.PHONY: all cat clean fast fclean nohdl re so
 
 #################
 ##  WITH LOVE  ##

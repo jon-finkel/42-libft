@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 00:12:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 10:51:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@
 
 # ifndef FRAC
 #  define FRAC(x) ((x) - (long long)(x))
-# endif
-
-# ifndef INVERT
-#  define INVERT(x) (0 - (x))
 # endif
 
 # ifndef MIN
