@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/19 15:53:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 20:55:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "libft/api.h"
 # include "libft/char.h"
+# include "libft/gl.h"
 # include "libft/hdl.h"
 # include "libft/io.h"
 # include "libft/list.h"
