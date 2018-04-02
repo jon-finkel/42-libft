@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 09:57:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 16:29:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 16:43:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static const char		*g_errcode[ERRMAX] =
 	"could not open file",
 	"could not initialize mlx",
 	"could not initialize mlx window",
-	"could not initialize mlx image",
-	"could not initialize glfw"
+	"could not initialize mlx image"
 };
 
 _Noreturn void			ft_errhdl(void **aptr, size_t size, int errcode)
