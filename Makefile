@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/02 20:43:21 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/02 21:30:49 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ DYN_OBJDIR :=				./dyn_build/
 API_DIR :=					./api/
 CHAR_DIR :=					./char/
 HDL_DIR :=					./hdl/
-GL_DIR :=					./gl/
 IO_DIR :=					./io/
 LIST_DIR :=					./list/
 MATH_DIR :=					./math/
@@ -60,7 +59,6 @@ VARY_DIR :=					./vary/
 #	Sources
 API +=						ctime.c env.c
 CHAR +=						char1.c char2.c
-GL +=						shad.c
 HDL +=						err.c
 IO +=						fd.c gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c
 LIST +=						add.c append.c del1.c del2.c
@@ -84,7 +82,6 @@ OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 
 SRCS +=						$(API)
 SRCS +=						$(CHAR)
-SRCS +=						$(GL)
 SRCS +=						$(HDL)
 SRCS +=						$(IO)
 SRCS +=						$(LIST)
@@ -97,7 +94,6 @@ SRCS +=						$(VARY)
 
 vpath %.c $(API_DIR)
 vpath %.c $(CHAR_DIR)
-vpath %.c $(GL_DIR)
 vpath %.c $(HDL_DIR)
 vpath %.c $(IO_DIR)
 vpath %.c $(LIST_DIR)
