@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 00:16:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/03 11:37:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ t_mlx_img			*ftx_addimg(t_mlx *mlx, int width, int height)
 	img->addr = mlx_get_data_addr(img->img, &img->bppx, &img->sl, &img->endian);
 	*(t_mlx_img **)ft_varypush(g_mlx_img_vary) = img;
 	mlx->img = g_mlx_img_vary->buff;
+	GIMME(img);
+}
+
+t_mlx_img			*ftx_clearimg(t_mlx_img *img)
+{
+	int		x;
+	int		y;
+
+	y = -1;
+	while (++y < img->height && (x = -1))
+		while (++x < img->width)
+			ftx_buffpixel(img, x, y, 0x00000000);
 	GIMME(img);
 }
 
