@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:39:18 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 17:39:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/03 14:03:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_m4			ft_m4roty(double theta)
 	s = sin(theta);
 	ft_memset(&matrix, '\0', sizeof(t_m4));
 	matrix.a[0] = c;
-	matrix.a[2] = c;
+	matrix.a[2] = s;
 	matrix.b[1] = 1.0;
 	matrix.c[0] = -s;
 	matrix.c[2] = c;
