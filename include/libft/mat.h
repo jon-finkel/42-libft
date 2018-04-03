@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/30 12:56:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/03 20:21:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ extern t_m4			ft_m4roty(double theta);
 extern t_m4			ft_m4rotz(double theta);
 extern t_m4			ft_m4scale(double sx, double sy, double sz);
 extern t_m4			ft_m4trans(double x, double y, double z);
-extern t_m4			ft_m4_m4(const t_m4 m1, const t_m4 m2);
 extern t_vec4		*ft_v4_m4(t_vec4 *vec, const t_m4 matrix);
-extern t_vec4		**ft_veciter(t_vec4 **avec, const t_m4 matrix, size_t size);
+extern void			ftx_veccenter(t_vec4 **avec, size_t size, const t_vec4 pos);
+extern void			ft_veciter(t_vec4 **avec, const t_m4 matrix, size_t size);
 extern t_vec4		*ft_vecmap(t_vec4 *vec, double x, double y, double z);
 extern t_vec4		*ft_vecnew(double x, double y, double z, bool w);
 
