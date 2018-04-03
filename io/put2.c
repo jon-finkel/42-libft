@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:00:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:37:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 20:14:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void					ft_putendl_fd(const char *s, int fd)
 	ft_putchar_fd('\n', fd);
 }
 
-_Noreturn void			ft_fatal(const char *restrict s)
+_Noreturn void			ft_fatal(const char *restrict s, const int errcode)
 {
 	ft_putstr_fd("fatal: ", STDERR_FILENO);
 	ft_putendl_fd(s, STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	exit(errcode);
 }

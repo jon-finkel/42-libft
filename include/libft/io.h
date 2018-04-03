@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/31 12:06:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/02 20:17:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ extern void			ft_putnbr_fd(int n, int fd);
 extern void			ft_putstr(const char *s);
 extern void			ft_putstr_fd(const char *s, int fd);
 extern void			ft_putvector(const t_vec4 vec);
+extern ssize_t		ft_read(int filedes, void *buf, size_t nbyte);
 extern int			ft_snprintf(char *str, size_t size, const char *format,
 					...);
 extern int			ft_sprintf(char *str, const char *format, ...);
@@ -42,6 +43,6 @@ extern int			ft_vsnprintf(char *str, size_t size, const char *format,
 extern int			get_next_line(const int fd, char **line);
 
 _Noreturn void		ft_exit(const char *s, const int ret);
-_Noreturn void		ft_fatal(const char *s);
+_Noreturn void		ft_fatal(const char *s, const int errcode);
 
 #endif
