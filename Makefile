@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/02 21:30:49 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/04 19:51:17 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
 MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
-MLX +=						draw1.c init1.c
+MLX +=						draw1.c init1.c del6.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
