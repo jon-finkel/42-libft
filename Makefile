@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/04 19:51:17 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/04 20:49:20 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
 MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
-MLX +=						draw1.c init1.c del6.c
+MLX +=						clr2.c draw1.c init1.c tor.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
 PRINTF +=					pf_buff_format.c pf_get_flags.c
 PRINTF +=					pf_output_char.c pf_output_string.c
@@ -74,7 +74,7 @@ PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
 STR +=						cat.c chr.c cmp2.c cpy2.c del4.c iter2.c join.c
 STR +=						len.c map2.c new2.c rev.c split.c str.c sub.c to.c
-VARY +=						alloc2.c begin.c clr.c del5.c end.c grow.c
+VARY +=						alloc2.c begin.c clr1.c del5.c end.c grow.c
 VARY +=						ncpush.c ncpy.c npush.c push.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))

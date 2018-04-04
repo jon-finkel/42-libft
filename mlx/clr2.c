@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init1.c                                            :+:      :+:    :+:   */
+/*   clr2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 20:59:47 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/04 20:49:40 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/04 20:59:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/hdl.h"
-#include "libft/mem.h"
 #include "libft/mlxh.h"
 
-void				ftx_init(t_mlx *mlx)
+t_mlx_img			*ftx_blurrimg(t_mlx_img *img)
 {
-	ft_memset(mlx, '\0', sizeof(t_mlx));
-	if (!(_MLX_ID = mlx_init()))
-		ft_errhdl(NULL, 0, ERR_MLX);
+	int		x;
+	int		y;
+
+	y = -1;
+	while (++y < img->height && (x = -1))
+		while (++x < img->width)
+			ftx_buffpixel(img, x, y, 0xA0000000);
+	GIMME(img);
 }
 
-void				*ftx_setwin(t_mlx *mlx, uint16_t n)
+t_mlx_img			*ftx_clearimg(t_mlx_img *img)
 {
-	mlx->cur_win = n;
-	GIMME(_MLX_WIN_ID);
-}
+	int		x;
+	int		y;
 
-t_mlx_img			*ftx_setimg(t_mlx *mlx, uint16_t n)
-{
-	mlx->cur_img = n;
-	GIMME(_MLX_IMG);
+	y = -1;
+	while (++y < img->height && (x = -1))
+		while (++x < img->width)
+			ftx_buffpixel(img, x, y, 0x00000000);
+	GIMME(img);
 }
