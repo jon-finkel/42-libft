@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 23:13:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 01:04:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct			s_mlx
 	void				**win;
 }						t_mlx;
 
-extern t_mlx_img		*ftx_blurrimg(t_mlx_img *img);
+extern t_mlx_img		*ftx_blurimg(t_mlx_img *img);
 extern t_mlx_img		*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 						int color);
 extern t_mlx_img		*ftx_clearimg(t_mlx_img *img);

@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:49:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 23:16:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 01:05:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mlxh.h"
 
-t_mlx_img			*ftx_blurrimg(t_mlx_img *img)
+t_mlx_img			*ftx_blurimg(t_mlx_img *img)
 {
 	int		x;
 	int		y;
