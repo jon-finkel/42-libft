@@ -6,12 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:03:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/03 10:58:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 00:49:55 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef X_KEYS_H
 # define X_KEYS_H
+
+# define X_KEYPRESS 2
 
 # define X_NOEVENT_MASK 0L
 # define X_KEYPRESS_MASK (1L << 0)
