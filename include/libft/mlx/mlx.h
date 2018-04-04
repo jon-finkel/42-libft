@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 19:47:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/04 19:50:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ extern void				ftx_windtor(void *data, va_list ap);
 /*
 ** MLX functions
 */
-extern void				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
-extern void				mlx_destroy_window(void *mlx_ptr, void *win_ptr);
+extern int				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
+extern int				mlx_destroy_window(void *mlx_ptr, void *win_ptr);
 extern char				*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,
 						int *size_line, int *endian);
 extern void				*mlx_new_image(void *mlx_ptr, int width, int height);
