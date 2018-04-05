@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:49:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 01:05:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 14:01:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,17 @@ t_mlx_img			*ftx_clearimg(t_mlx_img *img)
 	GIMME(img);
 }
 
-t_mlx_img			*ftx_clipimg(t_mlx_img *img, const t_point begin,
-					const t_point end)
+t_mlx_img			*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
+					const t_p2 end)
 {
-	int		ex;
-	int		ey;
 	int		x;
 	int		y;
 
-	ex = (int)FLOOR(end.x);
-	ey = (int)FLOOR(end.y);
-	y = (int)FLOOR(begin.y) - 1;
-	while (++y <= ey)
+	y = begin.y - 1;
+	while (++y <= end.y)
 	{
-		x = (int)FLOOR(begin.x) - 1;
-		while (++x <= ex)
+		x = begin.x - 1;
+		while (++x <= end.x)
 			ftx_buffpixel(img, x, y, 0x00000000);
 	}
 	GIMME(img);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 13:52:26 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 14:00:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ extern t_mlx_img		*ftx_blurimg(t_mlx_img *img);
 extern t_mlx_img		*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 						int color);
 extern t_mlx_img		*ftx_clearimg(t_mlx_img *img);
-extern t_mlx_img		*ftx_clipimg(t_mlx_img *img, const t_point begin,
-						const t_point end);
+extern t_mlx_img		*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
+						const t_p2 end);
 extern t_mlx_img		*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
 						const t_vec4 v2, int color);
 extern t_mlx_img		*ftx_hline(t_mlx_img *img, const t_vec4 v1,
