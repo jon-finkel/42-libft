@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:39:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 13:56:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 15:43:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_vec4			*ft_vecmap(t_vec4 *vec, double x, double y, double z)
 	GIMME(vec);
 }
 
-void			ft_veccenter(t_vec4 **avec, size_t size, const t_vec4 pos)
+void			ft_veccenter(t_vec4 **avec, size_t size, const t_p2 pos)
 {
 	double		new_x;
 	double		new_y;
