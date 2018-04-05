@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 01:04:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 13:52:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ extern t_mlx_img		*ftx_hline(t_mlx_img *img, const t_vec4 v1,
 						const t_vec4 v2, int color);
 extern t_mlx_img		*ftx_imgctor(t_mlx *mlx, int width, int height);
 extern void				ftx_imgdtor(void *data, va_list ap);
-extern void				ftx_init(t_mlx *mlx);
+extern t_mlx			*ftx_init(t_mlx *mlx);
 extern void				ftx_mlxdtor(t_mlx *mlx);
 extern t_mlx_img		*ftx_setimg(t_mlx *mlx, uint16_t n);
 extern void				*ftx_setwin(t_mlx *mlx, uint16_t n);

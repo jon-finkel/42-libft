@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 20:59:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/05 13:52:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #include "libft/mem.h"
 #include "libft/mlxh.h"
 
-void				ftx_init(t_mlx *mlx)
+t_mlx				*ftx_init(t_mlx *mlx)
 {
 	ft_memset(mlx, '\0', sizeof(t_mlx));
 	if (!(_MLX_ID = mlx_init()))
 		ft_errhdl(NULL, 0, ERR_MLX);
+	GIMME(mlx);
 }
 
 void				*ftx_setwin(t_mlx *mlx, uint16_t n)
