@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 09:57:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 20:13:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 12:01:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 
 static const char		*g_errcode[ERRMAX] =
 {
-	"could not allocate memory",
-	"could not open a valid file descriptor",
-	"could not close file descriptor",
-	"error while reading on file descriptor",
 	"could not initialize mlx",
 	"could not initialize mlx window",
 	"could not initialize mlx image"
 };
 
-_Noreturn void			ft_errhdl(void **aptr, size_t size, int errcode)
+_Noreturn void			ft_errhdl(void **aptr, size_t size, int err_no,
+						t_err err_code)
 {
+	char		*err_msg;
+
 	(void)aptr;
-	if (errcode == ERR_READ)
-		ft_dprintf(STDERR_FILENO, "fatal: %s %d\n", g_errcode[errcode], size);
-	else if (errcode <= ERRMAX)
-		ft_fatal(g_errcode[errcode], errcode);
+	(void)size;
+	if (err_code == ERR_NO)
+	{
+		err_msg = strerror(err_no);
+		ft_fatal(err_msg, err_no);
+	}
 	else
-		ft_fatal("unknown error.", errcode);
-	exit(errcode);
+		ft_fatal(g_errcode[err_code], err_code);
 }

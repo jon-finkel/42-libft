@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fd.c                                               :+:      :+:    :+:   */
+/*   sys.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/02 20:15:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 20:16:37 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/07 11:39:22 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/07 11:52:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ ssize_t			ft_read(int filedes, void *buf, size_t nbyte)
 	ssize_t		bytes;
 
 	if ((bytes = read(filedes, buf, nbyte)) == -1)
-		ft_errhdl(NULL, filedes, ERR_READ);
+		ft_errhdl(NULL, 0, errno, ERR_NO);
 	GIMME(bytes);
 }

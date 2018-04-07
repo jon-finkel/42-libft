@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del6.c                                             :+:      :+:    :+:   */
+/*   tor.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:47:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 20:59:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 11:47:29 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_mlx_img			*ftx_imgctor(t_mlx *mlx, int width, int height)
 
 	img = (t_mlx_img *)ft_memalloc(sizeof(t_mlx_img));
 	if (!(img->img = mlx_new_image(mlx->mlx, width, height)))
-		ft_errhdl(NULL, 0, ERR_MLXIMG);
+		ft_errhdl(NULL, 0, 0, ERR_MLXIMG);
 	img->height = height;
 	img->width = width;
 	img->addr = mlx_get_data_addr(img->img, &img->bppx, &img->sl, &img->endian);
@@ -53,7 +53,7 @@ void				ftx_winctor(t_mlx *mlx, int size_x, int size_y, char *title)
 	void		*win;
 
 	if (!(win = mlx_new_window(_MLX_ID, size_x, size_y, title)))
-		ft_errhdl(NULL, 0, ERR_MLXWIN);
+		ft_errhdl(NULL, 0, 0, ERR_MLXWIN);
 	*(void **)ft_varypush(g_mlx_win_vary) = win;
 	mlx->win = g_mlx_win_vary->buff;
 }

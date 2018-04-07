@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 13:52:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 11:47:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_mlx				*ftx_init(t_mlx *mlx)
 {
 	ft_memset(mlx, '\0', sizeof(t_mlx));
 	if (!(_MLX_ID = mlx_init()))
-		ft_errhdl(NULL, 0, ERR_MLX);
+		ft_errhdl(NULL, 0, 0, ERR_MLX);
 	GIMME(mlx);
 }
 

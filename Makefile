@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/05 13:59:27 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/07 11:38:50 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,8 @@ DYN_NAME :=					${NAME:a=so}
 CC :=						gcc
 VERSION :=					-std=c11
 
-ifneq ($(OS), Linux)
-	FLAGS +=				-Wall -Wextra -Werror 
-endif
+FLAGS :=					-Wall -Wextra -Werror
+
 ifeq ($(OS), Darwin)
 	THREADS := 				$(shell sysctl -n hw.ncpu)
 else
@@ -60,7 +59,7 @@ VARY_DIR :=					./vary/
 API +=						ctime.c env.c
 CHAR +=						char1.c char2.c
 HDL +=						err.c
-IO +=						fd.c gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c
+IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c sys.c
 LIST +=						add.c append.c del1.c del2.c
 LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
 MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c point.c
@@ -122,7 +121,7 @@ $(OBJDIR):
 
 $(OBJDIR)%.o: %.c
 	@printf  "\033[1:92mCompiling $(NAME)\033[0m %-28s\033[32m[$<]\033[0m\n" ""
-	@$(CC) $(VERSION) $(DEBUG)$(FLAGS)$(O_FLAG) $(HEADERS) -c $< -o $@
+	@$(CC) $(VERSION) $(DEBUG)$(FLAGS) $(O_FLAG) $(HEADERS) -c $< -o $@
 	@printf "\033[A\033[2K"
 
 $(DYN_OBJECTS): | $(DYN_OBJDIR)

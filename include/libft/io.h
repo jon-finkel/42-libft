@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 20:17:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 11:56:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IO_H
 # define IO_H
 
+# include <stdio.h>
 # include "libft/mat.h"
 
 extern int			ft_asprintf(char **ret, const char *format, ...);

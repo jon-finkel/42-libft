@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 21:44:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 11:56:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdbool.h>
-# include <stdio.h>
 
 # include "lol.h"
 # include "macros.h"
