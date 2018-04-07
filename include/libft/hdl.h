@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 20:13:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/06 16:42:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define ERRMAX (7)
 
-typedef enum			s_err
+typedef enum			e_err
 {
 	ERR_NOMEM,
 	ERR_OPEN,
