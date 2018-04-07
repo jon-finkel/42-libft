@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/31 12:18:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/04 20:59:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 15:52:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 #include "libft/mlxh.h"
 
-t_mlx_img			*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
-					int color)
+t_mlx_img					*ftx_buffpixel(t_mlx_img *img, const int x,
+							const int y, int color)
 {
 	char		*pos;
 
@@ -27,8 +27,8 @@ t_mlx_img			*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 	GIMME(img);
 }
 
-t_mlx_img			*ftx_hline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
-					int color)
+t_mlx_img					*ftx_hline(t_mlx_img *img, const t_vec4 v1,
+							const t_vec4 v2, int color)
 {
 	int		k;
 	int		p;
@@ -42,8 +42,8 @@ t_mlx_img			*ftx_hline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
 	GIMME(img);
 }
 
-t_mlx_img			*ftx_vline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
-					int color)
+t_mlx_img					*ftx_vline(t_mlx_img *img, const t_vec4 v1,
+							const t_vec4 v2, int color)
 {
 	int		k;
 	int		p;
@@ -57,26 +57,37 @@ t_mlx_img			*ftx_vline(t_mlx_img *img, const t_vec4 v1, const t_vec4 v2,
 	GIMME(img);
 }
 
-t_mlx_img			*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
-					const t_vec4 v2, int color)
+static t_mlx_img			*p_line(t_mlx_img *img, const t_vec4 v1,
+							const t_vec4 v2, int color)
+{
+	if (v1.x == v2.x && v1.y == v2.y)
+		GIMME(ftx_buffpixel(img, v1.x, v1.y, color));
+	else if (v1.x == v2.x)
+		GIMME(ftx_vline(img, v1, v2, color));
+	else
+		GIMME(ftx_hline(img, v1, v2, color));
+}
+
+t_mlx_img					*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
+							const t_vec4 v2, int color)
 {
 	int			k;
-	double		x;
-	double		y;
+	int			x;
+	int			y;
+	double		kx;
+	double		ky;
 
+	if ((v1.x < 0 && v2.x < 0) || (v1.x > img->width && v2.x > img->width)
+		|| (v1.y < 0 && v2.y < 0) || (v1.y > img->height && v2.y > img->height))
+		GIMME(img);
 	if (v1.x == v2.x || v1.y == v2.y)
-	{
-		if (v1.x == v2.x && v1.y == v2.y)
-			GIMME(ftx_buffpixel(img, v1.x, v1.y, color));
-		else if (v1.x == v2.x)
-			GIMME(ftx_vline(img, v1, v2, color));
-		else
-			GIMME(ftx_hline(img, v1, v2, color));
-	}
+		GIMME(p_line(img, v1, v2, color));
 	k = MAX(fabs(v1.x - v2.x), fabs(v1.y - v2.y) + 1);
-	x = (v2.x - v1.x) / k;
-	y = (v2.y - v1.y) / k;
+	kx = (v2.x - v1.x) / k;
+	ky = (v2.y - v1.y) / k;
 	while (k--)
-		ftx_buffpixel(img, (v1.x + x * k), (v1.y + y * k), color);
+		if ((x = (int)(v1.x + kx * k)) >= 0 && x <= img->width
+			&& (y = (int)(v1.y + ky * k)) >= 0 && y <= img->height)
+			ftx_buffpixel(img, x, y, color);
 	GIMME(img);
 }
