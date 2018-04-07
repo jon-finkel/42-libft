@@ -6,10 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:33:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/07 11:24:41 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/io.h"
 #include "libft/mem.h"
 #include "libft/str.h"
 #include "libft/vary.h"
@@ -18,16 +19,16 @@
 
 int			get_next_line(int const fd, char **line)
 {
-	char				buf[BUFF_SIZE + 1];
+	char				buff[BUFF_SIZE + 1];
 	char				*end;
 	ssize_t				nb;
 	static t_dstr		dstr[USHRT_MAX];
 
 	end = NULL;
 	while ((!dstr[fd].len || (end || !(end = ft_strchr(dstr[fd].buff, '\n')))))
-		if ((nb = read(fd, buf, BUFF_SIZE)) == 0)
+		if (!(nb = ft_read(fd, buff, BUFF_SIZE)))
 			NOMOAR;
-		else if (nb == -1 || !(end = ft_dstrncpush(dstr + fd, buf, (size_t)nb)))
+		else if (!(end = ft_dstrncpush(dstr + fd, buff, (size_t)nb)))
 			ONOES;
 		else if ((end = ft_strchr(end, '\n')))
 			NOMOAR;
