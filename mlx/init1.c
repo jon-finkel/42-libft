@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/07 11:47:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/08 22:53:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ t_mlx_img			*ftx_setimg(t_mlx *mlx, uint16_t n)
 {
 	mlx->cur_img = n;
 	GIMME(_MLX_IMG);
+}
+
+void				ftx_showimg(t_mlx *mlx, const int x, const int y)
+{
+	(void)mlx_put_image_to_window(_MLX_ID, _MLX_WIN_ID, _MLX_IMG_ID, x, y);
 }

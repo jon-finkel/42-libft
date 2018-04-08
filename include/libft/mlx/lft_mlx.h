@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 14:00:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/08 22:52:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ extern t_mlx			*ftx_init(t_mlx *mlx);
 extern void				ftx_mlxdtor(t_mlx *mlx);
 extern t_mlx_img		*ftx_setimg(t_mlx *mlx, uint16_t n);
 extern void				*ftx_setwin(t_mlx *mlx, uint16_t n);
+extern void				ftx_showimg(t_mlx *mlx, const int x, const int y);
 extern t_mlx_img		*ftx_vline(t_mlx_img *img, const t_vec4 v1,
 						const t_vec4 v2, int color);
 extern void				ftx_winctor(t_mlx *mlx, int size_x, int size_y,
@@ -74,6 +75,8 @@ extern char				*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,
 extern void				*mlx_new_image(void *mlx_ptr, int width, int height);
 extern void				*mlx_new_window(void *mlx_ptr, int size_x, int size_y,
 						char *title);
+extern int				mlx_put_image_to_window(void *mlx_ptr, void *win_ptr,
+						void *img_ptr, int x, int y);
 extern void				*mlx_init(void);
 
 #endif
