@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:03:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 00:49:55 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/09 09:10:21 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define X_KEYS_H
 
 # define X_KEYPRESS 2
+# define X_BUTTONPRESS 4
 
 # define X_NOEVENT_MASK 0L
 # define X_KEYPRESS_MASK (1L << 0)
@@ -97,5 +98,8 @@
 # define X_KEY_L_ALT 259
 # define X_KEY_R_ALT 260
 # define X_KEY_R_CTRL 269
+
+# define X_SCROLL_DOWN 4
+# define X_SCROLL_UP 5
 
 #endif
