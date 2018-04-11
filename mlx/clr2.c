@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:49:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 14:01:11 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/11 23:02:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ t_mlx_img			*ftx_clearimg(t_mlx_img *img)
 		while (++x < img->width)
 			ftx_buffpixel(img, x, y, 0x00000000);
 	GIMME(img);
+}
+
+void				ftx_clearwin(t_mlx *mlx)
+{
+	mlx_clear_window(_MLX_ID, _MLX_WIN_ID);
 }
 
 t_mlx_img			*ftx_clipimg(t_mlx_img *img, const t_p2 begin,

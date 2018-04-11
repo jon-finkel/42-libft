@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/08 22:52:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/11 23:03:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ extern t_mlx_img		*ftx_blurimg(t_mlx_img *img);
 extern t_mlx_img		*ftx_buffpixel(t_mlx_img *img, const int x, const int y,
 						int color);
 extern t_mlx_img		*ftx_clearimg(t_mlx_img *img);
+extern void				ftx_clearwin(t_mlx *mlx);
 extern t_mlx_img		*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
 						const t_p2 end);
 extern t_mlx_img		*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
@@ -68,6 +69,7 @@ extern void				ftx_windtor(void *data, va_list ap);
 /*
 ** MLX functions
 */
+extern int				mlx_clear_window(void *mlx_ptr, void *win_ptr);
 extern int				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
 extern int				mlx_destroy_window(void *mlx_ptr, void *win_ptr);
 extern char				*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,
