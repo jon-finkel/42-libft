@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:03:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/09 09:10:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/12 13:06:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define X_KEYPRESS 2
 # define X_BUTTONPRESS 4
+# define X_MOTIONNOTIFY 6
 
 # define X_NOEVENT_MASK 0L
 # define X_KEYPRESS_MASK (1L << 0)
