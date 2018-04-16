@@ -6,11 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:54:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 21:07:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/16 12:22:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dependencies.h"
+#include "libft/mat.h"
 
 size_t			ft_nextpower2(size_t nb)
 {
@@ -32,4 +33,38 @@ size_t			ft_nextpower2(size_t nb)
 		n2 = n1;
 	n1 = n2 << 1;
 	GIMME((n1 < nb) ? (size_t)SIZE_MAX : n1);
+}
+
+double			ft_zpowi(t_complex z, uint8_t n)
+{
+	double		tmp;
+	t_complex	zp;
+
+	zp.i = z.i;
+	zp.r = z.r;
+	while (--n)
+	{
+		tmp = zp.r;
+		if (n > 1)
+			zp.r = z.r * zp.r - z.i * zp.i;
+		zp.i = z.r * zp.i + tmp * zp.i;
+	}
+	GIMME(zp.i);
+}
+
+double			ft_zpowr(t_complex z, uint8_t n)
+{
+	double		tmp;
+	t_complex	zp;
+
+	zp.i = z.i;
+	zp.r = z.r;
+	while (--n)
+	{
+		tmp = zp.r;
+		zp.r = z.r * zp.r - z.i * zp.i;
+		if (n > 1)
+			zp.i = z.r * zp.i + tmp * zp.i;
+	}
+	GIMME(zp.r);
 }

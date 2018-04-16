@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 15:41:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/16 12:21:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <math.h>
 # include "dependencies.h"
+
+typedef struct		s_complex
+{
+	double			r;
+	double			i;
+}					t_complex;
 
 typedef struct		s_p2
 {
@@ -54,5 +60,7 @@ extern void			ft_veccenter(t_vec4 **avec, size_t size, const t_p2 pos);
 extern void			ft_veciter(t_vec4 **avec, const t_m4 matrix, size_t size);
 extern t_vec4		*ft_vecmap(t_vec4 *vec, double x, double y, double z);
 extern t_vec4		*ft_vecnew(double x, double y, double z, bool w);
+extern double		ft_zpowi(t_complex z, uint8_t n);
+extern double		ft_zpowr(t_complex z, uint8_t n);
 
 #endif
