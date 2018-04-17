@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 19:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/07 11:56:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/17 20:18:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include <inttypes.h>
 # include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
+# include <stdlib.h>
 # include <stdbool.h>
+# include <unistd.h>
 
 # include "lol.h"
 # include "macros.h"
