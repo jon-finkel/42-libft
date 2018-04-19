@@ -6,12 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:00:32 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 20:14:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/19 22:33:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
-
 
 void					ft_putchar_fd(char c, int fd)
 {
