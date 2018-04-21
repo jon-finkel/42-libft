@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/07 11:38:50 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/21 20:48:16 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,7 @@ vpath %.c $(VARY_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(notdir $(SRCS)))
+	@ar rcs $@ $(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
 	@ranlib $@
 	@printf  "\033[92m\033[1:32mCompiling -------------> \033[91m$(NAME)\033[0m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 

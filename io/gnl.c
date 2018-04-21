@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/07 11:24:41 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 20:41:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			get_next_line(int const fd, char **line)
 			NOMOAR;
 	if (!(nb = end ? (end - dstr[fd].buff + 1) : (ssize_t)dstr[fd].len))
 		KTHXBYE;
-	*line = ft_wralloc((size_t)(nb + (end ? 1 : 0)) * sizeof(char));
+	*line = ft_malloc((size_t)(nb + (end ? 1 : 0)) * sizeof(char));
 	(*line)[ft_dstrncpy(*line, dstr + fd, (size_t)nb) - (end ? 1 : 0)] = '\0';
 	GIMME(1);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:39:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 15:43:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 20:42:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_vec4			*ft_vecnew(double x, double y, double z, bool w)
 {
 	t_vec4		*vec;
 
-	vec = (t_vec4 *)ft_wralloc(sizeof(t_vec4));
+	vec = (t_vec4 *)ft_malloc(sizeof(t_vec4));
 	vec->x = x;
 	vec->y = y;
 	vec->z = z;

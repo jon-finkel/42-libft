@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/07 11:50:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 20:42:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/mem.h"
 #include "libft/str.h"
 
-void			*ft_wralloc(size_t size)
+void			*ft_malloc(size_t size)
 {
 	void		*ptr;
 
@@ -28,7 +28,7 @@ void			*ft_memalloc(size_t size)
 	void		*data;
 	int			k;
 
-	data = ft_wralloc(size);
+	data = ft_malloc(size);
 	k = -1;
 	while ((unsigned int)++k < size)
 		*((unsigned char *)data + k) = '\0';
@@ -49,7 +49,7 @@ void			*ft_realloc(void *ptr, size_t size)
 			tmp = ft_memalloc(1);
 		else
 		{
-			tmp = ft_wralloc(sizeof(*ptr) * size);
+			tmp = ft_malloc(sizeof(*ptr) * size);
 			ft_memmove(tmp, ptr, len);
 		}
 		free(ptr);
