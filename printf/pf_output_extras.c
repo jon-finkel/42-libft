@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:35:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:39:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void			conv_k(t_printf *data)
 		tm += 4;
 		ft_strncat(buff, tm, 2);
 	}
-	ft_strdel(&begin);
+	ft_strdtor(&begin);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
 }
 
@@ -60,7 +60,7 @@ static void			conv_t(t_printf *data)
 	k = 10;
 	while (++k < 19)
 		buff[k - 11] = tm[k];
-	ft_strdel(&tm);
+	ft_strdtor(&tm);
 	pf_fill_buffer(data, 0, buff, E_PRINT);
 }
 

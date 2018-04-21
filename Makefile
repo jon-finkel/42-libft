@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/21 22:21:51 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/21 22:43:55 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,8 +56,8 @@ STR_DIR :=					./str/
 VARY_DIR :=					./vary/
 
 #	Sources
-API +=						ctime.c env.c
-CHAR +=						char1.c char2.c
+API +=						api_ctime.c api_env.c
+CHAR +=						char_char1.c char_char2.c
 HDL +=						err.c
 IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c sys.c
 LIST +=						add.c append.c del1.c del2.c
@@ -73,8 +73,9 @@ PRINTF +=					pf_output_double.c pf_output_pointer.c
 PRINTF +=					pf_output_signed.c pf_output_unsigned.c
 STR +=						cat.c chr.c cmp2.c cpy2.c del4.c iter2.c join.c
 STR +=						len.c map2.c new2.c rev.c split.c str.c sub.c to.c
-VARY +=						alloc2.c begin.c clr1.c del5.c end.c grow.c
-VARY +=						ncpush.c ncpy.c npush.c push.c
+VARY +=						vary_begin.c vary_clear.c vary_ctor.c vary_dtor.c
+VARY +=						vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
+VARY +=						vary_npush.c vary_push.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))

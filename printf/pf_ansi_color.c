@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:34:16 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:36:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:38:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void			cat_string(t_printf *data, size_t n, int k)
 		ft_strcat(data->ansi_colors, ";");
 	str = ft_itoa(g_color[k].code + n);
 	ft_strcat(data->ansi_colors, str);
-	ft_strdel(&str);
+	ft_strdtor(&str);
 	data->color_multiple_flags = true;
 }
 

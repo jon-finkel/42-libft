@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:19:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:37:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_ctime(const time_t *clock)
 	char		*year;
 	struct tm	*tm;
 
-	string = ft_strnew(25);
+	string = ft_strctor(25);
 	tm = localtime(clock);
 	ft_strncat(string, g_days[tm->tm_wday], 3);
 	ft_strcat(string, " ");
@@ -72,7 +72,7 @@ char	*ft_ctime(const time_t *clock)
 	ft_strcat(string, " ");
 	year = ft_itoa(tm->tm_year + 1900);
 	ft_strcat(string, year);
-	ft_strdel(&year);
+	ft_strdtor(&year);
 	string[24] = '\n';
 	GIMME(string);
 }

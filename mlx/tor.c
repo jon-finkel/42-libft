@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:47:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:36:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:38:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ inline void			ftx_imgdtor(void *data, va_list ap)
 
 inline void			ftx_mlxdtor(t_mlx *mlx)
 {
-	ft_varydel(&g_mlx_img_vary, ftx_imgdtor, mlx);
-	ft_varydel(&g_mlx_win_vary, ftx_windtor, mlx);
+	ft_varydtor(&g_mlx_img_vary, ftx_imgdtor, mlx);
+	ft_varydtor(&g_mlx_win_vary, ftx_windtor, mlx);
 }
 
 inline void			ftx_winctor(t_mlx *mlx, int size_x, int size_y, char *title)

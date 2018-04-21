@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:20:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:48:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:31:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static inline void	*reall(void *ptr, size_t len, size_t zlen)
 	GIMME(tmp);
 }
 
-inline size_t		ft_dstralloc(t_dstr *dstr, size_t size)
+inline size_t		ft_dstrctor(t_dstr *dstr, size_t size)
 {
 	if (dstr->capacity != size)
 	{
@@ -38,7 +38,7 @@ inline size_t		ft_dstralloc(t_dstr *dstr, size_t size)
 	GIMME(dstr->capacity);
 }
 
-inline size_t		ft_varyalloc(t_vary *vary, size_t size)
+inline size_t		ft_varyctor(t_vary *vary, size_t size)
 {
 	if (vary->capacity != size)
 	{

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:36:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:38:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void			printf_fill(t_printf *data, const char filler,
 	if (data->index + n > PRINTF_BUFFSIZE)
 	{
 		data->pf_buffer[data->index + 1] = '\0';
-		write(data->fd, data->pf_buffer, data->index);
+		ft_write(data->fd, data->pf_buffer, data->index);
 		data->index = 0;
 		if (n > PRINTF_BUFFSIZE)
 		{

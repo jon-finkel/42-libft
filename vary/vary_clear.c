@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del5.c                                             :+:      :+:    :+:   */
+/*   clr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:49:37 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 17:21:04 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/21 22:34:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/mem.h"
 #include "libft/str.h"
 #include "libft/vary.h"
 
-inline void	ft_dstrdel(t_dstr **adstr)
+inline void	ft_dstrclr(t_dstr **adstr)
 {
 	char	*str;
 
@@ -22,30 +21,28 @@ inline void	ft_dstrdel(t_dstr **adstr)
 	{
 		str = ft_dstrbegin(*adstr) - sizeof(char);
 		while ((str += sizeof(char)) != ft_dstrend(*adstr))
-			ft_strdel(&str);
-		ft_strdel(&(*adstr)->buff);
+			ft_strdtor(&str);
+		(*adstr)->len = 0;
 	}
-	*adstr = NULL;
 }
 
-inline void	ft_varydel(t_vary **avar, t_vdtor vdtor, ...)
+inline void	ft_varyclear(t_vary *vary, t_vdtor vdtor, ...)
 {
 	char	*ptr;
 	va_list	ap;
 	va_list	cpy;
 
 	va_start(ap, vdtor);
-	if ((*avar)->buff)
+	if (vary->buff)
 	{
-		ptr = (char *)ft_varybegin(*avar) - (*avar)->data_size;
-		while ((ptr += (*avar)->data_size) != ft_varyend(*avar))
+		ptr = (char *)ft_varybegin(vary) - vary->data_size;
+		while ((ptr += vary->data_size) != (char *)ft_varyend(vary))
 		{
 			va_copy(cpy, ap);
-			vdtor(ptr, cpy);
+			vdtor(ptr, ap);
 			va_end(cpy);
 		}
-		ft_memdel(&(*avar)->buff);
+		vary->len = 0;
 	}
-	*avar = NULL;
 	va_end(ap);
 }

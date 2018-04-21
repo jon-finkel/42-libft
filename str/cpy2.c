@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:47:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:39:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:39:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ inline char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	s2 = ft_strnew(len);
+	s2 = ft_strctor(len);
 	while (*s1)
 	{
 		*s2 = *s1;
@@ -60,7 +60,7 @@ inline char	*ft_strndup(const char *s, size_t n)
 {
 	char	*str;
 
-	str = ft_strnew(n);
+	str = ft_strctor(n);
 	str = ft_strncpy(str, (char *)s, n);
 	str[n] = '\0';
 	GIMME(str);

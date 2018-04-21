@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:28:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:29:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:37:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void				ft_cleanup(const char *args, ...)
 	while (*args)
 	{
 		if (*args == 'P')
-			ft_strdel(va_arg(ap, char **));
+			ft_strdtor(va_arg(ap, char **));
 		else if (*args == 'A')
 			cleanup_pointers_array(va_arg(ap, char ***));
 		++args;

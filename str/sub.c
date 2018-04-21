@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:47:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:40:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ inline char				*ft_strtrim(char *s, bool free)
 	k = -1;
 	len = ft_strlen(s) - value_to_trim(s, rev);
 	ft_strclr(rev);
-	trim = ft_strnew(len);
+	trim = ft_strctor(len);
 	while (IS_WHITESPACE(*s))
 		++s;
 	while (len--)
@@ -56,7 +56,7 @@ inline char				*ft_strtrim(char *s, bool free)
 	}
 	s = begin;
 	if (free == true)
-		ft_strdel(&s);
+		ft_strdtor(&s);
 	GIMME(trim);
 }
 
@@ -68,13 +68,13 @@ inline char				*ft_strsub(char *s, unsigned int start, size_t len,
 	int		k;
 
 	begin = s;
-	sub = ft_strnew(len);
+	sub = ft_strctor(len);
 	s += start;
 	k = -1;
 	while ((unsigned int)++k < len)
 		*(sub + k) = *(s + k);
 	s = begin;
 	if (free == true)
-		ft_strdel(&s);
+		ft_strdtor(&s);
 	GIMME(sub);
 }

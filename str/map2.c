@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:31:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:39:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char			*ft_strmap(const char *s, char (*f)(char))
 
 	k = -1;
 	len = ft_strlen(s);
-	map = ft_strnew(len);
+	map = ft_strctor(len);
 	while ((unsigned int)++k < len)
 		*(map + k) = f(*(s + k));
 	GIMME(map);
@@ -33,7 +33,7 @@ char			*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	size_t		len;
 
 	len = ft_strlen(s);
-	map = ft_strnew(len);
+	map = ft_strctor(len);
 	k = -1;
 	while ((unsigned int)++k < len)
 		*(map + k) = f(k, *(s + k));

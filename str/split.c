@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:43:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:40:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static inline char		*string_shred(const char *s, char c)
 		++size;
 	}
 	s -= size;
-	dup = ft_strnew(size);
+	dup = ft_strctor(size);
 	while (*s && *s != c)
 		dup[++k] = *s++;
 	GIMME(dup);

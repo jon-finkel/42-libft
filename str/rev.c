@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:57:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:42:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:39:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ inline char	*ft_strrevcpy(const char *const s)
 	size_t	len;
 
 	len = ft_strlen(s);
-	string = ft_strnew(len);
+	string = ft_strctor(len);
 	start = string;
 	while (len > 0)
 		*string++ = s[--len];

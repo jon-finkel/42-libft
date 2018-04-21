@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   del5.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/21 22:34:15 by nfinkel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft/mem.h"
+#include "libft/str.h"
+#include "libft/vary.h"
+
+inline void	ft_dstrdtor(t_dstr **adstr)
+{
+	char	*str;
+
+	if ((*adstr)->buff)
+	{
+		str = ft_dstrbegin(*adstr) - sizeof(char);
+		while ((str += sizeof(char)) != ft_dstrend(*adstr))
+			ft_strdtor(&str);
+		ft_strdtor(&(*adstr)->buff);
+	}
+	*adstr = NULL;
+}
+
+inline void	ft_varydtor(t_vary **avar, t_vdtor vdtor, ...)
+{
+	char	*ptr;
+	va_list	ap;
+	va_list	cpy;
+
+	va_start(ap, vdtor);
+	if ((*avar)->buff)
+	{
+		ptr = (char *)ft_varybegin(*avar) - (*avar)->data_size;
+		while ((ptr += (*avar)->data_size) != (char *)ft_varyend(*avar))
+		{
+			va_copy(cpy, ap);
+			vdtor(ptr, cpy);
+			va_end(cpy);
+		}
+		ft_memdel(&(*avar)->buff);
+	}
+	*avar = NULL;
+	va_end(ap);
+}

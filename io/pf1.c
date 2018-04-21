@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:11:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:37:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ inline int	ft_vasprintf(char **ret, const char *format, va_list ap)
 
 	if (!data && (data = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		data->pf_type = E_ASPRINTF;
-	data->pf_buffer = ft_strnew(ASPRINTF_BUFFSIZE);
+	data->pf_buffer = ft_strctor(ASPRINTF_BUFFSIZE);
 	data->pf_len = 0;
 	data->pf_max_len = ASPRINTF_BUFFSIZE;
 	data->non_printable = 0;

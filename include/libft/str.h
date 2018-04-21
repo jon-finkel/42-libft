@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:43:13 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 21:47:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 22:30:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ extern char		*ft_strcjoin(char *s1, const char *s2, const char c, bool free);
 extern void		ft_strclr(char *s);
 extern int		ft_strcmp(const char *s1, const char *s2);
 extern char		*ft_strcpy(char *dst, const char *src);
-extern void		ft_strdel(char **as);
+extern char		*ft_strctor(size_t size);
+extern void		ft_strdtor(char **as);
 extern char		*ft_strdup(const char *s1);
 extern int		ft_strequ(const char *s1, const char *s2);
 extern void		ft_striter(char *s, void (*f)(char *));
@@ -37,7 +38,6 @@ extern char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 extern char		*ft_strncat(char *s1, const char *s2, size_t n);
 extern char		*ft_strndup(const char *s, size_t n);
 extern int		ft_strnequ(const char *s1, const char *s2, size_t n);
-extern char		*ft_strnew(size_t size);
 extern int		ft_strncmp(const char *s1, const char *s2, size_t n);
 extern char		*ft_strncpy(char *dst, const char *src, size_t n);
 extern char		*ft_strnstr(const char *big, const char *little, size_t n);
