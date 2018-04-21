@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/21 20:51:33 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/21 22:21:51 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,7 @@ fclean: clean
 nohdl: HDL :=
 nohdl: re
 
-re: fclean all
+re: fclean fast
 
 so: fclean $(DYN_OBJECTS)
 	@$(CC) $(VERSION) $(DYN_FLAG) -o $(DYN_NAME) $(patsubst %.c,$(DYN_OBJDIR)%.o,$(notdir $(SRCS)))
