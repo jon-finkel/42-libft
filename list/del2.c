@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:36:22 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:38:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:21:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-void			ft_lstsnipe(t_list **alst, t_list *target, t_ldtor ldtor, ...)
+inline void	ft_lstsnipe(t_list **alst, t_list *target, t_ldtor ldtor, ...)
 {
-	t_list		*list;
-	va_list		ap;
+	t_list	*list;
+	va_list	ap;
 
 	va_start(ap, ldtor);
 	if (*alst == target)
@@ -34,10 +34,10 @@ void			ft_lstsnipe(t_list **alst, t_list *target, t_ldtor ldtor, ...)
 	va_end(ap);
 }
 
-void			ft_deqpop(t_deque *deque, t_dqtor dqtor, ...)
+inline void	ft_deqpop(t_deque *deque, t_dqtor dqtor, ...)
 {
-	t_dlist		*tmp;
-	va_list		ap;
+	t_dlist	*tmp;
+	va_list	ap;
 
 	va_start(ap, dqtor);
 	tmp = deque->head;
@@ -52,10 +52,10 @@ void			ft_deqpop(t_deque *deque, t_dqtor dqtor, ...)
 	tmp = NULL;
 }
 
-void			ft_deqeject(t_deque *deque, t_dqtor dqtor, ...)
+inline void	ft_deqeject(t_deque *deque, t_dqtor dqtor, ...)
 {
-	t_dlist		*tmp;
-	va_list		ap;
+	t_dlist	*tmp;
+	va_list	ap;
 
 	va_start(ap, dqtor);
 	tmp = deque->tail;

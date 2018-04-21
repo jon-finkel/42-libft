@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:30:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:11:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf/ft_printf_private.h"
 
-int			ft_vasprintf(char **ret, const char *format, va_list ap)
+inline int	ft_vasprintf(char **ret, const char *format, va_list ap)
 {
-	static t_printf		*data = NULL;
+	static t_printf	*data = NULL;
 
 	if (!data && (data = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		data->pf_type = E_ASPRINTF;
@@ -33,10 +33,10 @@ int			ft_vasprintf(char **ret, const char *format, va_list ap)
 	GIMME(data->error ? -1 : (int)data->pf_len);
 }
 
-int			ft_vdprintf(int fd, const char *restrict format, va_list ap)
+inline int	ft_vdprintf(int fd, const char *restrict format, va_list ap)
 {
-	char				buff[PRINTF_BUFFSIZE + 1];
-	static t_printf		*data = NULL;
+	char			buff[PRINTF_BUFFSIZE + 1];
+	static t_printf	*data = NULL;
 
 	if (!data && (data = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		data->pf_type = E_PRINTF;
@@ -57,10 +57,10 @@ int			ft_vdprintf(int fd, const char *restrict format, va_list ap)
 	GIMME(data->error ? -1 : (int)data->pf_len);
 }
 
-int			ft_vsnprintf(char *restrict str, size_t size,
+inline int	ft_vsnprintf(char *restrict str, size_t size,
 			const char *restrict format, va_list ap)
 {
-	static t_printf		*data = NULL;
+	static t_printf	*data = NULL;
 
 	if (!size)
 		KTHXBYE;

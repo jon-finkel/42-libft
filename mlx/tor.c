@@ -6,21 +6,21 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:47:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/07 11:47:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:36:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 #include "libft/mlxh.h"
 
-static t_vary		g_mlx_img_vary_null = {NULL, 0, 0, sizeof(t_mlx_img *)};
-static t_vary		g_mlx_win_vary_null = {NULL, 0, 0, sizeof(void *)};
-static t_vary		*g_mlx_img_vary = &g_mlx_img_vary_null;
-static t_vary		*g_mlx_win_vary = &g_mlx_win_vary_null;
+static t_vary	g_mlx_img_vary_null = {NULL, 0, 0, sizeof(t_mlx_img *)};
+static t_vary	g_mlx_win_vary_null = {NULL, 0, 0, sizeof(void *)};
+static t_vary	*g_mlx_img_vary = &g_mlx_img_vary_null;
+static t_vary	*g_mlx_win_vary = &g_mlx_win_vary_null;
 
-t_mlx_img			*ftx_imgctor(t_mlx *mlx, int width, int height)
+inline t_mlx_img	*ftx_imgctor(t_mlx *mlx, int width, int height)
 {
-	t_mlx_img		*img;
+	t_mlx_img	*img;
 
 	img = (t_mlx_img *)ft_memalloc(sizeof(t_mlx_img));
 	if (!(img->img = mlx_new_image(mlx->mlx, width, height)))
@@ -33,24 +33,24 @@ t_mlx_img			*ftx_imgctor(t_mlx *mlx, int width, int height)
 	GIMME(img);
 }
 
-void				ftx_imgdtor(void *data, va_list ap)
+inline void			ftx_imgdtor(void *data, va_list ap)
 {
-	t_mlx		*mlx;
+	t_mlx	*mlx;
 
 	mlx = va_arg(ap, t_mlx *);
 	mlx_destroy_image(mlx->mlx, (*(t_mlx_img **)(data))->img);
 	ft_memdel((void **)&*(t_mlx_img **)data);
 }
 
-void				ftx_mlxdtor(t_mlx *mlx)
+inline void			ftx_mlxdtor(t_mlx *mlx)
 {
 	ft_varydel(&g_mlx_img_vary, ftx_imgdtor, mlx);
 	ft_varydel(&g_mlx_win_vary, ftx_windtor, mlx);
 }
 
-void				ftx_winctor(t_mlx *mlx, int size_x, int size_y, char *title)
+inline void			ftx_winctor(t_mlx *mlx, int size_x, int size_y, char *title)
 {
-	void		*win;
+	void	*win;
 
 	if (!(win = mlx_new_window(_MLX_ID, size_x, size_y, title)))
 		ft_errhdl(NULL, 0, 0, ERR_MLXWIN);
@@ -58,9 +58,9 @@ void				ftx_winctor(t_mlx *mlx, int size_x, int size_y, char *title)
 	mlx->win = g_mlx_win_vary->buff;
 }
 
-void				ftx_windtor(void *data, va_list ap)
+inline void			ftx_windtor(void *data, va_list ap)
 {
-	t_mlx		*mlx;
+	t_mlx	*mlx;
 
 	mlx = va_arg(ap, t_mlx *);
 	mlx_destroy_window(mlx->mlx, *(void **)(data));

@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:44:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:43:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 #include "libft/str.h"
 
-static size_t			count_words(const char *s, char c)
+static inline size_t	count_words(const char *s, char c)
 {
-	size_t		size;
+	size_t	size;
 
 	size = 0;
 	while (s && *s)
@@ -30,11 +30,11 @@ static size_t			count_words(const char *s, char c)
 	GIMME(size);
 }
 
-static char				*string_shred(const char *s, char c)
+static inline char		*string_shred(const char *s, char c)
 {
-	char		*dup;
-	int			k;
-	size_t		size;
+	char	*dup;
+	int		k;
+	size_t	size;
 
 	k = -1;
 	size = 0;
@@ -50,11 +50,11 @@ static char				*string_shred(const char *s, char c)
 	GIMME(dup);
 }
 
-char					**ft_strsplit(const char *s, char c)
+inline char				**ft_strsplit(const char *s, char c)
 {
-	char		**dup;
-	int			k;
-	size_t		len;
+	char	**dup;
+	int		k;
+	size_t	len;
 
 	k = -1;
 	len = count_words(s, c) + 1;

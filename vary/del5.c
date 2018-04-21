@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:46:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:49:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "libft/str.h"
 #include "libft/vary.h"
 
-void			ft_dstrdel(t_dstr **adstr)
+inline void	ft_dstrdel(t_dstr **adstr)
 {
-	char		*str;
+	char	*str;
 
 	if ((*adstr)->buff)
 	{
@@ -28,11 +28,11 @@ void			ft_dstrdel(t_dstr **adstr)
 	*adstr = NULL;
 }
 
-void			ft_varydel(t_vary **avar, t_vdtor vdtor, ...)
+inline void	ft_varydel(t_vary **avar, t_vdtor vdtor, ...)
 {
-	char		*ptr;
-	va_list		ap;
-	va_list		cpy;
+	char	*ptr;
+	va_list	ap;
+	va_list	cpy;
 
 	va_start(ap, vdtor);
 	if ((*avar)->buff)

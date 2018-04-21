@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:49:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/15 15:01:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:32:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mlxh.h"
 
-t_mlx_img			*ftx_blurimg(t_mlx_img *img)
+inline t_mlx_img	*ftx_blurimg(t_mlx_img *img)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < img->height && (x = -1))
@@ -24,10 +24,10 @@ t_mlx_img			*ftx_blurimg(t_mlx_img *img)
 	GIMME(img);
 }
 
-t_mlx_img			*ftx_clearimg(t_mlx_img *img)
+inline t_mlx_img	*ftx_clearimg(t_mlx_img *img)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < img->height && (x = -1))
@@ -36,7 +36,7 @@ t_mlx_img			*ftx_clearimg(t_mlx_img *img)
 	GIMME(img);
 }
 
-void				ftx_clearwin(t_mlx *mlx, const uint16_t index)
+inline void			ftx_clearwin(t_mlx *mlx, const uint16_t index)
 {
 	uint16_t	prev;
 
@@ -45,11 +45,11 @@ void				ftx_clearwin(t_mlx *mlx, const uint16_t index)
 	mlx->cur_win = prev;
 }
 
-t_mlx_img			*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
+inline t_mlx_img	*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
 					const t_p2 end)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	y = begin.y - 1;
 	while (++y <= end.y)

@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:47:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-static size_t			value_to_trim(const char *restrict s1,
+static inline size_t	value_to_trim(const char *restrict s1,
 						const char *restrict s2)
 {
-	size_t		trim;
-	size_t		len;
+	size_t	trim;
+	size_t	len;
 
 	trim = 0;
 	len = ft_strlen(s1);
@@ -33,13 +33,13 @@ static size_t			value_to_trim(const char *restrict s1,
 	GIMME(trim == len * 2 ? len : trim);
 }
 
-char					*ft_strtrim(char *s, bool free)
+inline char				*ft_strtrim(char *s, bool free)
 {
-	char		*begin;
-	char		*rev;
-	char		*trim;
-	int			k;
-	size_t		len;
+	char	*begin;
+	char	*rev;
+	char	*trim;
+	int		k;
+	size_t	len;
 
 	begin = s;
 	rev = ft_strrevcpy(s);
@@ -60,12 +60,12 @@ char					*ft_strtrim(char *s, bool free)
 	GIMME(trim);
 }
 
-char					*ft_strsub(char *s, unsigned int start, size_t len,
+inline char				*ft_strsub(char *s, unsigned int start, size_t len,
 						bool free)
 {
-	char		*begin;
-	char		*sub;
-	int			k;
+	char	*begin;
+	char	*sub;
+	int		k;
 
 	begin = s;
 	sub = ft_strnew(len);

@@ -6,16 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:30:52 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:40:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:28:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dependencies.h"
 
-void			*ft_memmove(void *restrict dst, const void *restrict src,
-				size_t len)
+void	*ft_memmove(void *restrict dst, const void *restrict src, size_t len)
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	if (src < dst)
@@ -27,10 +26,9 @@ void			*ft_memmove(void *restrict dst, const void *restrict src,
 	GIMME(dst);
 }
 
-void			*ft_memcpy(void *restrict dst, const void *restrict src,
-				size_t n)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	while ((unsigned int)++k < n)
@@ -38,10 +36,10 @@ void			*ft_memcpy(void *restrict dst, const void *restrict src,
 	GIMME(dst);
 }
 
-void			*ft_memccpy(void *restrict dst, const void *restrict src,
-				int c, size_t n)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
+		size_t n)
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	while ((unsigned int)++k < n)
@@ -56,11 +54,11 @@ void			*ft_memccpy(void *restrict dst, const void *restrict src,
 	ZOMG;
 }
 
-size_t			ft_memnccpy(void *restrict dst, const void *restrict src, int c,
-				size_t n)
+size_t	ft_memnccpy(void *restrict dst, const void *restrict src, int c,
+		size_t n)
 {
-	int			k;
-	size_t		len;
+	int		k;
+	size_t	len;
 
 	k = -1;
 	len = 0;

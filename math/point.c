@@ -6,13 +6,13 @@
 /*   By: nfinkel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 13:57:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/05 13:59:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:25:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 
-t_p2			ft_p2ctor(const int x, const int y)
+inline t_p2	ft_p2ctor(const int x, const int y)
 {
 	GIMME(((t_p2){.x = x, .y = y}));
 }

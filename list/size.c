@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:46:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:38:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:23:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-size_t			ft_lstsize(const t_list *list)
+inline size_t	ft_lstsize(const t_list *list)
 {
-	size_t		size;
+	size_t	size;
 
 	size = 0;
 	while (list)

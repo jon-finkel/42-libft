@@ -6,12 +6,20 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 10:51:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:02:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
+
+# ifndef NEV
+#  define NEV _Noreturn extern void
+# endif
+
+# ifndef NIV
+#  define NIV _Noreturn inline void
+# endif
 
 # ifndef SET_FLAG
 #  define SET_FLAG(x, y) ((y) |= (x))

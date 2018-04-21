@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:04:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:34:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:10:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/io.h"
 
-int			ft_printf(const char *restrict format, ...)
+inline int	ft_printf(const char *restrict format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vdprintf(STDOUT_FILENO, format, ap);
@@ -23,10 +23,10 @@ int			ft_printf(const char *restrict format, ...)
 	GIMME(len);
 }
 
-int			ft_dprintf(int fd, const char *restrict format, ...)
+inline int	ft_dprintf(int fd, const char *restrict format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vdprintf(fd, format, ap);
@@ -34,10 +34,10 @@ int			ft_dprintf(int fd, const char *restrict format, ...)
 	GIMME(len);
 }
 
-int			ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
+inline int	ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vfprintf(stream, format, ap);
@@ -45,10 +45,10 @@ int			ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
 	GIMME(len);
 }
 
-int			ft_asprintf(char **ret, const char *format, ...)
+inline int	ft_asprintf(char **ret, const char *format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vasprintf(ret, format, ap);

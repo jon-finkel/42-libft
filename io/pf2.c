@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:38:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:33:59 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:11:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/io.h"
 
-int			ft_sprintf(char *restrict str, const char *restrict format, ...)
+inline int	ft_sprintf(char *restrict str, const char *restrict format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vsprintf(str, format, ap);
@@ -23,11 +23,11 @@ int			ft_sprintf(char *restrict str, const char *restrict format, ...)
 	GIMME(len);
 }
 
-int			ft_snprintf(char *restrict str, size_t size,
+inline int	ft_snprintf(char *restrict str, size_t size,
 			const char *restrict format, ...)
 {
-	int			len;
-	va_list		ap;
+	int		len;
+	va_list	ap;
 
 	va_start(ap, format);
 	len = ft_vsnprintf(str, size, format, ap);
@@ -35,18 +35,18 @@ int			ft_snprintf(char *restrict str, size_t size,
 	GIMME(len);
 }
 
-int			ft_vprintf(const char *restrict format, va_list ap)
+inline int	ft_vprintf(const char *restrict format, va_list ap)
 {
 	GIMME(ft_vdprintf(STDOUT_FILENO, format, ap));
 }
 
-int			ft_vfprintf(FILE *restrict stream, const char *restrict format,
+inline int	ft_vfprintf(FILE *restrict stream, const char *restrict format,
 			va_list ap)
 {
 	GIMME(ft_vdprintf(stream->_file, format, ap));
 }
 
-int			ft_vsprintf(char *restrict str, const char *restrict format,
+inline int	ft_vsprintf(char *restrict str, const char *restrict format,
 			va_list ap)
 {
 	GIMME(ft_vsnprintf(str, INT_MAX + 1, format, ap));

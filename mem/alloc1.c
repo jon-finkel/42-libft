@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 20:42:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:26:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include "libft/mem.h"
 #include "libft/str.h"
 
-void			*ft_malloc(size_t size)
+inline void	*ft_malloc(size_t size)
 {
-	void		*ptr;
+	void	*ptr;
 
 	if (!(ptr = malloc(size)))
 		ft_errhdl(&ptr, size, errno, ERR_NO);
 	GIMME(ptr);
 }
 
-void			*ft_memalloc(size_t size)
+inline void	*ft_memalloc(size_t size)
 {
-	void		*data;
-	int			k;
+	void	*data;
+	int		k;
 
 	data = ft_malloc(size);
 	k = -1;
@@ -35,10 +35,10 @@ void			*ft_memalloc(size_t size)
 	GIMME(data);
 }
 
-void			*ft_realloc(void *ptr, size_t size)
+inline void	*ft_realloc(void *ptr, size_t size)
 {
-	size_t		len;
-	void		*tmp;
+	size_t	len;
+	void	*tmp;
 
 	if (!ptr)
 		ptr = ft_memalloc(sizeof(*ptr) * size);

@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:28:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:40:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:29:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-static void			cleanup_pointers_array(char ***aarray)
+static inline void	cleanup_pointers_array(char ***aarray)
 {
-	char		**aptr;
-	int			k;
+	char	**aptr;
+	int		k;
 
 	aptr = *aarray;
 	k = -1;
@@ -30,7 +30,7 @@ static void			cleanup_pointers_array(char ***aarray)
 
 void				ft_cleanup(const char *args, ...)
 {
-	va_list		ap;
+	va_list	ap;
 
 	va_start(ap, args);
 	while (*args)

@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 13:22:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:31:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:19:33 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <time.h>
 #include "libft/str.h"
 
-static const char		g_months[12][3] =
+static const char	g_months[12][3] =
 {
 	"Jan",
 	"Feb",
@@ -29,7 +29,7 @@ static const char		g_months[12][3] =
 	"Dec"
 };
 
-static const char		g_days[7][3] =
+static const char	g_days[7][3] =
 {
 	"Sun",
 	"Mon",
@@ -40,7 +40,7 @@ static const char		g_days[7][3] =
 	"Sat"
 };
 
-static const char		*g_num[60] =
+static const char	*g_num[60] =
 {
 	"00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
 	"10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
@@ -50,11 +50,11 @@ static const char		*g_num[60] =
 	"50", "51", "52", "53", "54", "55", "56", "57", "58", "59"
 };
 
-char			*ft_ctime(const time_t *clock)
+char	*ft_ctime(const time_t *clock)
 {
-	char			*string;
-	char			*year;
-	struct tm		*tm;
+	char		*string;
+	char		*year;
+	struct tm	*tm;
 
 	string = ft_strnew(25);
 	tm = localtime(clock);

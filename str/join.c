@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 19:10:02 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:41:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_strjoin(char *restrict s1, const char *restrict s2,
-				bool free)
+inline char	*ft_strjoin(char *restrict s1, const char *restrict s2,
+			bool free)
 {
-	char		*join;
-	size_t		len_s2;
+	char	*join;
+	size_t	len_s2;
 
 	len_s2 = ft_strlen(s2);
 	join = ft_strnew(ft_strlen(s1) + len_s2);
@@ -27,12 +27,12 @@ char			*ft_strjoin(char *restrict s1, const char *restrict s2,
 	GIMME(join);
 }
 
-char			*ft_strcjoin(char *restrict s1, const char *restrict s2,
-				const char c, bool free)
+inline char	*ft_strcjoin(char *restrict s1, const char *restrict s2,
+			const char c, bool free)
 {
-	char		*join;
-	size_t		len_s1;
-	size_t		len_s2;
+	char	*join;
+	size_t	len_s1;
+	size_t	len_s2;
 
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);

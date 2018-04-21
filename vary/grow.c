@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:46:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:49:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 #include "libft/vary.h"
 
-size_t			ft_dstrgrow(t_dstr *dstr, size_t size)
+inline size_t	ft_dstrgrow(t_dstr *dstr, size_t size)
 {
 	if ((size += dstr->len + 1) < DSTR_MIN_SIZE
 		&& DSTR_MIN_SIZE > dstr->capacity)
@@ -23,7 +23,7 @@ size_t			ft_dstrgrow(t_dstr *dstr, size_t size)
 	GIMME(dstr->capacity);
 }
 
-size_t			ft_varygrow(t_vary *vary, size_t size)
+inline size_t	ft_varygrow(t_vary *vary, size_t size)
 {
 	if ((size += vary->len + 1) < VARY_MIN_SIZE
 		&& VARY_MIN_SIZE > vary->capacity)

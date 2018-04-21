@@ -6,19 +6,19 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:38:59 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/02 17:39:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:05:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 #include "libft/io.h"
 
-void			ft_putmatrix(const t_m4 matrix)
+inline void	ft_putmatrix(const t_m4 matrix)
 {
-	char		c1;
-	char		c2;
-	char		c3;
-	char		c4;
+	char	c1;
+	char	c2;
+	char	c3;
+	char	c4;
 
 	c1 = (matrix.d[0] ? '1' : '0');
 	c2 = (matrix.d[1] ? '1' : '0');
@@ -31,7 +31,7 @@ void			ft_putmatrix(const t_m4 matrix)
 		matrix.c[3], c1, c2, c3, c4);
 }
 
-void			ft_putvector(const t_vec4 vec)
+inline void	ft_putvector(const t_vec4 vec)
 {
 	ft_printf("4x1 VECTOR (%p)\n[%9f]\n[%9f]\n[%9f]\n[%9c]\n", &vec, vec.x,\
 		vec.y, vec.z, vec.w ? '1' : '0');

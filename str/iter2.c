@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 17:17:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:36:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:39:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dependencies.h"
 
-void			ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	while (*s)
 	{
@@ -21,9 +21,9 @@ void			ft_striter(char *s, void (*f)(char *))
 	}
 }
 
-void			ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	while (*(s + ++k))

@@ -6,18 +6,18 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:39:18 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/03 14:03:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:24:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 #include "libft/mem.h"
 
-t_m4			ft_m4rotx(double theta)
+inline t_m4	ft_m4rotx(double theta)
 {
-	double		c;
-	double		s;
-	t_m4		matrix;
+	double	c;
+	double	s;
+	t_m4	matrix;
 
 	c = cos(theta);
 	s = sin(theta);
@@ -31,11 +31,11 @@ t_m4			ft_m4rotx(double theta)
 	GIMME(matrix);
 }
 
-t_m4			ft_m4roty(double theta)
+inline t_m4	ft_m4roty(double theta)
 {
-	double		c;
-	double		s;
-	t_m4		matrix;
+	double	c;
+	double	s;
+	t_m4	matrix;
 
 	c = cos(theta);
 	s = sin(theta);
@@ -49,11 +49,11 @@ t_m4			ft_m4roty(double theta)
 	GIMME(matrix);
 }
 
-t_m4			ft_m4rotz(double theta)
+inline t_m4	ft_m4rotz(double theta)
 {
-	double		c;
-	double		s;
-	t_m4		matrix;
+	double	c;
+	double	s;
+	t_m4	matrix;
 
 	c = cos(theta);
 	s = sin(theta);
@@ -67,9 +67,9 @@ t_m4			ft_m4rotz(double theta)
 	GIMME(matrix);
 }
 
-t_m4			ft_m4scale(double sx, double sy, double sz)
+inline t_m4	ft_m4scale(double sx, double sy, double sz)
 {
-	t_m4		matrix;
+	t_m4	matrix;
 
 	ft_memset(&matrix, '\0', sizeof(t_m4));
 	matrix.a[0] = sx;
@@ -79,9 +79,9 @@ t_m4			ft_m4scale(double sx, double sy, double sz)
 	GIMME(matrix);
 }
 
-t_m4			ft_m4trans(double x, double y, double z)
+inline t_m4	ft_m4trans(double x, double y, double z)
 {
-	t_m4		matrix;
+	t_m4	matrix;
 
 	ft_memset(&matrix, '\0', sizeof(t_m4));
 	matrix.a[0] = 1.0;

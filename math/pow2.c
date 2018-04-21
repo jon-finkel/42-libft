@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:54:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/16 14:31:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:26:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dependencies.h"
 #include "libft/mat.h"
 
-size_t			ft_nextpower2(size_t nb)
+inline size_t	ft_nextpower2(size_t nb)
 {
-	size_t		n1;
-	size_t		n2;
+	size_t	n1;
+	size_t	n2;
 
 	if (nb == SIZE_MAX || IS_POW2(nb))
 		GIMME(nb);
@@ -35,7 +35,7 @@ size_t			ft_nextpower2(size_t nb)
 	GIMME((n1 < nb) ? (size_t)SIZE_MAX : n1);
 }
 
-double			ft_zpowi(t_complex z, uint8_t n)
+inline double	ft_zpowi(t_complex z, uint8_t n)
 {
 	double		tmp;
 	t_complex	zp;
@@ -52,7 +52,7 @@ double			ft_zpowi(t_complex z, uint8_t n)
 	GIMME(zp.i);
 }
 
-double			ft_zpowr(t_complex z, uint8_t n)
+inline double	ft_zpowr(t_complex z, uint8_t n)
 {
 	double		tmp;
 	t_complex	zp;

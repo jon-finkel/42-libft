@@ -6,25 +6,25 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:33:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:44:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:42:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 #include "libft/str.h"
 
-char		*ft_strnew(size_t size)
+inline char	*ft_strnew(size_t size)
 {
 	GIMME((char *)ft_memalloc(sizeof(char) * (size + 1)));
 }
 
-int			ft_strrewrite(char *restrict big, const char *restrict little,
+inline int	ft_strrewrite(char *restrict big, const char *restrict little,
 			const char *fill)
 {
-	char		*copy;
-	int			k;
-	size_t		big_len;
-	size_t		lit_len;
+	char	*copy;
+	int		k;
+	size_t	big_len;
+	size_t	lit_len;
 
 	lit_len = ft_strlen(little);
 	big_len = ft_strlen(big);

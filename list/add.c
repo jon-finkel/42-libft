@@ -6,19 +6,19 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:27:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:37:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:20:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-void			ft_lstadd(t_list **alst, t_list *newlink)
+inline void	ft_lstadd(t_list **alst, t_list *newlink)
 {
 	newlink->next = *alst;
 	*alst = newlink;
 }
 
-void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink)
+inline void	ft_dlstadd(t_dlist **adlst, t_dlist *newlink)
 {
 	if (*adlst)
 		(*adlst)->prev = newlink;
@@ -26,7 +26,7 @@ void			ft_dlstadd(t_dlist **adlst, t_dlist *newlink)
 	*adlst = newlink;
 }
 
-void			ft_deqadd(t_deque *deque, t_dlist *newlink)
+inline void	ft_deqadd(t_deque *deque, t_dlist *newlink)
 {
 	if (deque->head)
 		deque->head->prev = newlink;

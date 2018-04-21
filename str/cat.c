@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:01:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:42:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:37:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_strcat(char *restrict dst, const char *restrict src)
+inline char		*ft_strcat(char *restrict dst, const char *restrict src)
 {
-	char		*d;
+	char	*d;
 
 	d = ft_strchr(dst, '\0');
 	while ((*d++ = *src++))
@@ -22,11 +22,11 @@ char			*ft_strcat(char *restrict dst, const char *restrict src)
 	GIMME(dst);
 }
 
-char			*ft_strncat(char *restrict s1, const char *restrict s2,
+inline char		*ft_strncat(char *restrict s1, const char *restrict s2,
 				size_t n)
 {
-	int			k;
-	size_t		len;
+	int		k;
+	size_t	len;
 
 	k = -1;
 	len = ft_strlen(s1);
@@ -36,13 +36,13 @@ char			*ft_strncat(char *restrict s1, const char *restrict s2,
 	GIMME(s1);
 }
 
-size_t			ft_strlcat(char *restrict dst, const char *restrict src,
+inline size_t	ft_strlcat(char *restrict dst, const char *restrict src,
 				size_t n)
 {
-	int			k;
-	size_t		len_dst;
-	size_t		len_src;
-	size_t		p;
+	int		k;
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	p;
 
 	k = -1;
 	len_dst = ft_strlen(dst);

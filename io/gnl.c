@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:16:11 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 20:41:51 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:12:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 #define BUFF_SIZE (4096)
 
-int			get_next_line(int const fd, char **line)
+inline int	get_next_line(int const fd, char **line)
 {
-	char				buff[BUFF_SIZE + 1];
-	char				*end;
-	ssize_t				nb;
-	static t_dstr		dstr[USHRT_MAX];
+	char			buff[BUFF_SIZE + 1];
+	char			*end;
+	ssize_t			nb;
+	static t_dstr	dstr[USHRT_MAX];
 
 	end = NULL;
 	while ((!dstr[fd].len || (end || !(end = ft_strchr(dstr[fd].buff, '\n')))))

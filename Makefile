@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/21 20:48:16 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/21 20:51:33 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ FLAGS :=					-Wall -Wextra -Werror
 ifeq ($(OS), Darwin)
 	THREADS := 				$(shell sysctl -n hw.ncpu)
 else
-	THREADS :=				1
+	THREADS :=				4
 endif
 
 FAST :=						-j$(THREADS)

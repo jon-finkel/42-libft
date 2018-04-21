@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:57:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:32 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:42:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_strrev(char *const s)
+inline char	*ft_strrev(char *const s)
 {
-	char		c;
-	int			k;
-	size_t		len;
+	char	c;
+	int		k;
+	size_t	len;
 
 	k = -1;
 	len = ft_strlen(s);
@@ -29,11 +29,11 @@ char			*ft_strrev(char *const s)
 	GIMME(s);
 }
 
-char			*ft_strrevcpy(const char *const s)
+inline char	*ft_strrevcpy(const char *const s)
 {
-	char		*start;
-	char		*string;
-	size_t		len;
+	char	*start;
+	char	*string;
+	size_t	len;
 
 	len = ft_strlen(s);
 	string = ft_strnew(len);

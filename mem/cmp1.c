@@ -6,14 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 10:16:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/18 10:13:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:27:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mat.h"
 
-int				ft_memcmp(const void *restrict s1, const void *restrict s2,
-				size_t n)
+int		ft_memcmp(const void *restrict s1, const void *restrict s2, size_t n)
 {
 	while (n--)
 	{
@@ -25,9 +24,9 @@ int				ft_memcmp(const void *restrict s1, const void *restrict s2,
 	KTHXBYE;
 }
 
-void			*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	while ((unsigned int)++k < n)
@@ -36,9 +35,9 @@ void			*ft_memchr(const void *s, int c, size_t n)
 	ZOMG;
 }
 
-size_t			ft_mtoi(const uint8_t *mem, size_t len)
+size_t	ft_mtoi(const uint8_t *mem, size_t len)
 {
-	size_t		sum;
+	size_t	sum;
 
 	sum = 0;
 	while (len)

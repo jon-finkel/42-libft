@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 14:48:31 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:42:57 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:37:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_strchr(const char *s, int c)
+inline char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
@@ -23,9 +23,9 @@ char			*ft_strchr(const char *s, int c)
 	GIMME(!(char)c ? (char *)s : NULL);
 }
 
-char			*ft_strrchr(const char *s, int c)
+inline char	*ft_strrchr(const char *s, int c)
 {
-	char		*last;
+	char	*last;
 
 	last = NULL;
 	while (*s)

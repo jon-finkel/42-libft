@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:45:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:50:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/vary.h"
 
-void			ft_varyclr(t_vary *vary, t_vdtor vdtor, ...)
+inline void	ft_varyclr(t_vary *vary, t_vdtor vdtor, ...)
 {
-	char		*ptr;
-	va_list		ap;
-	va_list		cpy;
+	char	*ptr;
+	va_list	ap;
+	va_list	cpy;
 
 	va_start(ap, vdtor);
 	if (vary->buff)

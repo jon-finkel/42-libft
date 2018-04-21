@@ -6,18 +6,18 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/25 22:58:26 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:31:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:19:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_getenv(const char *name)
+char	*ft_getenv(const char *name)
 {
-	char			*buff;
-	extern char		**environ;
-	int				k;
-	size_t			len;
+	char		*buff;
+	extern char	**environ;
+	int			k;
+	size_t		len;
 
 	buff = NULL;
 	len = ft_strlen(name);

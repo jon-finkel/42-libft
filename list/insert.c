@@ -6,17 +6,17 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:45:18 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:38:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:21:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-void			ft_lstinsert(t_list **alst, t_list *newlink,
-				int (*cmp)(void *, void *))
+inline void	ft_lstinsert(t_list **alst, t_list *newlink,
+			int (*cmp)(void *, void *))
 {
-	t_list		*list;
-	t_list		*tmp;
+	t_list	*list;
+	t_list	*tmp;
 
 	list = *alst;
 	if (!list || cmp(list->data, newlink->data))

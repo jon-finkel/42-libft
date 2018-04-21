@@ -6,15 +6,15 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:47:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/14 10:43:06 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/21 21:39:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-char			*ft_strcpy(char *restrict dst, const char *restrict src)
+inline char	*ft_strcpy(char *restrict dst, const char *restrict src)
 {
-	char		*start;
+	char	*start;
 
 	start = dst;
 	while ((*dst++ = *src++))
@@ -22,10 +22,9 @@ char			*ft_strcpy(char *restrict dst, const char *restrict src)
 	GIMME(start);
 }
 
-char			*ft_strncpy(char *restrict dst, const char *restrict src,
-				size_t n)
+inline char	*ft_strncpy(char *restrict dst, const char *restrict src, size_t n)
 {
-	int		k;
+	int	k;
 
 	k = -1;
 	while ((unsigned int)++k < n)
@@ -41,10 +40,10 @@ char			*ft_strncpy(char *restrict dst, const char *restrict src,
 	GIMME(dst);
 }
 
-char			*ft_strdup(const char *s1)
+inline char	*ft_strdup(const char *s1)
 {
-	char		*s2;
-	size_t		len;
+	char	*s2;
+	size_t	len;
 
 	len = ft_strlen(s1);
 	s2 = ft_strnew(len);
@@ -57,9 +56,9 @@ char			*ft_strdup(const char *s1)
 	GIMME(s2 - len);
 }
 
-char			*ft_strndup(const char *s, size_t n)
+inline char	*ft_strndup(const char *s, size_t n)
 {
-	char		*str;
+	char	*str;
 
 	str = ft_strnew(n);
 	str = ft_strncpy(str, (char *)s, n);
