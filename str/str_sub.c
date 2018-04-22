@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chr.c                                              :+:      :+:    :+:   */
+/*   sub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:48:31 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:37:23 by nfinkel          ###   ########.fr       */
+/*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 17:25:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 
-inline char	*ft_strchr(const char *s, int c)
+inline char	*ft_strsub(char *s, unsigned int start, size_t len, bool free)
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			GIMME((char *)s);
-		++s;
-	}
-	GIMME(!(char)c ? (char *)s : NULL);
-}
+	char	*begin;
+	char	*sub;
+	int		k;
 
-inline char	*ft_strrchr(const char *s, int c)
-{
-	char	*last;
-
-	last = NULL;
-	while (*s)
-	{
-		if (*s == (char)c)
-			last = (char *)s;
-		++s;
-	}
-	if (!(char)c)
-		GIMME((char *)s);
-	GIMME(last);
+	begin = s;
+	sub = ft_strctor(len);
+	s += start;
+	k = -1;
+	while ((unsigned int)++k < len)
+		*(sub + k) = *(s + k);
+	s = begin;
+	if (free == true)
+		ft_strdtor(&s);
+	GIMME(sub);
 }

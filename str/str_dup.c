@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len.c                                              :+:      :+:    :+:   */
+/*   str_dup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/19 20:01:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:41:45 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 17:24:02 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 17:24:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/str.h"
 
-size_t	ft_strlen(const char *s)
+inline char	*ft_strdup(const char *s1)
 {
+	char	*s2;
 	size_t	len;
 
-	len = 0;
-	while (*s)
+	len = ft_strlen(s1);
+	s2 = ft_strctor(len);
+	while (*s1)
 	{
-		++s;
-		++len;
+		*s2 = *s1;
+		++s1;
+		++s2;
 	}
-	GIMME(len);
-}
-
-size_t	ft_intlen(intmax_t n)
-{
-	size_t	len;
-
-	len = (n <= 0 ? 1 : 0);
-	if (n < 0)
-		n = -n;
-	while (n != 0)
-	{
-		n /= 10;
-		++len;
-	}
-	GIMME(len);
+	GIMME(s2 - len);
 }

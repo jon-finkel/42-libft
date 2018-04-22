@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter2.c                                            :+:      :+:    :+:   */
+/*   str_iteri.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 17:17:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:39:56 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 17:32:55 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 17:33:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/str.h"
 
-void	ft_striter(char *s, void (*f)(char *))
-{
-	while (*s)
-	{
-		f(s);
-		++s;
-	}
-}
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+inline void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	k;
 

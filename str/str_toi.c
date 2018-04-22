@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 04:34:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:48:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 17:29:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ inline char	*ft_itoa(int n)
 	if (n < 0)
 		tmp[++k] = '-';
 	tmp[++k] = '\0';
-	string = ft_strrevcpy(tmp);
+	string = ft_strrdup(tmp);
 	GIMME(string);
 }

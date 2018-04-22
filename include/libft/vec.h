@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:30:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:08:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 17:38:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ extern t_p2		ft_p2new(const int x, const int y);
 
 extern t_v3		**ft_v3center(t_v3 **av, size_t size, const t_p2 pos);
 extern t_v3		*ft_v3ctor(const double x, const double y, const double z);
-extern t_v3		**ft_v3iter(t_v3 **av, const t_m4 matrix, size_t size);
+extern t_v3		**ft_v3m4iter(t_v3 **av, const t_m4 matrix, size_t size);
 extern t_v3		*ft_v3map(t_v3 *vec, const double x, const double y,
 				const double z);
 extern t_v3		ft_v3new(const double x, const double y, const double z);
@@ -60,7 +60,7 @@ extern t_v3		*ft_v3_m4(t_v3 *vec, const t_m4 matrix);
 extern t_v4		**ft_v4center(t_v4 **av, size_t size, const t_p2 pos);
 extern t_v4		*ft_v4ctor(const double x, const double y, const double z,
 				const bool w);
-extern t_v4		**ft_v4iter(t_v4 **av, const t_m4 matrix, size_t size);
+extern t_v4		**ft_v4m4iter(t_v4 **av, const t_m4 matrix, size_t size);
 extern t_v4		*ft_v4map(t_v4 *vec, const double x, const double y,
 				const double z);
 extern t_v4		ft_v4new(const double x, const double y, const double z,

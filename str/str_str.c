@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 04:31:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:43:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 17:25:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,6 @@ inline char	*ft_strstr(const char *restrict big, const char *restrict little)
 		if (*(little + k) == '\0')
 			GIMME((char *)big - k);
 		big -= k - 1;
-	}
-	ZOMG;
-}
-
-inline char	*ft_strnstr(const char *restrict big, const char *restrict little,
-			size_t n)
-{
-	size_t	len;
-
-	if (!*little)
-		GIMME((char *)big);
-	len = ft_strlen(little);
-	while (n && *big)
-	{
-		if (len <= n && ft_strncmp(big, little, len) == 0)
-			GIMME((char *)big);
-		++big;
-		--n;
 	}
 	ZOMG;
 }

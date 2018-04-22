@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:07:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 17:09:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,18 @@ extern t_mlx_img	*ftx_drawline(t_mlx_img *img, const t_v4 v1,
 					const t_v4 v2, int color);
 extern t_mlx_img	*ftx_hline(t_mlx_img *img, const t_v4 v1,
 					const t_v4 v2, int color);
-extern t_mlx_img	*ftx_imgctor(t_mlx *mlx, int width, int height);
+extern t_mlx_img	*ftx_imgctor(t_mlx *mlx, const int width,
+					const int height);
 extern void			ftx_imgdtor(void *data, va_list ap);
-extern t_mlx		*ftx_init(t_mlx *mlx);
+extern t_mlx		*ftx_mlxctor(t_mlx *mlx);
 extern void			ftx_mlxdtor(t_mlx *mlx);
-extern t_mlx_img	*ftx_setimg(t_mlx *mlx, uint16_t n);
-extern void			*ftx_setwin(t_mlx *mlx, uint16_t n);
+extern t_mlx_img	*ftx_setimg(t_mlx *mlx, const uint16_t n);
+extern void			*ftx_setwin(t_mlx *mlx, const uint16_t n);
 extern void			ftx_showimg(t_mlx *mlx, const int x, const int y);
 extern t_mlx_img	*ftx_vline(t_mlx_img *img, const t_v4 v1,
 					const t_v4 v2, int color);
-extern void			ftx_winctor(t_mlx *mlx, int size_x, int size_y,
-					char *title);
+extern void			ftx_winctor(t_mlx *mlx, char *title, const int size_x,
+					const int size_y);
 extern void			ftx_windtor(void *data, va_list ap);
 
 /*

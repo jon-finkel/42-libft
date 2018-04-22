@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/22 16:47:26 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/22 17:35:30 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,16 +70,21 @@ MEM +=					mem_alloc.c mem_bswap.c mem_ccpy.c mem_chr.c
 MEM +=					mem_cleanup.c mem_cmp.c mem_cpy.c mem_dtor.c
 MEM +=					mem_move.c mem_nccpy.c mem_set.c mem_swap.c
 MEM +=					mem_toi.c mem_zero.c
-MLX +=					clr2.c draw1.c init1.c tor.c
+MLX +=					mlx_blur.c mlx_clear.c mlx_clip.c mlx_ctor.c mlx_dtor.c
+MLX +=					mlx_line.c mlx_pixel.c mlx_set.c mlx_show.c
 PF +=					pf_ansi_color.c pf_fill_buffer.c
 PF +=					pf_buff_format.c pf_get_flags.c
 PF +=					pf_output_char.c pf_output_string.c
 PF +=					pf_output_extras.c pf_output_noprint.c
 PF +=					pf_output_double.c pf_output_pointer.c
 PF +=					pf_output_signed.c pf_output_unsigned.c
-STR +=					cat.c chr.c cmp2.c cpy2.c del4.c iter2.c join.c
-STR +=					len.c map2.c new2.c rev.c split.c str.c sub.c to.c
-VARY +=					vary_begin.c vary_clear.c vary_ctor.c vary_dtor.c
+STR +=					str_cat.c str_chr.c str_cjoin.c str_clr.c str_cmp.c
+STR +=					str_cpy.c str_dtor.c str_dup.c str_equ.c str_iter.c
+STR +=					str_iteri.c str_join.c str_len.c str_map.c str_mapi.c
+STR +=					str_ncpy.c str_ndup.c str_new.c str_nstr.c str_rchr.c
+STR +=					str_rdup.c str_rev.c str_rewrite.c str_split.c
+STR +=					str_str.c str_sub.c str_toi.c str_trim.c
+VARY +=					vary_begin.c vary_clr.c vary_ctor.c vary_dtor.c
 VARY +=					vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
 VARY +=					vary_npush.c vary_push.c
 VEC +=					vec_center.c vec_ctor.c vec_m4iter.c vec_map.c
