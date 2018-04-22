@@ -6,33 +6,33 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 18:31:47 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:43:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:35:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/char.h"
 
-int	ft_isdigit(int c)
+inline bool	ft_isdigit(int c)
 {
-	GIMME(c > 47 && c < 58);
+	GIMME(c > 47 && c < 58 ? true : false);
 }
 
-int	ft_isupper(int c)
+inline bool	ft_isupper(int c)
 {
-	GIMME(c > 64 && c < 91);
+	GIMME(c > 64 && c < 91 ? true : false);
 }
 
-int	ft_islower(int c)
+inline bool	ft_islower(int c)
 {
-	GIMME(c > 96 && c < 123);
+	GIMME(c > 96 && c < 123 ? true : false);
 }
 
-int	ft_isprint(int c)
+inline bool	ft_isprint(int c)
 {
-	GIMME(c > 31 && c < 127);
+	GIMME(c > 31 && c < 127 ? true : false);
 }
 
-int	ft_isascii(int c)
+inline bool	ft_isascii(int c)
 {
-	GIMME(c >= 0 && c < 128);
+	GIMME(c >= 0 && c < 128 ? true : false);
 }

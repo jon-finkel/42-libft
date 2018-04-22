@@ -6,12 +6,12 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:36:39 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:38:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:44:56 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/vec.h"
 #include "libft/mem.h"
+#include "libft/vec.h"
 
 inline t_m4	ft_m4rotx(double theta)
 {

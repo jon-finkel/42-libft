@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:39:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:39:47 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void			copy_string(char *restrict dst, const char *restrict src,
 {
 	while (*src && precision)
 	{
-		if (!ft_isprint(*src))
+		if (ft_isprint(*src) == false)
 		{
 			*dst++ = '\\';
 			*dst++ = '0';

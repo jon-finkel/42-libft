@@ -6,13 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 21:08:34 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:12:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:41:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/mat.h"
 
-int32_t	ft_32npow(const intmax_t nb, uint8_t power)
+inline int32_t	ft_32npow(const intmax_t nb, uint8_t power)
 {
 	int32_t	sum;
 
@@ -24,7 +24,7 @@ int32_t	ft_32npow(const intmax_t nb, uint8_t power)
 	GIMME(sum);
 }
 
-int64_t	ft_64npow(const intmax_t nb, uint8_t power)
+inline int64_t	ft_64npow(const intmax_t nb, uint8_t power)
 {
 	int64_t	sum;
 
@@ -36,7 +36,7 @@ int64_t	ft_64npow(const intmax_t nb, uint8_t power)
 	GIMME(sum);
 }
 
-size_t	ft_stnpow(const intmax_t nb, uint8_t power)
+inline size_t	ft_stnpow(const intmax_t nb, uint8_t power)
 {
 	size_t	sum;
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:47:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:38:28 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:24:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ inline void			ftx_imgdtor(void *data, va_list ap)
 
 	mlx = va_arg(ap, t_mlx *);
 	mlx_destroy_image(mlx->mlx, (*(t_mlx_img **)(data))->img);
-	ft_memdel((void **)&*(t_mlx_img **)data);
+	ft_memdtor((void **)&*(t_mlx_img **)data);
 }
 
 inline void			ftx_mlxdtor(t_mlx *mlx)

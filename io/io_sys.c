@@ -6,13 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 11:39:22 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:06:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:38:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/hdl.h"
+#include "libft/io.h"
 
-ssize_t	ft_read(int filedes, void *buf, size_t nbyte)
+inline ssize_t	ft_read(int filedes, void *buf, size_t nbyte)
 {
 	ssize_t	bytes;
 
@@ -21,7 +22,7 @@ ssize_t	ft_read(int filedes, void *buf, size_t nbyte)
 	GIMME(bytes);
 }
 
-ssize_t	ft_write(int filedes, const void *buf, size_t nbyte)
+inline ssize_t	ft_write(int filedes, const void *buf, size_t nbyte)
 {
 	ssize_t	bytes;
 

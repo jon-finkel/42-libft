@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set.c                                              :+:      :+:    :+:   */
+/*   mem_nccpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/23 22:48:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:30:18 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 16:16:47 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 16:43:42 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dependencies.h"
+#include "libft/mem.h"
 
-void	ft_bzero(void *s, size_t n)
+inline size_t	ft_memnccpy(void *restrict dst, const void *restrict src, int c,
+				size_t n)
 {
-	int	k;
+	int		k;
+	size_t	len;
 
 	k = -1;
+	len = 0;
 	while ((unsigned int)++k < n)
-		((unsigned char *)s)[k] = '\0';
-}
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	int	k;
-
-	k = -1;
-	while ((unsigned int)++k < len)
-		*((unsigned char *)b + k) = (unsigned char)c;
-	GIMME(b);
+	{
+		++len;
+		if (*((unsigned char *)src + k) == (unsigned char)c)
+		{
+			*((unsigned char *)dst + k) = '\0';
+			break ;
+		}
+		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
+	}
+	*((unsigned char *)dst + k) = '\0';
+	GIMME(len);
 }

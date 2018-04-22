@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/22 16:02:01 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/22 16:47:26 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,73 +15,75 @@
 #################
 
 #	Environment
-OS :=						$(shell uname)
+OS :=					$(shell uname)
 
 #	Output
-NAME :=						libft.a
-DYN_NAME :=					${NAME:a=so}
+NAME :=					libft.a
+DYN_NAME :=				${NAME:a=so}
 
 #	Compiler
-CC :=						gcc
-VERSION :=					-std=c11
+CC :=					gcc
+VERSION :=				-std=c11
 
-FLAGS :=					-Wall -Wextra -Werror
+FLAGS :=				-Wall -Wextra -Werror
 
 ifeq ($(OS), Darwin)
-	THREADS := 				$(shell sysctl -n hw.ncpu)
+	THREADS := 			$(shell sysctl -n hw.ncpu)
 else
-	THREADS :=				4
+	THREADS :=			4
 endif
 
-FAST :=						-j$(THREADS)
+FAST :=					-j$(THREADS)
 
-DYN_FLAG :=					-shared
-HEADERS :=					-I ./include/
-O_FLAG :=					-O2
+DYN_FLAG :=				-shared
+HEADERS :=				-I ./include/
+O_FLAG :=				-O2
 
 #	Directories
-OBJDIR :=					./build/
-DYN_OBJDIR :=				./dyn_build/
+OBJDIR :=				./build/
+DYN_OBJDIR :=			./dyn_build/
 
-API_DIR :=					./api/
-CHAR_DIR :=					./char/
-HDL_DIR :=					./hdl/
-IO_DIR :=					./io/
-LIST_DIR :=					./list/
-MATH_DIR :=					./math/
-MEM_DIR :=					./mem/
-MLX_DIR :=					./mlx/
-PRINTF_DIR :=				./printf/
-STR_DIR :=					./str/
-VARY_DIR :=					./vary/
-VEC_DIR :=					./vec/
+API_DIR :=				./api/
+CHAR_DIR :=				./char/
+HDL_DIR :=				./hdl/
+IO_DIR :=				./io/
+LIST_DIR :=				./list/
+MATH_DIR :=				./math/
+MEM_DIR :=				./mem/
+MLX_DIR :=				./mlx/
+PF_DIR :=				./pf/
+STR_DIR :=				./str/
+VARY_DIR :=				./vary/
+VEC_DIR :=				./vec/
 
 #	Sources
-API +=						api_ctime.c api_env.c
-CHAR +=						char_char1.c char_char2.c
-HDL +=						hdl_err.c
-IO +=						io_gnl.c io_pf1.c io_pf2.c io_pf3.c
-IO +=						io_put1.c io_put2.c io_put3.c io_sys.c
-LIST +=						list_add.c list_append.c list_ctor.c list_dtor.c
-LIST +=						list_eject.c list_fdup.c list_fiter.c list_insert.c
-LIST +=						list_len.c list_node.c list_pop.c list_rem.c
-MATH +=						math_npow.c math_nxpow2.c math_zpow.c
-MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
-MLX +=						clr2.c draw1.c init1.c tor.c
-PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
-PRINTF +=					pf_buff_format.c pf_get_flags.c
-PRINTF +=					pf_output_char.c pf_output_string.c
-PRINTF +=					pf_output_extras.c pf_output_noprint.c
-PRINTF +=					pf_output_double.c pf_output_pointer.c
-PRINTF +=					pf_output_signed.c pf_output_unsigned.c
-STR +=						cat.c chr.c cmp2.c cpy2.c del4.c iter2.c join.c
-STR +=						len.c map2.c new2.c rev.c split.c str.c sub.c to.c
-VARY +=						vary_begin.c vary_clear.c vary_ctor.c vary_dtor.c
-VARY +=						vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
-VARY +=						vary_npush.c vary_push.c
-VEC +=						vec_center.c vec_ctor.c vec_m4iter.c vec_map.c
-VEC +=						vec_mult.c vec_new.c vec_rot.c vec_scale.c
-VEC +=						vec_trans.c
+API +=					api_ctime.c api_env.c
+CHAR +=					char_char1.c char_char2.c
+HDL +=					hdl_err.c
+IO +=					io_gnl.c io_pf1.c io_pf2.c io_pf3.c
+IO +=					io_put1.c io_put2.c io_put3.c io_sys.c
+LIST +=					list_add.c list_append.c list_ctor.c list_dtor.c
+LIST +=					list_eject.c list_fdup.c list_fiter.c list_insert.c
+LIST +=					list_len.c list_node.c list_pop.c list_rem.c
+MATH +=					math_npow.c math_nxpow2.c math_zpow.c
+MEM +=					mem_alloc.c mem_bswap.c mem_ccpy.c mem_chr.c
+MEM +=					mem_cleanup.c mem_cmp.c mem_cpy.c mem_dtor.c
+MEM +=					mem_move.c mem_nccpy.c mem_set.c mem_swap.c
+MEM +=					mem_toi.c mem_zero.c
+MLX +=					clr2.c draw1.c init1.c tor.c
+PF +=					pf_ansi_color.c pf_fill_buffer.c
+PF +=					pf_buff_format.c pf_get_flags.c
+PF +=					pf_output_char.c pf_output_string.c
+PF +=					pf_output_extras.c pf_output_noprint.c
+PF +=					pf_output_double.c pf_output_pointer.c
+PF +=					pf_output_signed.c pf_output_unsigned.c
+STR +=					cat.c chr.c cmp2.c cpy2.c del4.c iter2.c join.c
+STR +=					len.c map2.c new2.c rev.c split.c str.c sub.c to.c
+VARY +=					vary_begin.c vary_clear.c vary_ctor.c vary_dtor.c
+VARY +=					vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
+VARY +=					vary_npush.c vary_push.c
+VEC +=					vec_center.c vec_ctor.c vec_m4iter.c vec_map.c
+VEC +=					vec_mult.c vec_new.c vec_rot.c vec_scale.c vec_trans.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
@@ -94,7 +96,7 @@ SRCS +=						$(LIST)
 SRCS +=						$(MATH)
 SRCS +=						$(MEM)
 SRCS +=						$(MLX)
-SRCS +=						$(PRINTF)
+SRCS +=						$(PF)
 SRCS +=						$(STR)
 SRCS +=						$(VARY)
 SRCS +=						$(VEC)
@@ -107,7 +109,7 @@ vpath %.c $(LIST_DIR)
 vpath %.c $(MATH_DIR)
 vpath %.c $(MEM_DIR)
 vpath %.c $(MLX_DIR)
-vpath %.c $(PRINTF_DIR)
+vpath %.c $(PF_DIR)
 vpath %.c $(STR_DIR)
 vpath %.c $(VARY_DIR)
 vpath %.c $(VEC_DIR)

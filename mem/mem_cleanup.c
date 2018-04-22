@@ -6,10 +6,11 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:28:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:37:37 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:42:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/mem.h"
 #include "libft/str.h"
 
 static inline void	cleanup_pointers_array(char ***aarray)
@@ -28,7 +29,7 @@ static inline void	cleanup_pointers_array(char ***aarray)
 	aptr = NULL;
 }
 
-void				ft_cleanup(const char *args, ...)
+inline void			ft_cleanup(const char *args, ...)
 {
 	va_list	ap;
 
@@ -42,10 +43,4 @@ void				ft_cleanup(const char *args, ...)
 		++args;
 	}
 	va_end(ap);
-}
-
-void				ft_memdel(void **ap)
-{
-	free(*ap);
-	*ap = NULL;
 }

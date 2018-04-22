@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:20:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:31:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:25:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static inline void	*reall(void *ptr, size_t len, size_t zlen)
 	if (ptr)
 	{
 		ft_memmove(tmp, ptr, len);
-		ft_memdel(&ptr);
+		ft_memdtor(&ptr);
 	}
 	GIMME(tmp);
 }

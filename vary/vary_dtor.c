@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:34:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:25:23 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ inline void	ft_varydtor(t_vary **avar, t_vdtor vdtor, ...)
 			vdtor(ptr, cpy);
 			va_end(cpy);
 		}
-		ft_memdel(&(*avar)->buff);
+		ft_memdtor(&(*avar)->buff);
 	}
 	*avar = NULL;
 	va_end(ap);

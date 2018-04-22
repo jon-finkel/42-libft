@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char.h                                             :+:      :+:    :+:   */
+/*   mem_ccpy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/24 18:39:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:29:54 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 16:17:06 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 16:42:35 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHAR_H
-# define CHAR_H
+#include "libft/mem.h"
 
-# include "dependencies.h"
+inline void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
+			size_t n)
+{
+	int	k;
 
-extern bool	ft_isalpha(int c);
-extern bool	ft_isalnum(int c);
-extern bool	ft_isascii(int c);
-extern bool	ft_isdigit(int c);
-extern bool	ft_islower(int c);
-extern bool	ft_isprint(int c);
-extern bool	ft_isupper(int c);
-extern bool	ft_tolower(int c);
-extern bool	ft_toupper(int c);
-
-#endif
+	k = -1;
+	while ((unsigned int)++k < n)
+	{
+		if (*((unsigned char *)src + k) == (unsigned char)c)
+		{
+			*((unsigned char *)dst + k) = (unsigned char)c;
+			GIMME(dst + k + 1);
+		}
+		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
+	}
+	ZOMG;
+}
