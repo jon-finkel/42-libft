@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   vec_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 17:50:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:30:04 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 15:38:08 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 15:38:09 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft/vec.h"
 
-# include "dependencies.h"
+inline t_p2	ft_p2new(const int x, const int y)
+{
+	GIMME(((t_p2){.x = x, .y = y}));
+}
 
-# include "libft/api.h"
-# include "libft/char.h"
-# include "libft/hdl.h"
-# include "libft/io.h"
-# include "libft/list.h"
-# include "libft/mat.h"
-# include "libft/mem.h"
-# include "libft/mlxh.h"
-# include "libft/str.h"
-# include "libft/vary.h"
-# include "libft/vec.h"
+inline t_v3	ft_v3new(const double x, const double y, const double z)
+{
+	GIMME(((t_v3){.x = x, .y = y, .z = z}));
+}
 
-#endif
+inline t_v4	ft_v4new(const double x, const double y, const double z,
+			const bool w)
+{
+	GIMME(((t_v4){.x = x, .y = y, .z = z, .w = w}));
+}

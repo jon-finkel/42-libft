@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:38:59 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:05:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:04:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/mat.h"
 #include "libft/io.h"
+#include "libft/vec.h"
 
-inline void	ft_putmatrix(const t_m4 matrix)
+inline void	ft_putm4(const t_m4 matrix)
 {
 	char	c1;
 	char	c2;
@@ -31,7 +31,13 @@ inline void	ft_putmatrix(const t_m4 matrix)
 		matrix.c[3], c1, c2, c3, c4);
 }
 
-inline void	ft_putvector(const t_vec4 vec)
+inline void	ft_putv3(const t_v3 vec)
+{
+	ft_printf("3x1 VECTOR (%p)\n[%9f]\n[%9f]\n[%9f]\n", &vec, vec.x, vec.y,\
+		vec.z);
+}
+
+inline void	ft_putv4(const t_v4 vec)
 {
 	ft_printf("4x1 VECTOR (%p)\n[%9f]\n[%9f]\n[%9f]\n[%9c]\n", &vec, vec.x,\
 		vec.y, vec.z, vec.w ? '1' : '0');

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 13:48:31 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:03:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define IO_H
 
 # include <stdio.h>
-# include "libft/mat.h"
+# include "libft/vec.h"
 
 extern int		ft_asprintf(char **ret, const char *format, ...);
 extern int		ft_dprintf(int fd, const char *format, ...);
@@ -25,12 +25,13 @@ extern void		ft_putchar(char c);
 extern void		ft_putchar_fd(char c, int fd);
 extern void		ft_putendl(const char *s);
 extern void		ft_putendl_fd(const char *s, int fd);
-extern void		ft_putmatrix(const t_m4 matrix);
+extern void		ft_putm4(const t_m4 matrix);
 extern void		ft_putnbr(int n);
 extern void		ft_putnbr_fd(int n, int fd);
 extern void		ft_putstr(const char *s);
 extern void		ft_putstr_fd(const char *s, int fd);
-extern void		ft_putvector(const t_vec4 vec);
+extern void		ft_putv3(const t_v3 vec);
+extern void		ft_putv4(const t_v4 vec);
 extern ssize_t	ft_read(int filedes, void *buf, size_t nbyte);
 extern int		ft_snprintf(char *str, size_t size, const char *format, ...);
 extern int		ft_sprintf(char *str, const char *format, ...);

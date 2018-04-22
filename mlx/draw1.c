@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/31 12:18:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:34:39 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:07:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ inline t_mlx_img		*ftx_buffpixel(t_mlx_img *img, const int x,
 	GIMME(img);
 }
 
-inline t_mlx_img		*ftx_hline(t_mlx_img *img, const t_vec4 v1,
-						const t_vec4 v2, int color)
+inline t_mlx_img		*ftx_hline(t_mlx_img *img, const t_v4 v1,
+						const t_v4 v2, int color)
 {
 	int	k;
 	int	p;
@@ -42,8 +42,8 @@ inline t_mlx_img		*ftx_hline(t_mlx_img *img, const t_vec4 v1,
 	GIMME(img);
 }
 
-inline t_mlx_img		*ftx_vline(t_mlx_img *img, const t_vec4 v1,
-						const t_vec4 v2, int color)
+inline t_mlx_img		*ftx_vline(t_mlx_img *img, const t_v4 v1,
+						const t_v4 v2, int color)
 {
 	int	k;
 	int	p;
@@ -57,8 +57,8 @@ inline t_mlx_img		*ftx_vline(t_mlx_img *img, const t_vec4 v1,
 	GIMME(img);
 }
 
-static inline t_mlx_img	*p_line(t_mlx_img *img, const t_vec4 v1,
-						const t_vec4 v2, int color)
+static inline t_mlx_img	*p_line(t_mlx_img *img, const t_v4 v1,
+						const t_v4 v2, int color)
 {
 	if (v1.x == v2.x && v1.y == v2.y)
 		GIMME(ftx_buffpixel(img, v1.x, v1.y, color));
@@ -68,8 +68,8 @@ static inline t_mlx_img	*p_line(t_mlx_img *img, const t_vec4 v1,
 		GIMME(ftx_hline(img, v1, v2, color));
 }
 
-inline t_mlx_img		*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
-						const t_vec4 v2, int color)
+inline t_mlx_img		*ftx_drawline(t_mlx_img *img, const t_v4 v1,
+						const t_v4 v2, int color)
 {
 	int		k;
 	int		x;

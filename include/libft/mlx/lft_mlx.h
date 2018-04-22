@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:16:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 16:07:20 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_MLX_H
 # define LFT_MLX_H
 
-# include "libft/mat.h"
+# include "libft/vec.h"
 # include "libft/vary.h"
 # include "libft/mlx/keys.h"
 
@@ -53,10 +53,10 @@ extern t_mlx_img	*ftx_clearimg(t_mlx_img *img);
 extern void			ftx_clearwin(t_mlx *mlx, const uint16_t index);
 extern t_mlx_img	*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
 					const t_p2 end);
-extern t_mlx_img	*ftx_drawline(t_mlx_img *img, const t_vec4 v1,
-					const t_vec4 v2, int color);
-extern t_mlx_img	*ftx_hline(t_mlx_img *img, const t_vec4 v1,
-					const t_vec4 v2, int color);
+extern t_mlx_img	*ftx_drawline(t_mlx_img *img, const t_v4 v1,
+					const t_v4 v2, int color);
+extern t_mlx_img	*ftx_hline(t_mlx_img *img, const t_v4 v1,
+					const t_v4 v2, int color);
 extern t_mlx_img	*ftx_imgctor(t_mlx *mlx, int width, int height);
 extern void			ftx_imgdtor(void *data, va_list ap);
 extern t_mlx		*ftx_init(t_mlx *mlx);
@@ -64,8 +64,8 @@ extern void			ftx_mlxdtor(t_mlx *mlx);
 extern t_mlx_img	*ftx_setimg(t_mlx *mlx, uint16_t n);
 extern void			*ftx_setwin(t_mlx *mlx, uint16_t n);
 extern void			ftx_showimg(t_mlx *mlx, const int x, const int y);
-extern t_mlx_img	*ftx_vline(t_mlx_img *img, const t_vec4 v1,
-					const t_vec4 v2, int color);
+extern t_mlx_img	*ftx_vline(t_mlx_img *img, const t_v4 v1,
+					const t_v4 v2, int color);
 extern void			ftx_winctor(t_mlx *mlx, int size_x, int size_y,
 					char *title);
 extern void			ftx_windtor(void *data, va_list ap);

@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/22 14:52:51 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/22 16:02:01 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ MLX_DIR :=					./mlx/
 PRINTF_DIR :=				./printf/
 STR_DIR :=					./str/
 VARY_DIR :=					./vary/
+VEC_DIR :=					./vec/
 
 #	Sources
 API +=						api_ctime.c api_env.c
@@ -64,7 +65,7 @@ IO +=						io_put1.c io_put2.c io_put3.c io_sys.c
 LIST +=						list_add.c list_append.c list_ctor.c list_dtor.c
 LIST +=						list_eject.c list_fdup.c list_fiter.c list_insert.c
 LIST +=						list_len.c list_node.c list_pop.c list_rem.c
-MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c point.c
+MATH +=						math_npow.c math_nxpow2.c math_zpow.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
 MLX +=						clr2.c draw1.c init1.c tor.c
 PRINTF +=					pf_ansi_color.c pf_fill_buffer.c
@@ -78,6 +79,9 @@ STR +=						len.c map2.c new2.c rev.c split.c str.c sub.c to.c
 VARY +=						vary_begin.c vary_clear.c vary_ctor.c vary_dtor.c
 VARY +=						vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
 VARY +=						vary_npush.c vary_push.c
+VEC +=						vec_center.c vec_ctor.c vec_m4iter.c vec_map.c
+VEC +=						vec_mult.c vec_new.c vec_rot.c vec_scale.c
+VEC +=						vec_trans.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
@@ -93,6 +97,7 @@ SRCS +=						$(MLX)
 SRCS +=						$(PRINTF)
 SRCS +=						$(STR)
 SRCS +=						$(VARY)
+SRCS +=						$(VEC)
 
 vpath %.c $(API_DIR)
 vpath %.c $(CHAR_DIR)
@@ -105,6 +110,7 @@ vpath %.c $(MLX_DIR)
 vpath %.c $(PRINTF_DIR)
 vpath %.c $(STR_DIR)
 vpath %.c $(VARY_DIR)
+vpath %.c $(VEC_DIR)
 
 #################
 ##    RULES    ##
