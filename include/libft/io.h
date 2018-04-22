@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:13:25 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 13:48:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 extern int		ft_asprintf(char **ret, const char *format, ...);
 extern int		ft_dprintf(int fd, const char *format, ...);
-NEV				ft_exit(const char *s, const int ret);
 NEV				ft_fatal(const char *s, const int errcode);
 extern int		ft_fprintf(FILE *stream, const char *format, ...);
 extern int		ft_printf(const char *format, ...);

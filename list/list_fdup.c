@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put1.c                                             :+:      :+:    :+:   */
+/*   map1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/25 21:59:10 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:04:48 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 21:45:50 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 14:40:27 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/io.h"
+#include "libft/list.h"
 
-inline void	ft_putchar(char c)
+inline t_list	*ft_lstfdup(t_list *lst, t_list *(*f)(t_list *))
 {
-	ft_putchar_fd(c, STDOUT_FILENO);
-}
+	t_list		*begin;
+	t_list		*new;
+	t_list		*tmp;
 
-inline void	ft_putnbr(int n)
-{
-	ft_putchar_fd(n, STDOUT_FILENO);
-}
-
-inline void	ft_putstr(const char *restrict s)
-{
-	ft_putstr_fd(s, STDOUT_FILENO);
-}
-
-inline void	ft_putendl(const char *s)
-{
-	ft_putendl_fd(s, STDOUT_FILENO);
-}
-
-NIV			ft_exit(const char *s, const int ret)
-{
-	ft_putstr(s);
-	exit(ret);
+	tmp = f(lst);
+	new = ft_lstctor(tmp->data, tmp->data_size);
+	begin = new;
+	lst = lst->next;
+	while (lst)
+	{
+		tmp = f(lst);
+		new->next = ft_lstctor(tmp->data, tmp->data_size);
+		lst = lst->next;
+		new = new->next;
+	}
+	GIMME(begin);
 }

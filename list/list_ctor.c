@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:39:23 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:22:46 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 14:37:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 #include "libft/mem.h"
 
-inline t_list	*ft_lstnew(const void *data, size_t data_size)
+inline t_list	*ft_lstctor(const void *data, size_t data_size)
 {
 	t_list	*list;
 
@@ -27,7 +27,7 @@ inline t_list	*ft_lstnew(const void *data, size_t data_size)
 	GIMME(list);
 }
 
-inline t_dlist	*ft_dlstnew(const void *data, size_t data_size)
+inline t_dlist	*ft_dlstctor(const void *data, size_t data_size)
 {
 	t_dlist	*dlist;
 

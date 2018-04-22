@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map1.c                                             :+:      :+:    :+:   */
+/*   put1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/25 21:45:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:22:22 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/02/25 21:59:10 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 13:48:24 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/list.h"
+#include "libft/io.h"
 
-inline t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
+inline void	ft_putchar(char c)
 {
-	t_list		*begin;
-	t_list		*new;
-	t_list		*tmp;
+	ft_putchar_fd(c, STDOUT_FILENO);
+}
 
-	tmp = f(lst);
-	new = ft_lstnew(tmp->data, tmp->data_size);
-	begin = new;
-	lst = lst->next;
-	while (lst)
-	{
-		tmp = f(lst);
-		new->next = ft_lstnew(tmp->data, tmp->data_size);
-		lst = lst->next;
-		new = new->next;
-	}
-	GIMME(begin);
+inline void	ft_putnbr(int n)
+{
+	ft_putchar_fd(n, STDOUT_FILENO);
+}
+
+inline void	ft_putstr(const char *restrict s)
+{
+	ft_putstr_fd(s, STDOUT_FILENO);
+}
+
+inline void	ft_putendl(const char *s)
+{
+	ft_putendl_fd(s, STDOUT_FILENO);
 }

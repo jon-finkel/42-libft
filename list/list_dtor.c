@@ -6,20 +6,13 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:29:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:21:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 14:43:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-inline void	ft_lstdelone(t_list **alst, t_ldtor ldtor, va_list ap)
-{
-	ldtor((*alst)->data, (*alst)->data_size, ap);
-	free(*alst);
-	*alst = NULL;
-}
-
-inline void	ft_lstdel(t_list **alst, t_ldtor ldtor, ...)
+inline void	ft_lstdtor(t_list **alst, t_ldtor ldtor, ...)
 {
 	t_list	*tmp;
 	va_list	ap;
@@ -31,7 +24,8 @@ inline void	ft_lstdel(t_list **alst, t_ldtor ldtor, ...)
 	{
 		tmp = (*alst)->next;
 		va_copy(cpy, ap);
-		ft_lstdelone(&(*alst), ldtor, cpy);
+		ldtor((*alst)->data, (*alst)->data_size, ap);
+		free(*alst);
 		va_end(cpy);
 		*alst = tmp;
 	}
@@ -39,7 +33,7 @@ inline void	ft_lstdel(t_list **alst, t_ldtor ldtor, ...)
 	alst = NULL;
 }
 
-inline void	ft_deqdel(t_deque **adeq, t_dqtor dqtor, ...)
+inline void	ft_deqdtor(t_deque **adeq, t_dqtor dqtor, ...)
 {
 	t_dlist	*tmp;
 	va_list	ap;

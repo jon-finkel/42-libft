@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   size.c                                             :+:      :+:    :+:   */
+/*   list_rem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/25 21:46:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:23:08 by nfinkel          ###   ########.fr       */
+/*   Created: 2018/04/22 14:49:47 by nfinkel           #+#    #+#             */
+/*   Updated: 2018/04/22 14:49:52 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-inline size_t	ft_lstsize(const t_list *list)
+inline void	ft_lstrem(t_list **alst, t_list *trgt, t_ldtor ldtor, ...)
 {
-	size_t	size;
+	t_list	*list;
+	va_list	ap;
 
-	size = 0;
-	while (list)
+	va_start(ap, ldtor);
+	if (*alst == trgt)
 	{
-		list = list->next;
-		++size;
+		*alst = trgt->next;
+		ldtor(trgt->data, trgt->data_size, ap);
 	}
-	GIMME(size);
+	else
+	{
+		list = *alst;
+		while (list->next != trgt)
+			list = list->next;
+		list->next = trgt->next;
+		ldtor(trgt->data, trgt->data_size, ap);
+	}
+	va_end(ap);
 }

@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/21 22:43:55 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/04/22 14:52:51 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,10 +58,12 @@ VARY_DIR :=					./vary/
 #	Sources
 API +=						api_ctime.c api_env.c
 CHAR +=						char_char1.c char_char2.c
-HDL +=						err.c
-IO +=						gnl.c pf1.c pf2.c pf3.c put1.c put2.c put3.c sys.c
-LIST +=						add.c append.c del1.c del2.c
-LIST +=						insert.c iter1.c map1.c new1.c node.c size.c
+HDL +=						hdl_err.c
+IO +=						io_gnl.c io_pf1.c io_pf2.c io_pf3.c
+IO +=						io_put1.c io_put2.c io_put3.c io_sys.c
+LIST +=						list_add.c list_append.c list_ctor.c list_dtor.c
+LIST +=						list_eject.c list_fdup.c list_fiter.c list_insert.c
+LIST +=						list_len.c list_node.c list_pop.c list_rem.c
 MATH +=						pow1.c pow2.c mat1.c mtx1.c mtx2.c point.c
 MEM +=						alloc1.c cmp1.c cpy1.c del3.c set.c swap.c
 MLX +=						clr2.c draw1.c init1.c tor.c

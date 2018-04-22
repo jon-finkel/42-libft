@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:36:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:02:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/04/22 13:45:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MACROS_H
 
 # ifndef NEV
-#  define NEV _Noreturn extern void
+#  define NEV extern _Noreturn void
 # endif
 
 # ifndef NIV
