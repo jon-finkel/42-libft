@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:30:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:38:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/05 17:41:07 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,23 @@ typedef struct	s_m4
 	bool		d[4];
 }				t_m4;
 
-extern t_p2		*ft_p2ctor(const int x, const int y);
-extern t_p2		*ft_p2map(t_p2 *point, const int x, const int y);
-extern t_p2		ft_p2new(const int x, const int y);
+extern t_p2		*ft_p2ctor(int x, int y);
+extern t_p2		*ft_p2map(t_p2 *point, int x, int y);
+extern t_p2		ft_p2new(int x, int y);
 
-extern t_v3		**ft_v3center(t_v3 **av, size_t size, const t_p2 pos);
-extern t_v3		*ft_v3ctor(const double x, const double y, const double z);
-extern t_v3		**ft_v3m4iter(t_v3 **av, const t_m4 matrix, size_t size);
-extern t_v3		*ft_v3map(t_v3 *vec, const double x, const double y,
-				const double z);
-extern t_v3		ft_v3new(const double x, const double y, const double z);
-extern t_v3		*ft_v3_m4(t_v3 *vec, const t_m4 matrix);
+extern t_v3		**ft_v3center(t_v3 **av, size_t size, t_p2 pos);
+extern t_v3		*ft_v3ctor(double x, double y, double z);
+extern t_v3		**ft_v3m4iter(t_v3 **av, t_m4 matrix, size_t size);
+extern t_v3		*ft_v3map(t_v3 *vec, double x, double y, double z);
+extern t_v3		ft_v3new(double x, double y, double z);
+extern t_v3		*ft_v3_m4(t_v3 *vec, t_m4 matrix);
 
-extern t_v4		**ft_v4center(t_v4 **av, size_t size, const t_p2 pos);
-extern t_v4		*ft_v4ctor(const double x, const double y, const double z,
-				const bool w);
-extern t_v4		**ft_v4m4iter(t_v4 **av, const t_m4 matrix, size_t size);
-extern t_v4		*ft_v4map(t_v4 *vec, const double x, const double y,
-				const double z);
-extern t_v4		ft_v4new(const double x, const double y, const double z,
-				const bool w);
-extern t_v4		*ft_v4_m4(t_v4 *vec, const t_m4 matrix);
+extern t_v4		**ft_v4center(t_v4 **av, size_t size, t_p2 pos);
+extern t_v4		*ft_v4ctor(double x, double y, double z, bool w);
+extern t_v4		**ft_v4m4iter(t_v4 **av, t_m4 matrix, size_t size);
+extern t_v4		*ft_v4map(t_v4 *vec, double x, double y, double z);
+extern t_v4		ft_v4new(double x, double y, double z, bool w);
+extern t_v4		*ft_v4_m4(t_v4 *vec, t_m4 matrix);
 
 extern t_m4		ft_m4rotx(double theta);
 extern t_m4		ft_m4roty(double theta);
