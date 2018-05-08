@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/05/08 13:17:16 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/05/08 19:46:38 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ VEC_DIR :=				./vec/
 API +=					api_ctime.c api_env.c
 CHAR +=					char_char1.c char_char2.c
 HDL +=					hdl_err.c
-IO +=					io_gnl.c io_pf1.c io_pf2.c io_pf3.c
+IO +=					io_file.c io_gnl.c io_pf1.c io_pf2.c io_pf3.c
 IO +=					io_put1.c io_put2.c io_put3.c io_sys.c
 LIST +=					list_add.c list_append.c list_ctor.c list_dtor.c
 LIST +=					list_eject.c list_fdup.c list_fiter.c list_insert.c

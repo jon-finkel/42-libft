@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/05 17:38:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/08 19:46:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define IO_H
 
 # include <stdio.h>
+# include <fcntl.h>
 # include "libft/vec.h"
 
 extern int		ft_asprintf(char **ret, const char *format, ...);
@@ -33,6 +34,7 @@ extern void		ft_putstr_fd(const char *s, int fd);
 extern void		ft_putv3(t_v3 vec);
 extern void		ft_putv4(t_v4 vec);
 extern ssize_t	ft_read(int filedes, void *buf, size_t nbyte);
+extern char		*ft_readfile(const char *path);
 extern int		ft_snprintf(char *str, size_t size, const char *format, ...);
 extern int		ft_sprintf(char *str, const char *format, ...);
 extern int		ft_vasprintf(char **ret, const char *format, va_list ap);

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:25:23 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/08 19:36:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,8 @@
 
 inline void	ft_dstrdtor(t_dstr **adstr)
 {
-	char	*str;
-
 	if ((*adstr)->buff)
-	{
-		str = ft_dstrbegin(*adstr) - sizeof(char);
-		while ((str += sizeof(char)) != ft_dstrend(*adstr))
-			ft_strdtor(&str);
 		ft_strdtor(&(*adstr)->buff);
-	}
 	*adstr = NULL;
 }
 
