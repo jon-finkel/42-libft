@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:45:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:47:19 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/08 13:10:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 #include "libft/vec.h"
 
-inline t_v3	*ft_v3_m4(t_v3 *vec, const t_m4 matrix)
+inline t_v3	*ft_v3m4mult(t_v3 *vec, const t_m4 matrix)
 {
 	t_v3	tmp;
 
@@ -24,7 +24,7 @@ inline t_v3	*ft_v3_m4(t_v3 *vec, const t_m4 matrix)
 	GIMME(vec);
 }
 
-inline t_v4	*ft_v4_m4(t_v4 *vec, const t_m4 matrix)
+inline t_v4	*ft_v4m4mult(t_v4 *vec, const t_m4 matrix)
 {
 	t_v4	tmp;
 

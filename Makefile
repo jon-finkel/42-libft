@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2018/04/22 17:35:30 by nfinkel          ###   ########.fr        #
+#    Updated: 2018/05/08 13:17:16 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,8 +87,9 @@ STR +=					str_str.c str_sub.c str_toi.c str_trim.c
 VARY +=					vary_begin.c vary_clr.c vary_ctor.c vary_dtor.c
 VARY +=					vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
 VARY +=					vary_npush.c vary_push.c
-VEC +=					vec_center.c vec_ctor.c vec_m4iter.c vec_map.c
-VEC +=					vec_mult.c vec_new.c vec_rot.c vec_scale.c vec_trans.c
+VEC +=					vec_center.c vec_ctor.c vec_m4iter.c
+VEC +=					vec_mult.c vec_new.c vec_norm.c vec_rot.c vec_scale.c
+VEC +=					vec_trans.c vec_update.c
 
 DYN_OBJECTS =				$(patsubst %.c,$(DYN_OBJDIR)%.o,$(SRCS))
 OBJECTS =					$(patsubst %.c,$(OBJDIR)%.o,$(SRCS))
