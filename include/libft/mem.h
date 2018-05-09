@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:19:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/09 14:45:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ extern void		*ft_memccpy(void *dst, const void *src, int c, size_t n);
 extern void		*ft_memchr(const void *s, int c, size_t n);
 extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
 extern void		*ft_memcpy(void *dst, const void *src, size_t n);
-extern void		ft_memdtor(void **ap);
+extern void		ft_memdtor(void *ap);
 extern void		*ft_memmove(void *dst, const void *src, size_t len);
 extern size_t	ft_memnccpy(void *dst, const void *src, int c, size_t n);
 extern void		*ft_memset(void *b, int c, size_t len);
