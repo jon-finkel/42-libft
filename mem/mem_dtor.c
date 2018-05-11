@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:21:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/09 14:46:03 by nfinkel          ###   ########.fr       */
+/*   Updated: 2018/05/11 14:49:37 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/mem.h"
 
-inline void	ft_memdtor(void *ap)
+inline void	ft_memdtor(void **ap)
 {
-	free(*(void **)ap);
-	*(void **)ap = NULL;
+	free(*ap);
+	*ap = NULL;
 }
