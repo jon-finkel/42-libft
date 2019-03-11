@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 15:04:45 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:13:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:45:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ inline t_mlx_img	*ftx_imgctor(t_mlx *mlx, const int width, const int height)
 	img->addr = mlx_get_data_addr(img->img, &img->bppx, &img->sl, &img->endian);
 	*(t_mlx_img **)ft_varypush(g_mlx_img_vary) = img;
 	mlx->img = g_mlx_img_vary->buff;
-	GIMME(img);
+	return (img);
 }
 
 inline t_mlx		*ftx_mlxctor(t_mlx *mlx)
@@ -39,7 +39,7 @@ inline t_mlx		*ftx_mlxctor(t_mlx *mlx)
 	ft_memset(mlx, '\0', sizeof(t_mlx));
 	if (!(_MLX_ID = mlx_init()))
 		ft_errhdl(NULL, 0, 0, ERR_MLX);
-	GIMME(mlx);
+	return (mlx);
 }
 
 inline void			ftx_winctor(t_mlx *mlx, char *title, const int size_x,

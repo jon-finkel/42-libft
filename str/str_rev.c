@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 11:57:35 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:28:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ inline char	*ft_strrev(char *const s)
 		s[k] = s[len];
 		s[len] = c;
 	}
-	GIMME(s);
+	return (s);
 }

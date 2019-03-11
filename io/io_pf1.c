@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:07:07 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:36:00 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:42:06 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ inline int	ft_vasprintf(char **ret, const char *format, va_list ap)
 	va_end(data->ap);
 	if (data->positional == E_NON_POSITIONAL)
 		va_end(data->arg);
-	GIMME(data->error ? -1 : (int)data->pf_len);
+	return (data->error ? -1 : (int)data->pf_len);
 }
 
 inline int	ft_vdprintf(int fd, const char *restrict format, va_list ap)
@@ -54,7 +54,7 @@ inline int	ft_vdprintf(int fd, const char *restrict format, va_list ap)
 	va_end(data->ap);
 	if (data->positional == E_NON_POSITIONAL)
 		va_end(data->arg);
-	GIMME(data->error ? -1 : (int)data->pf_len);
+	return (data->error ? -1 : (int)data->pf_len);
 }
 
 inline int	ft_vsnprintf(char *restrict str, size_t size,
@@ -63,7 +63,7 @@ inline int	ft_vsnprintf(char *restrict str, size_t size,
 	static t_printf	*data = NULL;
 
 	if (!size)
-		KTHXBYE;
+		return (0);
 	if (!data && (data = (t_printf *)ft_memalloc(sizeof(t_printf))))
 		data->pf_type = E_SPRINTF;
 	data->pf_buffer = str;
@@ -78,5 +78,5 @@ inline int	ft_vsnprintf(char *restrict str, size_t size,
 	va_end(data->ap);
 	if (data->positional == E_NON_POSITIONAL)
 		va_end(data->arg);
-	GIMME(data->error ? -1 : (int)data->pf_len);
+	return (data->error ? -1 : (int)data->pf_len);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:35:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:48:14 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static intmax_t			typecast(t_printf *data, t_range range)
 {
 	if (range == E_LONG)
-		GIMME(va_arg(data->arg, long));
+		return (va_arg(data->arg, long));
 	else if (range == E_LONG_LONG)
-		GIMME(va_arg(data->arg, long long));
+		return (va_arg(data->arg, long long));
 	else if (range == E_INTMAX_T)
-		GIMME(va_arg(data->arg, intmax_t));
+		return (va_arg(data->arg, intmax_t));
 	else if (range == E_SHORT)
-		GIMME((short)va_arg(data->arg, int));
+		return ((short)va_arg(data->arg, int));
 	else if (range == E_CHAR)
-		GIMME((char)va_arg(data->arg, int));
+		return ((char)va_arg(data->arg, int));
 	else if (range == E_SIZE_T)
-		GIMME(va_arg(data->arg, size_t));
-	GIMME(va_arg(data->arg, int));
+		return (va_arg(data->arg, size_t));
+	return (va_arg(data->arg, int));
 }
 
 static void				left_field_width(t_printf *data, int *precision,
@@ -103,5 +103,5 @@ int						pf_output_signed(t_printf *data, const char *base)
 	else if (data->precision >= 0)
 		UNSET_FLAG(E_ZERO, data->flags);
 	apply_flags(data, ft_strrev(tmp), nb);
-	KTHXBYE;
+	return (0);
 }

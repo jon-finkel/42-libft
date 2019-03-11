@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:28:28 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:29:20 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ inline char	*ft_strrdup(const char *const s)
 	while (len > 0)
 		*string++ = s[--len];
 	*string = '\0';
-	GIMME(start);
+	return (start);
 }

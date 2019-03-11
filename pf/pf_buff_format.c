@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:19:01 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:36:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:46:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ static const char			*check_positional_argument(t_printf *data,
 			va_arg(data->arg, void *);
 		format = ft_strchr(format, '$') + 1;
 	}
-	GIMME(format);
+	return (format);
 }
 
 static const char			*get_range(t_printf *data, const char *format)
@@ -132,7 +132,7 @@ static const char			*get_range(t_printf *data, const char *format)
 			data->range = E_SHORT;
 		++format;
 	}
-	GIMME(format);
+	return (format);
 }
 
 static const char			*find_conversion(t_printf *data, const char *format)
@@ -141,14 +141,14 @@ static const char			*find_conversion(t_printf *data, const char *format)
 
 	format = pf_get_flags(data, format, E_SECOND);
 	if (!(k = *format))
-		GIMME(format);
+		return (format);
 	data->c = *format;
 	if (g_conv[k].range != E_VOID && data->range != E_LONG)
 		data->range = g_conv[k].range;
 	g_conv[k].f(data, g_conv[k].base);
 	if (data->positional == E_POSITIONAL)
 		va_end(data->arg);
-	GIMME(format + 1);
+	return (format + 1);
 }
 
 void						pf_buff_format(t_printf *data, const char *format)

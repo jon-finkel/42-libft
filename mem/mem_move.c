@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:15:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:43:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ inline void	*ft_memmove(void *restrict dst, const void *restrict src,
 	else
 		while ((unsigned int)++k < len)
 			*((unsigned char *)dst + k) = *((const unsigned char *)src + k);
-	GIMME(dst);
+	return (dst);
 }

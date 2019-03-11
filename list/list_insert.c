@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:45:18 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:41:14 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:42:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ inline void	ft_lstinsert(t_list **alst, t_list *newlink,
 			{
 				newlink->next = list;
 				tmp->next = newlink;
-				BYEZ;
+				return ;
 			}
 		}
 		list->next = newlink;

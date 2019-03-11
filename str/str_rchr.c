@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:17:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:17:13 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ inline char	*ft_strrchr(const char *s, int c)
 		++s;
 	}
 	if (!(char)c)
-		GIMME((char *)s);
-	GIMME(last);
+		return ((char *)s);
+	return (last);
 }

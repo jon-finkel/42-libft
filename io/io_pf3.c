@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:04:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:37:40 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:40:25 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ inline int	ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	len = ft_vdprintf(STDOUT_FILENO, format, ap);
 	va_end(ap);
-	GIMME(len);
+	return (len);
 }
 
 inline int	ft_dprintf(int fd, const char *restrict format, ...)
@@ -31,7 +31,7 @@ inline int	ft_dprintf(int fd, const char *restrict format, ...)
 	va_start(ap, format);
 	len = ft_vdprintf(fd, format, ap);
 	va_end(ap);
-	GIMME(len);
+	return (len);
 }
 
 inline int	ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
@@ -42,7 +42,7 @@ inline int	ft_fprintf(FILE *restrict stream, const char *restrict format, ...)
 	va_start(ap, format);
 	len = ft_vfprintf(stream, format, ap);
 	va_end(ap);
-	GIMME(len);
+	return (len);
 }
 
 inline int	ft_asprintf(char **ret, const char *format, ...)
@@ -53,5 +53,5 @@ inline int	ft_asprintf(char **ret, const char *format, ...)
 	va_start(ap, format);
 	len = ft_vasprintf(ret, format, ap);
 	va_end(ap);
-	GIMME(len);
+	return (len);
 }

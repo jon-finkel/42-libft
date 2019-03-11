@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:07:18 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:07:30 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:45:13 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ inline t_mlx_img	*ftx_clipimg(t_mlx_img *img, const t_p2 begin,
 		while (++x <= end.x)
 			ftx_buffpixel(img, x, y, 0x00000000);
 	}
-	GIMME(img);
+	return (img);
 }

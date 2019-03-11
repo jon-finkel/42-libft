@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:16:47 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:43:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ inline size_t	ft_memnccpy(void *restrict dst, const void *restrict src, int c,
 		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
 	}
 	*((unsigned char *)dst + k) = '\0';
-	GIMME(len);
+	return (len);
 }

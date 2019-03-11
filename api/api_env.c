@@ -26,6 +26,6 @@ inline char	*ft_getenv(const char *name)
 	while (environ[++k])
 		if (ft_strnequ((char *)(environ[k]), name, len)
 			&& environ[k][len] == '=')
-			GIMME(ft_strchr(environ[k], '=') + 1);
-	ZOMG;
+			return (ft_strchr(environ[k], '=') + 1);
+	return (NULL);
 }

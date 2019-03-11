@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:56:55 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:08:54 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:52:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ inline t_v3	**ft_v3center(t_v3 **avec, size_t size, const t_p2 pos)
 		avec[k]->x += new_x;
 		avec[k]->y += new_y;
 	}
-	GIMME(avec);
+	return (avec);
 }
 
 inline t_v4	**ft_v4center(t_v4 **avec, size_t size, const t_p2 pos)
@@ -48,5 +48,5 @@ inline t_v4	**ft_v4center(t_v4 **avec, size_t size, const t_p2 pos)
 		avec[k]->x += new_x;
 		avec[k]->y += new_y;
 	}
-	GIMME(avec);
+	return (avec);
 }

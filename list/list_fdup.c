@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:45:50 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:41:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:40:53 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ inline t_list	*ft_lstfdup(t_list *lst, t_list *(*f)(t_list *))
 		lst = lst->next;
 		new = new->next;
 	}
-	GIMME(begin);
+	return (begin);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:46:19 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:38:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:48:44 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static size_t			get_wide_length(t_printf *data, const wchar_t *s)
 		++s;
 	}
 	data->precision = precision;
-	GIMME(len);
+	return (len);
 }
 
 static int				copy_wstring(char *restrict s,
@@ -46,7 +46,7 @@ static int				copy_wstring(char *restrict s,
 	{
 		if (*w < 0 || *w > 0x10ffff || (*w >= 0xd800 && *w <= 0xdfff)
 			|| (MB_CUR_MAX == 1 && *w > 0xff && *w <= 0x10ffff))
-			ONOES;
+			return (-1);
 		if (*w >= 0 && (*w < 128 || (*w < 0x100 && MB_CUR_MAX == 1)))
 			*s++ = *w;
 		if (FOUR_BYTES_UNICODE(*w) && (*s++ = FOUR_BYTES_UNICODE_HEAD(*w)))
@@ -61,7 +61,7 @@ static int				copy_wstring(char *restrict s,
 			*s++ = UNICODE_TAIL(*w);
 		++w;
 	}
-	KTHXBYE;
+	return (0);
 }
 
 static void				apply_left_field_width(t_printf *data, int precision)
@@ -113,7 +113,7 @@ int						pf_output_string(t_printf *data, const char *string)
 		if (copy_wstring((char *)string, wide_string, data->precision) == -1)
 		{
 			free((char *)string);
-			ONOES;
+			return (-1);
 		}
 	}
 	else if (data->range != E_LONG)
@@ -124,5 +124,5 @@ int						pf_output_string(t_printf *data, const char *string)
 	apply_precision(data, string, precision);
 	if (data->range == E_LONG && wide_string)
 		free((char *)string);
-	KTHXBYE;
+	return (0);
 }

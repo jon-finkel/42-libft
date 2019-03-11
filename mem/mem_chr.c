@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:22:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:42:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:26 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ inline void	*ft_memchr(const void *s, int c, size_t n)
 	k = -1;
 	while ((unsigned int)++k < n)
 		if (*((unsigned char *)s + k) == (unsigned char)c)
-			GIMME((void *)s + k);
-	ZOMG;
+			return ((void *)s + k);
+	return (NULL);
 }

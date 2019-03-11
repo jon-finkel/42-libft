@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:35:42 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:48:03 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void			apply_precision(t_printf *data, const char *s,
 	int			k;
 
 	if (IS_FLAG(E_ZERO, data->flags) && data->field_width > (int)len + 2)
-		GIMME(apply_zero_width(data, s, len));
+		return (apply_zero_width(data, s, len));
 	precision -= len;
 	k = -1;
 	address[++k] = '0';
@@ -84,5 +84,5 @@ int					pf_output_pointer(t_printf *data, const char *base)
 	tmp[++k] = '\0';
 	precision = (data->precision != INT_MAX ? data->precision : 0);
 	apply_precision(data, ft_strrev(tmp), precision, ft_strlen(tmp));
-	KTHXBYE;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 18:47:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:40:05 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:40 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static inline size_t	count_words(const char *s, char c)
 		while (*s != c && *s)
 			++s;
 	}
-	GIMME(size);
+	return (size);
 }
 
 static inline char		*string_shred(const char *s, char c)
@@ -47,7 +47,7 @@ static inline char		*string_shred(const char *s, char c)
 	dup = ft_strctor(size);
 	while (*s && *s != c)
 		dup[++k] = *s++;
-	GIMME(dup);
+	return (dup);
 }
 
 inline char				**ft_strsplit(const char *s, char c)
@@ -68,5 +68,5 @@ inline char				**ft_strsplit(const char *s, char c)
 		while (*s && *s != c)
 			++s;
 	}
-	GIMME(dup);
+	return (dup);
 }

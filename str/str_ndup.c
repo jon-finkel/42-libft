@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:24:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:24:33 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ inline char	*ft_strndup(const char *s, size_t n)
 	str = ft_strctor(n);
 	str = ft_strncpy(str, (char *)s, n);
 	str[n] = '\0';
-	GIMME(str);
+	return (str);
 }

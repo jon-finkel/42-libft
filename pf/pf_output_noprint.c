@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:45:29 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:39:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:47:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int					pf_output_noprint(t_printf *data, const char *base)
 	pf_fill_buffer(data, 0, string, E_PRINT);
 	apply_right_field_width(data, precision);
 	free(string);
-	KTHXBYE;
+	return (0);
 }

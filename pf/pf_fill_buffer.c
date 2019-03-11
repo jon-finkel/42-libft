@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 21:45:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:38:09 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:46:38 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void			printf_fill(t_printf *data, const char filler,
 		if (n > PRINTF_BUFFSIZE)
 		{
 			ft_putstr(s_filler);
-			BYEZ;
+			return ;
 		}
 	}
 	if (!s_filler)
@@ -87,9 +87,9 @@ void				pf_fill_buffer(t_printf *data, const char filler,
 	if (flag == E_NON_PRINT)
 		data->non_printable += n;
 	if (data->pf_type == E_PRINTF)
-		GIMME(printf_fill(data, filler, s_filler, n));
+		return (printf_fill(data, filler, s_filler, n));
 	else if (data->pf_type == E_SPRINTF)
-		GIMME(sprintf_fill(data, filler, s_filler, n));
+		return (sprintf_fill(data, filler, s_filler, n));
 	else
-		GIMME(asprintf_fill(data, filler, s_filler, n));
+		return (asprintf_fill(data, filler, s_filler, n));
 }

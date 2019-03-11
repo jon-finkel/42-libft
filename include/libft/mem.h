@@ -15,10 +15,6 @@
 
 # include "dependencies.h"
 
-extern int		ft_bswap(int nb);
-extern int16_t	ft_bswap16(int16_t nb);
-extern int32_t	ft_bswap32(int32_t nb);
-extern int64_t	ft_bswap64(int64_t nb);
 extern void		ft_bzero(void *s, size_t n);
 extern void		ft_cleanup(const char *args, ...);
 extern void		*ft_malloc(size_t size);

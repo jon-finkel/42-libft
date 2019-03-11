@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:14:33 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:14:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:43:49 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ inline double	ft_zpowi(t_complex z, uint8_t n)
 			zp.r = z.r * zp.r - z.i * zp.i;
 		zp.i = z.r * zp.i + tmp * z.i;
 	}
-	GIMME(zp.i);
+	return (zp.i);
 }
 
 inline double	ft_zpowr(t_complex z, uint8_t n)
@@ -43,5 +43,5 @@ inline double	ft_zpowr(t_complex z, uint8_t n)
 		if (n > 1)
 			zp.i = z.r * zp.i + tmp * z.i;
 	}
-	GIMME(zp.r);
+	return (zp.r);
 }

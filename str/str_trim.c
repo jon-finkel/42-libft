@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:25:20 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:29:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:51:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static inline size_t	value_to_trim(const char *restrict s1,
 		++trim;
 		++s2;
 	}
-	GIMME(trim == len * 2 ? len : trim);
+	return (trim == len * 2 ? len : trim);
 }
 
 inline char				*ft_strtrim(char *s, bool free)
@@ -57,5 +57,5 @@ inline char				*ft_strtrim(char *s, bool free)
 	s = begin;
 	if (free == true)
 		ft_strdtor(&s);
-	GIMME(trim);
+	return (trim);
 }

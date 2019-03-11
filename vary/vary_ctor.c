@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:20:44 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:25:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:51:34 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline void	*reall(void *ptr, size_t len, size_t zlen)
 		ft_memmove(tmp, ptr, len);
 		ft_memdtor(&ptr);
 	}
-	GIMME(tmp);
+	return (tmp);
 }
 
 inline size_t		ft_dstrctor(t_dstr *dstr, size_t size)
@@ -35,7 +35,7 @@ inline size_t		ft_dstrctor(t_dstr *dstr, size_t size)
 			dstr->len = size;
 		ft_memset(dstr->buff + dstr->len, '\0', dstr->capacity - dstr->len);
 	}
-	GIMME(dstr->capacity);
+	return (dstr->capacity);
 }
 
 inline size_t		ft_varyctor(t_vary *vary, size_t size)
@@ -49,5 +49,5 @@ inline size_t		ft_varyctor(t_vary *vary, size_t size)
 		ft_memset(vary->buff + (vary->len * vary->data_size), '\0',\
 			(vary->capacity - vary->len) * vary->data_size);
 	}
-	GIMME(vary->capacity);
+	return (vary->capacity);
 }

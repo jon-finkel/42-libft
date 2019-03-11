@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 04:34:38 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:29:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:51:11 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ inline int	ft_atoi(const char *str)
 	{
 		sum = sum * 10uLL + (unsigned long long)(*str - 48);
 		if (sum > (unsigned long long)LLONG_MAX)
-			GIMME(neg < 0 ? 0 : -1);
+			return (neg < 0 ? 0 : -1);
 		++str;
 	}
-	GIMME(neg * (int)sum);
+	return (neg * (int)sum);
 }
 
 inline char	*ft_itoa(int n)
@@ -54,5 +54,5 @@ inline char	*ft_itoa(int n)
 		tmp[++k] = '-';
 	tmp[++k] = '\0';
 	string = ft_strrdup(tmp);
-	GIMME(string);
+	return (string);
 }

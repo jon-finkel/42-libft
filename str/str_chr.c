@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 14:48:31 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:17:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:49:12 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ inline char	*ft_strchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == (char)c)
-			GIMME((char *)s);
+			return ((char *)s);
 		++s;
 	}
-	GIMME(!(char)c ? (char *)s : NULL);
+	return (!(char)c ? (char *)s : NULL);
 }

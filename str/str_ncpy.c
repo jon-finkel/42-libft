@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:23:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:23:44 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:49:57 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ inline char	*ft_strncpy(char *restrict dst, const char *restrict src, size_t n)
 		else
 			*(dst + k) = '\0';
 	}
-	GIMME(dst);
+	return (dst);
 }

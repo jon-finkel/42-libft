@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:20:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:20:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:50:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ inline int	ft_strrewrite(char *restrict big, const char *restrict little,
 		*big++ = copy[k];
 	*big = '\0';
 	free(copy);
-	KTHXBYE;
+	return (0);
 }

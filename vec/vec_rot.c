@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:36:39 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:44:56 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:52:22 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ inline t_m4	ft_m4rotx(double theta)
 	matrix.c[1] = s;
 	matrix.c[2] = c;
 	matrix.d[3] = true;
-	GIMME(matrix);
+	return (matrix);
 }
 
 inline t_m4	ft_m4roty(double theta)
@@ -46,7 +46,7 @@ inline t_m4	ft_m4roty(double theta)
 	matrix.c[0] = -s;
 	matrix.c[2] = c;
 	matrix.d[3] = true;
-	GIMME(matrix);
+	return (matrix);
 }
 
 inline t_m4	ft_m4rotz(double theta)
@@ -64,5 +64,5 @@ inline t_m4	ft_m4rotz(double theta)
 	matrix.b[1] = c;
 	matrix.c[2] = 1.0;
 	matrix.d[3] = true;
-	GIMME(matrix);
+	return (matrix);
 }

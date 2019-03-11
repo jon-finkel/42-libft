@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:23:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:12:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ inline void	*ft_malloc(size_t size)
 
 	if (!(ptr = malloc(size)))
 		ft_errhdl(&ptr, size, errno, ERR_NO);
-	GIMME(ptr);
+	return (ptr);
 }
 
 inline void	*ft_memalloc(size_t size)
@@ -32,7 +32,7 @@ inline void	*ft_memalloc(size_t size)
 	k = -1;
 	while ((unsigned int)++k < size)
 		*((unsigned char *)data + k) = '\0';
-	GIMME(data);
+	return (data);
 }
 
 inline void	*ft_realloc(void *ptr, size_t size)
@@ -55,5 +55,5 @@ inline void	*ft_realloc(void *ptr, size_t size)
 		free(ptr);
 		ptr = tmp;
 	}
-	GIMME(ptr);
+	return (ptr);
 }

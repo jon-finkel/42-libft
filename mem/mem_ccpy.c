@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:17:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:42:35 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ inline void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
 		if (*((unsigned char *)src + k) == (unsigned char)c)
 		{
 			*((unsigned char *)dst + k) = (unsigned char)c;
-			GIMME(dst + k + 1);
+			return (dst + k + 1);
 		}
 		*((unsigned char *)dst + k) = *((unsigned char *)src + k);
 	}
-	ZOMG;
+	return (NULL);
 }

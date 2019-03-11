@@ -20,11 +20,11 @@ inline void	ft_putchar_fd(char c, int fd)
 
 inline void	ft_putnbr_fd(int n, int fd)
 {
-	char			buff[12];
-	int				k;
-	unsigned int	nb;
+	char	buff[12];
+	int		k;
+	size_t	nb;
 
-	nb = (n < 0 ? -n : n);
+	nb = (size_t)(n < 0 ? -n : n);
 	k = -1;
 	if (n == 0)
 		buff[++k] = '0';

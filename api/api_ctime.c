@@ -75,5 +75,5 @@ inline char	*ft_ctime(const time_t *clock)
 	ft_strcat(string, year);
 	ft_strdtor(&year);
 	string[24] = '\n';
-	GIMME(string);
+	return (string);
 }

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:30:43 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:30:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:49:54 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ inline char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	k = -1;
 	while ((unsigned int)++k < len)
 		*(map + k) = f(k, *(s + k));
-	GIMME(map);
+	return (map);
 }

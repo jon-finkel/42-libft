@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/08 19:45:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/08 19:45:52 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:40:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ inline char	*ft_readfile(const char *path)
 	if (!(fd = open(path, O_RDONLY)))
 		ft_errhdl(NULL, 0, errno, ERR_NO);
 	while ((bytes = ft_read(fd, buff, BUFF_SIZE)))
-		ft_dstrncpush(g_dstr, buff, bytes);
+		ft_dstrncpush(g_dstr, buff, (size_t)bytes);
 	kernel = ft_strdup(g_dstr->buff);
 	ft_dstrdtor(&g_dstr);
-	GIMME(kernel);
+	return (kernel);
 }

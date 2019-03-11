@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 22:43:51 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/03/13 22:35:53 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:47:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int			map_precision(t_printf *data, const char *restrict base,
 	}
 	while (zeroes-- > 0)
 		buff[++k] = '0';
-	GIMME(k);
+	return (k);
 }
 
 static void			apply_left_field_width(t_printf *data, size_t len,
@@ -91,5 +91,5 @@ int					pf_output_double(t_printf *data, const char *base)
 	apply_left_field_width(data, len, nb);
 	pf_fill_buffer(data, 0, ft_strrev(buff), E_PRINT);
 	apply_right_field_width(data, len);
-	KTHXBYE;
+	return (0);
 }

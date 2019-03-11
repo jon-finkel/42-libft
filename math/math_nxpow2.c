@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:54:36 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 15:14:47 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:43:51 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ inline size_t	ft_stnxpow2(size_t nb)
 	size_t	n2;
 
 	if (nb == SIZE_MAX || IS_POW2(nb))
-		GIMME(nb);
+		return (nb);
 	n1 = (uint32_t)nb;
 	if (!(n2 = n1 & 0xFFFF0000))
 		n2 = n1;
@@ -31,5 +31,5 @@ inline size_t	ft_stnxpow2(size_t nb)
 	if (!(n2 = n1 & 0xAAAAAAAA))
 		n2 = n1;
 	n1 = n2 << 1;
-	GIMME((n1 < nb) ? (size_t)SIZE_MAX : n1);
+	return ((n1 < nb) ? (size_t)SIZE_MAX : n1);
 }

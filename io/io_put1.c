@@ -19,7 +19,7 @@ inline void	ft_putchar(char c)
 
 inline void	ft_putnbr(int n)
 {
-	ft_putchar_fd(n, STDOUT_FILENO);
+	ft_putnbr_fd(n, STDOUT_FILENO);
 }
 
 inline void	ft_putstr(const char *restrict s)

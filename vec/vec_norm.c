@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/08 13:11:40 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/08 13:14:07 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:52:18 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ inline t_v3	*ft_v3norm(t_v3 *vec)
 	vec->x = vec->x / magnitude;
 	vec->y = vec->y / magnitude;
 	vec->z = vec->z / magnitude;
-	GIMME(vec);
+	return (vec);
 }
 
 inline t_v4	*ft_v4norm(t_v4 *vec)
@@ -31,5 +31,5 @@ inline t_v4	*ft_v4norm(t_v4 *vec)
 	vec->x = vec->x / magnitude;
 	vec->y = vec->y / magnitude;
 	vec->z = vec->z / magnitude;
-	GIMME(vec);
+	return (vec);
 }

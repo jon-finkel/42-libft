@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:39:25 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:01:17 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:52:05 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ inline t_p2	*ft_p2ctor(const int x, const int y)
 	point = (t_p2 *)ft_malloc(sizeof(t_p2));
 	point->x = x;
 	point->y = y;
-	GIMME(point);
+	return (point);
 }
 
 inline t_v3	*ft_v3ctor(const double x, const double y, const double z)
@@ -31,7 +31,7 @@ inline t_v3	*ft_v3ctor(const double x, const double y, const double z)
 	vec->x = x;
 	vec->y = y;
 	vec->z = z;
-	GIMME(vec);
+	return (vec);
 }
 
 inline t_v4	*ft_v4ctor(const double x, const double y, const double z,
@@ -44,5 +44,5 @@ inline t_v4	*ft_v4ctor(const double x, const double y, const double z,
 	vec->y = y;
 	vec->z = z;
 	vec->w = w;
-	GIMME(vec);
+	return (vec);
 }

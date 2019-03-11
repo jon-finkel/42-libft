@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:59:05 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:25:16 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:51:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ inline char	*ft_strsub(char *s, unsigned int start, size_t len, bool free)
 	s = begin;
 	if (free == true)
 		ft_strdtor(&s);
-	GIMME(sub);
+	return (sub);
 }

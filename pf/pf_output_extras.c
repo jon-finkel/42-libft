@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 15:19:42 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:39:01 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:52:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ int					pf_output_extras(t_printf *data, const char *base)
 		conv_t(data);
 	else
 		conv_v(data);
-	KTHXBYE;
+	return (0);
 }

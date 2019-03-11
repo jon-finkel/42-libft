@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 17:31:58 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:32:12 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:49:15 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ inline char	*ft_strcjoin(char *restrict s1, const char *restrict s2,
 	join[len_s1 + len_s2] = c;
 	if (free == true)
 		ft_strdtor((char **)&s1);
-	GIMME(join);
+	return (join);
 }

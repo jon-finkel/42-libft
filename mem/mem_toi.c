@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 16:23:17 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:43:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:44:59 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ inline size_t	ft_mtoi(const uint8_t *mem, size_t len)
 
 	sum = 0;
 	while (len)
-		sum += (size_t)*mem++ * ft_stnpow(16, --len * 2);
-	GIMME(sum);
+		sum += (size_t)*mem++ * ft_stnpow(16, (uint8_t)(--len * 2));
+	return (sum);
 }

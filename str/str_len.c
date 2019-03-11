@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 20:01:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:31:18 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:49:46 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ inline size_t	ft_strlen(const char *s)
 		++s;
 		++len;
 	}
-	GIMME(len);
+	return (len);
 }
 
 inline size_t	ft_intlen(intmax_t n)
@@ -37,5 +37,5 @@ inline size_t	ft_intlen(intmax_t n)
 		n /= 10;
 		++len;
 	}
-	GIMME(len);
+	return (len);
 }

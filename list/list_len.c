@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:46:09 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:41:27 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 21:41:00 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ inline size_t	ft_lstlen(const t_list *list)
 		list = list->next;
 		++size;
 	}
-	GIMME(size);
+	return (size);
 }
