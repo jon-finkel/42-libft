@@ -6,16 +6,16 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 20:58:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 17:09:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:16:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_MLX_H
 # define LFT_MLX_H
 
-# include "libft/vec.h"
-# include "libft/vary.h"
-# include "libft/mlx/keys.h"
+# include "../vec.h"
+# include "../vary.h"
+# include "keys.h"
 
 # define _MLX_ID mlx->mlx
 # define _MLX_IMG mlx->img[mlx->cur_img]
