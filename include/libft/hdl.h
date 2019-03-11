@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:39:06 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 21:03:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:14:30 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <errno.h>
 # include <string.h>
-# include "dependencies.h"
+# include "../dependencies.h"
 
 # define ERRMAX (ERR_NO)
 

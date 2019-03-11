@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:00 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/11 14:49:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:14:50 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEM_H
 # define MEM_H
 
-# include "dependencies.h"
+# include "../dependencies.h"
 
 extern void		ft_bzero(void *s, size_t n);
 extern void		ft_cleanup(const char *args, ...);

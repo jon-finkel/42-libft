@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 21:53:22 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:14:39 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <fcntl.h>
-# include "libft/vec.h"
+# include "vec.h"
 
 extern int		ft_asprintf(char **ret, const char *format, ...);
 extern int		ft_dprintf(int fd, const char *format, ...);

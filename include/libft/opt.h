@@ -6,14 +6,14 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:08 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 22:14:15 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:15:04 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPT_H
 # define OPT_H
 
-# include "dependencies.h"
+# include "../dependencies.h"
 
 # define UNKNOWN_OPTION (-1)
 # define NO_OPT (-2)

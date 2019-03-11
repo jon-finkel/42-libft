@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 15:30:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/08 13:16:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:15:16 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VEC_H
 
 # include <math.h>
-# include "dependencies.h"
+# include "../dependencies.h"
 
 typedef struct	s_p2
 {

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:46 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/05/05 17:39:04 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/11 23:14:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MAT_H
 
 # include <math.h>
-# include "dependencies.h"
+# include "../dependencies.h"
 
 typedef struct	s_complex
 {
