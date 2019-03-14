@@ -15,12 +15,10 @@
 
 inline char	*ft_getenv(const char *name)
 {
-	char		*buff;
 	extern char	**environ;
 	int			k;
 	size_t		len;
 
-	buff = NULL;
 	len = ft_strlen(name);
 	k = -1;
 	while (environ[++k])

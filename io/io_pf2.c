@@ -43,11 +43,11 @@ inline int	ft_vprintf(const char *restrict format, va_list ap)
 inline int	ft_vfprintf(FILE *restrict stream, const char *restrict format,
 			va_list ap)
 {
-	return (ft_vdprintf(stream->_file, format, ap));
+	return (ft_vdprintf(stream->_fileno, format, ap));
 }
 
 inline int	ft_vsprintf(char *restrict str, const char *restrict format,
 			va_list ap)
 {
-	return (ft_vsnprintf(str, (size_t)(INT_MAX + 1), format, ap));
+	return (ft_vsnprintf(str, (size_t)INT_MAX + 1, format, ap));
 }

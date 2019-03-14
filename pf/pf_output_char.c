@@ -16,6 +16,10 @@ static wchar_t			adjust_field_width(t_printf *data, int *width)
 {
 	wchar_t		wc;
 
+	if (data->range != E_LONG) {
+		*width = 1;
+		return (0);
+	}
 	wc = va_arg(data->arg, wchar_t);
 	if (FOUR_BYTES_UNICODE(wc))
 		*width = 4;
@@ -77,9 +81,8 @@ int						pf_output_char(t_printf *data, const char *base)
 	wchar_t		wc;
 
 	(void)base;
-	if (data->range == E_LONG)
-		wc = adjust_field_width(data, &width);
-	apply_left_field_width(data, (data->range == E_LONG ? width : 1));
+	wc = adjust_field_width(data, &width);
+	apply_left_field_width(data, width);
 	if (data->range == E_LONG)
 		output_wide_char(data, wc);
 	else
@@ -92,7 +95,7 @@ int						pf_output_char(t_printf *data, const char *base)
 			pf_fill_buffer(data, (char)va_arg(data->arg, int), NULL, E_PRINT);
 	}
 	field_width = -data->field_width;
-	while (field_width-- > (data->range == E_LONG ? width : 1))
+	while (field_width-- > width)
 		pf_fill_buffer(data, ' ', NULL, E_PRINT);
 	return (0);
 }

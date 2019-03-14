@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2019/03/11 23:00:10 by nfinkel          ###   ########.fr        #
+#    Updated: 2019/03/14 09:44:47 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,7 +159,7 @@ clean:
 	@printf  "\033[1;32mCleaning object files -> \033[91m$(NAME)\033[0m\033[1:32m:\033[0m%-13s\033[32m[✔]\033[0m\n"
 
 fast:
-	@$(MAKE) $(FAST)
+	@$(MAKE) --no-print-directory $(FAST)
 
 fclean: clean
 	@/bin/rm -f $(NAME)
