@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 22:04:24 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/13 18:11:36 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/14 13:41:31 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,4 @@ inline int	ft_asprintf(char **ret, const char *format, ...)
 	len = ft_vasprintf(ret, format, ap);
 	va_end(ap);
 	return (len);
-}
-
-inline int	ft_printerr(int errcode, const char *format, ...)
-{
-	va_list	ap;
-
-	va_start(ap, format);
-	ft_vdprintf(STDERR_FILENO, format, ap);
-	va_end(ap);
-	return (errcode);
 }

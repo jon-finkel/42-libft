@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/13 18:11:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/14 13:41:19 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ extern int		ft_asprintf(char **ret, const char *format, ...);
 extern int		ft_dprintf(int fd, const char *format, ...);
 NEV				ft_fatal(const char *s, int errcode);
 extern int		ft_fprintf(FILE *stream, const char *format, ...);
-extern int		ft_printerr(int errcode, const char *format, ...);
 extern int		ft_printf(const char *format, ...);
 extern void		ft_putchar(char c);
 extern void		ft_putchar_fd(char c, int fd);
