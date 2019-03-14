@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 21:38:49 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 21:40:21 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/14 12:58:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ inline int	ft_vprintf(const char *restrict format, va_list ap)
 inline int	ft_vfprintf(FILE *restrict stream, const char *restrict format,
 			va_list ap)
 {
-	return (ft_vdprintf(stream->_fileno, format, ap));
+	return (ft_vdprintf(stream->_file, format, ap));
 }
 
 inline int	ft_vsprintf(char *restrict str, const char *restrict format,
