@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 08:58:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:34:49 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/15 13:40:58 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ extern void		ft_dstrclr(t_dstr **adstr);
 extern size_t	ft_dstrctor(t_dstr *dstr, size_t size);
 extern void		ft_dstrdtor(t_dstr **adstr);
 extern char		*ft_dstrend(t_dstr *dstr);
+extern char		*ft_dstrfpush(t_dstr *dstr, const char *format, ...);
 extern size_t	ft_dstrgrow(t_dstr *dstr, size_t size);
 extern size_t	ft_dstrncpy(char *dst, t_dstr *dstr, size_t size);
 extern char		*ft_dstrncpush(t_dstr *dstr, const char *data, size_t size);

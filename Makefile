@@ -6,7 +6,7 @@
 #    By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/28 18:20:14 by nfinkel           #+#    #+#              #
-#    Updated: 2019/03/14 09:44:47 by nfinkel          ###   ########.fr        #
+#    Updated: 2019/03/15 13:31:10 by nfinkel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ STR +=					str_rdup.c str_rev.c str_rewrite.c str_split.c
 STR +=					str_str.c str_sub.c str_toi.c str_trim.c
 VARY +=					vary_begin.c vary_clr.c vary_ctor.c vary_dtor.c
 VARY +=					vary_end.c vary_grow.c vary_ncpush.c vary_ncpy.c
-VARY +=					vary_npush.c vary_push.c
+VARY +=					vary_fpush.c vary_npush.c vary_push.c
 VEC +=					vec_center.c vec_ctor.c vec_m4iter.c
 VEC +=					vec_mult.c vec_new.c vec_norm.c vec_rot.c vec_scale.c
 VEC +=					vec_trans.c vec_update.c
