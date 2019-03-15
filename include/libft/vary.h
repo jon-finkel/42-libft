@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 08:58:27 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/15 13:40:58 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/15 14:05:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_vary
 }				t_vary;
 
 extern char		*ft_dstrbegin(t_dstr *dstr);
-extern void		ft_dstrclr(t_dstr **adstr);
+extern void		ft_dstrclr(t_dstr *dstr);
 extern size_t	ft_dstrctor(t_dstr *dstr, size_t size);
 extern void		ft_dstrdtor(t_dstr **adstr);
 extern char		*ft_dstrend(t_dstr *dstr);

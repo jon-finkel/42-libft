@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clr.c                                              :+:      :+:    :+:   */
+/*   vary_clr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/21 22:34:34 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/15 14:08:45 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/str.h"
 #include "libft/vary.h"
 
-inline void	ft_dstrclr(t_dstr **adstr)
+inline void	ft_dstrclr(t_dstr *dstr)
 {
-	char	*str;
 
-	if ((*adstr)->buff)
-	{
-		str = ft_dstrbegin(*adstr) - sizeof(char);
-		while ((str += sizeof(char)) != ft_dstrend(*adstr))
-			ft_strdtor(&str);
-		(*adstr)->len = 0;
-	}
+	if (dstr->buff)
+		ft_strdtor(&dstr->buff);
+	dstr->capacity = 0;
+	dstr->len = 0;
 }
 
 inline void	ft_varyclear(t_vary *vary, t_vdtor vdtor, ...)
