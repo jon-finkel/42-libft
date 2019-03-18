@@ -2,7 +2,6 @@
 My implementation of some of the Standard C Library functions and some additional ones.
 
 ### TOC
-* [Why is your coding style so hideous?] (#why-is-your-coding-style-so-hideous)
 * [What is libft?](#what-is-libft)
 * [What's in it?](#whats-in-it)
 
