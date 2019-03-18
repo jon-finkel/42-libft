@@ -2,8 +2,15 @@
 My implementation of some of the Standard C Library functions and some additional ones.
 
 ### TOC
+* [Why is your coding style so hideous?] (#why-is-your-coding-style-so-hideous)
 * [What is libft?](#what-is-libft)
 * [What's in it?](#whats-in-it)
+
+### Why aren't you initializing your variables when you declare them ? Why aren't you doing functions with more than 25 lines ? Why aren't you commenting ? Why is your coding style so hideous ?
+
+Meet the [norm][3].
+42 explicitely requires us to code a certain way. It's a way that sometimes makes sense, most of the time doesn't, but unfotunately is enforced. It's here to teach new students how to acquire some good practices, like don't make a function that does 35 different things. But it also prevents us from using 'for', 'switch', declaring and initializing variables at the same times (save for statics and constants), and many different things that makes the code readable and maintainable.
+Please don't think the code in this repository reflects my own coding practices.
 
 ### What is libft?
 [Libft][1] is an individual project at [42][2] that requires us to re-create some of the standard C library functions, and some additional ones, to build our own library that can be used in all our future 42 projects.
@@ -35,3 +42,4 @@ Notes:
 
 [1]: https://github.com/jon-finkel/libft/blob/master/projects_instructions/libft.en.pdf "Libft PDF"
 [2]: http://42.fr "42 Paris"
+[3]: https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf
