@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append.c                                           :+:      :+:    :+:   */
+/*   list_append.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:27:54 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:40:29 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/19 22:01:48 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/list.h"
 
-inline void	ft_lstappend(t_list *restrict list, t_list *restrict newlink)
+inline void	ft_lstappend(t_list **restrict alst, t_list *restrict newlink)
 {
-	while (list->next)
-		list = list->next;
-	list->next = newlink;
+	t_list *list	= *alst;
+
+	if (list == NULL)
+	{
+		*alst = newlink;
+	}
+	else
+	{
+		while (list->next)
+			list = list->next;
+		list->next = newlink;
+	}
 }
 
 inline void	ft_dlstappend(t_dlist *restrict dlist, t_dlist *restrict newlink)

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:24:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2018/04/22 16:41:38 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/19 22:02:02 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_deque
 }					t_deque;
 
 extern void			ft_lstadd(t_list **alst, t_list *newlink);
-extern void			ft_lstappend(t_list *list, t_list *newlink);
+extern void			ft_lstappend(t_list **alst, t_list *newlink);
 extern t_list		*ft_lstctor(const void *data, size_t data_size);
 extern void			ft_lstdtor(t_list **alst, t_ldtor ldtor, ...);
 extern t_list		*ft_lstfdup(t_list *lst, t_list *(*f)(t_list *));
