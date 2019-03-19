@@ -36,13 +36,19 @@ typedef struct		s_deque
 	t_dlist			*tail;
 }					t_deque;
 
+enum 				e_sort
+{
+	E_REG,
+	E_REV
+};
+
 extern void			ft_lstadd(t_list **alst, t_list *newlink);
 extern void			ft_lstappend(t_list **alst, t_list *newlink);
 extern t_list		*ft_lstctor(const void *data, size_t data_size);
 extern void			ft_lstdtor(t_list **alst, t_ldtor ldtor, ...);
 extern t_list		*ft_lstfdup(t_list *lst, t_list *(*f)(t_list *));
 extern void			ft_lstinsert(t_list **alst, t_list *newlink,
-					int (*cmp)(void *, void *));
+					int (*cmp)(const void *, const void *), enum e_sort sort);
 extern void			ft_lstfiter(t_list *lst, void (*f)(t_list *));
 extern size_t		ft_lstlen(const t_list *list);
 extern t_list		*ft_lstnode(const t_list *list, size_t n);
