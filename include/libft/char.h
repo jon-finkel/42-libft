@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 18:39:15 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 23:14:24 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/20 12:57:17 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ extern bool	ft_isdigit(int c);
 extern bool	ft_islower(int c);
 extern bool	ft_isprint(int c);
 extern bool	ft_isupper(int c);
-extern bool	ft_tolower(int c);
-extern bool	ft_toupper(int c);
+extern int	ft_tolower(int c);
+extern int	ft_toupper(int c);
 
 #endif
