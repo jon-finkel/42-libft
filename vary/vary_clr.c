@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/15 14:08:45 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/20 14:27:08 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ inline void	ft_dstrclr(t_dstr *dstr)
 	dstr->len = 0;
 }
 
-inline void	ft_varyclear(t_vary *vary, t_vdtor vdtor, ...)
+inline void	ft_varyclr(t_vary *vary, t_vdtor vdtor, ...)
 {
 	char	*ptr;
 	va_list	ap;
