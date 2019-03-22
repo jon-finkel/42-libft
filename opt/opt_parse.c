@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 22:06:41 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 22:06:43 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/22 15:44:01 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	show_err(int err, char *name, char *option, size_t len)
 		return (0);
 	if (err == UNKNOWN_OPTION)
 		ft_dprintf(STDERR_FILENO, "%s: illegal option -- %.*s\n",
-				   name, (unsigned)len, option);
+			name, (unsigned)len, option);
 	else if (err == NO_OPT)
 		ft_dprintf(STDERR_FILENO, "%s: argument required -- %.*s\n",
-				   name, (unsigned)len, option);
+			name, (unsigned)len, option);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:27:54 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/19 22:01:48 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/22 15:42:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 inline void	ft_lstappend(t_list **restrict alst, t_list *restrict newlink)
 {
-	t_list *list	= *alst;
+	t_list	*list;
 
+	list = *alst;
 	if (list == NULL)
 	{
 		*alst = newlink;

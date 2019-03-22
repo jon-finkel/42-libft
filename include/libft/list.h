@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 21:24:12 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/19 22:02:02 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/22 15:42:10 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct		s_deque
 	t_dlist			*tail;
 }					t_deque;
 
-enum 				e_sort
+enum				e_sort
 {
 	E_REG,
 	E_REV

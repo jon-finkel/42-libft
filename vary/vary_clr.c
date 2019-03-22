@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 17:21:04 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/20 14:27:08 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/22 15:45:28 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 inline void	ft_dstrclr(t_dstr *dstr)
 {
-
 	if (dstr->buff)
 		ft_strdtor(&dstr->buff);
 	dstr->capacity = 0;

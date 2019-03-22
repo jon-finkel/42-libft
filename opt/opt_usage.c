@@ -6,7 +6,7 @@
 /*   By: nfinkel <nfinkel@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 22:06:48 by nfinkel           #+#    #+#             */
-/*   Updated: 2019/03/11 22:06:50 by nfinkel          ###   ########.fr       */
+/*   Updated: 2019/03/22 15:43:43 by nfinkel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_optusage(const t_opt opts[], char *name, char *usage, char *desc)
 {
 	ft_printf("Usage: %s [option(s)]... %s\n %s\n The options are:\n",
-			  name, usage, desc);
+		name, usage, desc);
 	while (opts->type != FT_OPT_END)
 	{
 		if (opts->short_name && opts->long_name)
